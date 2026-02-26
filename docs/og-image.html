@@ -1,0 +1,45 @@
+<!-- Generate OG image: open this in browser, screenshot at 1200x630 -->
+<!DOCTYPE html>
+<html>
+<head><style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    width: 1200px; height: 630px;
+    background: #050507;
+    font-family: 'Inter', sans-serif;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+}
+.orb {
+    position: absolute; top: -100px; right: -100px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(124,58,237,0.3), transparent 70%);
+    filter: blur(60px);
+}
+.orb2 {
+    position: absolute; bottom: -100px; left: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(236,72,153,0.2), transparent 70%);
+    filter: blur(60px);
+}
+.content { position: relative; z-index: 1; text-align: center; color: white; }
+h1 { font-size: 72px; font-weight: 900; letter-spacing: -3px; margin-bottom: 16px; }
+.gradient { background: linear-gradient(135deg, #a78bfa, #7c3aed, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+p { font-size: 24px; color: #9898a6; }
+.stats { display: flex; gap: 48px; justify-content: center; margin-top: 32px; }
+.stat-val { font-size: 32px; font-weight: 900; color: #a78bfa; }
+.stat-lbl { font-size: 14px; color: #5a5a6e; }
+</style></head>
+<body>
+<div class="orb"></div><div class="orb2"></div>
+<div class="content">
+    <h1>🌳 <span class="gradient">Root AI</span></h1>
+    <p>AI Desktop Agent — Control Your Computer with AI</p>
+    <div class="stats">
+        <div><div class="stat-val">35+</div><div class="stat-lbl">Plugins</div></div>
+        <div><div class="stat-val">15+</div><div class="stat-lbl">AI Models</div></div>
+        <div><div class="stat-val">100%</div><div class="stat-lbl">Private</div></div>
+        <div><div class="stat-val">Free</div><div class="stat-lbl">6 Months</div></div>
+    </div>
+</div>
+</body></html>

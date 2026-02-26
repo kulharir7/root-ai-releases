@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kulharir7.github.io/root-ai/sitemap.xml

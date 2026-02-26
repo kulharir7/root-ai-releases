@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Use AI Offline on Windows — Free & 100% Private | Root AI Blog</title>
+    <meta name="description" content="Run powerful AI models completely offline on your Windows PC. No internet, no cloud, no data leaving your machine. Free setup guide using Ollama and Root AI.">
+    <meta name="keywords" content="offline AI Windows, private AI, local AI, Ollama Windows, free AI offline, no internet AI, Root AI offline">
+    <link rel="canonical" href="https://kulharir7.github.io/root-ai/blog/offline-ai-windows.html">
+    <meta property="og:title" content="How to Use AI Offline on Windows — Free & 100% Private">
+    <meta property="og:description" content="Run AI completely offline on Windows. No internet needed. Free.">
+    <meta property="og:type" content="article">
+    <link rel="icon" href="https://raw.githubusercontent.com/kulharir7/root-ai/main/docs/favicon.svg" type="image/svg+xml">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Article","headline":"How to Use AI Offline on Windows — Free & 100% Private","author":{"@type":"Person","name":"Ravindra Kumar"},"datePublished":"2026-02-22"}
+    </script>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter',sans-serif;background:#050507;color:#d4d4dc;-webkit-font-smoothing:antialiased;line-height:1.8}a{color:#8b5cf6;text-decoration:none}a:hover{color:#a78bfa}.container{max-width:720px;margin:0 auto;padding:0 24px}.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;background:rgba(5,5,7,0.85);backdrop-filter:blur(24px);border-bottom:1px solid rgba(255,255,255,0.06)}.nav .container{display:flex;align-items:center;justify-content:space-between}.nav-brand{display:flex;align-items:center;gap:10px;font-size:18px;font-weight:800;color:#f0f0f5}.nav-brand img{width:32px;height:32px;border-radius:8px}.nav-links{display:flex;gap:24px;list-style:none}.nav-links a{font-size:14px;color:#9898a6}.article-header{padding:140px 0 40px;text-align:center}.article-tag{font-size:12px;font-weight:700;color:#7c3aed;text-transform:uppercase;letter-spacing:2px;margin-bottom:16px}.article-header h1{font-size:clamp(28px,5vw,42px);font-weight:900;color:#f0f0f5;letter-spacing:-0.03em;line-height:1.15;margin-bottom:16px}.article-meta{font-size:14px;color:#5a5a6e}.gradient{background:linear-gradient(135deg,#a78bfa,#7c3aed,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent}.article-body{padding-bottom:100px}.article-body h2{font-size:28px;font-weight:800;color:#f0f0f5;margin:48px 0 16px;letter-spacing:-0.02em}.article-body h3{font-size:20px;font-weight:700;color:#e4e4eb;margin:32px 0 12px}.article-body p{margin-bottom:20px;font-size:16px}.article-body ul,.article-body ol{margin:0 0 20px 24px}.article-body li{margin-bottom:8px;font-size:16px}.article-body strong{color:#f0f0f5}.article-body code{background:rgba(124,58,237,0.1);padding:2px 8px;border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:14px;color:#a78bfa}.article-body pre{background:#0c0c10;border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:20px;margin:24px 0;overflow-x:auto;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.7;color:#d4d4dc}.article-body blockquote{border-left:3px solid #7c3aed;padding:16px 24px;margin:24px 0;background:rgba(124,58,237,0.05);border-radius:0 8px 8px 0;font-style:italic;color:#b4b4c0}.step-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:24px;margin:24px 0}.step-num{display:inline-block;background:#7c3aed;color:white;width:28px;height:28px;border-radius:50%;text-align:center;line-height:28px;font-weight:800;font-size:14px;margin-right:10px}table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px}th{background:rgba(124,58,237,0.1);color:#f0f0f5;text-align:left;padding:12px 16px;font-weight:700}td{padding:10px 16px;border-bottom:1px solid rgba(255,255,255,0.06)}.cta-box{background:linear-gradient(135deg,rgba(124,58,237,0.1),rgba(236,72,153,0.05));border:1px solid rgba(124,58,237,0.2);border-radius:16px;padding:32px;text-align:center;margin:48px 0}.cta-box h3{font-size:22px;font-weight:800;color:#f0f0f5;margin-bottom:8px}.cta-box p{color:#9898a6;margin-bottom:16px;font-size:15px}.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;background:#7c3aed;color:white;border-radius:10px;font-weight:600;font-size:15px;transition:all 0.2s}.btn:hover{transform:translateY(-2px);box-shadow:0 0 30px rgba(124,58,237,0.3);color:white}.footer{border-top:1px solid rgba(255,255,255,0.06);padding:32px 0;text-align:center;font-size:13px;color:#5a5a6e}@media(max-width:768px){.article-header h1{font-size:28px}.article-body h2{font-size:22px}}
+    </style>
+</head>
+<body>
+    <nav class="nav"><div class="container"><a href="/root-ai/" class="nav-brand"><img src="https://raw.githubusercontent.com/kulharir7/root-ai/main/docs/favicon.svg" alt="Root AI">Root AI</a><ul class="nav-links"><li><a href="/root-ai/">Home</a></li><li><a href="/root-ai/blog/">Blog</a></li><li><a href="https://github.com/kulharir7/root-ai" target="_blank">GitHub</a></li></ul></div></nav>
+
+    <header class="article-header"><div class="container">
+        <div class="article-tag">Privacy Guide</div>
+        <h1>How to Use AI Offline on Windows —<br><span class="gradient">Free & 100% Private</span></h1>
+        <div class="article-meta">Feb 22, 2026 · 5 min read · By Ravindra Kumar</div>
+    </div></header>
+
+    <article class="article-body"><div class="container">
+
+        <p>Every time you use ChatGPT, Google Gemini, or any cloud AI service, your data travels to someone else's server. Your prompts, your questions, your personal information — all stored on servers you don't control.</p>
+
+        <p>But what if you could run <strong>the same level of AI, completely offline, on your own computer</strong>? No internet. No cloud. No data leaving your machine. Ever.</p>
+
+        <p>That's exactly what we'll set up in this guide.</p>
+
+        <h2>What You Need</h2>
+
+        <table>
+            <tr><th>Requirement</th><th>Minimum</th><th>Recommended</th></tr>
+            <tr><td>OS</td><td>Windows 10 64-bit</td><td>Windows 11</td></tr>
+            <tr><td>RAM</td><td>8 GB</td><td>16 GB</td></tr>
+            <tr><td>Storage</td><td>5 GB free</td><td>15 GB free</td></tr>
+            <tr><td>GPU</td><td>Not required</td><td>NVIDIA GPU (faster)</td></tr>
+            <tr><td>Internet</td><td>Only for initial download</td><td>Only for initial download</td></tr>
+        </table>
+
+        <h2>Step-by-Step Setup</h2>
+
+        <div class="step-box">
+            <p><span class="step-num">1</span> <strong>Download and Install Ollama</strong></p>
+            <p>Go to <a href="https://ollama.com" target="_blank">ollama.com</a> and download the Windows installer. Run it. Takes 2 minutes.</p>
+            <p>Ollama is an open-source tool that lets you run AI models locally on your machine. It handles model downloading, memory management, and inference — all locally.</p>
+        </div>
+
+        <div class="step-box">
+            <p><span class="step-num">2</span> <strong>Download an AI Model</strong></p>
+            <p>Open PowerShell or Command Prompt and run:</p>
+            <pre>ollama pull llama3.2</pre>
+            <p>This downloads the Llama 3.2 model (~4 GB). It's one of the best open-source models available — powerful enough for most tasks while being light enough to run on regular hardware.</p>
+            <p><strong>Other model options:</strong></p>
+            <ul>
+                <li><code>ollama pull mistral</code> — Fast, great for coding (4 GB)</li>
+                <li><code>ollama pull gemma2</code> — Google's efficient model (5 GB)</li>
+                <li><code>ollama pull llama3.1:70b</code> — Massive brain, needs 40+ GB RAM</li>
+            </ul>
+        </div>
+
+        <div class="step-box">
+            <p><span class="step-num">3</span> <strong>Download and Install Root AI</strong></p>
+            <p>Download from <a href="https://github.com/kulharir7/root-ai/releases/download/v0.3.1/Root.AI.Setup.0.3.1.exe">GitHub Releases</a>. Run the installer.</p>
+        </div>
+
+        <div class="step-box">
+            <p><span class="step-num">4</span> <strong>Connect Root AI to Ollama</strong></p>
+            <p>Launch Root AI. In the setup wizard, select <strong>Ollama</strong> as your AI provider. It auto-detects your local Ollama installation. Choose the model you downloaded. Done.</p>
+        </div>
+
+        <div class="step-box">
+            <p><span class="step-num">5</span> <strong>Disconnect from Internet (Optional)</strong></p>
+            <p>Now for the magic part: <strong>turn off your WiFi</strong>. Everything still works. The AI model runs on your CPU/GPU. Root AI runs locally. Zero internet needed.</p>
+        </div>
+
+        <h2>What Can You Do Offline?</h2>
+
+        <p>With Ollama + Root AI, you can do <strong>everything</strong> that doesn't inherently require internet:</p>
+
+        <ul>
+            <li>✅ Manage and organize files</li>
+            <li>✅ Write and debug code</li>
+            <li>✅ Run terminal commands</li>
+            <li>✅ Analyze local data and documents</li>
+            <li>✅ Generate text, summaries, and reports</li>
+            <li>✅ Voice control (with local speech models)</li>
+            <li>✅ Schedule automated tasks</li>
+            <li>❌ Web browsing (needs internet)</li>
+            <li>❌ Email/calendar (needs internet)</li>
+            <li>❌ GitHub/cloud services (needs internet)</li>
+        </ul>
+
+        <h2>Performance: How Fast Is It?</h2>
+
+        <p>Honest answer: <strong>it depends on your hardware.</strong></p>
+
+        <table>
+            <tr><th>Hardware</th><th>Model</th><th>Speed</th></tr>
+            <tr><td>CPU only (8 GB RAM)</td><td>Llama 3.2 3B</td><td>~10 tokens/sec (usable)</td></tr>
+            <tr><td>CPU only (16 GB RAM)</td><td>Llama 3.2 8B</td><td>~8 tokens/sec (usable)</td></tr>
+            <tr><td>NVIDIA RTX 3060</td><td>Llama 3.2 8B</td><td>~40 tokens/sec (fast)</td></tr>
+            <tr><td>NVIDIA RTX 4090</td><td>Llama 3.1 70B</td><td>~30 tokens/sec (very fast)</td></tr>
+        </table>
+
+        <p>Even on a modest laptop with just a CPU, smaller models run at a perfectly usable speed. You won't get GPT-4-level intelligence from a 3B model, but for file management, coding help, and automation? It's more than enough.</p>
+
+        <h2>Why Go Offline?</h2>
+
+        <h3>🔒 Privacy</h3>
+        <p>Your conversations, your files, your data — none of it ever leaves your machine. Not to OpenAI, not to Google, not to anyone. This matters for lawyers, doctors, businesses, journalists, and anyone handling sensitive information.</p>
+
+        <h3>💰 Cost</h3>
+        <p>Zero. Free. Forever. No API keys, no subscriptions, no per-token charges. Once you download the model, it's yours.</p>
+
+        <h3>🌐 Independence</h3>
+        <p>Works in airplane mode. Works when your ISP is down. Works in rural areas with no internet. Works on air-gapped systems for maximum security.</p>
+
+        <h3>⚡ No Rate Limits</h3>
+        <p>Cloud AI services throttle you. "Too many requests." "Please wait." None of that locally. Use it as much as you want, as fast as your hardware allows.</p>
+
+        <blockquote>The most private AI is the one that never connects to the internet. With Ollama + Root AI, that's not a compromise — it's a feature.</blockquote>
+
+        <div class="cta-box">
+            <h3>Go Private Today</h3>
+            <p>Download Root AI and pair it with Ollama for completely offline, free AI.</p>
+            <a href="https://github.com/kulharir7/root-ai/releases/download/v0.3.1/Root.AI.Setup.0.3.1.exe" class="btn">⬇️ Download Root AI — Free</a>
+        </div>
+
+    </div></article>
+
+    <footer class="footer">Root AI · <a href="/root-ai/">Home</a> · <a href="/root-ai/blog/">Blog</a> · Built with ❤️ in India</footer>
+</body>
+</html>
