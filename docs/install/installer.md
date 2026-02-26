@@ -76,12 +76,12 @@ Recommended for most interactive installs on macOS/Linux/WSL.
   <Step title="Ensure Git">
     Installs Git if missing.
   </Step>
-  <Step title="Install Root">
+  <Step title="Install Korvus">
     - `npm` method (default): global npm install
     - `git` method: clone/update repo, install deps with pnpm, build, then install wrapper at `~/.local/bin/Root`
   </Step>
   <Step title="Post-install tasks">
-    - Runs `Root doctor --non-interactive` on upgrades and git installs (best effort)
+    - Runs `Korvus doctor --non-interactive` on upgrades and git installs (best effort)
     - Attempts onboarding when appropriate (TTY available, onboarding not disabled, and bootstrap/config checks pass)
     - Defaults `SHARP_IGNORE_GLOBAL_LIBVIPS=1`
   </Step>
@@ -180,7 +180,7 @@ Designed for environments where you want everything under a local prefix (defaul
   <Step title="Ensure Git">
     If Git is missing, attempts install via apt/dnf/yum on Linux or Homebrew on macOS.
   </Step>
-  <Step title="Install Root under prefix">
+  <Step title="Install Korvus under prefix">
     Installs with npm using `--prefix <prefix>`, then writes wrapper to `<prefix>/bin/Root`.
   </Step>
 </Steps>
@@ -219,7 +219,7 @@ Designed for environments where you want everything under a local prefix (defaul
 | `--version <ver>`      | Root version or dist-tag (default: `latest`)                                |
 | `--node-version <ver>` | Node version (default: `22.22.0`)                                               |
 | `--json`               | Emit NDJSON events                                                              |
-| `--onboard`            | Run `Root onboard` after install                                            |
+| `--onboard`            | Run `Korvus onboard` after install                                            |
 | `--no-onboard`         | Skip onboarding (default)                                                       |
 | `--set-npm-prefix`     | On Linux, force npm prefix to `~/.npm-global` if current prefix is not writable |
 | `--help`               | Show usage (`-h`)                                                               |
@@ -254,12 +254,12 @@ Designed for environments where you want everything under a local prefix (defaul
   <Step title="Ensure Node.js 22+">
     If missing, attempts install via winget, then Chocolatey, then Scoop.
   </Step>
-  <Step title="Install Root">
+  <Step title="Install Korvus">
     - `npm` method (default): global npm install using selected `-Tag`
     - `git` method: clone/update repo, install/build with pnpm, and install wrapper at `%USERPROFILE%\.local\bin\Root.cmd`
   </Step>
   <Step title="Post-install tasks">
-    Adds needed bin directory to user PATH when possible, then runs `Root doctor --non-interactive` on upgrades and git installs (best effort).
+    Adds needed bin directory to user PATH when possible, then runs `Korvus doctor --non-interactive` on upgrades and git installs (best effort).
   </Step>
 </Steps>
 
@@ -383,7 +383,7 @@ Use non-interactive flags/env vars for predictable runs.
     Install Git for Windows, reopen PowerShell, rerun installer.
   </Accordion>
 
-  <Accordion title='Windows: "Root is not recognized"'>
+  <Accordion title='Windows: "Korvus is not recognized"'>
     Run `npm config get prefix`, append `\bin`, add that directory to user PATH, then reopen PowerShell.
   </Accordion>
 

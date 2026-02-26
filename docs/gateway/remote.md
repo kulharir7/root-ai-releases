@@ -76,8 +76,8 @@ ssh -N -L 18789:127.0.0.1:18789 user@host
 
 With the tunnel up:
 
-- `Root health` and `Root status --deep` now reach the remote gateway via `ws://127.0.0.1:18789`.
-- `Root gateway {status,health,send,agent,call}` can also target the forwarded URL via `--url` when needed.
+- `Root health` and `Korvus status --deep` now reach the remote gateway via `ws://127.0.0.1:18789`.
+- `Korvus gateway {status,health,send,agent,call}` can also target the forwarded URL via `--url` when needed.
 
 Note: replace `18789` with your configured `gateway.port` (or `--port`/`Root_GATEWAY_PORT`).
 Note: when you pass `--url`, the CLI does not fall back to config or environment credentials.

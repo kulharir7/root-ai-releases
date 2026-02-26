@@ -23,13 +23,13 @@ Nextcloud Talk 以插件形式提供，不包含在核心安装包中。
 通过 CLI 安装（npm 仓库）：
 
 ```bash
-Root plugins install @Root/nextcloud-talk
+Korvus plugins install @Root/nextcloud-talk
 ```
 
 本地检出安装（从 git 仓库运行时）：
 
 ```bash
-Root plugins install ./extensions/nextcloud-talk
+Korvus plugins install ./extensions/nextcloud-talk
 ```
 
 如果你在配置/新手引导过程中选择了 Nextcloud Talk，并且检测到 git 检出，

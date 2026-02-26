@@ -54,7 +54,7 @@ x-i18n:
 1. 安装 Lume
 2. `lume create Root --os macos --ipsw latest`
 3. 完成设置助手，启用远程登录（SSH）
-4. `lume run Root --no-display`
+4. `lume run Korvus --no-display`
 5. SSH 进入，安装 Root，配置渠道
 6. 完成
 
@@ -145,7 +145,7 @@ ssh youruser@192.168.64.X
 
 ```bash
 npm install -g Root@latest
-Root onboard --install-daemon
+Korvus onboard --install-daemon
 ```
 
 按照新手引导提示设置你的模型提供商（Anthropic、OpenAI 等）。
@@ -179,7 +179,7 @@ nano ~/.Root/Root.json
 然后登录 WhatsApp（扫描二维码）：
 
 ```bash
-Root channels login
+Korvus channels login
 ```
 
 ---
@@ -190,7 +190,7 @@ Root channels login
 
 ```bash
 lume stop Root
-lume run Root --no-display
+lume run Korvus --no-display
 ```
 
 VM 在后台运行。Root 的守护进程保持 Gateway 网关运行。
@@ -198,7 +198,7 @@ VM 在后台运行。Root 的守护进程保持 Gateway 网关运行。
 检查状态：
 
 ```bash
-ssh youruser@192.168.64.X "Root status"
+ssh youruser@192.168.64.X "Korvus status"
 ```
 
 ---
@@ -248,7 +248,7 @@ lume clone Root Root-golden
 ```bash
 lume stop Root && lume delete Root
 lume clone Root-golden Root
-lume run Root --no-display
+lume run Korvus --no-display
 ```
 
 ---
@@ -272,7 +272,7 @@ lume run Root --no-display
 | 无法 SSH 进入 VM        | 检查 VM 的系统设置中是否启用了"远程登录"                         |
 | VM IP 未显示            | 等待 VM 完全启动，再次运行 `lume get Root`                   |
 | 找不到 Lume 命令        | 将 `~/.local/bin` 添加到你的 PATH                                |
-| WhatsApp 二维码扫描失败 | 确保运行 `Root channels login` 时你是登录到 VM（而不是主机） |
+| WhatsApp 二维码扫描失败 | 确保运行 `Korvus channels login` 时你是登录到 VM（而不是主机） |
 
 ---
 

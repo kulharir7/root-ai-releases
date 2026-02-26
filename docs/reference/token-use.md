@@ -47,12 +47,12 @@ Use these in chat:
 - `/usage off|tokens|full` → appends a **per-response usage footer** to every reply.
   - Persists per session (stored as `responseUsage`).
   - OAuth auth **hides cost** (tokens only).
-- `/usage cost` → shows a local cost summary from Root session logs.
+- `/usage cost` → shows a local cost summary from Korvus session logs.
 
 Other surfaces:
 
 - **TUI/Web TUI:** `/status` + `/usage` are supported.
-- **CLI:** `Root status --usage` and `Root channels list` show
+- **CLI:** `Korvus status --usage` and `Korvus channels list` show
   provider quota windows (not per-response costs).
 
 ## Cost estimation (when shown)

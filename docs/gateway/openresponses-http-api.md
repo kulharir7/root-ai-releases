@@ -16,7 +16,7 @@ This endpoint is **disabled by default**. Enable it in config first.
 - Same port as the Gateway (WS + HTTP multiplex): `http://<gateway-host>:<port>/v1/responses`
 
 Under the hood, requests are executed as a normal Gateway agent run (same codepath as
-`Root agent`), so routing/permissions/config match your Gateway.
+`Korvus agent`), so routing/permissions/config match your Gateway.
 
 ## Authentication
 
@@ -37,7 +37,7 @@ No custom headers required: encode the agent id in the OpenResponses `model` fie
 - `model: "Root:<agentId>"` (example: `"Root:main"`, `"Root:beta"`)
 - `model: "agent:<agentId>"` (alias)
 
-Or target a specific Root agent by header:
+Or target a specific Korvus agent by header:
 
 - `x-Root-agent-id: <agentId>` (default: `main`)
 

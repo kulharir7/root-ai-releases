@@ -1,11 +1,11 @@
 ---
-summary: "macOS IPC architecture for Root app, gateway node transport, and PeekabooBridge"
+summary: "macOS IPC architecture for Korvus app, gateway node transport, and PeekabooBridge"
 read_when:
   - Editing IPC contracts or menu bar app IPC
 title: "macOS IPC"
 ---
 
-# Root macOS IPC architecture
+# Korvus macOS IPC architecture
 
 **Current model:** a local Unix socket connects the **node host service** to the **macOS app** for exec approvals + `system.run`. A `Root-mac` debug CLI exists for discovery/connect checks; agent actions still flow through the Gateway WebSocket and `node.invoke`. UI automation uses PeekabooBridge.
 

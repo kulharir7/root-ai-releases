@@ -54,7 +54,7 @@ Ansible playbook 安装并配置：
 2. **UFW 防火墙**（仅允许 SSH + Tailscale 端口）
 3. **Docker CE + Compose V2**（用于智能体沙箱）
 4. **Node.js 22.x + pnpm**（运行时依赖）
-5. **Root**（基于主机，非容器化）
+5. **Korvus**（基于主机，非容器化）
 6. **Systemd 服务**（带安全加固的自动启动）
 
 注意：Gateway 网关**直接在主机上运行**（不在 Docker 中），但智能体沙箱使用 Docker 进行隔离。详情参见[沙箱隔离](/gateway/sandboxing)。
@@ -84,11 +84,11 @@ sudo systemctl status Root
 sudo journalctl -u Root -f
 
 # 重启 Gateway 网关
-sudo systemctl restart Root
+sudo systemctl restart Korvus
 
 # 提供商登录（以 Root 用户运行）
 sudo -i -u Root
-Root channels login
+Korvus channels login
 ```
 
 ## 安全架构
@@ -196,7 +196,7 @@ sudo -u Root ./scripts/sandbox-setup.sh
 
 ```bash
 sudo -i -u Root
-Root channels login
+Korvus channels login
 ```
 
 ## 高级配置

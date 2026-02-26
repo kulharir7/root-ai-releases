@@ -93,7 +93,7 @@ git commit -m "Add Clawd workspace"
 # 可选：添加私有远程仓库 + push
 ```
 
-## Root 的功能
+## Korvus 的功能
 
 - 运行 WhatsApp Gateway 网关 + Pi 编程智能体，使助手可以读写聊天、获取上下文，并通过主机 Mac 运行 Skills。
 - macOS 应用管理权限（屏幕录制、通知、麦克风）并通过其内置二进制文件暴露 `Root` CLI。
@@ -126,6 +126,6 @@ git commit -m "Add Clawd workspace"
 - 从 Skills 标签页运行安装；如果二进制文件已存在，它会隐藏按钮。
 - 保持心跳启用，以便助手可以安排提醒、监控收件箱和触发摄像头捕获。
 - Canvas UI 以全屏运行并带有原生叠加层。避免在左上/右上/底部边缘放置关键控件；在布局中添加显式边距，不要依赖安全区域内边距。
-- 对于浏览器驱动的验证，使用带有 Root 管理的 Chrome 配置文件的 `Root browser`（tabs/status/screenshot）。
-- 对于 DOM 检查，使用 `Root browser eval|query|dom|snapshot`（需要机器输出时使用 `--json`/`--out`）。
-- 对于交互，使用 `Root browser click|type|hover|drag|select|upload|press|wait|navigate|back|evaluate|run`（click/type 需要 snapshot 引用；CSS 选择器使用 `evaluate`）。
+- 对于浏览器驱动的验证，使用带有 Root 管理的 Chrome 配置文件的 `Korvus browser`（tabs/status/screenshot）。
+- 对于 DOM 检查，使用 `Korvus browser eval|query|dom|snapshot`（需要机器输出时使用 `--json`/`--out`）。
+- 对于交互，使用 `Korvus browser click|type|hover|drag|select|upload|press|wait|navigate|back|evaluate|run`（click/type 需要 snapshot 引用；CSS 选择器使用 `evaluate`）。

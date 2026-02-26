@@ -21,7 +21,7 @@ If the Gateway is running on the same computer, open:
 
 - [http://127.0.0.1:18789/](http://127.0.0.1:18789/) (or [http://localhost:18789/](http://localhost:18789/))
 
-If the page fails to load, start the Gateway first: `Root gateway`.
+If the page fails to load, start the Gateway first: `Korvus gateway`.
 
 Auth is supplied during the WebSocket handshake via:
 
@@ -101,7 +101,7 @@ Cron jobs panel notes:
 Keep the Gateway on loopback and let Tailscale Serve proxy it with HTTPS:
 
 ```bash
-Root gateway --tailscale serve
+Korvus gateway --tailscale serve
 ```
 
 Open:
@@ -119,7 +119,7 @@ if you want to require a token/password even for Serve traffic.
 ### Bind to tailnet + token
 
 ```bash
-Root gateway --bind tailnet --token "$(openssl rand -hex 32)"
+Korvus gateway --bind tailnet --token "$(openssl rand -hex 32)"
 ```
 
 Then open:

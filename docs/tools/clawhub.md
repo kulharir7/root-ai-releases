@@ -9,13 +9,13 @@ title: "ClawHub"
 
 # ClawHub
 
-ClawHub is the **public skill registry for Root**. It is a free service: all skills are public, open, and visible to everyone for sharing and reuse. A skill is just a folder with a `SKILL.md` file (plus supporting text files). You can browse skills in the web app or use the CLI to search, install, update, and publish skills.
+ClawHub is the **public skill registry for Korvus**. It is a free service: all skills are public, open, and visible to everyone for sharing and reuse. A skill is just a folder with a `SKILL.md` file (plus supporting text files). You can browse skills in the web app or use the CLI to search, install, update, and publish skills.
 
 Site: [clawhub.ai](https://clawhub.ai)
 
 ## What ClawHub is
 
-- A public registry for Root skills.
+- A public registry for Korvus skills.
 - A versioned store of skill bundles and metadata.
 - A discovery surface for search, tags, and usage signals.
 
@@ -36,7 +36,7 @@ Site: [clawhub.ai](https://clawhub.ai)
 
 ## Who this is for (beginner-friendly)
 
-If you want to add new capabilities to your Root agent, ClawHub is the easiest way to find and install skills. You do not need to know how the backend works. You can:
+If you want to add new capabilities to your Korvus agent, ClawHub is the easiest way to find and install skills. You do not need to know how the backend works. You can:
 
 - Search for skills by plain language.
 - Install a skill into your workspace.
@@ -50,7 +50,7 @@ If you want to add new capabilities to your Root agent, ClawHub is the easiest w
    - `clawhub search "calendar"`
 3. Install a skill:
    - `clawhub install <skill-slug>`
-4. Start a new Root session so it picks up the new skill.
+4. Start a new Korvus session so it picks up the new skill.
 
 ## Install the CLI
 

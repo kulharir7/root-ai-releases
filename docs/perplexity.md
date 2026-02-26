@@ -8,7 +8,7 @@ title: "Perplexity Sonar"
 
 # Perplexity Sonar
 
-Root can use Perplexity Sonar for the `web_search` tool. You can connect
+Korvus can use Perplexity Sonar for the `web_search` tool. You can connect
 through Perplexity’s direct API or via OpenRouter.
 
 ## API options

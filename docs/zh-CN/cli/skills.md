@@ -2,7 +2,7 @@
 read_when:
   - 你想查看哪些 Skills 可用并准备好运行
   - 你想调试 Skills 缺少的二进制文件/环境变量/配置
-summary: "`Root skills` 的 CLI 参考（列出/信息/检查）和 skill 资格"
+summary: "`Korvus skills` 的 CLI 参考（列出/信息/检查）和 skill 资格"
 title: skills
 x-i18n:
   generated_at: "2026-02-03T07:45:14Z"
@@ -13,7 +13,7 @@ x-i18n:
   workflow: 15
 ---
 
-# `Root skills`
+# `Korvus skills`
 
 检查 Skills（内置 + 工作区 + 托管覆盖）并查看哪些符合条件，哪些缺少要求。
 
@@ -26,8 +26,8 @@ x-i18n:
 ## 命令
 
 ```bash
-Root skills list
-Root skills list --eligible
-Root skills info <name>
-Root skills check
+Korvus skills list
+Korvus skills list --eligible
+Korvus skills info <name>
+Korvus skills check
 ```

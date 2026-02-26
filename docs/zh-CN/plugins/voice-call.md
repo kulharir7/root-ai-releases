@@ -42,7 +42,7 @@ Voice Call 插件运行在 **Gateway 网关进程内部**。
 ### 选项 A：从 npm 安装（推荐）
 
 ```bash
-Root plugins install @Root/voice-call
+Korvus plugins install @Root/voice-call
 ```
 
 之后重启 Gateway 网关。
@@ -50,7 +50,7 @@ Root plugins install @Root/voice-call
 ### 选项 B：从本地文件夹安装（开发，不复制）
 
 ```bash
-Root plugins install ./extensions/voice-call
+Korvus plugins install ./extensions/voice-call
 cd ./extensions/voice-call && pnpm install
 ```
 

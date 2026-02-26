@@ -2,7 +2,7 @@
 read_when:
   - 你想更改默认模型或查看提供商认证状态
   - 你想扫描可用的模型/提供商并调试认证配置
-summary: "`Root models` 的 CLI 参考（status/list/set/scan、别名、回退、认证）"
+summary: "`Korvus models` 的 CLI 参考（status/list/set/scan、别名、回退、认证）"
 title: models
 x-i18n:
   generated_at: "2026-02-01T20:21:16Z"
@@ -13,7 +13,7 @@ x-i18n:
   workflow: 14
 ---
 
-# `Root models`
+# `Korvus models`
 
 模型发现、扫描和配置（默认模型、回退、认证配置）。
 
@@ -25,13 +25,13 @@ x-i18n:
 ## 常用命令
 
 ```bash
-Root models status
-Root models list
-Root models set <model-or-alias>
-Root models scan
+Korvus models status
+Korvus models list
+Korvus models set <model-or-alias>
+Korvus models scan
 ```
 
-`Root models status` 显示已解析的默认模型/回退配置以及认证概览。
+`Korvus models status` 显示已解析的默认模型/回退配置以及认证概览。
 当提供商使用快照可用时，OAuth/令牌状态部分会包含提供商使用头信息。
 添加 `--probe` 可对每个已配置的提供商配置运行实时认证探测。
 探测会发送真实请求（可能消耗令牌并触发速率限制）。
@@ -63,21 +63,21 @@ Root models scan
 ## 别名 + 回退
 
 ```bash
-Root models aliases list
-Root models fallbacks list
+Korvus models aliases list
+Korvus models fallbacks list
 ```
 
 ## 认证配置
 
 ```bash
-Root models auth add
-Root models auth login --provider <id>
-Root models auth setup-token
-Root models auth paste-token
+Korvus models auth add
+Korvus models auth login --provider <id>
+Korvus models auth setup-token
+Korvus models auth paste-token
 ```
 
 `models auth login` 运行提供商插件的认证流程（OAuth/API 密钥）。使用
-`Root plugins list` 查看已安装的提供商。
+`Korvus plugins list` 查看已安装的提供商。
 
 注意事项：
 

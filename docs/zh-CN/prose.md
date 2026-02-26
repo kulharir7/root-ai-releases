@@ -31,12 +31,12 @@ OpenProse 是一种可移植的、以 Markdown 为中心的工作流格式，用
 捆绑的插件默认是禁用的。启用 OpenProse：
 
 ```bash
-Root plugins enable open-prose
+Korvus plugins enable open-prose
 ```
 
 启用插件后重启 Gateway 网关。
 
-开发/本地检出：`Root plugins install ./extensions/open-prose`
+开发/本地检出：`Korvus plugins install ./extensions/open-prose`
 
 相关文档：[插件](/tools/plugin)、[插件清单](/plugins/manifest)、[Skills](/tools/skills)。
 
@@ -122,7 +122,7 @@ OpenProse 支持多种状态后端：
 `/prose run <handle/slug>` 解析为 `https://p.prose.md/<handle>/<slug>`。
 直接 URL 按原样获取。这使用 `web_fetch` 工具（或用于 POST 的 `exec`）。
 
-## Root 运行时映射
+## Korvus 运行时映射
 
 OpenProse 程序映射到 Root 原语：
 

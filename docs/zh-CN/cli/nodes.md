@@ -2,7 +2,7 @@
 read_when:
   - 你正在管理已配对的节点（摄像头、屏幕、画布）
   - 你需要批准请求或调用节点命令
-summary: "`Root nodes` 的 CLI 参考（列表/状态/批准/调用，摄像头/画布/屏幕）"
+summary: "`Korvus nodes` 的 CLI 参考（列表/状态/批准/调用，摄像头/画布/屏幕）"
 title: nodes
 x-i18n:
   generated_at: "2026-02-03T10:04:26Z"
@@ -13,7 +13,7 @@ x-i18n:
   workflow: 15
 ---
 
-# `Root nodes`
+# `Korvus nodes`
 
 管理已配对的节点（设备）并调用节点功能。
 
@@ -30,14 +30,14 @@ x-i18n:
 ## 常用命令
 
 ```bash
-Root nodes list
-Root nodes list --connected
-Root nodes list --last-connected 24h
-Root nodes pending
-Root nodes approve <requestId>
-Root nodes status
-Root nodes status --connected
-Root nodes status --last-connected 24h
+Korvus nodes list
+Korvus nodes list --connected
+Korvus nodes list --last-connected 24h
+Korvus nodes pending
+Korvus nodes approve <requestId>
+Korvus nodes status
+Korvus nodes status --connected
+Korvus nodes status --last-connected 24h
 ```
 
 `nodes list` 打印待处理/已配对表格。已配对行包含最近连接时长（Last Connect）。
@@ -47,10 +47,10 @@ Root nodes status --last-connected 24h
 ## 调用 / 运行
 
 ```bash
-Root nodes invoke --node <id|name|ip> --command <command> --params <json>
-Root nodes run --node <id|name|ip> <command...>
-Root nodes run --raw "git status"
-Root nodes run --agent main --node <id|name|ip> --raw "git status"
+Korvus nodes invoke --node <id|name|ip> --command <command> --params <json>
+Korvus nodes run --node <id|name|ip> <command...>
+Korvus nodes run --raw "git status"
+Korvus nodes run --agent main --node <id|name|ip> --raw "git status"
 ```
 
 调用标志：

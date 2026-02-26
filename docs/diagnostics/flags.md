@@ -82,7 +82,7 @@ Or tail while reproducing:
 tail -f /tmp/Root/Root-$(date +%F).log | rg "telegram http error"
 ```
 
-For remote gateways, you can also use `Root logs --follow` (see [/cli/logs](/cli/logs)).
+For remote gateways, you can also use `Korvus logs --follow` (see [/cli/logs](/cli/logs)).
 
 ## Notes
 

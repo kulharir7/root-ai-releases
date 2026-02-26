@@ -8,7 +8,7 @@ title: "Voice Call Plugin"
 
 # Voice Call (plugin)
 
-Voice calls for Root via a plugin. Supports outbound notifications and
+Voice calls for Korvus via a plugin. Supports outbound notifications and
 multi-turn conversations with inbound policies.
 
 Current providers:
@@ -36,7 +36,7 @@ If you use a remote Gateway, install/configure the plugin on the **machine runni
 ### Option A: install from npm (recommended)
 
 ```bash
-Root plugins install @Root/voice-call
+Korvus plugins install @Root/voice-call
 ```
 
 Restart the Gateway afterwards.
@@ -44,7 +44,7 @@ Restart the Gateway afterwards.
 ### Option B: install from a local folder (dev, no copying)
 
 ```bash
-Root plugins install ./extensions/voice-call
+Korvus plugins install ./extensions/voice-call
 cd ./extensions/voice-call && pnpm install
 ```
 

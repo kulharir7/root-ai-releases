@@ -2,14 +2,14 @@
 summary: "Integrated browser control service + action commands"
 read_when:
   - Adding agent-controlled browser automation
-  - Debugging why Root is interfering with your own Chrome
+  - Debugging why Korvus is interfering with your own Chrome
   - Implementing browser settings + lifecycle in the macOS app
 title: "Browser (Root-managed)"
 ---
 
 # Browser (Root-managed)
 
-Root can run a **dedicated Chrome/Brave/Edge/Chromium profile** that the agent controls.
+Korvus can run a **dedicated Chrome/Brave/Edge/Chromium profile** that the agent controls.
 It is isolated from your personal browser and is managed through a small local
 control service inside the Gateway (loopback only).
 
@@ -23,7 +23,7 @@ Beginner view:
 
 ## What you get
 
-- A separate browser profile named **Root** (orange accent by default).
+- A separate browser profile named **Korvus** (orange accent by default).
 - Deterministic tab control (list/open/focus/close).
 - Agent actions (click/type/drag/select), snapshots, screenshots, PDFs.
 - Optional multi-profile support (`Root`, `work`, `remote`, ...).
@@ -34,10 +34,10 @@ agent automation and verification.
 ## Quick start
 
 ```bash
-Root browser --browser-profile Root status
-Root browser --browser-profile Root start
-Root browser --browser-profile Root open https://example.com
-Root browser --browser-profile Root snapshot
+Korvus browser --browser-profile Korvus status
+Korvus browser --browser-profile Root start
+Korvus browser --browser-profile Root open https://example.com
+Korvus browser --browser-profile Root snapshot
 ```
 
 If you get “Browser disabled”, enable it in config (see below) and restart the
@@ -95,13 +95,13 @@ Notes:
 ## Use Brave (or another Chromium-based browser)
 
 If your **system default** browser is Chromium-based (Chrome/Brave/Edge/etc),
-Root uses it automatically. Set `browser.executablePath` to override
+Korvus uses it automatically. Set `browser.executablePath` to override
 auto-detection:
 
 CLI example:
 
 ```bash
-Root config set browser.executablePath "/usr/bin/google-chrome"
+Korvus config set browser.executablePath "/usr/bin/google-chrome"
 ```
 
 ```json5
@@ -132,7 +132,7 @@ Root config set browser.executablePath "/usr/bin/google-chrome"
 - **Local control (default):** the Gateway starts the loopback control service and can launch a local browser.
 - **Remote control (node host):** run a node host on the machine that has the browser; the Gateway proxies browser actions to it.
 - **Remote CDP:** set `browser.profiles.<name>.cdpUrl` (or `browser.cdpUrl`) to
-  attach to a remote Chromium-based browser. In this case, Root will not launch a local browser.
+  attach to a remote Chromium-based browser. In this case, Korvus will not launch a local browser.
 
 Remote CDP URLs can include auth:
 
@@ -160,7 +160,7 @@ Notes:
 ## Browserless (hosted remote CDP)
 
 [Browserless](https://browserless.io) is a hosted Chromium service that exposes
-CDP endpoints over HTTPS. You can point a Root browser profile at a
+CDP endpoints over HTTPS. You can point a Korvus browser profile at a
 Browserless region endpoint and authenticate with your API key.
 
 Example:
@@ -203,7 +203,7 @@ Remote CDP tips:
 
 ## Profiles (multi-browser)
 
-Root supports multiple named profiles (routing configs). Profiles can be:
+Korvus supports multiple named profiles (routing configs). Profiles can be:
 
 - **Root-managed**: a dedicated Chromium-based browser instance with its own user data directory + CDP port
 - **remote**: an explicit CDP URL (Chromium-based browser running elsewhere)
@@ -220,7 +220,7 @@ All control endpoints accept `?profile=<name>`; the CLI uses `--browser-profile`
 
 ## Chrome extension relay (use your existing Chrome)
 
-Root can also drive **your existing Chrome tabs** (no separate “Root” Chrome instance) via a local CDP relay + a Chrome extension.
+Korvus can also drive **your existing Chrome tabs** (no separate “Root” Chrome instance) via a local CDP relay + a Chrome extension.
 
 Full guide: [Chrome extension](/tools/chrome-extension)
 
@@ -246,22 +246,22 @@ Chrome extension relay takeover requires host browser control, so either:
 1. Load the extension (dev/unpacked):
 
 ```bash
-Root browser extension install
+Korvus browser extension install
 ```
 
 - Chrome → `chrome://extensions` → enable “Developer mode”
-- “Load unpacked” → select the directory printed by `Root browser extension path`
+- “Load unpacked” → select the directory printed by `Korvus browser extension path`
 - Pin the extension, then click it on the tab you want to control (badge shows `ON`).
 
 2. Use it:
 
-- CLI: `Root browser --browser-profile chrome tabs`
+- CLI: `Korvus browser --browser-profile chrome tabs`
 - Agent tool: `browser` with `profile="chrome"`
 
 Optional: if you want a different name or relay port, create your own profile:
 
 ```bash
-Root browser create-profile \
+Korvus browser create-profile \
   --name my-chrome \
   --driver extension \
   --cdp-url http://127.0.0.1:18792 \
@@ -325,12 +325,12 @@ If gateway auth is configured, browser HTTP routes require auth too:
 
 Some features (navigate/act/AI snapshot/role snapshot, element screenshots, PDF) require
 Playwright. If Playwright isn’t installed, those endpoints return a clear 501
-error. ARIA snapshots and basic screenshots still work for Root-managed Chrome.
+error. ARIA snapshots and basic screenshots still work for Korvus-managed Chrome.
 For the Chrome extension relay driver, ARIA snapshots and screenshots require Playwright.
 
 If you see `Playwright is not available in this gateway build`, install the full
 Playwright package (not `playwright-core`) and restart the gateway, or reinstall
-Root with browser support.
+Korvus with browser support.
 
 #### Docker Playwright install
 
@@ -366,79 +366,79 @@ All commands also accept `--json` for machine-readable output (stable payloads).
 
 Basics:
 
-- `Root browser status`
-- `Root browser start`
-- `Root browser stop`
-- `Root browser tabs`
-- `Root browser tab`
-- `Root browser tab new`
-- `Root browser tab select 2`
-- `Root browser tab close 2`
-- `Root browser open https://example.com`
-- `Root browser focus abcd1234`
-- `Root browser close abcd1234`
+- `Korvus browser status`
+- `Korvus browser start`
+- `Korvus browser stop`
+- `Korvus browser tabs`
+- `Korvus browser tab`
+- `Korvus browser tab new`
+- `Korvus browser tab select 2`
+- `Korvus browser tab close 2`
+- `Korvus browser open https://example.com`
+- `Korvus browser focus abcd1234`
+- `Korvus browser close abcd1234`
 
 Inspection:
 
-- `Root browser screenshot`
-- `Root browser screenshot --full-page`
-- `Root browser screenshot --ref 12`
-- `Root browser screenshot --ref e12`
-- `Root browser snapshot`
-- `Root browser snapshot --format aria --limit 200`
-- `Root browser snapshot --interactive --compact --depth 6`
-- `Root browser snapshot --efficient`
-- `Root browser snapshot --labels`
-- `Root browser snapshot --selector "#main" --interactive`
-- `Root browser snapshot --frame "iframe#main" --interactive`
-- `Root browser console --level error`
-- `Root browser errors --clear`
-- `Root browser requests --filter api --clear`
-- `Root browser pdf`
-- `Root browser responsebody "**/api" --max-chars 5000`
+- `Korvus browser screenshot`
+- `Korvus browser screenshot --full-page`
+- `Korvus browser screenshot --ref 12`
+- `Korvus browser screenshot --ref e12`
+- `Korvus browser snapshot`
+- `Korvus browser snapshot --format aria --limit 200`
+- `Korvus browser snapshot --interactive --compact --depth 6`
+- `Korvus browser snapshot --efficient`
+- `Korvus browser snapshot --labels`
+- `Korvus browser snapshot --selector "#main" --interactive`
+- `Korvus browser snapshot --frame "iframe#main" --interactive`
+- `Korvus browser console --level error`
+- `Korvus browser errors --clear`
+- `Korvus browser requests --filter api --clear`
+- `Korvus browser pdf`
+- `Korvus browser responsebody "**/api" --max-chars 5000`
 
 Actions:
 
-- `Root browser navigate https://example.com`
-- `Root browser resize 1280 720`
-- `Root browser click 12 --double`
-- `Root browser click e12 --double`
-- `Root browser type 23 "hello" --submit`
-- `Root browser press Enter`
-- `Root browser hover 44`
-- `Root browser scrollintoview e12`
-- `Root browser drag 10 11`
-- `Root browser select 9 OptionA OptionB`
-- `Root browser download e12 report.pdf`
-- `Root browser waitfordownload report.pdf`
-- `Root browser upload /tmp/Root/uploads/file.pdf`
-- `Root browser fill --fields '[{"ref":"1","type":"text","value":"Ada"}]'`
-- `Root browser dialog --accept`
-- `Root browser wait --text "Done"`
-- `Root browser wait "#main" --url "**/dash" --load networkidle --fn "window.ready===true"`
-- `Root browser evaluate --fn '(el) => el.textContent' --ref 7`
-- `Root browser highlight e12`
-- `Root browser trace start`
-- `Root browser trace stop`
+- `Korvus browser navigate https://example.com`
+- `Korvus browser resize 1280 720`
+- `Korvus browser click 12 --double`
+- `Korvus browser click e12 --double`
+- `Korvus browser type 23 "hello" --submit`
+- `Korvus browser press Enter`
+- `Korvus browser hover 44`
+- `Korvus browser scrollintoview e12`
+- `Korvus browser drag 10 11`
+- `Korvus browser select 9 OptionA OptionB`
+- `Korvus browser download e12 report.pdf`
+- `Korvus browser waitfordownload report.pdf`
+- `Korvus browser upload /tmp/Root/uploads/file.pdf`
+- `Korvus browser fill --fields '[{"ref":"1","type":"text","value":"Ada"}]'`
+- `Korvus browser dialog --accept`
+- `Korvus browser wait --text "Done"`
+- `Korvus browser wait "#main" --url "**/dash" --load networkidle --fn "window.ready===true"`
+- `Korvus browser evaluate --fn '(el) => el.textContent' --ref 7`
+- `Korvus browser highlight e12`
+- `Korvus browser trace start`
+- `Korvus browser trace stop`
 
 State:
 
-- `Root browser cookies`
-- `Root browser cookies set session abc123 --url "https://example.com"`
-- `Root browser cookies clear`
-- `Root browser storage local get`
-- `Root browser storage local set theme dark`
-- `Root browser storage session clear`
-- `Root browser set offline on`
-- `Root browser set headers --json '{"X-Debug":"1"}'`
-- `Root browser set credentials user pass`
-- `Root browser set credentials --clear`
-- `Root browser set geo 37.7749 -122.4194 --origin "https://example.com"`
-- `Root browser set geo --clear`
-- `Root browser set media dark`
-- `Root browser set timezone America/New_York`
-- `Root browser set locale en-US`
-- `Root browser set device "iPhone 14"`
+- `Korvus browser cookies`
+- `Korvus browser cookies set session abc123 --url "https://example.com"`
+- `Korvus browser cookies clear`
+- `Korvus browser storage local get`
+- `Korvus browser storage local set theme dark`
+- `Korvus browser storage session clear`
+- `Korvus browser set offline on`
+- `Korvus browser set headers --json '{"X-Debug":"1"}'`
+- `Korvus browser set credentials user pass`
+- `Korvus browser set credentials --clear`
+- `Korvus browser set geo 37.7749 -122.4194 --origin "https://example.com"`
+- `Korvus browser set geo --clear`
+- `Korvus browser set media dark`
+- `Korvus browser set timezone America/New_York`
+- `Korvus browser set locale en-US`
+- `Korvus browser set device "iPhone 14"`
 
 Notes:
 
@@ -464,16 +464,16 @@ Notes:
 
 ## Snapshots and refs
 
-Root supports two “snapshot” styles:
+Korvus supports two “snapshot” styles:
 
-- **AI snapshot (numeric refs)**: `Root browser snapshot` (default; `--format ai`)
+- **AI snapshot (numeric refs)**: `Korvus browser snapshot` (default; `--format ai`)
   - Output: a text snapshot that includes numeric refs.
-  - Actions: `Root browser click 12`, `Root browser type 23 "hello"`.
+  - Actions: `Korvus browser click 12`, `Korvus browser type 23 "hello"`.
   - Internally, the ref is resolved via Playwright’s `aria-ref`.
 
-- **Role snapshot (role refs like `e12`)**: `Root browser snapshot --interactive` (or `--compact`, `--depth`, `--selector`, `--frame`)
+- **Role snapshot (role refs like `e12`)**: `Korvus browser snapshot --interactive` (or `--compact`, `--depth`, `--selector`, `--frame`)
   - Output: a role-based list/tree with `[ref=e12]` (and optional `[nth=1]`).
-  - Actions: `Root browser click e12`, `Root browser highlight e12`.
+  - Actions: `Korvus browser click e12`, `Korvus browser highlight e12`.
   - Internally, the ref is resolved via `getByRole(...)` (plus `nth()` for duplicates).
   - Add `--labels` to include a viewport screenshot with overlayed `e12` labels.
 
@@ -487,18 +487,18 @@ Ref behavior:
 You can wait on more than just time/text:
 
 - Wait for URL (globs supported by Playwright):
-  - `Root browser wait --url "**/dash"`
+  - `Korvus browser wait --url "**/dash"`
 - Wait for load state:
-  - `Root browser wait --load networkidle`
+  - `Korvus browser wait --load networkidle`
 - Wait for a JS predicate:
-  - `Root browser wait --fn "window.ready===true"`
+  - `Korvus browser wait --fn "window.ready===true"`
 - Wait for a selector to become visible:
-  - `Root browser wait "#main"`
+  - `Korvus browser wait "#main"`
 
 These can be combined:
 
 ```bash
-Root browser wait "#main" \
+Korvus browser wait "#main" \
   --url "**/dash" \
   --load networkidle \
   --fn "window.ready===true" \
@@ -509,16 +509,16 @@ Root browser wait "#main" \
 
 When an action fails (e.g. “not visible”, “strict mode violation”, “covered”):
 
-1. `Root browser snapshot --interactive`
+1. `Korvus browser snapshot --interactive`
 2. Use `click <ref>` / `type <ref>` (prefer role refs in interactive mode)
-3. If it still fails: `Root browser highlight <ref>` to see what Playwright is targeting
+3. If it still fails: `Korvus browser highlight <ref>` to see what Playwright is targeting
 4. If the page behaves oddly:
-   - `Root browser errors --clear`
-   - `Root browser requests --filter api --clear`
+   - `Korvus browser errors --clear`
+   - `Korvus browser requests --filter api --clear`
 5. For deep debugging: record a trace:
-   - `Root browser trace start`
+   - `Korvus browser trace start`
    - reproduce the issue
-   - `Root browser trace stop` (prints `TRACE:<path>`)
+   - `Korvus browser trace stop` (prints `TRACE:<path>`)
 
 ## JSON output
 
@@ -527,10 +527,10 @@ When an action fails (e.g. “not visible”, “strict mode violation”, “co
 Examples:
 
 ```bash
-Root browser status --json
-Root browser snapshot --interactive --json
-Root browser requests --filter api --json
-Root browser cookies --json
+Korvus browser status --json
+Korvus browser snapshot --interactive --json
+Korvus browser requests --filter api --json
+Korvus browser cookies --json
 ```
 
 Role snapshots in JSON include `refs` plus a small `stats` block (lines/chars/refs/interactive) so tools can reason about payload size and density.
@@ -553,8 +553,8 @@ These are useful for “make the site behave like X” workflows:
 
 ## Security & privacy
 
-- The Root browser profile may contain logged-in sessions; treat it as sensitive.
-- `browser act kind=evaluate` / `Root browser evaluate` and `wait --fn`
+- The Korvus browser profile may contain logged-in sessions; treat it as sensitive.
+- `browser act kind=evaluate` / `Korvus browser evaluate` and `wait --fn`
   execute arbitrary JavaScript in the page context. Prompt injection can steer
   this. Disable it with `browser.evaluateEnabled=false` if you do not need it.
 - For logins and anti-bot notes (X/Twitter, etc.), see [Browser login + X/Twitter posting](/tools/browser-login).

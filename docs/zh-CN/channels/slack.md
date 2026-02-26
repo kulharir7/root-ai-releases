@@ -56,7 +56,7 @@ x-i18n:
 
 多账户支持：使用 `channels.slack.accounts` 配置每个账户的令牌和可选的 `name`。参见 [`gateway/configuration`](/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts) 了解共享模式。
 
-### Root 配置（最小）
+### Korvus 配置（最小）
 
 通过环境变量设置令牌（推荐）：
 
@@ -141,7 +141,7 @@ HTTP 模式使用 Events API + Interactivity + Slash Commands，共享一个请�
 示例请求 URL：
 `https://gateway-host/slack/events`
 
-### Root 配置（最小）
+### Korvus 配置（最小）
 
 ```json5
 {
@@ -167,7 +167,7 @@ HTTP 模式使用 Events API + Interactivity + Slash Commands，共享一个请�
 {
   "display_information": {
     "name": "Root",
-    "description": "Slack connector for Root"
+    "description": "Slack connector for Korvus"
   },
   "features": {
     "bot_user": {

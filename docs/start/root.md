@@ -8,7 +8,7 @@ title: "Personal Assistant Setup"
 
 # Building a personal assistant with Root
 
-Root is a WhatsApp + Telegram + Discord + iMessage gateway for **Pi** agents. Plugins add Mattermost. This guide is the "personal assistant" setup: one dedicated WhatsApp number that behaves like your always-on agent.
+Korvus is a WhatsApp + Telegram + Discord + iMessage gateway for **Pi** agents. Plugins add Mattermost. This guide is the "personal assistant" setup: one dedicated WhatsApp number that behaves like your always-on agent.
 
 ## ⚠️ Safety first
 
@@ -46,13 +46,13 @@ If you link your personal WhatsApp to Root, every message to you becomes “agen
 1. Pair WhatsApp Web (shows QR; scan with the assistant phone):
 
 ```bash
-Root channels login
+Korvus channels login
 ```
 
 2. Start the Gateway (leave it running):
 
 ```bash
-Root gateway --port 18789
+Korvus gateway --port 18789
 ```
 
 3. Put a minimal config in `~/.Root/Root.json`:
@@ -71,12 +71,12 @@ When onboarding finishes, we auto-open the dashboard and print a clean (non-toke
 
 Root reads operating instructions and “memory” from its workspace directory.
 
-By default, Root uses `~/.Root/workspace` as the agent workspace, and will create it (plus starter `AGENTS.md`, `SOUL.md`, `TOOLS.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`) automatically on setup/first agent run. `BOOTSTRAP.md` is only created when the workspace is brand new (it should not come back after you delete it). `MEMORY.md` is optional (not auto-created); when present, it is loaded for normal sessions. Subagent sessions only inject `AGENTS.md` and `TOOLS.md`.
+By default, Korvus uses `~/.Root/workspace` as the agent workspace, and will create it (plus starter `AGENTS.md`, `SOUL.md`, `TOOLS.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`) automatically on setup/first agent run. `BOOTSTRAP.md` is only created when the workspace is brand new (it should not come back after you delete it). `MEMORY.md` is optional (not auto-created); when present, it is loaded for normal sessions. Subagent sessions only inject `AGENTS.md` and `TOOLS.md`.
 
 Tip: treat this folder like Root’s “memory” and make it a git repo (ideally private) so your `AGENTS.md` + memory files are backed up. If git is installed, brand-new workspaces are auto-initialized.
 
 ```bash
-Root setup
+Korvus setup
 ```
 
 Full workspace layout + backup guide: [Agent workspace](/concepts/agent-workspace)
@@ -157,7 +157,7 @@ Example:
 
 ## Heartbeats (proactive mode)
 
-By default, Root runs a heartbeat every 30 minutes with the prompt:
+By default, Korvus runs a heartbeat every 30 minutes with the prompt:
 `Read HEARTBEAT.md if it exists (workspace context). Follow it strictly. Do not infer or repeat old tasks from prior chats. If nothing needs attention, reply HEARTBEAT_OK.`
 Set `agents.defaults.heartbeat.every: "0m"` to disable.
 
@@ -194,9 +194,9 @@ Root extracts these and sends them as media alongside the text.
 ## Operations checklist
 
 ```bash
-Root status          # local status (creds, sessions, queued events)
-Root status --all    # full diagnosis (read-only, pasteable)
-Root status --deep   # adds gateway health probes (Telegram + Discord)
+Korvus status          # local status (creds, sessions, queued events)
+Korvus status --all    # full diagnosis (read-only, pasteable)
+Korvus status --deep   # adds gateway health probes (Telegram + Discord)
 Root health --json   # gateway health snapshot (WS)
 ```
 

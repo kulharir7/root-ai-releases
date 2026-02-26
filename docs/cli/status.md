@@ -1,20 +1,20 @@
 ---
-summary: "CLI reference for `Root status` (diagnostics, probes, usage snapshots)"
+summary: "CLI reference for `Korvus status` (diagnostics, probes, usage snapshots)"
 read_when:
   - You want a quick diagnosis of channel health + recent session recipients
   - You want a pasteable “all” status for debugging
 title: "status"
 ---
 
-# `Root status`
+# `Korvus status`
 
 Diagnostics for channels + sessions.
 
 ```bash
-Root status
-Root status --all
-Root status --deep
-Root status --usage
+Korvus status
+Korvus status --all
+Korvus status --deep
+Korvus status --usage
 ```
 
 Notes:
@@ -23,4 +23,4 @@ Notes:
 - Output includes per-agent session stores when multiple agents are configured.
 - Overview includes Gateway + node host service install/runtime status when available.
 - Overview includes update channel + git SHA (for source checkouts).
-- Update info surfaces in the Overview; if an update is available, status prints a hint to run `Root update` (see [Updating](/install/updating)).
+- Update info surfaces in the Overview; if an update is available, status prints a hint to run `Korvus update` (see [Updating](/install/updating)).

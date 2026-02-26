@@ -1,5 +1,5 @@
 ---
-summary: "Root plugins/extensions: discovery, config, and safety"
+summary: "Korvus plugins/extensions: discovery, config, and safety"
 read_when:
   - Adding or modifying plugins/extensions
   - Documenting plugin install or load rules
@@ -10,7 +10,7 @@ title: "Plugins"
 
 ## Quick start (new to plugins?)
 
-A plugin is just a **small code module** that extends Root with extra
+A plugin is just a **small code module** that extends Korvus with extra
 features (commands, tools, and Gateway RPC).
 
 Most of the time, you’ll use plugins when you want a feature that’s not built
@@ -22,13 +22,13 @@ Fast path:
 1. See what’s already loaded:
 
 ```bash
-Root plugins list
+Korvus plugins list
 ```
 
 2. Install an official plugin (example: Voice Call):
 
 ```bash
-Root plugins install @Root/voice-call
+Korvus plugins install @Root/voice-call
 ```
 
 Npm specs are **registry-only** (package name + optional version/tag). Git/URL/file
@@ -54,7 +54,7 @@ See [Voice Call](/plugins/voice-call) for a concrete example plugin.
 - Qwen OAuth (provider auth) — bundled as `qwen-portal-auth` (disabled by default)
 - Copilot Proxy (provider auth) — local VS Code Copilot Proxy bridge; distinct from built-in `github-copilot` device login (bundled, disabled by default)
 
-Root plugins are **TypeScript modules** loaded at runtime via jiti. **Config
+Korvus plugins are **TypeScript modules** loaded at runtime via jiti. **Config
 validation does not execute plugin code**; it uses the plugin manifest and JSON
 Schema instead. See [Plugin manifest](/plugins/manifest).
 
@@ -112,7 +112,7 @@ Root scans, in order:
 - `<Root>/extensions/*`
 
 Bundled plugins must be enabled explicitly via `plugins.entries.<id>.enabled`
-or `Root plugins enable <id>`. Installed plugins are enabled by default,
+or `Korvus plugins enable <id>`. Installed plugins are enabled by default,
 but can be disabled the same way.
 
 Each plugin must include a `Root.plugin.json` file in its root. If a path
@@ -141,7 +141,7 @@ becomes `name/<fileBase>`.
 If your plugin imports npm deps, install them in that directory so
 `node_modules` is available (`npm install` / `pnpm install`).
 
-Security note: `Root plugins install` installs plugin dependencies with
+Security note: `Korvus plugins install` installs plugin dependencies with
 `npm install --ignore-scripts` (no lifecycle scripts). Keep plugin dependency
 trees "pure JS/TS" and avoid packages that require `postinstall` builds.
 
@@ -176,7 +176,7 @@ Example:
 }
 ```
 
-Root can also merge **external channel catalogs** (for example, an MPM
+Korvus can also merge **external channel catalogs** (for example, an MPM
 registry export). Drop a JSON file at one of:
 
 - `~/.Root/mpm/plugins.json`
@@ -194,7 +194,7 @@ Default plugin ids:
 - Package packs: `package.json` `name`
 - Standalone file: file base name (`~/.../voice-call.ts` → `voice-call`)
 
-If a plugin exports `id`, Root uses it but warns when it doesn’t match the
+If a plugin exports `id`, Korvus uses it but warns when it doesn’t match the
 configured id.
 
 ## Config
@@ -286,19 +286,19 @@ Example:
 ## CLI
 
 ```bash
-Root plugins list
-Root plugins info <id>
-Root plugins install <path>                 # copy a local file/dir into ~/.Root/extensions/<id>
-Root plugins install ./extensions/voice-call # relative path ok
-Root plugins install ./plugin.tgz           # install from a local tarball
-Root plugins install ./plugin.zip           # install from a local zip
-Root plugins install -l ./extensions/voice-call # link (no copy) for dev
-Root plugins install @Root/voice-call # install from npm
-Root plugins update <id>
-Root plugins update --all
-Root plugins enable <id>
-Root plugins disable <id>
-Root plugins doctor
+Korvus plugins list
+Korvus plugins info <id>
+Korvus plugins install <path>                 # copy a local file/dir into ~/.Root/extensions/<id>
+Korvus plugins install ./extensions/voice-call # relative path ok
+Korvus plugins install ./plugin.tgz           # install from a local tarball
+Korvus plugins install ./plugin.zip           # install from a local zip
+Korvus plugins install -l ./extensions/voice-call # link (no copy) for dev
+Korvus plugins install @Root/voice-call # install from npm
+Korvus plugins update <id>
+Korvus plugins update --all
+Korvus plugins enable <id>
+Korvus plugins disable <id>
+Korvus plugins doctor
 ```
 
 `plugins update` only works for npm installs tracked under `plugins.installs`.
@@ -331,8 +331,8 @@ Notes:
 
 - Hook directories follow the normal hook structure (`HOOK.md` + `handler.ts`).
 - Hook eligibility rules still apply (OS/bins/env/config requirements).
-- Plugin-managed hooks show up in `Root hooks list` with `plugin:<id>`.
-- You cannot enable/disable plugin-managed hooks via `Root hooks`; enable/disable the plugin instead.
+- Plugin-managed hooks show up in `Korvus hooks list` with `plugin:<id>`.
+- You cannot enable/disable plugin-managed hooks via `Korvus hooks`; enable/disable the plugin instead.
 
 ## Provider plugins (model auth)
 
@@ -342,7 +342,7 @@ API-key setup inside Root (no external scripts needed).
 Register a provider via `api.registerProvider(...)`. Each provider exposes one
 or more auth methods (OAuth, API key, device code, etc.). These methods power:
 
-- `Root models auth login --provider <id> [--method <id>]`
+- `Korvus models auth login --provider <id> [--method <id>]`
 
 Example:
 
@@ -568,7 +568,7 @@ Command handler context:
 - `isAuthorizedSender`: Whether the sender is an authorized user
 - `args`: Arguments passed after the command (if `acceptsArgs: true`)
 - `commandBody`: The full command text
-- `config`: The current Root config
+- `config`: The current Korvus config
 
 Command options:
 
@@ -638,7 +638,7 @@ Publishing contract:
 
 - Plugin `package.json` must include `Root.extensions` with one or more entry files.
 - Entry files can be `.js` or `.ts` (jiti loads TS at runtime).
-- `Root plugins install <npm-spec>` uses `npm pack`, extracts into `~/.Root/extensions/<id>/`, and enables it in config.
+- `Korvus plugins install <npm-spec>` uses `npm pack`, extracts into `~/.Root/extensions/<id>/`, and enables it in config.
 - Config key stability: scoped packages are normalized to the **unscoped** id for `plugins.entries.*`.
 
 ## Example plugin: Voice Call

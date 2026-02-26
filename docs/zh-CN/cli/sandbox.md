@@ -22,25 +22,25 @@ Root 可以在隔离的 Docker 容器中运行智能体以确保安全。`sandbo
 
 ## 命令
 
-### `Root sandbox explain`
+### `Korvus sandbox explain`
 
 检查**生效的**沙箱模式/作用域/工作区访问权限、沙箱工具策略和提权门控（附带修复配置的键路径）。
 
 ```bash
-Root sandbox explain
-Root sandbox explain --session agent:main:main
-Root sandbox explain --agent work
-Root sandbox explain --json
+Korvus sandbox explain
+Korvus sandbox explain --session agent:main:main
+Korvus sandbox explain --agent work
+Korvus sandbox explain --json
 ```
 
-### `Root sandbox list`
+### `Korvus sandbox list`
 
 列出所有沙箱容器及其状态和配置。
 
 ```bash
-Root sandbox list
-Root sandbox list --browser  # List only browser containers
-Root sandbox list --json     # JSON output
+Korvus sandbox list
+Korvus sandbox list --browser  # List only browser containers
+Korvus sandbox list --json     # JSON output
 ```
 
 **输出包括：**
@@ -51,16 +51,16 @@ Root sandbox list --json     # JSON output
 - 空闲时间（自上次使用以来的时间）
 - 关联的会话/智能体
 
-### `Root sandbox recreate`
+### `Korvus sandbox recreate`
 
 移除沙箱容器以强制使用更新的镜像/配置重新创建。
 
 ```bash
-Root sandbox recreate --all                # Recreate all containers
-Root sandbox recreate --session main       # Specific session
-Root sandbox recreate --agent mybot        # Specific agent
-Root sandbox recreate --browser            # Only browser containers
-Root sandbox recreate --all --force        # Skip confirmation
+Korvus sandbox recreate --all                # Recreate all containers
+Korvus sandbox recreate --session main       # Specific session
+Korvus sandbox recreate --agent mybot        # Specific agent
+Korvus sandbox recreate --browser            # Only browser containers
+Korvus sandbox recreate --all --force        # Skip confirmation
 ```
 
 **选项：**
@@ -86,7 +86,7 @@ docker tag Root-sandbox:latest Root-sandbox:bookworm-slim
 # Edit config: agents.defaults.sandbox.docker.image (or agents.list[].sandbox.docker.image)
 
 # Recreate containers
-Root sandbox recreate --all
+Korvus sandbox recreate --all
 ```
 
 ### 更改沙箱配置后
@@ -95,22 +95,22 @@ Root sandbox recreate --all
 # Edit config: agents.defaults.sandbox.* (or agents.list[].sandbox.*)
 
 # Recreate to apply new config
-Root sandbox recreate --all
+Korvus sandbox recreate --all
 ```
 
 ### 更改 setupCommand 后
 
 ```bash
-Root sandbox recreate --all
+Korvus sandbox recreate --all
 # or just one agent:
-Root sandbox recreate --agent family
+Korvus sandbox recreate --agent family
 ```
 
 ### 仅针对特定智能体
 
 ```bash
 # Update only one agent's containers
-Root sandbox recreate --agent alfred
+Korvus sandbox recreate --agent alfred
 ```
 
 ## 为什么需要这个？
@@ -121,9 +121,9 @@ Root sandbox recreate --agent alfred
 - 容器仅在空闲 24 小时后才被清理
 - 经常使用的智能体会无限期保持旧容器运行
 
-**解决方案：** 使用 `Root sandbox recreate` 强制移除旧容器。它们会在下次需要时自动使用当前设置重新创建。
+**解决方案：** 使用 `Korvus sandbox recreate` 强制移除旧容器。它们会在下次需要时自动使用当前设置重新创建。
 
-提示：优先使用 `Root sandbox recreate` 而不是手动 `docker rm`。它使用 Gateway 网关的容器命名规则，避免在作用域/会话键更改时出现不匹配。
+提示：优先使用 `Korvus sandbox recreate` 而不是手动 `docker rm`。它使用 Gateway 网关的容器命名规则，避免在作用域/会话键更改时出现不匹配。
 
 ## 配置
 

@@ -13,7 +13,7 @@ A **node** is a companion device (macOS/iOS/Android/headless) that connects to t
 
 Legacy transport: [Bridge protocol](/gateway/bridge-protocol) (TCP JSONL; deprecated/removed for current nodes).
 
-macOS can also run in **node mode**: the menubar app connects to the Gateway’s WS server and exposes its local canvas/camera commands as a node (so `Root nodes …` works against this Mac).
+macOS can also run in **node mode**: the menubar app connects to the Gateway’s WS server and exposes its local canvas/camera commands as a node (so `Korvus nodes …` works against this Mac).
 
 Notes:
 
@@ -32,14 +32,14 @@ Quick CLI:
 Root devices list
 Root devices approve <requestId>
 Root devices reject <requestId>
-Root nodes status
-Root nodes describe --node <idOrNameOrIp>
+Korvus nodes status
+Korvus nodes describe --node <idOrNameOrIp>
 ```
 
 Notes:
 
 - `nodes status` marks a node as **paired** when its device pairing role includes `node`.
-- `node.pair.*` (CLI: `Root nodes pending/approve/reject`) is a separate gateway-owned
+- `node.pair.*` (CLI: `Korvus nodes pending/approve/reject`) is a separate gateway-owned
   node pairing store; it does **not** gate the WS `connect` handshake.
 
 ## Remote node host (system.run)
@@ -96,15 +96,15 @@ Root node restart
 On the gateway host:
 
 ```bash
-Root nodes pending
-Root nodes approve <requestId>
-Root nodes list
+Korvus nodes pending
+Korvus nodes approve <requestId>
+Korvus nodes list
 ```
 
 Naming options:
 
 - `--display-name` on `Root node run` / `Root node install` (persists in `~/.Root/node.json` on the node).
-- `Root nodes rename --node <id|name|ip> --name "Build Node"` (gateway override).
+- `Korvus nodes rename --node <id|name|ip> --name "Build Node"` (gateway override).
 
 ### Allowlist the commands
 
@@ -122,9 +122,9 @@ Approvals live on the node host at `~/.Root/exec-approvals.json`.
 Configure defaults (gateway config):
 
 ```bash
-Root config set tools.exec.host node
-Root config set tools.exec.security allowlist
-Root config set tools.exec.node "<id-or-name>"
+Korvus config set tools.exec.host node
+Korvus config set tools.exec.security allowlist
+Korvus config set tools.exec.node "<id-or-name>"
 ```
 
 Or per session:
@@ -147,7 +147,7 @@ Related:
 Low-level (raw RPC):
 
 ```bash
-Root nodes invoke --node <idOrNameOrIp> --command canvas.eval --params '{"javaScript":"location.href"}'
+Korvus nodes invoke --node <idOrNameOrIp> --command canvas.eval --params '{"javaScript":"location.href"}'
 ```
 
 Higher-level helpers exist for the common “give the agent a MEDIA attachment” workflows.
@@ -159,17 +159,17 @@ If the node is showing the Canvas (WebView), `canvas.snapshot` returns `{ format
 CLI helper (writes to a temp file and prints `MEDIA:<path>`):
 
 ```bash
-Root nodes canvas snapshot --node <idOrNameOrIp> --format png
-Root nodes canvas snapshot --node <idOrNameOrIp> --format jpg --max-width 1200 --quality 0.9
+Korvus nodes canvas snapshot --node <idOrNameOrIp> --format png
+Korvus nodes canvas snapshot --node <idOrNameOrIp> --format jpg --max-width 1200 --quality 0.9
 ```
 
 ### Canvas controls
 
 ```bash
-Root nodes canvas present --node <idOrNameOrIp> --target https://example.com
-Root nodes canvas hide --node <idOrNameOrIp>
-Root nodes canvas navigate https://example.com --node <idOrNameOrIp>
-Root nodes canvas eval --node <idOrNameOrIp> --js "document.title"
+Korvus nodes canvas present --node <idOrNameOrIp> --target https://example.com
+Korvus nodes canvas hide --node <idOrNameOrIp>
+Korvus nodes canvas navigate https://example.com --node <idOrNameOrIp>
+Korvus nodes canvas eval --node <idOrNameOrIp> --js "document.title"
 ```
 
 Notes:
@@ -180,9 +180,9 @@ Notes:
 ### A2UI (Canvas)
 
 ```bash
-Root nodes canvas a2ui push --node <idOrNameOrIp> --text "Hello"
-Root nodes canvas a2ui push --node <idOrNameOrIp> --jsonl ./payload.jsonl
-Root nodes canvas a2ui reset --node <idOrNameOrIp>
+Korvus nodes canvas a2ui push --node <idOrNameOrIp> --text "Hello"
+Korvus nodes canvas a2ui push --node <idOrNameOrIp> --jsonl ./payload.jsonl
+Korvus nodes canvas a2ui reset --node <idOrNameOrIp>
 ```
 
 Notes:
@@ -194,16 +194,16 @@ Notes:
 Photos (`jpg`):
 
 ```bash
-Root nodes camera list --node <idOrNameOrIp>
-Root nodes camera snap --node <idOrNameOrIp>            # default: both facings (2 MEDIA lines)
-Root nodes camera snap --node <idOrNameOrIp> --facing front
+Korvus nodes camera list --node <idOrNameOrIp>
+Korvus nodes camera snap --node <idOrNameOrIp>            # default: both facings (2 MEDIA lines)
+Korvus nodes camera snap --node <idOrNameOrIp> --facing front
 ```
 
 Video clips (`mp4`):
 
 ```bash
-Root nodes camera clip --node <idOrNameOrIp> --duration 10s
-Root nodes camera clip --node <idOrNameOrIp> --duration 3000 --no-audio
+Korvus nodes camera clip --node <idOrNameOrIp> --duration 10s
+Korvus nodes camera clip --node <idOrNameOrIp> --duration 3000 --no-audio
 ```
 
 Notes:
@@ -217,8 +217,8 @@ Notes:
 Nodes expose `screen.record` (mp4). Example:
 
 ```bash
-Root nodes screen record --node <idOrNameOrIp> --duration 10s --fps 10
-Root nodes screen record --node <idOrNameOrIp> --duration 10s --fps 10 --no-audio
+Korvus nodes screen record --node <idOrNameOrIp> --duration 10s --fps 10
+Korvus nodes screen record --node <idOrNameOrIp> --duration 10s --fps 10 --no-audio
 ```
 
 Notes:
@@ -236,8 +236,8 @@ Nodes expose `location.get` when Location is enabled in settings.
 CLI helper:
 
 ```bash
-Root nodes location get --node <idOrNameOrIp>
-Root nodes location get --node <idOrNameOrIp> --accuracy precise --max-age 15000 --location-timeout 10000
+Korvus nodes location get --node <idOrNameOrIp>
+Korvus nodes location get --node <idOrNameOrIp> --accuracy precise --max-age 15000 --location-timeout 10000
 ```
 
 Notes:
@@ -253,7 +253,7 @@ Android nodes can expose `sms.send` when the user grants **SMS** permission and 
 Low-level invoke:
 
 ```bash
-Root nodes invoke --node <idOrNameOrIp> --command sms.send --params '{"to":"+15555550123","message":"Hello from Root"}'
+Korvus nodes invoke --node <idOrNameOrIp> --command sms.send --params '{"to":"+15555550123","message":"Hello from Root"}'
 ```
 
 Notes:
@@ -269,8 +269,8 @@ The headless node host exposes `system.run`, `system.which`, and `system.execApp
 Examples:
 
 ```bash
-Root nodes run --node <idOrNameOrIp> -- echo "Hello from mac node"
-Root nodes notify --node <idOrNameOrIp> --title "Ping" --body "Gateway ready"
+Korvus nodes run --node <idOrNameOrIp> -- echo "Hello from mac node"
+Korvus nodes notify --node <idOrNameOrIp> --title "Ping" --body "Gateway ready"
 ```
 
 Notes:
@@ -292,21 +292,21 @@ This sets the default node for `exec host=node` (and can be overridden per agent
 Global default:
 
 ```bash
-Root config set tools.exec.node "node-id-or-name"
+Korvus config set tools.exec.node "node-id-or-name"
 ```
 
 Per-agent override:
 
 ```bash
-Root config get agents.list
-Root config set agents.list[0].tools.exec.node "node-id-or-name"
+Korvus config get agents.list
+Korvus config set agents.list[0].tools.exec.node "node-id-or-name"
 ```
 
 Unset to allow any node:
 
 ```bash
-Root config unset tools.exec.node
-Root config unset agents.list[0].tools.exec.node
+Korvus config unset tools.exec.node
+Korvus config unset agents.list[0].tools.exec.node
 ```
 
 ## Permissions map
@@ -315,7 +315,7 @@ Nodes may include a `permissions` map in `node.list` / `node.describe`, keyed by
 
 ## Headless node host (cross-platform)
 
-Root can run a **headless node host** (no UI) that connects to the Gateway
+Korvus can run a **headless node host** (no UI) that connects to the Gateway
 WebSocket and exposes `system.run` / `system.which`. This is useful on Linux/Windows
 or for running a minimal node alongside a server.
 
@@ -338,5 +338,5 @@ Notes:
 
 ## Mac node mode
 
-- The macOS menubar app connects to the Gateway WS server as a node (so `Root nodes …` works against this Mac).
+- The macOS menubar app connects to the Gateway WS server as a node (so `Korvus nodes …` works against this Mac).
 - In remote mode, the app opens an SSH tunnel for the Gateway port and connects to `localhost`.

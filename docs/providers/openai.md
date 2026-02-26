@@ -19,9 +19,9 @@ Get your API key from the OpenAI dashboard.
 ### CLI setup
 
 ```bash
-Root onboard --auth-choice openai-api-key
+Korvus onboard --auth-choice openai-api-key
 # or non-interactive
-Root onboard --openai-api-key "$OPENAI_API_KEY"
+Korvus onboard --openai-api-key "$OPENAI_API_KEY"
 ```
 
 ### Config snippet
@@ -42,10 +42,10 @@ Codex cloud requires ChatGPT sign-in, while the Codex CLI supports ChatGPT or AP
 
 ```bash
 # Run Codex OAuth in the wizard
-Root onboard --auth-choice openai-codex
+Korvus onboard --auth-choice openai-codex
 
 # Or run OAuth directly
-Root models auth login --provider openai-codex
+Korvus models auth login --provider openai-codex
 ```
 
 ### Config snippet (Codex subscription)

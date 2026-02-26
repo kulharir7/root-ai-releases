@@ -8,12 +8,12 @@ title: "Updating"
 
 # Updating
 
-Root is moving fast (pre “1.0”). Treat updates like shipping infra: update → run checks → restart (or use `Root update`, which restarts) → verify.
+Korvus is moving fast (pre “1.0”). Treat updates like shipping infra: update → run checks → restart (or use `Korvus update`, which restarts) → verify.
 
 ## Recommended: re-run the website installer (upgrade in place)
 
 The **preferred** update path is to re-run the installer from the website. It
-detects existing installs, upgrades in place, and runs `Root doctor` when
+detects existing installs, upgrades in place, and runs `Korvus doctor` when
 needed.
 
 ```bash
@@ -60,9 +60,9 @@ We do **not** recommend Bun for the Gateway runtime (WhatsApp/Telegram bugs).
 To switch update channels (git + npm installs):
 
 ```bash
-Root update --channel beta
-Root update --channel dev
-Root update --channel stable
+Korvus update --channel beta
+Korvus update --channel dev
+Korvus update --channel stable
 ```
 
 Use `--tag <dist-tag|version>` for a one-off install tag/version.
@@ -74,22 +74,22 @@ Note: on npm installs, the gateway logs an update hint on startup (checks the cu
 Then:
 
 ```bash
-Root doctor
-Root gateway restart
+Korvus doctor
+Korvus gateway restart
 Root health
 ```
 
 Notes:
 
-- If your Gateway runs as a service, `Root gateway restart` is preferred over killing PIDs.
+- If your Gateway runs as a service, `Korvus gateway restart` is preferred over killing PIDs.
 - If you’re pinned to a specific version, see “Rollback / pinning” below.
 
-## Update (`Root update`)
+## Update (`Korvus update`)
 
 For **source installs** (git checkout), prefer:
 
 ```bash
-Root update
+Korvus update
 ```
 
 It runs a safe-ish update flow:
@@ -97,16 +97,16 @@ It runs a safe-ish update flow:
 - Requires a clean worktree.
 - Switches to the selected channel (tag or branch).
 - Fetches + rebases against the configured upstream (dev channel).
-- Installs deps, builds, builds the Control UI, and runs `Root doctor`.
+- Installs deps, builds, builds the Control UI, and runs `Korvus doctor`.
 - Restarts the gateway by default (use `--no-restart` to skip).
 
-If you installed via **npm/pnpm** (no git metadata), `Root update` will try to update via your package manager. If it can’t detect the install, use “Update (global install)” instead.
+If you installed via **npm/pnpm** (no git metadata), `Korvus update` will try to update via your package manager. If it can’t detect the install, use “Update (global install)” instead.
 
 ## Update (Control UI / RPC)
 
 The Control UI has **Update & Restart** (RPC: `update.run`). It:
 
-1. Runs the same source-update flow as `Root update` (git checkout only).
+1. Runs the same source-update flow as `Korvus update` (git checkout only).
 2. Writes a restart sentinel with a structured report (stdout/stderr tail).
 3. Restarts the gateway and pings the last active session with the report.
 
@@ -119,7 +119,7 @@ From the repo checkout:
 Preferred:
 
 ```bash
-Root update
+Korvus update
 ```
 
 Manual (equivalent-ish):
@@ -129,7 +129,7 @@ git pull
 pnpm install
 pnpm build
 pnpm ui:build # auto-installs UI deps on first run
-Root doctor
+Korvus doctor
 Root health
 ```
 
@@ -138,13 +138,13 @@ Notes:
 - `pnpm build` matters when you run the packaged `Root` binary ([`Root.mjs`](https://github.com/Root/Root/blob/main/Root.mjs)) or use Node to run `dist/`.
 - If you run from a repo checkout without a global install, use `pnpm Root ...` for CLI commands.
 - If you run directly from TypeScript (`pnpm Root ...`), a rebuild is usually unnecessary, but **config migrations still apply** → run doctor.
-- Switching between global and git installs is easy: install the other flavor, then run `Root doctor` so the gateway service entrypoint is rewritten to the current install.
+- Switching between global and git installs is easy: install the other flavor, then run `Korvus doctor` so the gateway service entrypoint is rewritten to the current install.
 
-## Always Run: `Root doctor`
+## Always Run: `Korvus doctor`
 
 Doctor is the “safe update” command. It’s intentionally boring: repair + migrate + warn.
 
-Note: if you’re on a **source install** (git checkout), `Root doctor` will offer to run `Root update` first.
+Note: if you’re on a **source install** (git checkout), `Korvus doctor` will offer to run `Korvus update` first.
 
 Typical things it does:
 
@@ -161,19 +161,19 @@ Details: [Doctor](/gateway/doctor)
 CLI (works regardless of OS):
 
 ```bash
-Root gateway status
-Root gateway stop
-Root gateway restart
-Root gateway --port 18789
-Root logs --follow
+Korvus gateway status
+Korvus gateway stop
+Korvus gateway restart
+Korvus gateway --port 18789
+Korvus logs --follow
 ```
 
 If you’re supervised:
 
 - macOS launchd (app-bundled LaunchAgent): `launchctl kickstart -k gui/$UID/bot.molt.gateway` (use `bot.molt.<profile>`; legacy `com.Root.*` still works)
-- Linux systemd user service: `systemctl --user restart Root-gateway[-<profile>].service`
-- Windows (WSL2): `systemctl --user restart Root-gateway[-<profile>].service`
-  - `launchctl`/`systemctl` only work if the service is installed; otherwise run `Root gateway install`.
+- Linux systemd user service: `systemctl --user restart Korvus-gateway[-<profile>].service`
+- Windows (WSL2): `systemctl --user restart Korvus-gateway[-<profile>].service`
+  - `launchctl`/`systemctl` only work if the service is installed; otherwise run `Korvus gateway install`.
 
 Runbook + exact service labels: [Gateway runbook](/gateway)
 
@@ -196,8 +196,8 @@ Tip: to see the current published version, run `npm view Root version`.
 Then restart + re-run doctor:
 
 ```bash
-Root doctor
-Root gateway restart
+Korvus doctor
+Korvus gateway restart
 ```
 
 ### Pin (source) by date
@@ -214,7 +214,7 @@ Then reinstall deps + restart:
 ```bash
 pnpm install
 pnpm build
-Root gateway restart
+Korvus gateway restart
 ```
 
 If you want to go back to latest later:
@@ -226,6 +226,6 @@ git pull
 
 ## If you’re stuck
 
-- Run `Root doctor` again and read the output carefully (it often tells you the fix).
+- Run `Korvus doctor` again and read the output carefully (it often tells you the fix).
 - Check: [Troubleshooting](/gateway/troubleshooting)
 - Ask in Discord: [https://discord.gg/clawd](https://discord.gg/clawd)

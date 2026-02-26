@@ -26,15 +26,15 @@ x-i18n:
 
 | 命令                               | 它告诉你什么                                                                          | 何时使用                              |
 | ---------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------- |
-| `Root status`                  | 本地摘要：操作系统 + 更新、Gateway 网关可达性/模式、服务、智能体/会话、提供商配置状态 | 首次检查，快速概览                    |
-| `Root status --all`            | 完整本地诊断（只读、可粘贴、相对安全）包括日志尾部                                    | 当你需要分享调试报告时                |
-| `Root status --deep`           | 运行 Gateway 网关健康检查（包括提供商探测；需要可达的 Gateway 网关）                  | 当"已配置"不意味着"正常工作"时        |
-| `Root gateway probe`           | Gateway 网关发现 + 可达性（本地 + 远程目标）                                          | 当你怀疑正在探测错误的 Gateway 网关时 |
-| `Root channels status --probe` | 向运行中的 Gateway 网关查询渠道状态（并可选探测）                                     | 当 Gateway 网关可达但渠道异常时       |
-| `Root gateway status`          | 监管程序状态（launchd/systemd/schtasks）、运行时 PID/退出、最后的 Gateway 网关错误    | 当服务"看起来已加载"但没有运行时      |
-| `Root logs --follow`           | 实时日志（运行时问题的最佳信号）                                                      | 当你需要实际的故障原因时              |
+| `Korvus status`                  | 本地摘要：操作系统 + 更新、Gateway 网关可达性/模式、服务、智能体/会话、提供商配置状态 | 首次检查，快速概览                    |
+| `Korvus status --all`            | 完整本地诊断（只读、可粘贴、相对安全）包括日志尾部                                    | 当你需要分享调试报告时                |
+| `Korvus status --deep`           | 运行 Gateway 网关健康检查（包括提供商探测；需要可达的 Gateway 网关）                  | 当"已配置"不意味着"正常工作"时        |
+| `Korvus gateway probe`           | Gateway 网关发现 + 可达性（本地 + 远程目标）                                          | 当你怀疑正在探测错误的 Gateway 网关时 |
+| `Korvus channels status --probe` | 向运行中的 Gateway 网关查询渠道状态（并可选探测）                                     | 当 Gateway 网关可达但渠道异常时       |
+| `Korvus gateway status`          | 监管程序状态（launchd/systemd/schtasks）、运行时 PID/退出、最后的 Gateway 网关错误    | 当服务"看起来已加载"但没有运行时      |
+| `Korvus logs --follow`           | 实时日志（运行时问题的最佳信号）                                                      | 当你需要实际的故障原因时              |
 
-**分享输出：** 优先使用 `Root status --all`（它会隐藏令牌）。如果你粘贴 `Root status`，考虑先设置 `Root_SHOW_SECRETS=0`（令牌预览）。
+**分享输出：** 优先使用 `Korvus status --all`（它会隐藏令牌）。如果你粘贴 `Korvus status`，考虑先设置 `Root_SHOW_SECRETS=0`（令牌预览）。
 
 另请参阅：[健康检查](/gateway/health) 和 [日志](/logging)。
 
@@ -50,14 +50,14 @@ x-i18n:
 - 重新运行新手引导并为该智能体选择 **Anthropic**。
 - 或在 **Gateway 网关主机**上粘贴 setup-token：
   ```bash
-  Root models auth setup-token --provider anthropic
+  Korvus models auth setup-token --provider anthropic
   ```
 - 或将 `auth-profiles.json` 从主智能体目录复制到新智能体目录。
 
 验证：
 
 ```bash
-Root models status
+Korvus models status
 ```
 
 ### OAuth token refresh failed（Anthropic Claude 订阅）
@@ -70,15 +70,15 @@ Root models status
 
 ```bash
 # 在 Gateway 网关主机上运行（粘贴 setup-token）
-Root models auth setup-token --provider anthropic
-Root models status
+Korvus models auth setup-token --provider anthropic
+Korvus models status
 ```
 
 如果你在其他地方生成了令牌：
 
 ```bash
-Root models auth paste-token --provider anthropic
-Root models status
+Korvus models auth paste-token --provider anthropic
+Korvus models status
 ```
 
 更多详情：[Anthropic](/providers/anthropic) 和 [OAuth](/concepts/oauth)。
@@ -110,15 +110,15 @@ Root models status
 **检查：**
 
 ```bash
-Root gateway status
-Root doctor
+Korvus gateway status
+Korvus doctor
 ```
 
 Doctor/service 将显示运行时状态（PID/最后退出）和日志提示。
 
 **日志：**
 
-- 优先：`Root logs --follow`
+- 优先：`Korvus logs --follow`
 - 文件日志（始终）：`/tmp/Root/Root-YYYY-MM-DD.log`（或你配置的 `logging.file`）
 - macOS LaunchAgent（如果已安装）：`$Root_STATE_DIR/logs/gateway.log` 和 `gateway.err.log`
 - Linux systemd（如果已安装）：`journalctl --user -u Root-gateway[-<profile>].service -n 200 --no-pager`
@@ -147,25 +147,25 @@ Gateway 网关拒绝启动。
 
 - 运行向导并将 Gateway 网关运行模式设置为 **Local**：
   ```bash
-  Root configure
+  Korvus configure
   ```
 - 或直接设置：
   ```bash
-  Root config set gateway.mode local
+  Korvus config set gateway.mode local
   ```
 
 **如果你打算运行远程 Gateway 网关：**
 
 - 设置远程 URL 并保持 `gateway.mode=remote`：
   ```bash
-  Root config set gateway.mode remote
-  Root config set gateway.remote.url "wss://gateway.example.com"
+  Korvus config set gateway.mode remote
+  Korvus config set gateway.remote.url "wss://gateway.example.com"
   ```
 
 **仅临时/开发使用：** 传递 `--allow-unconfigured` 以在没有
 `gateway.mode=local` 的情况下启动 Gateway 网关。
 
-**还没有配置文件？** 运行 `Root setup` 创建初始配置，然后重新运行
+**还没有配置文件？** 运行 `Korvus setup` 创建初始配置，然后重新运行
 Gateway 网关。
 
 ### 服务环境（PATH + 运行时）
@@ -183,7 +183,7 @@ Gateway 网关服务使用**最小 PATH** 运行以避免 shell/管理器的干�
 `tools.exec.pathPrepend`）。参见 [/tools/exec](/tools/exec)。
 
 WhatsApp + Telegram 渠道需要 **Node**；不支持 Bun。如果你的
-服务是用 Bun 或版本管理的 Node 路径安装的，运行 `Root doctor`
+服务是用 Bun 或版本管理的 Node 路径安装的，运行 `Korvus doctor`
 迁移到系统 Node 安装。
 
 ### 沙箱中 Skill 缺少 API 密钥
@@ -196,7 +196,7 @@ WhatsApp + Telegram 渠道需要 **Node**；不支持 Bun。如果你的
 
 - 设置 `agents.defaults.sandbox.docker.env`（或每个智能体的 `agents.list[].sandbox.docker.env`）
 - 或将密钥烘焙到你的自定义沙箱镜像中
-- 然后运行 `Root sandbox recreate --agent <id>`（或 `--all`）
+- 然后运行 `Korvus sandbox recreate --agent <id>`（或 `--all`）
 
 ### 服务运行但端口未监听
 
@@ -211,31 +211,31 @@ Gateway 网关可能拒绝绑定。
 
 **检查：**
 
-- `gateway.mode` 必须为 `local` 才能运行 `Root gateway` 和服务。
-- 如果你设置了 `gateway.mode=remote`，**CLI 默认**使用远程 URL。服务可能仍在本地运行，但你的 CLI 可能在探测错误的位置。使用 `Root gateway status` 查看服务解析的端口 + 探测目标（或传递 `--url`）。
-- `Root gateway status` 和 `Root doctor` 在服务看起来正在运行但端口关闭时会显示日志中的**最后 Gateway 网关错误**。
+- `gateway.mode` 必须为 `local` 才能运行 `Korvus gateway` 和服务。
+- 如果你设置了 `gateway.mode=remote`，**CLI 默认**使用远程 URL。服务可能仍在本地运行，但你的 CLI 可能在探测错误的位置。使用 `Korvus gateway status` 查看服务解析的端口 + 探测目标（或传递 `--url`）。
+- `Korvus gateway status` 和 `Korvus doctor` 在服务看起来正在运行但端口关闭时会显示日志中的**最后 Gateway 网关错误**。
 - 非本地回环绑定（`lan`/`tailnet`/`custom`，或本地回环不可用时的 `auto`）需要认证：
   `gateway.auth.token`（或 `Root_GATEWAY_TOKEN`）。
 - `gateway.remote.token` 仅用于远程 CLI 调用；它**不**启用本地认证。
 - `gateway.token` 被忽略；使用 `gateway.auth.token`。
 
-**如果 `Root gateway status` 显示配置不匹配**
+**如果 `Korvus gateway status` 显示配置不匹配**
 
 - `Config (cli): ...` 和 `Config (service): ...` 通常应该匹配。
 - 如果不匹配，你几乎肯定是在编辑一个配置而服务运行的是另一个。
-- 修复：从你希望服务使用的相同 `--profile` / `Root_STATE_DIR` 重新运行 `Root gateway install --force`。
+- 修复：从你希望服务使用的相同 `--profile` / `Root_STATE_DIR` 重新运行 `Korvus gateway install --force`。
 
-**如果 `Root gateway status` 报告服务配置问题**
+**如果 `Korvus gateway status` 报告服务配置问题**
 
 - 监管程序配置（launchd/systemd/schtasks）缺少当前默认值。
-- 修复：运行 `Root doctor` 更新它（或 `Root gateway install --force` 完全重写）。
+- 修复：运行 `Korvus doctor` 更新它（或 `Korvus gateway install --force` 完全重写）。
 
 **如果 `Last gateway error:` 提到"refusing to bind … without auth"**
 
 - 你将 `gateway.bind` 设置为非本地回环模式（`lan`/`tailnet`/`custom`，或本地回环不可用时的 `auto`）但没有配置认证。
 - 修复：设置 `gateway.auth.mode` + `gateway.auth.token`（或导出 `Root_GATEWAY_TOKEN`）并重启服务。
 
-**如果 `Root gateway status` 显示 `bind=tailnet` 但未找到 tailnet 接口**
+**如果 `Korvus gateway status` 显示 `bind=tailnet` 但未找到 tailnet 接口**
 
 - Gateway 网关尝试绑定到 Tailscale IP（100.64.0.0/10）但在主机上未检测到。
 - 修复：在该机器上启动 Tailscale（或将 `gateway.bind` 改为 `loopback`/`lan`）。
@@ -252,7 +252,7 @@ Gateway 网关可能拒绝绑定。
 **检查：**
 
 ```bash
-Root gateway status
+Korvus gateway status
 ```
 
 它将显示监听器和可能的原因（Gateway 网关已在运行、SSH 隧道）。
@@ -300,8 +300,8 @@ Root 有意拒绝**较旧/不安全的模型**（尤其是那些更容易受到�
 **修复：**
 
 - 为提供商选择**最新**模型并更新你的配置或模型别名。
-- 如果你不确定哪些模型可用，运行 `Root models list` 或
-  `Root models scan` 并选择一个支持的模型。
+- 如果你不确定哪些模型可用，运行 `Korvus models list` 或
+  `Korvus models scan` 并选择一个支持的模型。
 - 检查 Gateway 网关日志以获取详细的失败原因。
 
 另请参阅：[模型 CLI](/cli/models) 和 [模型提供商](/concepts/model-providers)。
@@ -311,7 +311,7 @@ Root 有意拒绝**较旧/不安全的模型**（尤其是那些更容易受到�
 **检查 1：** 发送者是否在白名单中？
 
 ```bash
-Root status
+Korvus status
 ```
 
 在输出中查找 `AllowFrom: ...`。
@@ -328,7 +328,7 @@ grep -n "agents\\|groupChat\\|mentionPatterns\\|channels\\.whatsapp\\.groups\\|c
 **检查 3：** 检查日志
 
 ```bash
-Root logs --follow
+Korvus logs --follow
 # 或者如果你想快速过滤：
 tail -f "$(ls -t /tmp/Root/Root-*.log | head -1)" | grep "blocked\\|skip\\|unauthorized"
 ```
@@ -348,7 +348,7 @@ Root pairing list <channel>
 **检查 2：** 请求是否已创建但未发送回复？
 
 ```bash
-Root logs --follow | grep "pairing request"
+Korvus logs --follow | grep "pairing request"
 ```
 
 **检查 3：** 确认该渠道的 `dmPolicy` 不是 `open`/`allowlist`。
@@ -404,26 +404,26 @@ ls -la ~/.Root/agents/<agentId>/sessions/
 
 ```bash
 # 检查本地状态（凭证、会话、排队事件）
-Root status
+Korvus status
 # 探测运行中的 Gateway 网关 + 渠道（WA 连接 + Telegram + Discord API）
-Root status --deep
+Korvus status --deep
 
 # 查看最近的连接事件
-Root logs --limit 200 | grep "connection\\|disconnect\\|logout"
+Korvus logs --limit 200 | grep "connection\\|disconnect\\|logout"
 ```
 
 **修复：** 通常在 Gateway 网关运行后会自动重连。如果卡住，重启 Gateway 网关进程（无论你如何监管它），或使用详细输出手动运行：
 
 ```bash
-Root gateway --verbose
+Korvus gateway --verbose
 ```
 
 如果你已登出/取消关联：
 
 ```bash
-Root channels logout
+Korvus channels logout
 trash "${Root_STATE_DIR:-$HOME/.Root}/credentials" # 如果 logout 无法完全清除所有内容
-Root channels login --verbose       # 重新扫描二维码
+Korvus channels login --verbose       # 重新扫描二维码
 ```
 
 ### 媒体发送失败
@@ -470,22 +470,22 @@ Root 在内存中保留对话历史。
 用 Doctor 修复：
 
 ```bash
-Root doctor
-Root doctor --fix
+Korvus doctor
+Korvus doctor --fix
 ```
 
 注意事项：
 
-- `Root doctor` 报告每个无效条目。
-- `Root doctor --fix` 应用迁移/修复并重写配置。
-- 诊断命令如 `Root logs`、`Root health`、`Root status`、`Root gateway status` 和 `Root gateway probe` 即使配置无效也能运行。
+- `Korvus doctor` 报告每个无效条目。
+- `Korvus doctor --fix` 应用迁移/修复并重写配置。
+- 诊断命令如 `Korvus logs`、`Root health`、`Korvus status`、`Korvus gateway status` 和 `Korvus gateway probe` 即使配置无效也能运行。
 
 ### "All models failed" — 我应该首先检查什么？
 
 - **凭证**存在于正在尝试的提供商（认证配置文件 + 环境变量）。
 - **模型路由**：确认 `agents.defaults.model.primary` 和回退是你可以访问的模型。
 - `/tmp/Root/…` 中的 **Gateway 网关日志**以获取确切的提供商错误。
-- **模型状态**：使用 `/model status`（聊天）或 `Root models status`（CLI）。
+- **模型状态**：使用 `/model status`（聊天）或 `Korvus models status`（CLI）。
 
 ### 我在我的个人 WhatsApp 号码上运行 — 为什么自聊天很奇怪？
 
@@ -510,13 +510,13 @@ Root doctor --fix
 再次运行登录命令并扫描二维码：
 
 ```bash
-Root channels login
+Korvus channels login
 ```
 
 ### `main` 上的构建错误 — 标准修复路径是什么？
 
 1. `git pull origin main && pnpm install`
-2. `Root doctor`
+2. `Korvus doctor`
 3. 检查 GitHub issues 或 Discord
 4. 临时变通方法：检出较旧的提交
 
@@ -531,8 +531,8 @@ Root channels login
 git status   # 确保你在仓库根目录
 pnpm install
 pnpm build
-Root doctor
-Root gateway restart
+Korvus doctor
+Korvus gateway restart
 ```
 
 原因：pnpm 是此仓库配置的包管理器。
@@ -559,8 +559,8 @@ curl -fsSL https://Root.ai/install.sh | bash
 - git 流程仅在仓库干净时才 rebase。先提交或 stash 更改。
 - 切换后，运行：
   ```bash
-  Root doctor
-  Root gateway restart
+  Korvus doctor
+  Korvus gateway restart
   ```
 
 ### Telegram 分块流式传输没有在工具调用之间分割文本。为什么？
@@ -595,7 +595,7 @@ curl -fsSL https://Root.ai/install.sh | bash
 3. 将 `requireMention: false` 放在 `channels.discord.guilds` **下面**（全局或每个频道）。
    顶级 `channels.discord.requireMention` 不是支持的键。
 4. 确保机器人有 **Message Content Intent** 和频道权限。
-5. 运行 `Root channels status --probe` 获取审计提示。
+5. 运行 `Korvus channels status --probe` 获取审计提示。
 
 文档：[Discord](/channels/discord)、[渠道故障排除](/channels/troubleshooting)。
 
@@ -641,8 +641,8 @@ tccutil reset All bot.molt.mac.debug
 如果 Gateway 网关由 launchd 监管，杀死 PID 只会重新生成它。先停止监管程序：
 
 ```bash
-Root gateway status
-Root gateway stop
+Korvus gateway status
+Korvus gateway stop
 # 或：launchctl bootout gui/$UID/bot.molt.gateway（用 bot.molt.<profile> 替换；旧版 com.Root.* 仍然有效）
 ```
 
@@ -677,8 +677,8 @@ npm install -g Root@<version>
 #   ${Root_CONFIG_PATH:-$HOME/.Root/Root.json} -> { logging: { level: "trace" } }
 #
 # 然后运行详细命令将调试输出镜像到标准输出：
-Root gateway --verbose
-Root channels login --verbose
+Korvus gateway --verbose
+Korvus channels login --verbose
 ```
 
 ## 日志位置
@@ -695,9 +695,9 @@ Root channels login --verbose
 
 ```bash
 # 监管程序 + 探测目标 + 配置路径
-Root gateway status
+Korvus gateway status
 # 包括系统级扫描（旧版/额外服务、端口监听器）
-Root gateway status --deep
+Korvus gateway status --deep
 
 # Gateway 网关是否可达？
 Root health --json
@@ -708,7 +708,7 @@ Root health --verbose
 lsof -nP -iTCP:18789 -sTCP:LISTEN
 
 # 最近活动（RPC 日志尾部）
-Root logs --follow
+Korvus logs --follow
 # 如果 RPC 宕机的备用方案
 tail -20 /tmp/Root/Root-*.log
 ```
@@ -718,13 +718,13 @@ tail -20 /tmp/Root/Root-*.log
 核选项：
 
 ```bash
-Root gateway stop
+Korvus gateway stop
 # 如果你安装了服务并想要干净安装：
-# Root gateway uninstall
+# Korvus gateway uninstall
 
 trash "${Root_STATE_DIR:-$HOME/.Root}"
-Root channels login         # 重新配对 WhatsApp
-Root gateway restart           # 或：Root gateway
+Korvus channels login         # 重新配对 WhatsApp
+Korvus gateway restart           # 或：Korvus gateway
 ```
 
 ⚠️ 这会丢失所有会话并需要重新配对 WhatsApp。

@@ -1,5 +1,5 @@
 ---
-summary: "Frequently asked questions about Root setup, configuration, and usage"
+summary: "Frequently asked questions about Korvus setup, configuration, and usage"
 title: "FAQ"
 ---
 
@@ -28,10 +28,10 @@ Quick answers plus deeper troubleshooting for real-world setups (local dev, VPS,
   - [Installer stuck? How do I get more feedback?](#installer-stuck-how-do-i-get-more-feedback)
   - [Windows install says git not found or Root not recognized](#windows-install-says-git-not-found-or-Root-not-recognized)
   - [The docs didn't answer my question - how do I get a better answer?](#the-docs-didnt-answer-my-question-how-do-i-get-a-better-answer)
-  - [How do I install Root on Linux?](#how-do-i-install-Root-on-linux)
-  - [How do I install Root on a VPS?](#how-do-i-install-Root-on-a-vps)
+  - [How do I install Korvus on Linux?](#how-do-i-install-Root-on-linux)
+  - [How do I install Korvus on a VPS?](#how-do-i-install-Root-on-a-vps)
   - [Where are the cloud/VPS install guides?](#where-are-the-cloudvps-install-guides)
-  - [Can I ask Root to update itself?](#can-i-ask-Root-to-update-itself)
+  - [Can I ask Korvus to update itself?](#can-i-ask-Root-to-update-itself)
   - [What does the onboarding wizard actually do?](#what-does-the-onboarding-wizard-actually-do)
   - [Do I need a Claude or OpenAI subscription to run this?](#do-i-need-a-claude-or-openai-subscription-to-run-this)
   - [Can I use Claude Max subscription without an API key](#can-i-use-claude-max-subscription-without-an-api-key)
@@ -47,7 +47,7 @@ Quick answers plus deeper troubleshooting for real-world setups (local dev, VPS,
   - [How do I keep hosted model traffic in a specific region?](#how-do-i-keep-hosted-model-traffic-in-a-specific-region)
   - [Do I have to buy a Mac Mini to install this?](#do-i-have-to-buy-a-mac-mini-to-install-this)
   - [Do I need a Mac mini for iMessage support?](#do-i-need-a-mac-mini-for-imessage-support)
-  - [If I buy a Mac mini to run Root, can I connect it to my MacBook Pro?](#if-i-buy-a-mac-mini-to-run-Root-can-i-connect-it-to-my-macbook-pro)
+  - [If I buy a Mac mini to run Korvus, can I connect it to my MacBook Pro?](#if-i-buy-a-mac-mini-to-run-Root-can-i-connect-it-to-my-macbook-pro)
   - [Can I use Bun?](#can-i-use-bun)
   - [Telegram: what goes in `allowFrom`?](#telegram-what-goes-in-allowfrom)
   - [Can multiple people use one WhatsApp number with different Root instances?](#can-multiple-people-use-one-whatsapp-number-with-different-Root-instances)
@@ -56,14 +56,14 @@ Quick answers plus deeper troubleshooting for real-world setups (local dev, VPS,
   - [What's the difference between the hackable (git) install and npm install?](#whats-the-difference-between-the-hackable-git-install-and-npm-install)
   - [Can I switch between npm and git installs later?](#can-i-switch-between-npm-and-git-installs-later)
   - [Should I run the Gateway on my laptop or a VPS?](#should-i-run-the-gateway-on-my-laptop-or-a-vps)
-  - [How important is it to run Root on a dedicated machine?](#how-important-is-it-to-run-Root-on-a-dedicated-machine)
+  - [How important is it to run Korvus on a dedicated machine?](#how-important-is-it-to-run-Root-on-a-dedicated-machine)
   - [What are the minimum VPS requirements and recommended OS?](#what-are-the-minimum-vps-requirements-and-recommended-os)
-  - [Can I run Root in a VM and what are the requirements](#can-i-run-Root-in-a-vm-and-what-are-the-requirements)
+  - [Can I run Korvus in a VM and what are the requirements](#can-i-run-Root-in-a-vm-and-what-are-the-requirements)
 - [What is Root?](#what-is-Root)
   - [What is Root, in one paragraph?](#what-is-Root-in-one-paragraph)
   - [What's the value proposition?](#whats-the-value-proposition)
   - [I just set it up what should I do first](#i-just-set-it-up-what-should-i-do-first)
-  - [What are the top five everyday use cases for Root](#what-are-the-top-five-everyday-use-cases-for-Root)
+  - [What are the top five everyday use cases for Korvus](#what-are-the-top-five-everyday-use-cases-for-Root)
   - [Can Root help with lead gen outreach ads and blogs for a SaaS](#can-Root-help-with-lead-gen-outreach-ads-and-blogs-for-a-saas)
   - [What are the advantages vs Claude Code for web development?](#what-are-the-advantages-vs-claude-code-for-web-development)
 - [Skills and automation](#skills-and-automation)
@@ -89,7 +89,7 @@ Quick answers plus deeper troubleshooting for real-world setups (local dev, VPS,
   - [Where does Root store its data?](#where-does-Root-store-its-data)
   - [Where should AGENTS.md / SOUL.md / USER.md / MEMORY.md live?](#where-should-agentsmd-soulmd-usermd-memorymd-live)
   - [What's the recommended backup strategy?](#whats-the-recommended-backup-strategy)
-  - [How do I completely uninstall Root?](#how-do-i-completely-uninstall-Root)
+  - [How do I completely uninstall Korvus?](#how-do-i-completely-uninstall-Root)
   - [Can agents work outside the workspace?](#can-agents-work-outside-the-workspace)
   - [I'm in remote mode - where is the session store?](#im-in-remote-mode-where-is-the-session-store)
 - [Config basics](#config-basics)
@@ -100,7 +100,7 @@ Quick answers plus deeper troubleshooting for real-world setups (local dev, VPS,
   - [How do I enable web search (and web fetch)?](#how-do-i-enable-web-search-and-web-fetch)
   - [config.apply wiped my config. How do I recover and avoid this?](#configapply-wiped-my-config-how-do-i-recover-and-avoid-this)
   - [How do I run a central Gateway with specialized workers across devices?](#how-do-i-run-a-central-gateway-with-specialized-workers-across-devices)
-  - [Can the Root browser run headless?](#can-the-Root-browser-run-headless)
+  - [Can the Korvus browser run headless?](#can-the-Root-browser-run-headless)
   - [How do I use Brave for browser control?](#how-do-i-use-brave-for-browser-control)
 - [Remote gateways and nodes](#remote-gateways-and-nodes)
   - [How do commands propagate between Telegram, the gateway, and nodes?](#how-do-commands-propagate-between-telegram-the-gateway-and-nodes)
@@ -160,10 +160,10 @@ Quick answers plus deeper troubleshooting for real-world setups (local dev, VPS,
   - [OAuth vs API key: what's the difference?](#oauth-vs-api-key-whats-the-difference)
 - [Gateway: ports, "already running", and remote mode](#gateway-ports-already-running-and-remote-mode)
   - [What port does the Gateway use?](#what-port-does-the-gateway-use)
-  - [Why does `Root gateway status` say `Runtime: running` but `RPC probe: failed`?](#why-does-Root-gateway-status-say-runtime-running-but-rpc-probe-failed)
-  - [Why does `Root gateway status` show `Config (cli)` and `Config (service)` different?](#why-does-Root-gateway-status-show-config-cli-and-config-service-different)
+  - [Why does `Korvus gateway status` say `Runtime: running` but `RPC probe: failed`?](#why-does-Root-gateway-status-say-runtime-running-but-rpc-probe-failed)
+  - [Why does `Korvus gateway status` show `Config (cli)` and `Config (service)` different?](#why-does-Root-gateway-status-show-config-cli-and-config-service-different)
   - [What does "another gateway instance is already listening" mean?](#what-does-another-gateway-instance-is-already-listening-mean)
-  - [How do I run Root in remote mode (client connects to a Gateway elsewhere)?](#how-do-i-run-Root-in-remote-mode-client-connects-to-a-gateway-elsewhere)
+  - [How do I run Korvus in remote mode (client connects to a Gateway elsewhere)?](#how-do-i-run-Root-in-remote-mode-client-connects-to-a-gateway-elsewhere)
   - [The Control UI says "unauthorized" (or keeps reconnecting). What now?](#the-control-ui-says-unauthorized-or-keeps-reconnecting-what-now)
   - [I set `gateway.bind: "tailnet"` but it can't bind / nothing listens](#i-set-gatewaybind-tailnet-but-it-cant-bind-nothing-listens)
   - [Can I run multiple Gateways on the same host?](#can-i-run-multiple-gateways-on-the-same-host)
@@ -171,18 +171,18 @@ Quick answers plus deeper troubleshooting for real-world setups (local dev, VPS,
 - [Logging and debugging](#logging-and-debugging)
   - [Where are logs?](#where-are-logs)
   - [How do I start/stop/restart the Gateway service?](#how-do-i-startstoprestart-the-gateway-service)
-  - [I closed my terminal on Windows - how do I restart Root?](#i-closed-my-terminal-on-windows-how-do-i-restart-Root)
+  - [I closed my terminal on Windows - how do I restart Korvus?](#i-closed-my-terminal-on-windows-how-do-i-restart-Root)
   - [The Gateway is up but replies never arrive. What should I check?](#the-gateway-is-up-but-replies-never-arrive-what-should-i-check)
   - ["Disconnected from gateway: no reason" - what now?](#disconnected-from-gateway-no-reason-what-now)
   - [Telegram setMyCommands fails with network errors. What should I check?](#telegram-setmycommands-fails-with-network-errors-what-should-i-check)
   - [TUI shows no output. What should I check?](#tui-shows-no-output-what-should-i-check)
   - [How do I completely stop then start the Gateway?](#how-do-i-completely-stop-then-start-the-gateway)
-  - [ELI5: `Root gateway restart` vs `Root gateway`](#eli5-Root-gateway-restart-vs-Root-gateway)
+  - [ELI5: `Korvus gateway restart` vs `Korvus gateway`](#eli5-Root-gateway-restart-vs-Root-gateway)
   - [What's the fastest way to get more details when something fails?](#whats-the-fastest-way-to-get-more-details-when-something-fails)
 - [Media and attachments](#media-and-attachments)
   - [My skill generated an image/PDF, but nothing was sent](#my-skill-generated-an-imagepdf-but-nothing-was-sent)
 - [Security and access control](#security-and-access-control)
-  - [Is it safe to expose Root to inbound DMs?](#is-it-safe-to-expose-Root-to-inbound-dms)
+  - [Is it safe to expose Korvus to inbound DMs?](#is-it-safe-to-expose-Root-to-inbound-dms)
   - [Is prompt injection only a concern for public bots?](#is-prompt-injection-only-a-concern-for-public-bots)
   - [Should my bot have its own email GitHub account or phone number](#should-my-bot-have-its-own-email-github-account-or-phone-number)
   - [Can I give it autonomy over my text messages and is that safe](#can-i-give-it-autonomy-over-my-text-messages-and-is-that-safe)
@@ -200,7 +200,7 @@ Quick answers plus deeper troubleshooting for real-world setups (local dev, VPS,
 1. **Quick status (first check)**
 
    ```bash
-   Root status
+   Korvus status
    ```
 
    Fast local summary: OS + update, gateway/service reachability, agents/sessions, provider config + runtime issues (when gateway is reachable).
@@ -208,7 +208,7 @@ Quick answers plus deeper troubleshooting for real-world setups (local dev, VPS,
 2. **Pasteable report (safe to share)**
 
    ```bash
-   Root status --all
+   Korvus status --all
    ```
 
    Read-only diagnosis with log tail (tokens redacted).
@@ -216,7 +216,7 @@ Quick answers plus deeper troubleshooting for real-world setups (local dev, VPS,
 3. **Daemon + port state**
 
    ```bash
-   Root gateway status
+   Korvus gateway status
    ```
 
    Shows supervisor runtime vs RPC reachability, the probe target URL, and which config the service likely used.
@@ -224,7 +224,7 @@ Quick answers plus deeper troubleshooting for real-world setups (local dev, VPS,
 4. **Deep probes**
 
    ```bash
-   Root status --deep
+   Korvus status --deep
    ```
 
    Runs gateway health checks + provider probes (requires a reachable gateway). See [Health](/gateway/health).
@@ -232,7 +232,7 @@ Quick answers plus deeper troubleshooting for real-world setups (local dev, VPS,
 5. **Tail the latest log**
 
    ```bash
-   Root logs --follow
+   Korvus logs --follow
    ```
 
    If RPC is down, fall back to:
@@ -246,7 +246,7 @@ Quick answers plus deeper troubleshooting for real-world setups (local dev, VPS,
 6. **Run the doctor (repairs)**
 
    ```bash
-   Root doctor
+   Korvus doctor
    ```
 
    Repairs/migrates config/state + runs health checks. See [Doctor](/gateway/doctor).
@@ -293,19 +293,19 @@ If you discover a real bug or fix, please file a GitHub issue or send a PR:
 Start with these commands (share outputs when asking for help):
 
 ```bash
-Root status
-Root models status
-Root doctor
+Korvus status
+Korvus models status
+Korvus doctor
 ```
 
 What they do:
 
-- `Root status`: quick snapshot of gateway/agent health + basic config.
-- `Root models status`: checks provider auth + model availability.
-- `Root doctor`: validates and repairs common config/state issues.
+- `Korvus status`: quick snapshot of gateway/agent health + basic config.
+- `Korvus models status`: checks provider auth + model availability.
+- `Korvus doctor`: validates and repairs common config/state issues.
 
-Other useful CLI checks: `Root status --all`, `Root logs --follow`,
-`Root gateway status`, `Root health --verbose`.
+Other useful CLI checks: `Korvus status --all`, `Korvus logs --follow`,
+`Korvus gateway status`, `Root health --verbose`.
 
 Quick debug loop: [First 60 seconds if something's broken](#first-60-seconds-if-somethings-broken).
 Install docs: [Install](/install), [Installer flags](/install/installer), [Updating](/install/updating).
@@ -316,7 +316,7 @@ The repo recommends running from source and using the onboarding wizard:
 
 ```bash
 curl -fsSL https://Root.ai/install.sh | bash
-Root onboard --install-daemon
+Korvus onboard --install-daemon
 ```
 
 The wizard can also build UI assets automatically. After onboarding, you typically run the Gateway on port **18789**.
@@ -329,10 +329,10 @@ cd Root
 pnpm install
 pnpm build
 pnpm ui:build # auto-installs UI deps on first run
-Root onboard
+Korvus onboard
 ```
 
-If you don't have a global install yet, run it via `pnpm Root onboard`.
+If you don't have a global install yet, run it via `pnpm Korvus onboard`.
 
 ### How do I open the dashboard after onboarding
 
@@ -344,12 +344,12 @@ The wizard opens your browser with a clean (non-tokenized) dashboard URL right a
 
 - Open `http://127.0.0.1:18789/`.
 - If it asks for auth, paste the token from `gateway.auth.token` (or `Root_GATEWAY_TOKEN`) into Control UI settings.
-- Retrieve it from the gateway host: `Root config get gateway.auth.token` (or generate one: `Root doctor --generate-gateway-token`).
+- Retrieve it from the gateway host: `Korvus config get gateway.auth.token` (or generate one: `Korvus doctor --generate-gateway-token`).
 
 **Not on localhost:**
 
-- **Tailscale Serve** (recommended): keep bind loopback, run `Root gateway --tailscale serve`, open `https://<magicdns>/`. If `gateway.auth.allowTailscale` is `true`, identity headers satisfy auth (no token).
-- **Tailnet bind**: run `Root gateway --bind tailnet --token "<token>"`, open `http://<tailscale-ip>:18789/`, paste token in dashboard settings.
+- **Tailscale Serve** (recommended): keep bind loopback, run `Korvus gateway --tailscale serve`, open `https://<magicdns>/`. If `gateway.auth.allowTailscale` is `true`, identity headers satisfy auth (no token).
+- **Tailnet bind**: run `Korvus gateway --bind tailnet --token "<token>"`, open `http://<tailscale-ip>:18789/`, paste token in dashboard settings.
 - **SSH tunnel**: `ssh -N -L 18789:127.0.0.1:18789 user@host` then open `http://127.0.0.1:18789/` and paste the token in Control UI settings.
 
 See [Dashboard](/web/dashboard) and [Web surfaces](/web) for bind modes and auth details.
@@ -389,21 +389,21 @@ and tokens stay at 0, the agent never ran.
 1. Restart the Gateway:
 
 ```bash
-Root gateway restart
+Korvus gateway restart
 ```
 
 2. Check status + auth:
 
 ```bash
-Root status
-Root models status
-Root logs --follow
+Korvus status
+Korvus models status
+Korvus logs --follow
 ```
 
 3. If it still hangs, run:
 
 ```bash
-Root doctor
+Korvus doctor
 ```
 
 If the Gateway is remote, ensure the tunnel/Tailscale connection is up and that the UI
@@ -415,10 +415,10 @@ Yes. Copy the **state directory** and **workspace**, then run Doctor once. This
 keeps your bot "exactly the same" (memory, session history, auth, and channel
 state) as long as you copy **both** locations:
 
-1. Install Root on the new machine.
+1. Install Korvus on the new machine.
 2. Copy `$Root_STATE_DIR` (default: `~/.Root`) from the old machine.
 3. Copy your workspace (default: `~/.Root/workspace`).
-4. Run `Root doctor` and restart the Gateway service.
+4. Run `Korvus doctor` and restart the Gateway service.
 
 That preserves config, auth profiles, WhatsApp creds, sessions, and memory. If you're in
 remote mode, remember the gateway host owns the session store and workspace.
@@ -501,7 +501,7 @@ Two options:
 1. **Dev channel (git checkout):**
 
 ```bash
-Root update --channel dev
+Korvus update --channel dev
 ```
 
 This switches to the `main` branch and updates from source.
@@ -566,7 +566,7 @@ Two common Windows issues:
 - Install **Git for Windows** and make sure `git` is on your PATH.
 - Close and reopen PowerShell, then re-run the installer.
 
-**2) Root is not recognized after install**
+**2) Korvus is not recognized after install**
 
 - Your npm global bin folder is not on PATH.
 - Check the path:
@@ -592,7 +592,7 @@ curl -fsSL https://Root.ai/install.sh | bash -s -- --install-method git
 
 More detail: [Install](/install) and [Installer flags](/install/installer).
 
-### How do I install Root on Linux
+### How do I install Korvus on Linux
 
 Short answer: follow the Linux guide, then run the onboarding wizard.
 
@@ -600,7 +600,7 @@ Short answer: follow the Linux guide, then run the onboarding wizard.
 - Full walkthrough: [Getting Started](/start/getting-started).
 - Installer + updates: [Install & updates](/install/updating).
 
-### How do I install Root on a VPS
+### How do I install Korvus on a VPS
 
 Any Linux VPS works. Install on the server, then use SSH/Tailscale to reach the Gateway.
 
@@ -627,7 +627,7 @@ Gateway in the cloud.
 Hub: [Platforms](/platforms). Remote access: [Gateway remote](/gateway/remote).
 Nodes: [Nodes](/nodes), [Nodes CLI](/cli/nodes).
 
-### Can I ask Root to update itself
+### Can I ask Korvus to update itself
 
 Short answer: **possible, not recommended**. The update flow can restart the
 Gateway (which drops the active session), may need a clean git checkout, and
@@ -636,25 +636,25 @@ can prompt for confirmation. Safer: run updates from a shell as the operator.
 Use the CLI:
 
 ```bash
-Root update
-Root update status
-Root update --channel stable|beta|dev
-Root update --tag <dist-tag|version>
-Root update --no-restart
+Korvus update
+Korvus update status
+Korvus update --channel stable|beta|dev
+Korvus update --tag <dist-tag|version>
+Korvus update --no-restart
 ```
 
 If you must automate from an agent:
 
 ```bash
-Root update --yes --no-restart
-Root gateway restart
+Korvus update --yes --no-restart
+Korvus gateway restart
 ```
 
 Docs: [Update](/cli/update), [Updating](/install/updating).
 
 ### What does the onboarding wizard actually do
 
-`Root onboard` is the recommended setup path. In **local mode** it walks you through:
+`Korvus onboard` is the recommended setup path. In **local mode** it walks you through:
 
 - **Model/auth setup** (Anthropic **setup-token** recommended for Claude subscriptions, OpenAI Codex OAuth supported, API keys optional, LM Studio local models supported)
 - **Workspace** location + bootstrap files
@@ -667,7 +667,7 @@ It also warns if your configured model is unknown or missing auth.
 
 ### Do I need a Claude or OpenAI subscription to run this
 
-No. You can run Root with **API keys** (Anthropic/OpenAI/others) or with
+No. You can run Korvus with **API keys** (Anthropic/OpenAI/others) or with
 **local-only models** so your data stays on your device. Subscriptions (Claude
 Pro/Max or OpenAI Codex) are optional ways to authenticate those providers.
 
@@ -686,7 +686,7 @@ If you want the most explicit, supported path, use an Anthropic API key.
 
 ### How does Anthropic setuptoken auth work
 
-`claude setup-token` generates a **token string** via the Claude Code CLI (it is not available in the web console). You can run it on **any machine**. Choose **Anthropic token (paste setup-token)** in the wizard or paste it with `Root models auth paste-token --provider anthropic`. The token is stored as an auth profile for the **anthropic** provider and used like an API key (no auto-refresh). More detail: [OAuth](/concepts/oauth).
+`claude setup-token` generates a **token string** via the Claude Code CLI (it is not available in the web console). You can run it on **any machine**. Choose **Anthropic token (paste setup-token)** in the wizard or paste it with `Korvus models auth paste-token --provider anthropic`. The token is stored as an auth profile for the **anthropic** provider and used like an API key (no auto-refresh). More detail: [OAuth](/concepts/oauth).
 
 ### Where do I find an Anthropic setuptoken
 
@@ -696,7 +696,7 @@ It is **not** in the Anthropic Console. The setup-token is generated by the **Cl
 claude setup-token
 ```
 
-Copy the token it prints, then choose **Anthropic token (paste setup-token)** in the wizard. If you want to run it on the gateway host, use `Root models auth setup-token --provider anthropic`. If you ran `claude setup-token` elsewhere, paste it on the gateway host with `Root models auth paste-token --provider anthropic`. See [Anthropic](/providers/anthropic).
+Copy the token it prints, then choose **Anthropic token (paste setup-token)** in the wizard. If you want to run it on the gateway host, use `Korvus models auth setup-token --provider anthropic`. If you ran `claude setup-token` elsewhere, paste it on the gateway host with `Korvus models auth paste-token --provider anthropic`. See [Anthropic](/providers/anthropic).
 
 ### Do you support Claude subscription auth (Claude Pro or Max)
 
@@ -711,7 +711,7 @@ use a **Claude subscription** (setup-token or Claude Code OAuth), wait for the w
 reset or upgrade your plan. If you use an **Anthropic API key**, check the Anthropic Console
 for usage/billing and raise limits as needed.
 
-Tip: set a **fallback model** so Root can keep replying while a provider is rate-limited.
+Tip: set a **fallback model** so Korvus can keep replying while a provider is rate-limited.
 See [Models](/cli/models) and [OAuth](/concepts/oauth).
 
 ### Is AWS Bedrock supported
@@ -720,7 +720,7 @@ Yes - via pi-ai's **Amazon Bedrock (Converse)** provider with **manual config**.
 
 ### How does Codex auth work
 
-Root supports **OpenAI Code (Codex)** via OAuth (ChatGPT sign-in). The wizard can run the OAuth flow and will set the default model to `openai-codex/gpt-5.3-codex` when appropriate. See [Model providers](/concepts/model-providers) and [Wizard](/start/wizard).
+Korvus supports **OpenAI Code (Codex)** via OAuth (ChatGPT sign-in). The wizard can run the OAuth flow and will set the default model to `openai-codex/gpt-5.3-codex` when appropriate. See [Model providers](/concepts/model-providers) and [Wizard](/start/wizard).
 
 ### Do you support OpenAI subscription auth Codex OAuth
 
@@ -735,8 +735,8 @@ Gemini CLI uses a **plugin auth flow**, not a client id or secret in `Root.json`
 
 Steps:
 
-1. Enable the plugin: `Root plugins enable google-gemini-cli-auth`
-2. Login: `Root models auth login --provider google-gemini-cli --set-default`
+1. Enable the plugin: `Korvus plugins enable google-gemini-cli-auth`
+2. Login: `Korvus models auth login --provider google-gemini-cli --set-default`
 
 This stores OAuth tokens in auth profiles on the gateway host. Details: [Model providers](/concepts/model-providers).
 
@@ -750,7 +750,7 @@ Pick region-pinned endpoints. OpenRouter exposes US-hosted options for MiniMax, 
 
 ### Do I have to buy a Mac Mini to install this
 
-No. Root runs on macOS or Linux (Windows via WSL2). A Mac mini is optional - some people
+No. Korvus runs on macOS or Linux (Windows via WSL2). A Mac mini is optional - some people
 buy one as an always-on host, but a small VPS, home server, or Raspberry Pi-class box works too.
 
 You only need a Mac **for macOS-only tools**. For iMessage, use [BlueBubbles](/channels/bluebubbles) (recommended) - the BlueBubbles server runs on any Mac, and the Gateway can run on Linux or elsewhere. If you want other macOS-only tools, run the Gateway on a Mac or pair a macOS node.
@@ -770,7 +770,7 @@ Common setups:
 Docs: [BlueBubbles](/channels/bluebubbles), [Nodes](/nodes),
 [Mac remote mode](/platforms/mac/remote).
 
-### If I buy a Mac mini to run Root can I connect it to my MacBook Pro
+### If I buy a Mac mini to run Korvus can I connect it to my MacBook Pro
 
 Yes. The **Mac mini can run the Gateway**, and your MacBook Pro can connect as a
 **node** (companion device). Nodes don't run the Gateway - they provide extra
@@ -780,7 +780,7 @@ Common pattern:
 
 - Gateway on the Mac mini (always-on).
 - MacBook Pro runs the macOS app or a node host and pairs to the Gateway.
-- Use `Root nodes status` / `Root nodes list` to see it.
+- Use `Korvus nodes status` / `Korvus nodes list` to see it.
 
 Docs: [Nodes](/nodes), [Nodes CLI](/cli/nodes).
 
@@ -800,7 +800,7 @@ The onboarding wizard accepts `@username` input and resolves it to a numeric ID,
 
 Safer (no third-party bot):
 
-- DM your bot, then run `Root logs --follow` and read `from.id`.
+- DM your bot, then run `Korvus logs --follow` and read `from.id`.
 
 Official Bot API:
 
@@ -831,7 +831,7 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 brew install <formula>
 ```
 
-If you run Root via systemd, ensure the service PATH includes `/home/linuxbrew/.linuxbrew/bin` (or your brew prefix) so `brew`-installed tools resolve in non-login shells.
+If you run Korvus via systemd, ensure the service PATH includes `/home/linuxbrew/.linuxbrew/bin` (or your brew prefix) so `brew`-installed tools resolve in non-login shells.
 Recent builds also prepend common user bin dirs on Linux systemd services (for example `~/.local/bin`, `~/.npm-global/bin`, `~/.local/share/pnpm`, `~/.bun/bin`) and honor `PNPM_HOME`, `NPM_CONFIG_PREFIX`, `BUN_INSTALL`, `VOLTA_HOME`, `ASDF_DATA_DIR`, `NVM_DIR`, and `FNM_DIR` when set.
 
 ### What's the difference between the hackable git install and npm install
@@ -856,16 +856,16 @@ git clone https://github.com/Root/Root.git
 cd Root
 pnpm install
 pnpm build
-Root doctor
-Root gateway restart
+Korvus doctor
+Korvus gateway restart
 ```
 
 From git → npm:
 
 ```bash
 npm install -g Root@latest
-Root doctor
-Root gateway restart
+Korvus doctor
+Korvus gateway restart
 ```
 
 Doctor detects a gateway service entrypoint mismatch and offers to rewrite the service config to match the current install (use `--repair` in automation).
@@ -891,7 +891,7 @@ lowest friction and you're okay with sleep/restarts, run it locally.
 
 **Recommended default:** VPS if you had gateway disconnects before. Local is great when you're actively using the Mac and want local file access or UI automation with a visible browser.
 
-### How important is it to run Root on a dedicated machine
+### How important is it to run Korvus on a dedicated machine
 
 Not required, but **recommended for reliability and isolation**.
 
@@ -903,7 +903,7 @@ For security guidance, read [Security](/gateway/security).
 
 ### What are the minimum VPS requirements and recommended OS
 
-Root is lightweight. For a basic Gateway + one chat channel:
+Korvus is lightweight. For a basic Gateway + one chat channel:
 
 - **Absolute minimum:** 1 vCPU, 1GB RAM, ~500MB disk.
 - **Recommended:** 1-2 vCPU, 2GB RAM or more for headroom (logs, media, multiple channels). Node tools and browser automation can be resource hungry.
@@ -912,7 +912,7 @@ OS: use **Ubuntu LTS** (or any modern Debian/Ubuntu). The Linux install path is 
 
 Docs: [Linux](/platforms/linux), [VPS hosting](/vps).
 
-### Can I run Root in a VM and what are the requirements
+### Can I run Korvus in a VM and what are the requirements
 
 Yes. Treat a VM the same as a VPS: it needs to be always on, reachable, and have enough
 RAM for the Gateway and any channels you enable.
@@ -931,11 +931,11 @@ If you are running macOS in a VM, see [macOS VM](/install/macos-vm).
 
 ### What is Root in one paragraph
 
-Root is a personal AI assistant you run on your own devices. It replies on the messaging surfaces you already use (WhatsApp, Telegram, Slack, Mattermost (plugin), Discord, Google Chat, Signal, iMessage, WebChat) and can also do voice + a live Canvas on supported platforms. The **Gateway** is the always-on control plane; the assistant is the product.
+Korvus is a personal AI assistant you run on your own devices. It replies on the messaging surfaces you already use (WhatsApp, Telegram, Slack, Mattermost (plugin), Discord, Google Chat, Signal, iMessage, WebChat) and can also do voice + a live Canvas on supported platforms. The **Gateway** is the always-on control plane; the assistant is the product.
 
 ### What's the value proposition
 
-Root is not "just a Claude wrapper." It's a **local-first control plane** that lets you run a
+Korvus is not "just a Claude wrapper." It's a **local-first control plane** that lets you run a
 capable assistant on **your own hardware**, reachable from the chat apps you already use, with
 stateful sessions, memory, and tools - without handing control of your workflows to a hosted
 SaaS.
@@ -968,7 +968,7 @@ Good first projects:
 It can handle large tasks, but it works best when you split them into phases and
 use sub agents for parallel work.
 
-### What are the top five everyday use cases for Root
+### What are the top five everyday use cases for Korvus
 
 Everyday wins usually look like:
 
@@ -991,7 +991,7 @@ Docs: [Security](/gateway/security).
 
 ### What are the advantages vs Claude Code for web development
 
-Root is a **personal assistant** and coordination layer, not an IDE replacement. Use
+Korvus is a **personal assistant** and coordination layer, not an IDE replacement. Use
 Claude Code or Codex for the fastest direct coding loop inside a repo. Use Root when you
 want durable memory, cross-device access, and tool orchestration.
 
@@ -1052,8 +1052,8 @@ Checklist:
 Debug:
 
 ```bash
-Root cron run <jobId> --force
-Root cron runs --id <jobId> --limit 50
+Korvus cron run <jobId> --force
+Korvus cron runs --id <jobId> --limit 50
 ```
 
 Docs: [Cron jobs](/automation/cron-jobs), [Cron vs Heartbeat](/automation/cron-vs-heartbeat).
@@ -1094,7 +1094,7 @@ You have three supported patterns:
 Run the Gateway where the macOS binaries exist, then connect from Linux in [remote mode](#how-do-i-run-Root-in-remote-mode-client-connects-to-a-gateway-elsewhere) or over Tailscale. The skills load normally because the Gateway host is macOS.
 
 **Option B - use a macOS node (no SSH).**
-Run the Gateway on Linux, pair a macOS node (menubar app), and set **Node Run Commands** to "Always Ask" or "Always Allow" on the Mac. Root can treat macOS-only skills as eligible when the required binaries exist on the node. The agent runs those skills via the `nodes` tool. If you choose "Always Ask", approving "Always Allow" in the prompt adds that command to the allowlist.
+Run the Gateway on Linux, pair a macOS node (menubar app), and set **Node Run Commands** to "Always Ask" or "Always Allow" on the Mac. Korvus can treat macOS-only skills as eligible when the required binaries exist on the node. The agent runs those skills via the `nodes` tool. If you choose "Always Ask", approving "Always Allow" in the prompt adds that command to the allowlist.
 
 **Option C - proxy macOS binaries over SSH (advanced).**
 Keep the Gateway on Linux, but make the required CLI binaries resolve to SSH wrappers that run on a Mac. Then override the skill to allow Linux so it stays eligible.
@@ -1151,8 +1151,8 @@ ClawHub installs into `./skills` under your current directory (or falls back to 
 Use the built-in installer, then load the unpacked extension in Chrome:
 
 ```bash
-Root browser extension install
-Root browser extension path
+Korvus browser extension install
+Korvus browser extension path
 ```
 
 Then Chrome → `chrome://extensions` → enable "Developer mode" → "Load unpacked" → pick that folder.
@@ -1198,7 +1198,7 @@ Set `agents.defaults.sandbox.docker.binds` to `["host:path:mode"]` (e.g., `"/hom
 
 ### How does memory work
 
-Root memory is just Markdown files in the agent workspace:
+Korvus memory is just Markdown files in the agent workspace:
 
 - Daily notes in `memory/YYYY-MM-DD.md`
 - Curated long-term notes in `MEMORY.md` (main/private sessions only)
@@ -1278,7 +1278,7 @@ Everything lives under `$Root_STATE_DIR` (default: `~/.Root`):
 | `$Root_STATE_DIR/agents/<agentId>/sessions/`                | Conversation history & state (per agent)                     |
 | `$Root_STATE_DIR/agents/<agentId>/sessions/sessions.json`   | Session metadata (per agent)                                 |
 
-Legacy single-agent path: `~/.Root/agent/*` (migrated by `Root doctor`).
+Legacy single-agent path: `~/.Root/agent/*` (migrated by `Korvus doctor`).
 
 Your **workspace** (AGENTS.md, memory files, skills, etc.) is separate and configured via `agents.defaults.workspace` (default: `~/.Root/workspace`).
 
@@ -1320,7 +1320,7 @@ separately (see the migration question above).
 
 Docs: [Agent workspace](/concepts/agent-workspace).
 
-### How do I completely uninstall Root
+### How do I completely uninstall Korvus
 
 See the dedicated guide: [Uninstall](/install/uninstall).
 
@@ -1387,7 +1387,7 @@ Notes:
 
 The wizard generates a gateway token by default (even on loopback) so **local WS clients must authenticate**. This blocks other local processes from calling the Gateway. Paste the token into the Control UI settings (or your client config) to connect.
 
-If you **really** want open loopback, remove `gateway.auth` from your config. Doctor can generate a token for you any time: `Root doctor --generate-gateway-token`.
+If you **really** want open loopback, remove `gateway.auth` from your config. Doctor can generate a token for you any time: `Korvus doctor --generate-gateway-token`.
 
 ### Do I have to restart after changing config
 
@@ -1399,7 +1399,7 @@ The Gateway watches the config and supports hot-reload:
 ### How do I enable web search and web fetch
 
 `web_fetch` works without an API key. `web_search` requires a Brave Search API
-key. **Recommended:** run `Root configure --section web` to store it in
+key. **Recommended:** run `Korvus configure --section web` to store it in
 `tools.web.search.apiKey`. Environment alternative: set `BRAVE_API_KEY` for the
 Gateway process.
 
@@ -1440,7 +1440,7 @@ The common pattern is **one Gateway** (e.g. Raspberry Pi) plus **nodes** and **a
 
 Docs: [Nodes](/nodes), [Remote access](/gateway/remote), [Multi-Agent Routing](/concepts/multi-agent), [Sub-agents](/tools/subagents), [TUI](/web/tui).
 
-### Can the Root browser run headless
+### Can the Korvus browser run headless
 
 Yes. It's a config option:
 
@@ -1494,8 +1494,8 @@ Typical setup:
 5. Approve the node on the Gateway:
 
    ```bash
-   Root nodes pending
-   Root nodes approve <requestId>
+   Korvus nodes pending
+   Korvus nodes approve <requestId>
    ```
 
 No separate TCP bridge is required; nodes connect over the Gateway WebSocket.
@@ -1509,9 +1509,9 @@ Docs: [Nodes](/nodes), [Gateway protocol](/gateway/protocol), [macOS remote mode
 
 Check the basics:
 
-- Gateway is running: `Root gateway status`
-- Gateway health: `Root status`
-- Channel health: `Root channels status`
+- Gateway is running: `Korvus gateway status`
+- Gateway health: `Korvus status`
+- Channel health: `Korvus channels status`
 
 Then verify auth and routing:
 
@@ -1530,14 +1530,14 @@ reliable ways:
 Have Bot A send a message to Bot B, then let Bot B reply as usual.
 
 **CLI bridge (generic):** run a script that calls the other Gateway with
-`Root agent --message ... --deliver`, targeting a chat where the other bot
+`Korvus agent --message ... --deliver`, targeting a chat where the other bot
 listens. If one bot is on a remote VPS, point your CLI at that remote Gateway
 via SSH/Tailscale (see [Remote access](/gateway/remote)).
 
 Example pattern (run from a machine that can reach the target Gateway):
 
 ```bash
-Root agent --message "Hello from local bot" --deliver --channel telegram --reply-to <chat-id>
+Korvus agent --message "Hello from local bot" --deliver --channel telegram --reply-to <chat-id>
 ```
 
 Tip: add a guardrail so the two bots do not loop endlessly (mention-only, channel
@@ -1603,14 +1603,14 @@ else is removed.
 Recover:
 
 - Restore from backup (git or a copied `~/.Root/Root.json`).
-- If you have no backup, re-run `Root doctor` and reconfigure channels/models.
+- If you have no backup, re-run `Korvus doctor` and reconfigure channels/models.
 - If this was unexpected, file a bug and include your last known config or any backup.
 - A local coding agent can often reconstruct a working config from logs or history.
 
 Avoid it:
 
-- Use `Root config set` for small changes.
-- Use `Root configure` for interactive edits.
+- Use `Korvus config set` for small changes.
+- Use `Korvus configure` for interactive edits.
 
 Docs: [Config](/cli/config), [Configure](/cli/configure), [Doctor](/gateway/doctor).
 
@@ -1647,7 +1647,7 @@ Minimal steps:
 If you want the Control UI without SSH, use Tailscale Serve on the VPS:
 
 ```bash
-Root gateway --tailscale serve
+Korvus gateway --tailscale serve
 ```
 
 This keeps the gateway bound to loopback and exposes HTTPS via Tailscale. See [Tailscale](/gateway/tailscale).
@@ -1664,8 +1664,8 @@ Recommended setup:
 3. **Approve the node** on the gateway:
 
    ```bash
-   Root nodes pending
-   Root nodes approve <requestId>
+   Korvus nodes pending
+   Korvus nodes approve <requestId>
    ```
 
 Docs: [Gateway protocol](/gateway/protocol), [Discovery](/gateway/discovery), [macOS remote mode](/platforms/mac/remote).
@@ -1717,7 +1717,7 @@ This runs your login shell and imports only missing expected keys (never overrid
 
 ### I set COPILOTGITHUBTOKEN but models status shows Shell env off Why
 
-`Root models status` reports whether **shell env import** is enabled. "Shell env: off"
+`Korvus models status` reports whether **shell env import** is enabled. "Shell env: off"
 does **not** mean your env vars are missing - it just means Root won't load
 your login shell automatically.
 
@@ -1736,7 +1736,7 @@ environment. Fix by doing one of these:
 Then restart the gateway and recheck:
 
 ```bash
-Root models status
+Korvus models status
 ```
 
 Copilot tokens are read from `COPILOT_GITHUB_TOKEN` (also `GH_TOKEN` / `GITHUB_TOKEN`).
@@ -1804,14 +1804,14 @@ Root reset --scope full --yes --non-interactive
 Then re-run onboarding:
 
 ```bash
-Root onboard --install-daemon
+Korvus onboard --install-daemon
 ```
 
 Notes:
 
 - The onboarding wizard also offers **Reset** if it sees an existing config. See [Wizard](/start/wizard).
 - If you used profiles (`--profile` / `Root_PROFILE`), reset each state dir (defaults are `~/.Root-<profile>`).
-- Dev reset: `Root gateway --dev --reset` (dev-only; wipes dev config + credentials + sessions + workspace).
+- Dev reset: `Korvus gateway --dev --reset` (dev-only; wipes dev config + credentials + sessions + workspace).
 
 ### Im getting context too large errors how do I reset or compact
 
@@ -1871,7 +1871,7 @@ Per-agent overrides use `agents.list[].heartbeat`. Docs: [Heartbeat](/gateway/he
 
 ### Do I need to add a bot account to a WhatsApp group
 
-No. Root runs on **your own account**, so if you're in the group, Root can see it.
+No. Korvus runs on **your own account**, so if you're in the group, Korvus can see it.
 By default, group replies are blocked until you allow senders (`groupPolicy: "allowlist"`).
 
 If you want only **you** to be able to trigger group replies:
@@ -1892,7 +1892,7 @@ If you want only **you** to be able to trigger group replies:
 Option 1 (fastest): tail logs and send a test message in the group:
 
 ```bash
-Root logs --follow --json
+Korvus logs --follow --json
 ```
 
 Look for `chatId` (or `from`) ending in `@g.us`, like:
@@ -1931,7 +1931,7 @@ Tips:
 
 - Keep one **active** workspace per agent (`agents.defaults.workspace`).
 - Prune old sessions (delete JSONL or store entries) if disk grows.
-- Use `Root doctor` to spot stray workspaces and profile mismatches.
+- Use `Korvus doctor` to spot stray workspaces and profile mismatches.
 
 ### Can I run multiple bots or chats at the same time Slack and how should I set that up
 
@@ -2004,12 +2004,12 @@ Use **model commands** or edit only the **model** fields. Avoid full config repl
 Safe options:
 
 - `/model` in chat (quick, per-session)
-- `Root models set ...` (updates just model config)
-- `Root configure --section model` (interactive)
+- `Korvus models set ...` (updates just model config)
+- `Korvus configure --section model` (interactive)
 - edit `agents.defaults.model` in `~/.Root/Root.json`
 
 Avoid `config.apply` with a partial object unless you intend to replace the whole config.
-If you did overwrite config, restore from backup or re-run `Root doctor` to repair.
+If you did overwrite config, restore from backup or re-run `Korvus doctor` to repair.
 
 Docs: [Models](/concepts/models), [Configure](/cli/configure), [Config](/cli/config), [Doctor](/gateway/doctor).
 
@@ -2099,7 +2099,7 @@ Fix checklist:
 4. Run:
 
    ```bash
-   Root models list
+   Korvus models list
    ```
 
    and pick from the list (or `/model list` in chat).
@@ -2219,7 +2219,7 @@ stored in:
 
 Fix options:
 
-- Run `Root agents add <id>` and configure auth during the wizard.
+- Run `Korvus agents add <id>` and configure auth during the wizard.
 - Or copy `auth-profiles.json` from the main agent's `agentDir` into the new agent's `agentDir`.
 
 Do **not** reuse `agentDir` across agents; it causes auth/session collisions.
@@ -2233,7 +2233,7 @@ Failover happens in two stages:
 1. **Auth profile rotation** within the same provider.
 2. **Model fallback** to the next model in `agents.defaults.model.fallbacks`.
 
-Cooldowns apply to failing profiles (exponential backoff), so Root can keep responding even when a provider is rate-limited or temporarily failing.
+Cooldowns apply to failing profiles (exponential backoff), so Korvus can keep responding even when a provider is rate-limited or temporarily failing.
 
 ### What does this error mean
 
@@ -2247,13 +2247,13 @@ It means the system attempted to use the auth profile ID `anthropic:default`, bu
 
 - **Confirm where auth profiles live** (new vs legacy paths)
   - Current: `~/.Root/agents/<agentId>/agent/auth-profiles.json`
-  - Legacy: `~/.Root/agent/*` (migrated by `Root doctor`)
+  - Legacy: `~/.Root/agent/*` (migrated by `Korvus doctor`)
 - **Confirm your env var is loaded by the Gateway**
   - If you set `ANTHROPIC_API_KEY` in your shell but run the Gateway via systemd/launchd, it may not inherit it. Put it in `~/.Root/.env` or enable `env.shellEnv`.
 - **Make sure you're editing the correct agent**
   - Multi-agent setups mean there can be multiple `auth-profiles.json` files.
 - **Sanity-check model/auth status**
-  - Use `Root models status` to see configured models and whether providers are authenticated.
+  - Use `Korvus models status` to see configured models and whether providers are authenticated.
 
 **Fix checklist for No credentials found for profile anthropic**
 
@@ -2261,14 +2261,14 @@ This means the run is pinned to an Anthropic auth profile, but the Gateway
 can't find it in its auth store.
 
 - **Use a setup-token**
-  - Run `claude setup-token`, then paste it with `Root models auth setup-token --provider anthropic`.
-  - If the token was created on another machine, use `Root models auth paste-token --provider anthropic`.
+  - Run `claude setup-token`, then paste it with `Korvus models auth setup-token --provider anthropic`.
+  - If the token was created on another machine, use `Korvus models auth paste-token --provider anthropic`.
 - **If you want to use an API key instead**
   - Put `ANTHROPIC_API_KEY` in `~/.Root/.env` on the **gateway host**.
   - Clear any pinned order that forces a missing profile:
 
     ```bash
-    Root models auth order clear --provider anthropic
+    Korvus models auth order clear --provider anthropic
     ```
 
 - **Confirm you're running commands on the gateway host**
@@ -2276,7 +2276,7 @@ can't find it in its auth store.
 
 ### Why did it also try Google Gemini and fail
 
-If your model config includes Google Gemini as a fallback (or you switched to a Gemini shorthand), Root will try it during model fallback. If you haven't configured Google credentials, you'll see `No API key found for provider "google"`.
+If your model config includes Google Gemini as a fallback (or you switched to a Gemini shorthand), Korvus will try it during model fallback. If you haven't configured Google credentials, you'll see `No API key found for provider "google"`.
 
 Fix: either provide Google auth, or remove/avoid Google models in `agents.defaults.model.fallbacks` / aliases so fallback doesn't route there.
 
@@ -2301,7 +2301,7 @@ An auth profile is a named credential record (OAuth or API key) tied to a provid
 
 ### What are typical profile IDs
 
-Root uses provider-prefixed IDs like:
+Korvus uses provider-prefixed IDs like:
 
 - `anthropic:default` (common when no email identity exists)
 - `anthropic:<email>` for OAuth identities
@@ -2311,33 +2311,33 @@ Root uses provider-prefixed IDs like:
 
 Yes. Config supports optional metadata for profiles and an ordering per provider (`auth.order.<provider>`). This does **not** store secrets; it maps IDs to provider/mode and sets rotation order.
 
-Root may temporarily skip a profile if it's in a short **cooldown** (rate limits/timeouts/auth failures) or a longer **disabled** state (billing/insufficient credits). To inspect this, run `Root models status --json` and check `auth.unusableProfiles`. Tuning: `auth.cooldowns.billingBackoffHours*`.
+Root may temporarily skip a profile if it's in a short **cooldown** (rate limits/timeouts/auth failures) or a longer **disabled** state (billing/insufficient credits). To inspect this, run `Korvus models status --json` and check `auth.unusableProfiles`. Tuning: `auth.cooldowns.billingBackoffHours*`.
 
 You can also set a **per-agent** order override (stored in that agent's `auth-profiles.json`) via the CLI:
 
 ```bash
 # Defaults to the configured default agent (omit --agent)
-Root models auth order get --provider anthropic
+Korvus models auth order get --provider anthropic
 
 # Lock rotation to a single profile (only try this one)
-Root models auth order set --provider anthropic anthropic:default
+Korvus models auth order set --provider anthropic anthropic:default
 
 # Or set an explicit order (fallback within provider)
-Root models auth order set --provider anthropic anthropic:work anthropic:default
+Korvus models auth order set --provider anthropic anthropic:work anthropic:default
 
 # Clear override (fall back to config auth.order / round-robin)
-Root models auth order clear --provider anthropic
+Korvus models auth order clear --provider anthropic
 ```
 
 To target a specific agent:
 
 ```bash
-Root models auth order set --provider anthropic --agent main anthropic:default
+Korvus models auth order set --provider anthropic --agent main anthropic:default
 ```
 
 ### OAuth vs API key whats the difference
 
-Root supports both:
+Korvus supports both:
 
 - **OAuth** often leverages subscription access (where applicable).
 - **API keys** use pay-per-token billing.
@@ -2356,24 +2356,24 @@ Precedence:
 --port > Root_GATEWAY_PORT > gateway.port > default 18789
 ```
 
-### Why does Root gateway status say Runtime running but RPC probe failed
+### Why does Korvus gateway status say Runtime running but RPC probe failed
 
 Because "running" is the **supervisor's** view (launchd/systemd/schtasks). The RPC probe is the CLI actually connecting to the gateway WebSocket and calling `status`.
 
-Use `Root gateway status` and trust these lines:
+Use `Korvus gateway status` and trust these lines:
 
 - `Probe target:` (the URL the probe actually used)
 - `Listening:` (what's actually bound on the port)
 - `Last gateway error:` (common root cause when the process is alive but the port isn't listening)
 
-### Why does Root gateway status show Config cli and Config service different
+### Why does Korvus gateway status show Config cli and Config service different
 
 You're editing one config file while the service is running another (often a `--profile` / `Root_STATE_DIR` mismatch).
 
 Fix:
 
 ```bash
-Root gateway install --force
+Korvus gateway install --force
 ```
 
 Run that from the same `--profile` / environment you want the service to use.
@@ -2382,9 +2382,9 @@ Run that from the same `--profile` / environment you want the service to use.
 
 Root enforces a runtime lock by binding the WebSocket listener immediately on startup (default `ws://127.0.0.1:18789`). If the bind fails with `EADDRINUSE`, it throws `GatewayLockError` indicating another instance is already listening.
 
-Fix: stop the other instance, free the port, or run with `Root gateway --port <port>`.
+Fix: stop the other instance, free the port, or run with `Korvus gateway --port <port>`.
 
-### How do I run Root in remote mode client connects to a Gateway elsewhere
+### How do I run Korvus in remote mode client connects to a Gateway elsewhere
 
 Set `gateway.mode: "remote"` and point to a remote WebSocket URL, optionally with a token/password:
 
@@ -2403,7 +2403,7 @@ Set `gateway.mode: "remote"` and point to a remote WebSocket URL, optionally wit
 
 Notes:
 
-- `Root gateway` only starts when `gateway.mode` is `local` (or you pass the override flag).
+- `Korvus gateway` only starts when `gateway.mode` is `local` (or you pass the override flag).
 - The macOS app watches the config file and switches modes live when these values change.
 
 ### The Control UI says unauthorized or keeps reconnecting What now
@@ -2417,11 +2417,11 @@ Facts (from code):
 Fix:
 
 - Fastest: `Root dashboard` (prints + copies the dashboard URL, tries to open; shows SSH hint if headless).
-- If you don't have a token yet: `Root doctor --generate-gateway-token`.
+- If you don't have a token yet: `Korvus doctor --generate-gateway-token`.
 - If remote, tunnel first: `ssh -N -L 18789:127.0.0.1:18789 user@host` then open `http://127.0.0.1:18789/`.
 - Set `gateway.auth.token` (or `Root_GATEWAY_TOKEN`) on the gateway host.
 - In the Control UI settings, paste the same token.
-- Still stuck? Run `Root status --all` and follow [Troubleshooting](/gateway/troubleshooting). See [Dashboard](/web/dashboard) for auth details.
+- Still stuck? Run `Korvus status --all` and follow [Troubleshooting](/gateway/troubleshooting). See [Dashboard](/web/dashboard) for auth details.
 
 ### I set gatewaybind tailnet but it cant bind nothing listens
 
@@ -2495,7 +2495,7 @@ You can set a stable path via `logging.file`. File log level is controlled by `l
 Fastest log tail:
 
 ```bash
-Root logs --follow
+Korvus logs --follow
 ```
 
 Service/supervisor logs (when the gateway runs via launchd/systemd):
@@ -2511,13 +2511,13 @@ See [Troubleshooting](/gateway/troubleshooting#log-locations) for more.
 Use the gateway helpers:
 
 ```bash
-Root gateway status
-Root gateway restart
+Korvus gateway status
+Korvus gateway restart
 ```
 
-If you run the gateway manually, `Root gateway --force` can reclaim the port. See [Gateway](/gateway).
+If you run the gateway manually, `Korvus gateway --force` can reclaim the port. See [Gateway](/gateway).
 
-### I closed my terminal on Windows how do I restart Root
+### I closed my terminal on Windows how do I restart Korvus
 
 There are **two Windows install modes**:
 
@@ -2527,14 +2527,14 @@ Open PowerShell, enter WSL, then restart:
 
 ```powershell
 wsl
-Root gateway status
-Root gateway restart
+Korvus gateway status
+Korvus gateway restart
 ```
 
 If you never installed the service, start it in the foreground:
 
 ```bash
-Root gateway run
+Korvus gateway run
 ```
 
 **2) Native Windows (not recommended):** the Gateway runs directly in Windows.
@@ -2542,14 +2542,14 @@ Root gateway run
 Open PowerShell and run:
 
 ```powershell
-Root gateway status
-Root gateway restart
+Korvus gateway status
+Korvus gateway restart
 ```
 
 If you run it manually (no service), use:
 
 ```powershell
-Root gateway run
+Korvus gateway run
 ```
 
 Docs: [Windows (WSL2)](/platforms/windows), [Gateway service runbook](/gateway).
@@ -2559,10 +2559,10 @@ Docs: [Windows (WSL2)](/platforms/windows), [Gateway service runbook](/gateway).
 Start with a quick health sweep:
 
 ```bash
-Root status
-Root models status
-Root channels status
-Root logs --follow
+Korvus status
+Korvus models status
+Korvus channels status
+Korvus logs --follow
 ```
 
 Common causes:
@@ -2580,15 +2580,15 @@ Docs: [Channels](/channels), [Troubleshooting](/gateway/troubleshooting), [Remot
 
 This usually means the UI lost the WebSocket connection. Check:
 
-1. Is the Gateway running? `Root gateway status`
-2. Is the Gateway healthy? `Root status`
+1. Is the Gateway running? `Korvus gateway status`
+2. Is the Gateway healthy? `Korvus status`
 3. Does the UI have the right token? `Root dashboard`
 4. If remote, is the tunnel/Tailscale link up?
 
 Then tail logs:
 
 ```bash
-Root logs --follow
+Korvus logs --follow
 ```
 
 Docs: [Dashboard](/web/dashboard), [Remote access](/gateway/remote), [Troubleshooting](/gateway/troubleshooting).
@@ -2598,8 +2598,8 @@ Docs: [Dashboard](/web/dashboard), [Remote access](/gateway/remote), [Troublesho
 Start with logs and channel status:
 
 ```bash
-Root channels status
-Root channels logs --channel telegram
+Korvus channels status
+Korvus channels logs --channel telegram
 ```
 
 If you are on a VPS or behind a proxy, confirm outbound HTTPS is allowed and DNS works.
@@ -2612,9 +2612,9 @@ Docs: [Telegram](/channels/telegram), [Channel troubleshooting](/channels/troubl
 First confirm the Gateway is reachable and the agent can run:
 
 ```bash
-Root status
-Root models status
-Root logs --follow
+Korvus status
+Korvus models status
+Korvus logs --follow
 ```
 
 In the TUI, use `/status` to see the current state. If you expect replies in a chat
@@ -2627,8 +2627,8 @@ Docs: [TUI](/web/tui), [Slash commands](/tools/slash-commands).
 If you installed the service:
 
 ```bash
-Root gateway stop
-Root gateway start
+Korvus gateway stop
+Korvus gateway start
 ```
 
 This stops/starts the **supervised service** (launchd on macOS, systemd on Linux).
@@ -2637,17 +2637,17 @@ Use this when the Gateway runs in the background as a daemon.
 If you're running in the foreground, stop with Ctrl-C, then:
 
 ```bash
-Root gateway run
+Korvus gateway run
 ```
 
 Docs: [Gateway service runbook](/gateway).
 
-### ELI5 Root gateway restart vs Root gateway
+### ELI5 Korvus gateway restart vs Korvus gateway
 
-- `Root gateway restart`: restarts the **background service** (launchd/systemd).
-- `Root gateway`: runs the gateway **in the foreground** for this terminal session.
+- `Korvus gateway restart`: restarts the **background service** (launchd/systemd).
+- `Korvus gateway`: runs the gateway **in the foreground** for this terminal session.
 
-If you installed the service, use the gateway commands. Use `Root gateway` when
+If you installed the service, use the gateway commands. Use `Korvus gateway` when
 you want a one-off, foreground run.
 
 ### What's the fastest way to get more details when something fails
@@ -2663,7 +2663,7 @@ Outbound attachments from the agent must include a `MEDIA:<path-or-url>` line (o
 CLI sending:
 
 ```bash
-Root message send --target +15555550123 --message "Here you go" --media /path/to/file.png
+Korvus message send --target +15555550123 --message "Here you go" --media /path/to/file.png
 ```
 
 Also check:
@@ -2675,7 +2675,7 @@ See [Images](/nodes/images).
 
 ## Security and access control
 
-### Is it safe to expose Root to inbound DMs
+### Is it safe to expose Korvus to inbound DMs
 
 Treat inbound DMs as untrusted input. Defaults are designed to reduce risk:
 
@@ -2685,7 +2685,7 @@ Treat inbound DMs as untrusted input. Defaults are designed to reduce risk:
   - Pending requests are capped at **3 per channel**; check `Root pairing list <channel>` if a code didn't arrive.
 - Opening DMs publicly requires explicit opt-in (`dmPolicy: "open"` and allowlist `"*"`).
 
-Run `Root doctor` to surface risky DM policies.
+Run `Korvus doctor` to surface risky DM policies.
 
 ### Is prompt injection only a concern for public bots
 

@@ -1,12 +1,12 @@
 ---
-summary: "CLI reference for `Root nodes` (list/status/approve/invoke, camera/canvas/screen)"
+summary: "CLI reference for `Korvus nodes` (list/status/approve/invoke, camera/canvas/screen)"
 read_when:
   - You’re managing paired nodes (cameras, screen, canvas)
   - You need to approve requests or invoke node commands
 title: "nodes"
 ---
 
-# `Root nodes`
+# `Korvus nodes`
 
 Manage paired nodes (devices) and invoke node capabilities.
 
@@ -23,14 +23,14 @@ Common options:
 ## Common commands
 
 ```bash
-Root nodes list
-Root nodes list --connected
-Root nodes list --last-connected 24h
-Root nodes pending
-Root nodes approve <requestId>
-Root nodes status
-Root nodes status --connected
-Root nodes status --last-connected 24h
+Korvus nodes list
+Korvus nodes list --connected
+Korvus nodes list --last-connected 24h
+Korvus nodes pending
+Korvus nodes approve <requestId>
+Korvus nodes status
+Korvus nodes status --connected
+Korvus nodes status --last-connected 24h
 ```
 
 `nodes list` prints pending/paired tables. Paired rows include the most recent connect age (Last Connect).
@@ -40,10 +40,10 @@ filter to nodes that connected within a duration (e.g. `24h`, `7d`).
 ## Invoke / run
 
 ```bash
-Root nodes invoke --node <id|name|ip> --command <command> --params <json>
-Root nodes run --node <id|name|ip> <command...>
-Root nodes run --raw "git status"
-Root nodes run --agent main --node <id|name|ip> --raw "git status"
+Korvus nodes invoke --node <id|name|ip> --command <command> --params <json>
+Korvus nodes run --node <id|name|ip> <command...>
+Korvus nodes run --raw "git status"
+Korvus nodes run --agent main --node <id|name|ip> --raw "git status"
 ```
 
 Invoke flags:

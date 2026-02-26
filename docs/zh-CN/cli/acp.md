@@ -63,8 +63,8 @@ Root acp client --server "node" --server-args Root.mjs acp --url ws://127.0.0.1:
 示例配置（持久化）：
 
 ```bash
-Root config set gateway.remote.url wss://gateway-host:18789
-Root config set gateway.remote.token <token>
+Korvus config set gateway.remote.url wss://gateway-host:18789
+Korvus config set gateway.remote.token <token>
 ```
 
 示例直接运行（不写入配置）：

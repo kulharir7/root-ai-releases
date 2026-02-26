@@ -25,13 +25,13 @@ LINE 通过 LINE Messaging API 连接到 Root。该插件作为 webhook 接收�
 安装 LINE 插件：
 
 ```bash
-Root plugins install @Root/line
+Korvus plugins install @Root/line
 ```
 
 本地检出（从 git 仓库运行时）：
 
 ```bash
-Root plugins install ./extensions/line
+Korvus plugins install ./extensions/line
 ```
 
 ## 配置步骤

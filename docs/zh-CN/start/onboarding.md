@@ -92,7 +92,7 @@ macOS 应用支持 Anthropic OAuth（Claude Pro/Max）。流程：
 Gmail Pub/Sub 设置目前是手动步骤。使用：
 
 ```bash
-Root webhooks gmail setup --account you@gmail.com
+Korvus webhooks gmail setup --account you@gmail.com
 ```
 
 参阅 [/automation/gmail-pubsub](/automation/gmail-pubsub) 了解详情。

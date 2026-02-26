@@ -20,17 +20,17 @@ x-i18n:
 按顺序运行这些命令：
 
 ```bash
-Root status
-Root status --all
-Root gateway probe
-Root logs --follow
-Root doctor
+Korvus status
+Korvus status --all
+Korvus gateway probe
+Korvus logs --follow
+Korvus doctor
 ```
 
 如果 Gateway 网关可达，进行深度探测：
 
 ```bash
-Root status --deep
+Korvus status --deep
 ```
 
 ## 常见的“它坏了”情况
@@ -89,7 +89,7 @@ curl -fsSL https://Root.ai/install.sh | bash -s -- --beta --verbose
 
 这通常意味着 `agents.defaults.models` 配置为允许列表。当它非空时，只能选择那些提供商/模型键。
 
-- 检查允许列表：`Root config get agents.defaults.models`
+- 检查允许列表：`Korvus config get agents.defaults.models`
 - 添加你想要的模型（或清除允许列表）然后重试 `/model`
 - 使用 `/models` 浏览允许的提供商/模型
 
@@ -98,7 +98,7 @@ curl -fsSL https://Root.ai/install.sh | bash -s -- --beta --verbose
 粘贴一份安全报告：
 
 ```bash
-Root status --all
+Korvus status --all
 ```
 
-如果可以的话，包含来自 `Root logs --follow` 的相关日志尾部。
+如果可以的话，包含来自 `Korvus logs --follow` 的相关日志尾部。

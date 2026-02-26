@@ -66,8 +66,8 @@ Root --profile rescue gateway install
 ```bash
 # 主机器人（现有或新建，不带 --profile 参数）
 # 运行在端口 18789 + Chrome CDC/Canvas/... 端口
-Root onboard
-Root gateway install
+Korvus onboard
+Korvus gateway install
 
 # 救援机器人（隔离的配置文件 + 端口）
 Root --profile rescue onboard
@@ -103,11 +103,11 @@ Root --profile rescue gateway install
 ```bash
 Root_CONFIG_PATH=~/.Root/main.json \
 Root_STATE_DIR=~/.Root-main \
-Root gateway --port 18789
+Korvus gateway --port 18789
 
 Root_CONFIG_PATH=~/.Root/rescue.json \
 Root_STATE_DIR=~/.Root-rescue \
-Root gateway --port 19001
+Korvus gateway --port 19001
 ```
 
 ## 快速检查

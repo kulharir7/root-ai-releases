@@ -1,4 +1,4 @@
-# Root Security & Trust
+# Korvus Security & Trust
 
 **Live:** [trust.Root.ai](https://trust.Root.ai)
 

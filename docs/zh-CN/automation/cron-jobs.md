@@ -36,7 +36,7 @@ x-i18n:
 创建一个一次性提醒，验证其存在，然后立即运行：
 
 ```bash
-Root cron add \
+Korvus cron add \
   --name "Reminder" \
   --at "2026-02-01T16:00:00Z" \
   --session main \
@@ -44,15 +44,15 @@ Root cron add \
   --wake now \
   --delete-after-run
 
-Root cron list
-Root cron run <job-id> --force
-Root cron runs --id <job-id>
+Korvus cron list
+Korvus cron run <job-id> --force
+Korvus cron runs --id <job-id>
 ```
 
 调度一个带投递功能的周期性隔离任务：
 
 ```bash
-Root cron add \
+Korvus cron add \
   --name "Morning brief" \
   --cron "0 7 * * *" \
   --tz "America/Los_Angeles" \
@@ -69,7 +69,7 @@ Root cron add \
 
 ## 定时任务的存储位置
 
-定时任务默认持久化存储在 Gateway网关主机的 `~/.Root/cron/jobs.json` 中。Gateway网关将文件加载到内存中，并在更改时写回，因此仅在 Gateway网关停止时手动编辑才是安全的。请优先使用 `Root cron add/edit` 或定时任务工具调用 API 进行更改。
+定时任务默认持久化存储在 Gateway网关主机的 `~/.Root/cron/jobs.json` 中。Gateway网关将文件加载到内存中，并在更改时写回，因此仅在 Gateway网关停止时手动编辑才是安全的。请优先使用 `Korvus cron add/edit` 或定时任务工具调用 API 进行更改。
 
 ## 新手友好概述
 
@@ -302,7 +302,7 @@ Telegram 通过 `message_thread_id` 支持论坛主题。对于定时任务投�
 一次性提醒（UTC ISO，成功后自动删除）：
 
 ```bash
-Root cron add \
+Korvus cron add \
   --name "Send reminder" \
   --at "2026-01-12T18:00:00Z" \
   --session main \
@@ -314,7 +314,7 @@ Root cron add \
 一次性提醒（主会话，立即唤醒）：
 
 ```bash
-Root cron add \
+Korvus cron add \
   --name "Calendar check" \
   --at "20m" \
   --session main \
@@ -325,7 +325,7 @@ Root cron add \
 周期性隔离任务（投递到 WhatsApp）：
 
 ```bash
-Root cron add \
+Korvus cron add \
   --name "Morning status" \
   --cron "0 7 * * *" \
   --tz "America/Los_Angeles" \
@@ -339,7 +339,7 @@ Root cron add \
 周期性隔离任务（投递到 Telegram 主题）：
 
 ```bash
-Root cron add \
+Korvus cron add \
   --name "Nightly summary (topic)" \
   --cron "0 22 * * *" \
   --tz "America/Los_Angeles" \
@@ -353,7 +353,7 @@ Root cron add \
 带模型和思维覆盖的隔离任务：
 
 ```bash
-Root cron add \
+Korvus cron add \
   --name "Deep analysis" \
   --cron "0 6 * * 1" \
   --tz "America/Los_Angeles" \
@@ -370,23 +370,23 @@ Root cron add \
 
 ```bash
 # 将任务绑定到智能体 "ops"（如果该智能体不存在则回退到默认智能体）
-Root cron add --name "Ops sweep" --cron "0 6 * * *" --session isolated --message "Check ops queue" --agent ops
+Korvus cron add --name "Ops sweep" --cron "0 6 * * *" --session isolated --message "Check ops queue" --agent ops
 
 # 切换或清除现有任务的智能体
-Root cron edit <jobId> --agent ops
-Root cron edit <jobId> --clear-agent
+Korvus cron edit <jobId> --agent ops
+Korvus cron edit <jobId> --clear-agent
 ```
 
 手动运行（调试）：
 
 ```bash
-Root cron run <jobId> --force
+Korvus cron run <jobId> --force
 ```
 
 编辑现有任务（补丁字段）：
 
 ```bash
-Root cron edit <jobId> \
+Korvus cron edit <jobId> \
   --message "Updated prompt" \
   --model "opus" \
   --thinking low
@@ -395,7 +395,7 @@ Root cron edit <jobId> \
 运行历史：
 
 ```bash
-Root cron runs --id <jobId> --limit 50
+Korvus cron runs --id <jobId> --limit 50
 ```
 
 不创建任务直接发送系统事件：

@@ -18,7 +18,7 @@ The [Together AI](https://together.ai) provides access to leading open-source mo
 1. Set the API key (recommended: store it for the Gateway):
 
 ```bash
-Root onboard --auth-choice together-api-key
+Korvus onboard --auth-choice together-api-key
 ```
 
 2. Set a default model:
@@ -36,7 +36,7 @@ Root onboard --auth-choice together-api-key
 ## Non-interactive example
 
 ```bash
-Root onboard --non-interactive \
+Korvus onboard --non-interactive \
   --mode local \
   --auth-choice together-api-key \
   --together-api-key "$TOGETHER_API_KEY"

@@ -25,13 +25,13 @@ Matrix 作为插件提供，不包含在核心安装中。
 通过 CLI 安装（npm 仓库）：
 
 ```bash
-Root plugins install @Root/matrix
+Korvus plugins install @Root/matrix
 ```
 
 本地检出（从 git 仓库运行时）：
 
 ```bash
-Root plugins install ./extensions/matrix
+Korvus plugins install ./extensions/matrix
 ```
 
 如果你在配置/新手引导期间选择 Matrix 并检测到 git 检出，Root 将自动提供本地安装路径。
@@ -41,8 +41,8 @@ Root plugins install ./extensions/matrix
 ## 设置
 
 1. 安装 Matrix 插件：
-   - 从 npm：`Root plugins install @Root/matrix`
-   - 从本地检出：`Root plugins install ./extensions/matrix`
+   - 从 npm：`Korvus plugins install @Root/matrix`
+   - 从本地检出：`Korvus plugins install ./extensions/matrix`
 2. 在主服务器上创建 Matrix 账户：
    - 在 [https://matrix.org/ecosystem/hosting/](https://matrix.org/ecosystem/hosting/) 浏览托管选项
    - 或自行托管。

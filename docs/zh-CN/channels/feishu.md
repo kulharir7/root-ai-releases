@@ -17,13 +17,13 @@ title: 飞书
 安装 Feishu 插件：
 
 ```bash
-Root plugins install @Root/feishu
+Korvus plugins install @Root/feishu
 ```
 
 本地 checkout（在 git 仓库内运行）：
 
 ```bash
-Root plugins install ./extensions/feishu
+Korvus plugins install ./extensions/feishu
 ```
 
 ---
@@ -37,7 +37,7 @@ Root plugins install ./extensions/feishu
 如果您刚安装完 Root，可以直接运行向导，根据提示添加飞书：
 
 ```bash
-Root onboard
+Korvus onboard
 ```
 
 向导会引导您完成：
@@ -48,24 +48,24 @@ Root onboard
 
 ✅ **完成配置后**，您可以使用以下命令检查网关状态：
 
-- `Root gateway status` - 查看网关运行状态
-- `Root logs --follow` - 查看实时日志
+- `Korvus gateway status` - 查看网关运行状态
+- `Korvus logs --follow` - 查看实时日志
 
 ### 方式二：通过命令行添加
 
 如果您已经完成了初始安装，可以用以下命令添加飞书渠道：
 
 ```bash
-Root channels add
+Korvus channels add
 ```
 
 然后根据交互式提示选择 Feishu，输入 App ID 和 App Secret 即可。
 
 ✅ **完成配置后**，您可以使用以下命令管理网关：
 
-- `Root gateway status` - 查看网关运行状态
-- `Root gateway restart` - 重启网关以应用新配置
-- `Root logs --follow` - 查看实时日志
+- `Korvus gateway status` - 查看网关运行状态
+- `Korvus gateway restart` - 重启网关以应用新配置
+- `Korvus logs --follow` - 查看实时日志
 
 ---
 
@@ -147,8 +147,8 @@ Lark（国际版）请使用 https://open.larksuite.com/app，并在配置中设
 
 ⚠️ **重要提醒**：在配置事件订阅前，请务必确保已完成以下步骤：
 
-1. 运行 `Root channels add` 添加了 Feishu 渠道
-2. 网关处于启动状态（可通过 `Root gateway status` 检查状态）
+1. 运行 `Korvus channels add` 添加了 Feishu 渠道
+2. 网关处于启动状态（可通过 `Korvus gateway status` 检查状态）
 
 在 **事件订阅** 页面：
 
@@ -174,7 +174,7 @@ Lark（国际版）请使用 https://open.larksuite.com/app，并在配置中设
 运行以下命令，根据提示粘贴 App ID 和 App Secret：
 
 ```bash
-Root channels add
+Korvus channels add
 ```
 
 选择 **Feishu**，然后输入您在第一步获取的凭证即可。
@@ -235,7 +235,7 @@ export FEISHU_APP_SECRET="xxx"
 ### 1. 启动网关
 
 ```bash
-Root gateway
+Korvus gateway
 ```
 
 ### 2. 发送测试消息
@@ -345,7 +345,7 @@ Root pairing approve feishu <配对码>
 **方法一**（推荐）：
 
 1. 启动网关并在群组中 @机器人发消息
-2. 运行 `Root logs --follow` 查看日志中的 `chat_id`
+2. 运行 `Korvus logs --follow` 查看日志中的 `chat_id`
 
 **方法二**：
 使用飞书 API 调试工具获取机器人所在群组列表。
@@ -357,7 +357,7 @@ Root pairing approve feishu <配对码>
 **方法一**（推荐）：
 
 1. 启动网关并给机器人发消息
-2. 运行 `Root logs --follow` 查看日志中的 `open_id`
+2. 运行 `Korvus logs --follow` 查看日志中的 `open_id`
 
 **方法二**：
 查看配对请求列表，其中包含用户的 Open ID：
@@ -384,11 +384,11 @@ Root pairing list feishu
 
 | 命令                       | 说明              |
 | -------------------------- | ----------------- |
-| `Root gateway status`  | 查看网关运行状态  |
-| `Root gateway install` | 安装/启动网关服务 |
-| `Root gateway stop`    | 停止网关服务      |
-| `Root gateway restart` | 重启网关服务      |
-| `Root logs --follow`   | 实时查看日志输出  |
+| `Korvus gateway status`  | 查看网关运行状态  |
+| `Korvus gateway install` | 安装/启动网关服务 |
+| `Korvus gateway stop`    | 停止网关服务      |
+| `Korvus gateway restart` | 重启网关服务      |
+| `Korvus logs --follow`   | 实时查看日志输出  |
 
 ---
 
@@ -399,7 +399,7 @@ Root pairing list feishu
 1. 检查机器人是否已添加到群组
 2. 检查是否 @了机器人（默认需要 @提及）
 3. 检查 `groupPolicy` 是否为 `"disabled"`
-4. 查看日志：`Root logs --follow`
+4. 查看日志：`Korvus logs --follow`
 
 ### 机器人收不到消息
 
@@ -407,8 +407,8 @@ Root pairing list feishu
 2. 检查事件订阅是否配置正确（`im.message.receive_v1`）
 3. 检查是否选择了 **长连接** 模式
 4. 检查应用权限是否完整
-5. 检查网关是否正在运行：`Root gateway status`
-6. 查看实时日志：`Root logs --follow`
+5. 检查网关是否正在运行：`Korvus gateway status`
+6. 查看实时日志：`Korvus logs --follow`
 
 ### App Secret 泄露怎么办
 

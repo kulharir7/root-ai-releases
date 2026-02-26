@@ -137,7 +137,7 @@ npm link
 ## 7) 运行新手引导
 
 ```bash
-Root onboard --install-daemon
+Korvus onboard --install-daemon
 ```
 
 按照向导操作：
@@ -151,7 +151,7 @@ Root onboard --install-daemon
 
 ```bash
 # 检查状态
-Root status
+Korvus status
 
 # 检查服务
 sudo systemctl status Root
@@ -180,8 +180,8 @@ curl -fsSL https://tailscale.com/install.sh | sh
 sudo tailscale up
 
 # 更新配置
-Root config set gateway.bind tailnet
-sudo systemctl restart Root
+Korvus config set gateway.bind tailnet
+sudo systemctl restart Korvus
 ```
 
 ---
@@ -284,7 +284,7 @@ sudo systemctl is-enabled Root
 sudo systemctl enable Root
 
 # 开机启动
-sudo systemctl start Root
+sudo systemctl start Korvus
 ```
 
 ---
@@ -316,7 +316,7 @@ journalctl -u Root --no-pager -n 100
 # 常见修复：重新构建
 cd ~/Root  # 如果使用可修改安装
 npm run build
-sudo systemctl restart Root
+sudo systemctl restart Korvus
 ```
 
 ### ARM 二进制问题

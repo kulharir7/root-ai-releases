@@ -12,7 +12,7 @@ Root treats group chats consistently across surfaces: WhatsApp, Telegram, Discor
 ## Beginner intro (2 minutes)
 
 Root “lives” on your own messaging accounts. There is no separate WhatsApp bot user.
-If **you** are in a group, Root can see that group and respond there.
+If **you** are in a group, Korvus can see that group and respond there.
 
 Default behavior:
 

@@ -20,7 +20,7 @@ x-i18n:
 
 旧版传输：[Bridge 协议](/gateway/bridge-protocol)（TCP JSONL；当前节点已弃用/移除）。
 
-macOS 也可以在**节点模式**下运行：菜单栏应用连接到 Gateway 网关的 WS 服务器，并将其本地 canvas/camera 命令作为节点暴露（因此 `Root nodes …` 可以针对这台 Mac 工作）。
+macOS 也可以在**节点模式**下运行：菜单栏应用连接到 Gateway 网关的 WS 服务器，并将其本地 canvas/camera 命令作为节点暴露（因此 `Korvus nodes …` 可以针对这台 Mac 工作）。
 
 注意事项：
 
@@ -38,14 +38,14 @@ macOS 也可以在**节点模式**下运行：菜单栏应用连接到 Gateway �
 Root devices list
 Root devices approve <requestId>
 Root devices reject <requestId>
-Root nodes status
-Root nodes describe --node <idOrNameOrIp>
+Korvus nodes status
+Korvus nodes describe --node <idOrNameOrIp>
 ```
 
 注意事项：
 
 - 当节点的设备配对角色包含 `node` 时，`nodes status` 将节点标记为**已配对**。
-- `node.pair.*`（CLI：`Root nodes pending/approve/reject`）是一个单独的 Gateway 网关拥有的
+- `node.pair.*`（CLI：`Korvus nodes pending/approve/reject`）是一个单独的 Gateway 网关拥有的
   节点配对存储；它**不会**限制 WS `connect` 握手。
 
 ## 远程节点主机（system.run）
@@ -102,15 +102,15 @@ Root node restart
 在 Gateway 网关主机上：
 
 ```bash
-Root nodes pending
-Root nodes approve <requestId>
-Root nodes list
+Korvus nodes pending
+Korvus nodes approve <requestId>
+Korvus nodes list
 ```
 
 命名选项：
 
 - 在 `Root node run` / `Root node install` 上使用 `--display-name`（持久化在节点上的 `~/.Root/node.json` 中）。
-- `Root nodes rename --node <id|name|ip> --name "Build Node"`（Gateway 网关覆盖）。
+- `Korvus nodes rename --node <id|name|ip> --name "Build Node"`（Gateway 网关覆盖）。
 
 ### 将命令加入允许列表
 
@@ -128,9 +128,9 @@ Root approvals allowlist add --node <id|name|ip> "/usr/bin/sw_vers"
 配置默认值（Gateway 网关配置）：
 
 ```bash
-Root config set tools.exec.host node
-Root config set tools.exec.security allowlist
-Root config set tools.exec.node "<id-or-name>"
+Korvus config set tools.exec.host node
+Korvus config set tools.exec.security allowlist
+Korvus config set tools.exec.node "<id-or-name>"
 ```
 
 或按会话：
@@ -153,7 +153,7 @@ Root config set tools.exec.node "<id-or-name>"
 低级（原始 RPC）：
 
 ```bash
-Root nodes invoke --node <idOrNameOrIp> --command canvas.eval --params '{"javaScript":"location.href"}'
+Korvus nodes invoke --node <idOrNameOrIp> --command canvas.eval --params '{"javaScript":"location.href"}'
 ```
 
 对于常见的"给智能体一个 MEDIA 附件"工作流，存在更高级的辅助工具。
@@ -165,17 +165,17 @@ Root nodes invoke --node <idOrNameOrIp> --command canvas.eval --params '{"javaSc
 CLI 辅助工具（写入临时文件并打印 `MEDIA:<path>`）：
 
 ```bash
-Root nodes canvas snapshot --node <idOrNameOrIp> --format png
-Root nodes canvas snapshot --node <idOrNameOrIp> --format jpg --max-width 1200 --quality 0.9
+Korvus nodes canvas snapshot --node <idOrNameOrIp> --format png
+Korvus nodes canvas snapshot --node <idOrNameOrIp> --format jpg --max-width 1200 --quality 0.9
 ```
 
 ### Canvas 控制
 
 ```bash
-Root nodes canvas present --node <idOrNameOrIp> --target https://example.com
-Root nodes canvas hide --node <idOrNameOrIp>
-Root nodes canvas navigate https://example.com --node <idOrNameOrIp>
-Root nodes canvas eval --node <idOrNameOrIp> --js "document.title"
+Korvus nodes canvas present --node <idOrNameOrIp> --target https://example.com
+Korvus nodes canvas hide --node <idOrNameOrIp>
+Korvus nodes canvas navigate https://example.com --node <idOrNameOrIp>
+Korvus nodes canvas eval --node <idOrNameOrIp> --js "document.title"
 ```
 
 注意事项：
@@ -186,9 +186,9 @@ Root nodes canvas eval --node <idOrNameOrIp> --js "document.title"
 ### A2UI（Canvas）
 
 ```bash
-Root nodes canvas a2ui push --node <idOrNameOrIp> --text "Hello"
-Root nodes canvas a2ui push --node <idOrNameOrIp> --jsonl ./payload.jsonl
-Root nodes canvas a2ui reset --node <idOrNameOrIp>
+Korvus nodes canvas a2ui push --node <idOrNameOrIp> --text "Hello"
+Korvus nodes canvas a2ui push --node <idOrNameOrIp> --jsonl ./payload.jsonl
+Korvus nodes canvas a2ui reset --node <idOrNameOrIp>
 ```
 
 注意事项：
@@ -200,16 +200,16 @@ Root nodes canvas a2ui reset --node <idOrNameOrIp>
 照片（`jpg`）：
 
 ```bash
-Root nodes camera list --node <idOrNameOrIp>
-Root nodes camera snap --node <idOrNameOrIp>            # 默认：两个朝向（2 个 MEDIA 行）
-Root nodes camera snap --node <idOrNameOrIp> --facing front
+Korvus nodes camera list --node <idOrNameOrIp>
+Korvus nodes camera snap --node <idOrNameOrIp>            # 默认：两个朝向（2 个 MEDIA 行）
+Korvus nodes camera snap --node <idOrNameOrIp> --facing front
 ```
 
 视频片段（`mp4`）：
 
 ```bash
-Root nodes camera clip --node <idOrNameOrIp> --duration 10s
-Root nodes camera clip --node <idOrNameOrIp> --duration 3000 --no-audio
+Korvus nodes camera clip --node <idOrNameOrIp> --duration 10s
+Korvus nodes camera clip --node <idOrNameOrIp> --duration 3000 --no-audio
 ```
 
 注意事项：
@@ -223,8 +223,8 @@ Root nodes camera clip --node <idOrNameOrIp> --duration 3000 --no-audio
 节点暴露 `screen.record`（mp4）。示例：
 
 ```bash
-Root nodes screen record --node <idOrNameOrIp> --duration 10s --fps 10
-Root nodes screen record --node <idOrNameOrIp> --duration 10s --fps 10 --no-audio
+Korvus nodes screen record --node <idOrNameOrIp> --duration 10s --fps 10
+Korvus nodes screen record --node <idOrNameOrIp> --duration 10s --fps 10 --no-audio
 ```
 
 注意事项：
@@ -242,8 +242,8 @@ Root nodes screen record --node <idOrNameOrIp> --duration 10s --fps 10 --no-audi
 CLI 辅助工具：
 
 ```bash
-Root nodes location get --node <idOrNameOrIp>
-Root nodes location get --node <idOrNameOrIp> --accuracy precise --max-age 15000 --location-timeout 10000
+Korvus nodes location get --node <idOrNameOrIp>
+Korvus nodes location get --node <idOrNameOrIp> --accuracy precise --max-age 15000 --location-timeout 10000
 ```
 
 注意事项：
@@ -259,7 +259,7 @@ Root nodes location get --node <idOrNameOrIp> --accuracy precise --max-age 15000
 低级调用：
 
 ```bash
-Root nodes invoke --node <idOrNameOrIp> --command sms.send --params '{"to":"+15555550123","message":"Hello from Root"}'
+Korvus nodes invoke --node <idOrNameOrIp> --command sms.send --params '{"to":"+15555550123","message":"Hello from Root"}'
 ```
 
 注意事项：
@@ -275,8 +275,8 @@ macOS 节点暴露 `system.run`、`system.notify` 和 `system.execApprovals.get/
 示例：
 
 ```bash
-Root nodes run --node <idOrNameOrIp> -- echo "Hello from mac node"
-Root nodes notify --node <idOrNameOrIp> --title "Ping" --body "Gateway ready"
+Korvus nodes run --node <idOrNameOrIp> -- echo "Hello from mac node"
+Korvus nodes notify --node <idOrNameOrIp> --title "Ping" --body "Gateway ready"
 ```
 
 注意事项：
@@ -298,21 +298,21 @@ Root nodes notify --node <idOrNameOrIp> --title "Ping" --body "Gateway ready"
 全局默认：
 
 ```bash
-Root config set tools.exec.node "node-id-or-name"
+Korvus config set tools.exec.node "node-id-or-name"
 ```
 
 按智能体覆盖：
 
 ```bash
-Root config get agents.list
-Root config set agents.list[0].tools.exec.node "node-id-or-name"
+Korvus config get agents.list
+Korvus config set agents.list[0].tools.exec.node "node-id-or-name"
 ```
 
 取消设置以允许任何节点：
 
 ```bash
-Root config unset tools.exec.node
-Root config unset agents.list[0].tools.exec.node
+Korvus config unset tools.exec.node
+Korvus config unset agents.list[0].tools.exec.node
 ```
 
 ## 权限映射
@@ -344,5 +344,5 @@ Root node run --host <gateway-host> --port 18789
 
 ## Mac 节点模式
 
-- macOS 菜单栏应用作为节点连接到 Gateway 网关 WS 服务器（因此 `Root nodes …` 可以针对这台 Mac 工作）。
+- macOS 菜单栏应用作为节点连接到 Gateway 网关 WS 服务器（因此 `Korvus nodes …` 可以针对这台 Mac 工作）。
 - 在远程模式下，应用为 Gateway 网关端口打开 SSH 隧道并连接到 `localhost`。

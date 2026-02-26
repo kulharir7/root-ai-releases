@@ -33,8 +33,8 @@ Root 控制一个**专用的 Chrome 配置文件**（名为 `Root`，橙色调 U
 2. **通过 CLI 打开**：
 
 ```bash
-Root browser start
-Root browser open https://x.com
+Korvus browser start
+Korvus browser open https://x.com
 ```
 
 如果你有多个配置文件，传入 `--browser-profile <name>`（默认是 `Root`）。
@@ -69,7 +69,7 @@ Root browser open https://x.com
 然后定位主机浏览器：
 
 ```bash
-Root browser open https://x.com --browser-profile Root --target host
+Korvus browser open https://x.com --browser-profile Root --target host
 ```
 
 或者为发布更新的智能体禁用沙箱隔离。

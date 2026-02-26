@@ -22,25 +22,25 @@ Matrix ships as a plugin and is not bundled with the core install.
 Install via CLI (npm registry):
 
 ```bash
-Root plugins install @Root/matrix
+Korvus plugins install @Root/matrix
 ```
 
 Local checkout (when running from a git repo):
 
 ```bash
-Root plugins install ./extensions/matrix
+Korvus plugins install ./extensions/matrix
 ```
 
 If you choose Matrix during configure/onboarding and a git checkout is detected,
-Root will offer the local install path automatically.
+Korvus will offer the local install path automatically.
 
 Details: [Plugins](/tools/plugin)
 
 ## Setup
 
 1. Install the Matrix plugin:
-   - From npm: `Root plugins install @Root/matrix`
-   - From a local checkout: `Root plugins install ./extensions/matrix`
+   - From npm: `Korvus plugins install @Root/matrix`
+   - From a local checkout: `Korvus plugins install ./extensions/matrix`
 2. Create a Matrix account on a homeserver:
    - Browse hosting options at [https://matrix.org/ecosystem/hosting/](https://matrix.org/ecosystem/hosting/)
    - Or host it yourself.
@@ -119,7 +119,7 @@ Enable with `channels.matrix.encryption: true`:
 - On first connection, Root requests device verification from your other sessions.
 - Verify the device in another Matrix client (Element, etc.) to enable key sharing.
 - If the crypto module cannot be loaded, E2EE is disabled and encrypted rooms will not decrypt;
-  Root logs a warning.
+  Korvus logs a warning.
 - If you see missing crypto module errors (for example, `@matrix-org/matrix-sdk-crypto-nodejs-*`),
   allow build scripts for `@matrix-org/matrix-sdk-crypto-nodejs` and run
   `pnpm rebuild @matrix-org/matrix-sdk-crypto-nodejs` or fetch the binary with
@@ -249,11 +249,11 @@ Notes:
 Run this ladder first:
 
 ```bash
-Root status
-Root gateway status
-Root logs --follow
-Root doctor
-Root channels status --probe
+Korvus status
+Korvus gateway status
+Korvus logs --follow
+Korvus doctor
+Korvus channels status --probe
 ```
 
 Then confirm DM pairing state if needed:

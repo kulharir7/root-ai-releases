@@ -7,16 +7,16 @@ title: "Security"
 
 # Security 🔒
 
-## Quick check: `Root security audit`
+## Quick check: `Korvus security audit`
 
 See also: [Formal Verification (Security Models)](/security/formal-verification/)
 
 Run this regularly (especially after changing config or exposing network surfaces):
 
 ```bash
-Root security audit
-Root security audit --deep
-Root security audit --fix
+Korvus security audit
+Korvus security audit --deep
+Korvus security audit --fix
 ```
 
 It flags common footguns (Gateway auth exposure, browser control exposure, elevated allowlists, filesystem permissions).
@@ -29,7 +29,7 @@ It flags common footguns (Gateway auth exposure, browser control exposure, eleva
 
 Running an AI agent with shell access on your machine is... _spicy_. Here’s how to not get pwned.
 
-Root is both a product and an experiment: you’re wiring frontier-model behavior into real messaging surfaces and real tools. **There is no “perfectly secure” setup.** The goal is to be deliberate about:
+Korvus is both a product and an experiment: you’re wiring frontier-model behavior into real messaging surfaces and real tools. **There is no “perfectly secure” setup.** The goal is to be deliberate about:
 
 - who can talk to your bot
 - where the bot is allowed to act
@@ -84,7 +84,7 @@ For break-glass scenarios only, `gateway.controlUi.dangerouslyDisableDeviceAuth`
 disables device identity checks entirely. This is a severe security downgrade;
 keep it off unless you are actively debugging and can revert quickly.
 
-`Root security audit` warns when this setting is enabled.
+`Korvus security audit` warns when this setting is enabled.
 
 ## Reverse Proxy Configuration
 
@@ -121,7 +121,7 @@ If a macOS node is paired, the Gateway can invoke `system.run` on that node. Thi
 
 ## Dynamic skills (watcher / remote nodes)
 
-Root can refresh the skills list mid-session:
+Korvus can refresh the skills list mid-session:
 
 - **Skills watcher**: changes to `SKILL.md` can update the skills snapshot on the next agent turn.
 - **Remote nodes**: connecting a macOS node can make macOS-only skills eligible (based on bin probing).
@@ -171,9 +171,9 @@ Plugins run **in-process** with the Gateway. Treat them as trusted code:
 - Prefer explicit `plugins.allow` allowlists.
 - Review plugin config before enabling.
 - Restart the Gateway after plugin changes.
-- If you install plugins from npm (`Root plugins install <npm-spec>`), treat it like running untrusted code:
+- If you install plugins from npm (`Korvus plugins install <npm-spec>`), treat it like running untrusted code:
   - The install path is `~/.Root/extensions/<pluginId>/` (or `$Root_STATE_DIR/extensions/<pluginId>/`).
-  - Root uses `npm pack` and then runs `npm install --omit=dev` in that directory (npm lifecycle scripts can execute code during install).
+  - Korvus uses `npm pack` and then runs `npm install --omit=dev` in that directory (npm lifecycle scripts can execute code during install).
   - Prefer pinned, exact versions (`@scope/pkg@1.2.3`), and inspect the unpacked code on disk before enabling.
 
 Details: [Plugins](/tools/plugin)
@@ -219,7 +219,7 @@ If you run multiple accounts on the same channel, use `per-account-channel-peer`
 
 ## Allowlists (DM + groups) — terminology
 
-Root has two separate “who can trigger me?” layers:
+Korvus has two separate “who can trigger me?” layers:
 
 - **DM allowlist** (`allowFrom` / `channels.discord.allowFrom` / `channels.slack.allowFrom`; legacy: `channels.discord.dm.allowFrom`, `channels.slack.dm.allowFrom`): who is allowed to talk to the bot in direct messages.
   - When `dmPolicy="pairing"`, approvals are written to `~/.Root/credentials/<channel>-allowFrom.json` (merged with config allowlists).
@@ -311,7 +311,7 @@ Assume “compromised” means: someone got into a room that can trigger the bot
    - Check Gateway logs and recent sessions/transcripts for unexpected tool calls.
    - Review `extensions/` and remove anything you don’t fully trust.
 4. **Re-run audit**
-   - `Root security audit --deep` and confirm the report is clean.
+   - `Korvus security audit --deep` and confirm the report is clean.
 
 ## Lessons Learned (The Hard Way)
 
@@ -338,7 +338,7 @@ Keep config + state private on the gateway host:
 - `~/.Root/Root.json`: `600` (user read/write only)
 - `~/.Root`: `700` (user only)
 
-`Root doctor` can warn and offer to tighten these permissions.
+`Korvus doctor` can warn and offer to tighten these permissions.
 
 ### 0.4) Network exposure (bind + port + firewall)
 
@@ -432,7 +432,7 @@ Set a token so **all** WS clients must authenticate:
 }
 ```
 
-Doctor can generate one for you: `Root doctor --generate-gateway-token`.
+Doctor can generate one for you: `Korvus doctor --generate-gateway-token`.
 
 Note: `gateway.remote.token` is **only** for remote CLI calls; it does not
 protect local WS access.
@@ -475,7 +475,7 @@ you terminate TLS or proxy in front of the gateway, disable
 Trusted proxies:
 
 - If you terminate TLS in front of the Gateway, set `gateway.trustedProxies` to your proxy IPs.
-- Root will trust `x-forwarded-for` (or `x-real-ip`) from those IPs to determine the client IP for local pairing checks and HTTP auth/local checks.
+- Korvus will trust `x-forwarded-for` (or `x-real-ip`) from those IPs to determine the client IP for local pairing checks and HTTP auth/local checks.
 - Ensure your proxy **overwrites** `x-forwarded-for` and blocks direct access to the Gateway port.
 
 See [Tailscale](/gateway/tailscale) and [Web overview](/web).
@@ -524,7 +524,7 @@ Recommendations:
 
 - Keep tool summary redaction on (`logging.redactSensitive: "tools"`; default).
 - Add custom patterns for your environment via `logging.redactPatterns` (tokens, hostnames, internal URLs).
-- When sharing diagnostics, prefer `Root status --all` (pasteable, secrets redacted) over raw logs.
+- When sharing diagnostics, prefer `Korvus status --all` (pasteable, secrets redacted) over raw logs.
 - Prune old session transcripts and log files if you don’t need long retention.
 
 Details: [Logging](/gateway/logging)
@@ -762,7 +762,7 @@ If your AI does something bad:
 
 ### Contain
 
-1. **Stop it:** stop the macOS app (if it supervises the Gateway) or terminate your `Root gateway` process.
+1. **Stop it:** stop the macOS app (if it supervises the Gateway) or terminate your `Korvus gateway` process.
 2. **Close exposure:** set `gateway.bind: "loopback"` (or disable Tailscale Funnel/Serve) until you understand what happened.
 3. **Freeze access:** switch risky DMs/groups to `dmPolicy: "disabled"` / require mentions, and remove `"*"` allow-all entries if you had them.
 

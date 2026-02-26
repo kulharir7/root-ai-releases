@@ -136,7 +136,7 @@ x-i18n:
 - `includeReasoning`：启用时，也会发送单独的 `Reasoning:` 消息（如果可用）（与 `/reasoning on` 格式相同）。
 - `session`：心跳运行的可选会话键。
   - `main`（默认）：智能体主会话。
-  - 显式会话键（从 `Root sessions --json` 或 [sessions CLI](/cli/sessions) 复制）。
+  - 显式会话键（从 `Korvus sessions --json` 或 [sessions CLI](/cli/sessions) 复制）。
   - 会话键格式：参见[会话](/concepts/session)和[群组](/channels/groups)。
 - `target`：
   - `last`（默认）：发送到最后使用的外部渠道。

@@ -1,5 +1,5 @@
 ---
-summary: "Advanced setup and development workflows for Root"
+summary: "Advanced setup and development workflows for Korvus"
 read_when:
   - Setting up a new machine
   - You want “latest + greatest” without breaking your personal setup
@@ -37,16 +37,16 @@ If you want “100% tailored to me” _and_ easy updates, keep your customizatio
 Bootstrap once:
 
 ```bash
-Root setup
+Korvus setup
 ```
 
 From inside this repo, use the local CLI entry:
 
 ```bash
-Root setup
+Korvus setup
 ```
 
-If you don’t have a global install yet, run it via `pnpm Root setup`.
+If you don’t have a global install yet, run it via `pnpm Korvus setup`.
 
 ## Run the Gateway from this repo
 
@@ -64,7 +64,7 @@ node Root.mjs gateway --port 18789 --verbose
 4. Link surfaces (example: WhatsApp):
 
 ```bash
-Root channels login
+Korvus channels login
 ```
 
 5. Sanity check:
@@ -75,7 +75,7 @@ Root health
 
 If onboarding is not available in your build:
 
-- Run `Root setup`, then `Root channels login`, then start the Gateway manually (`Root gateway`).
+- Run `Korvus setup`, then `Korvus channels login`, then start the Gateway manually (`Korvus gateway`).
 
 ## Bleeding edge workflow (Gateway in a terminal)
 

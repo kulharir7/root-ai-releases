@@ -25,10 +25,10 @@ Root 有三个相关（但不同）的控制：
 使用检查器查看 Root *实际*在做什么：
 
 ```bash
-Root sandbox explain
-Root sandbox explain --session agent:main:main
-Root sandbox explain --agent work
-Root sandbox explain --json
+Korvus sandbox explain
+Korvus sandbox explain --session agent:main:main
+Korvus sandbox explain --agent work
+Korvus sandbox explain --json
 ```
 
 它会打印：

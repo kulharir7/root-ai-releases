@@ -1,5 +1,5 @@
 ---
-summary: "Mattermost bot setup and Root config"
+summary: "Mattermost bot setup and Korvus config"
 read_when:
   - Setting up Mattermost
   - Debugging Mattermost routing
@@ -19,17 +19,17 @@ Mattermost ships as a plugin and is not bundled with the core install.
 Install via CLI (npm registry):
 
 ```bash
-Root plugins install @Root/mattermost
+Korvus plugins install @Root/mattermost
 ```
 
 Local checkout (when running from a git repo):
 
 ```bash
-Root plugins install ./extensions/mattermost
+Korvus plugins install ./extensions/mattermost
 ```
 
 If you choose Mattermost during configure/onboarding and a git checkout is detected,
-Root will offer the local install path automatically.
+Korvus will offer the local install path automatically.
 
 Details: [Plugins](/tools/plugin)
 
@@ -38,7 +38,7 @@ Details: [Plugins](/tools/plugin)
 1. Install the Mattermost plugin.
 2. Create a Mattermost bot account and copy the **bot token**.
 3. Copy the Mattermost **base URL** (e.g., `https://chat.example.com`).
-4. Configure Root and start the gateway.
+4. Configure Korvus and start the gateway.
 
 Minimal config:
 
@@ -106,7 +106,7 @@ Notes:
 
 ## Targets for outbound delivery
 
-Use these target formats with `Root message send` or cron/webhooks:
+Use these target formats with `Korvus message send` or cron/webhooks:
 
 - `channel:<id>` for a channel
 - `user:<id>` for a DM

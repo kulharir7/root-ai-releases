@@ -1,12 +1,12 @@
 ---
-summary: "CLI reference for `Root memory` (status/index/search)"
+summary: "CLI reference for `Korvus memory` (status/index/search)"
 read_when:
   - You want to index or search semantic memory
   - You’re debugging memory availability or indexing
 title: "memory"
 ---
 
-# `Root memory`
+# `Korvus memory`
 
 Manage semantic memory indexing and search.
 Provided by the active memory plugin (default: `memory-core`; set `plugins.slots.memory = "none"` to disable).
@@ -19,15 +19,15 @@ Related:
 ## Examples
 
 ```bash
-Root memory status
-Root memory status --deep
-Root memory status --deep --index
-Root memory status --deep --index --verbose
-Root memory index
-Root memory index --verbose
-Root memory search "release checklist"
-Root memory status --agent main
-Root memory index --agent main --verbose
+Korvus memory status
+Korvus memory status --deep
+Korvus memory status --deep --index
+Korvus memory status --deep --index --verbose
+Korvus memory index
+Korvus memory index --verbose
+Korvus memory search "release checklist"
+Korvus memory status --agent main
+Korvus memory index --agent main --verbose
 ```
 
 ## Options

@@ -3,7 +3,7 @@ read_when:
   - 从 CLI 运行 Gateway 网关（开发或服务器）
   - 调试 Gateway 网关认证、绑定模式和连接性
   - 通过 Bonjour 发现 Gateway 网关（局域网 + tailnet）
-summary: Root Gateway 网关 CLI（`Root gateway`）— 运行、查询和发现 Gateway 网关
+summary: Root Gateway 网关 CLI（`Korvus gateway`）— 运行、查询和发现 Gateway 网关
 title: gateway
 x-i18n:
   generated_at: "2026-02-03T07:45:15Z"
@@ -18,7 +18,7 @@ x-i18n:
 
 Gateway 网关是 Root 的 WebSocket 服务器（渠道、节点、会话、hooks）。
 
-本页中的子命令位于 `Root gateway …` 下。
+本页中的子命令位于 `Korvus gateway …` 下。
 
 相关文档：
 
@@ -31,13 +31,13 @@ Gateway 网关是 Root 的 WebSocket 服务器（渠道、节点、会话、hook
 运行本地 Gateway 网关进程：
 
 ```bash
-Root gateway
+Korvus gateway
 ```
 
 前台运行别名：
 
 ```bash
-Root gateway run
+Korvus gateway run
 ```
 
 注意事项：
@@ -88,7 +88,7 @@ Root gateway run
 ### `gateway health`
 
 ```bash
-Root gateway health --url ws://127.0.0.1:18789
+Korvus gateway health --url ws://127.0.0.1:18789
 ```
 
 ### `gateway status`
@@ -96,8 +96,8 @@ Root gateway health --url ws://127.0.0.1:18789
 `gateway status` 显示 Gateway 网关服务（launchd/systemd/schtasks）以及可选的 RPC 探测。
 
 ```bash
-Root gateway status
-Root gateway status --json
+Korvus gateway status
+Korvus gateway status --json
 ```
 
 选项：
@@ -119,8 +119,8 @@ Root gateway status --json
 如果多个 Gateway 网关可达，它会打印所有。当你使用隔离的配置文件/端口（例如救援机器人）时支持多个 Gateway 网关，但大多数安装仍然运行单个 Gateway 网关。
 
 ```bash
-Root gateway probe
-Root gateway probe --json
+Korvus gateway probe
+Korvus gateway probe --json
 ```
 
 #### 通过 SSH 远程（Mac 应用对等）
@@ -130,7 +130,7 @@ macOS 应用的"通过 SSH 远程"模式使用本地端口转发，因此远程 
 CLI 等效命令：
 
 ```bash
-Root gateway probe --ssh user@gateway-host
+Korvus gateway probe --ssh user@gateway-host
 ```
 
 选项：
@@ -149,18 +149,18 @@ Root gateway probe --ssh user@gateway-host
 低级 RPC 辅助工具。
 
 ```bash
-Root gateway call status
-Root gateway call logs.tail --params '{"sinceMs": 60000}'
+Korvus gateway call status
+Korvus gateway call logs.tail --params '{"sinceMs": 60000}'
 ```
 
 ## 管理 Gateway 网关服务
 
 ```bash
-Root gateway install
-Root gateway start
-Root gateway stop
-Root gateway restart
-Root gateway uninstall
+Korvus gateway install
+Korvus gateway start
+Korvus gateway stop
+Korvus gateway restart
+Korvus gateway uninstall
 ```
 
 注意事项：
@@ -190,7 +190,7 @@ Root gateway uninstall
 ### `gateway discover`
 
 ```bash
-Root gateway discover
+Korvus gateway discover
 ```
 
 选项：
@@ -201,6 +201,6 @@ Root gateway discover
 示例：
 
 ```bash
-Root gateway discover --timeout 4000
-Root gateway discover --json | jq '.beacons[].wsUrl'
+Korvus gateway discover --timeout 4000
+Korvus gateway discover --json | jq '.beacons[].wsUrl'
 ```

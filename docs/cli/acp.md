@@ -58,8 +58,8 @@ it to drive a Root Gateway session.
 Example config (persisted):
 
 ```bash
-Root config set gateway.remote.url wss://gateway-host:18789
-Root config set gateway.remote.token <token>
+Korvus config set gateway.remote.url wss://gateway-host:18789
+Korvus config set gateway.remote.token <token>
 ```
 
 Example direct run (no config write):

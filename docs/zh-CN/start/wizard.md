@@ -21,7 +21,7 @@ x-i18n:
 主要入口：
 
 ```bash
-Root onboard
+Korvus onboard
 ```
 
 最快开始聊天的方式：打开控制界面（无需设置渠道）。运行 `Root dashboard` 并在浏览器中聊天。文档：[控制面板](/web/dashboard)。
@@ -29,10 +29,10 @@ Root onboard
 后续重新配置：
 
 ```bash
-Root configure
+Korvus configure
 ```
 
-推荐：设置 Brave Search API 密钥，以便智能体可以使用 `web_search`（`web_fetch` 无需密钥即可使用）。最简单的方式：`Root configure --section web`，它会存储 `tools.web.search.apiKey`。文档：[Web 工具](/tools/web)。
+推荐：设置 Brave Search API 密钥，以便智能体可以使用 `web_search`（`web_fetch` 无需密钥即可使用）。最简单的方式：`Korvus configure --section web`，它会存储 `tools.web.search.apiKey`。文档：[Web 工具](/tools/web)。
 
 ## 快速开始 vs 高级
 
@@ -67,7 +67,7 @@ Root configure
 要添加更多隔离的智能体（独立的工作区 + 会话 + 认证），使用：
 
 ```bash
-Root agents add <name>
+Korvus agents add <name>
 ```
 
 提示：`--json` **不**意味着非交互模式。脚本中请使用 `--non-interactive`（和 `--workspace`）。
@@ -77,7 +77,7 @@ Root agents add <name>
 1. **现有配置检测**
    - 如果 `~/.Root/Root.json` 存在，选择**保留 / 修改 / 重置**。
    - 重新运行向导**不会**清除任何内容，除非你明确选择**重置**（或传递 `--reset`）。
-   - 如果配置无效或包含遗留键名，向导会停止并要求你在继续之前运行 `Root doctor`。
+   - 如果配置无效或包含遗留键名，向导会停止并要求你在继续之前运行 `Korvus doctor`。
    - 重置使用 `trash`（永不使用 `rm`）并提供范围选项：
      - 仅配置
      - 配置 + 凭证 + 会话
@@ -140,7 +140,7 @@ Root agents add <name>
 
 7. **健康检查**
    - 启动 Gateway 网关（如果需要）并运行 `Root health`。
-   - 提示：`Root status --deep` 在状态输出中添加 Gateway 网关健康探测（需要可达的 Gateway 网关）。
+   - 提示：`Korvus status --deep` 在状态输出中添加 Gateway 网关健康探测（需要可达的 Gateway 网关）。
 
 8. **Skills（推荐）**
    - 读取可用的 Skills 并检查要求。
@@ -172,7 +172,7 @@ Root agents add <name>
 
 ## 添加另一个智能体
 
-使用 `Root agents add <name>` 创建一个具有独立工作区、会话和认证配置文件的单独智能体。不带 `--workspace` 运行会启动向导。
+使用 `Korvus agents add <name>` 创建一个具有独立工作区、会话和认证配置文件的单独智能体。不带 `--workspace` 运行会启动向导。
 
 它设置的内容：
 
@@ -191,7 +191,7 @@ Root agents add <name>
 使用 `--non-interactive` 自动化或脚本化新手引导：
 
 ```bash
-Root onboard --non-interactive \
+Korvus onboard --non-interactive \
   --mode local \
   --auth-choice apiKey \
   --anthropic-api-key "$ANTHROPIC_API_KEY" \
@@ -207,7 +207,7 @@ Root onboard --non-interactive \
 Gemini 示例：
 
 ```bash
-Root onboard --non-interactive \
+Korvus onboard --non-interactive \
   --mode local \
   --auth-choice gemini-api-key \
   --gemini-api-key "$GEMINI_API_KEY" \
@@ -218,7 +218,7 @@ Root onboard --non-interactive \
 Z.AI 示例：
 
 ```bash
-Root onboard --non-interactive \
+Korvus onboard --non-interactive \
   --mode local \
   --auth-choice zai-api-key \
   --zai-api-key "$ZAI_API_KEY" \
@@ -229,7 +229,7 @@ Root onboard --non-interactive \
 Vercel AI Gateway 示例：
 
 ```bash
-Root onboard --non-interactive \
+Korvus onboard --non-interactive \
   --mode local \
   --auth-choice ai-gateway-api-key \
   --ai-gateway-api-key "$AI_GATEWAY_API_KEY" \
@@ -240,7 +240,7 @@ Root onboard --non-interactive \
 Moonshot 示例：
 
 ```bash
-Root onboard --non-interactive \
+Korvus onboard --non-interactive \
   --mode local \
   --auth-choice moonshot-api-key \
   --moonshot-api-key "$MOONSHOT_API_KEY" \
@@ -251,7 +251,7 @@ Root onboard --non-interactive \
 Synthetic 示例：
 
 ```bash
-Root onboard --non-interactive \
+Korvus onboard --non-interactive \
   --mode local \
   --auth-choice synthetic-api-key \
   --synthetic-api-key "$SYNTHETIC_API_KEY" \
@@ -262,7 +262,7 @@ Root onboard --non-interactive \
 OpenCode Zen 示例：
 
 ```bash
-Root onboard --non-interactive \
+Korvus onboard --non-interactive \
   --mode local \
   --auth-choice opencode-zen \
   --opencode-zen-api-key "$OPENCODE_API_KEY" \
@@ -273,7 +273,7 @@ Root onboard --non-interactive \
 添加智能体（非交互）示例：
 
 ```bash
-Root agents add work \
+Korvus agents add work \
   --workspace ~/.Root/workspace-work \
   --model openai/gpt-5.2 \
   --bind whatsapp:biz \
@@ -316,7 +316,7 @@ Gateway 网关通过 RPC 暴露向导流程（`wizard.start`、`wizard.next`、`
 - `wizard.lastRunCommand`
 - `wizard.lastRunMode`
 
-`Root agents add` 写入 `agents.list[]` 和可选的 `bindings`。
+`Korvus agents add` 写入 `agents.list[]` 和可选的 `bindings`。
 
 WhatsApp 凭证存储在 `~/.Root/credentials/whatsapp/<accountId>/` 下。
 会话存储在 `~/.Root/agents/<agentId>/sessions/` 下。

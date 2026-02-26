@@ -22,7 +22,7 @@ x-i18n:
 
 - 模型引用使用 `provider/model` 格式（例如：`opencode/claude-opus-4-5`）。
 - 如果设置了 `agents.defaults.models`，它将成为允许列表。
-- CLI 辅助工具：`Root onboard`、`Root models list`、`Root models set <provider/model>`。
+- CLI 辅助工具：`Korvus onboard`、`Korvus models list`、`Korvus models set <provider/model>`。
 
 ## 内置提供商（pi-ai 目录）
 
@@ -33,7 +33,7 @@ Root 附带 pi-ai 目录。这些提供商**不需要** `models.providers` 配�
 - 提供商：`openai`
 - 认证：`OPENAI_API_KEY`
 - 示例模型：`openai/gpt-5.2`
-- CLI：`Root onboard --auth-choice openai-api-key`
+- CLI：`Korvus onboard --auth-choice openai-api-key`
 
 ```json5
 {
@@ -46,7 +46,7 @@ Root 附带 pi-ai 目录。这些提供商**不需要** `models.providers` 配�
 - 提供商：`anthropic`
 - 认证：`ANTHROPIC_API_KEY` 或 `claude setup-token`
 - 示例模型：`anthropic/claude-opus-4-5`
-- CLI：`Root onboard --auth-choice token`（粘贴 setup-token）或 `Root models auth paste-token --provider anthropic`
+- CLI：`Korvus onboard --auth-choice token`（粘贴 setup-token）或 `Korvus models auth paste-token --provider anthropic`
 
 ```json5
 {
@@ -59,7 +59,7 @@ Root 附带 pi-ai 目录。这些提供商**不需要** `models.providers` 配�
 - 提供商：`openai-codex`
 - 认证：OAuth (ChatGPT)
 - 示例模型：`openai-codex/gpt-5.2`
-- CLI：`Root onboard --auth-choice openai-codex` 或 `Root models auth login --provider openai-codex`
+- CLI：`Korvus onboard --auth-choice openai-codex` 或 `Korvus models auth login --provider openai-codex`
 
 ```json5
 {
@@ -72,7 +72,7 @@ Root 附带 pi-ai 目录。这些提供商**不需要** `models.providers` 配�
 - 提供商：`opencode`
 - 认证：`OPENCODE_API_KEY`（或 `OPENCODE_ZEN_API_KEY`）
 - 示例模型：`opencode/claude-opus-4-5`
-- CLI：`Root onboard --auth-choice opencode-zen`
+- CLI：`Korvus onboard --auth-choice opencode-zen`
 
 ```json5
 {
@@ -85,18 +85,18 @@ Root 附带 pi-ai 目录。这些提供商**不需要** `models.providers` 配�
 - 提供商：`google`
 - 认证：`GEMINI_API_KEY`
 - 示例模型：`google/gemini-3-pro-preview`
-- CLI：`Root onboard --auth-choice gemini-api-key`
+- CLI：`Korvus onboard --auth-choice gemini-api-key`
 
 ### Google Vertex、Antigravity 和 Gemini CLI
 
 - 提供商：`google-vertex`、`google-antigravity`、`google-gemini-cli`
 - 认证：Vertex 使用 gcloud ADC；Antigravity/Gemini CLI 使用各自的认证流程
 - Antigravity OAuth 作为捆绑插件提供（`google-antigravity-auth`，默认禁用）。
-  - 启用：`Root plugins enable google-antigravity-auth`
-  - 登录：`Root models auth login --provider google-antigravity --set-default`
+  - 启用：`Korvus plugins enable google-antigravity-auth`
+  - 登录：`Korvus models auth login --provider google-antigravity --set-default`
 - Gemini CLI OAuth 作为捆绑插件提供（`google-gemini-cli-auth`，默认禁用）。
-  - 启用：`Root plugins enable google-gemini-cli-auth`
-  - 登录：`Root models auth login --provider google-gemini-cli --set-default`
+  - 启用：`Korvus plugins enable google-gemini-cli-auth`
+  - 登录：`Korvus models auth login --provider google-gemini-cli --set-default`
   - 注意：你**不需要**将客户端 ID 或密钥粘贴到 `Root.json` 中。CLI 登录流程将令牌存储在 Gateway 网关主机的认证配置文件中。
 
 ### Z.AI (GLM)
@@ -104,7 +104,7 @@ Root 附带 pi-ai 目录。这些提供商**不需要** `models.providers` 配�
 - 提供商：`zai`
 - 认证：`ZAI_API_KEY`
 - 示例模型：`zai/glm-4.7`
-- CLI：`Root onboard --auth-choice zai-api-key`
+- CLI：`Korvus onboard --auth-choice zai-api-key`
   - 别名：`z.ai/*` 和 `z-ai/*` 规范化为 `zai/*`
 
 ### Vercel AI Gateway
@@ -112,7 +112,7 @@ Root 附带 pi-ai 目录。这些提供商**不需要** `models.providers` 配�
 - 提供商：`vercel-ai-gateway`
 - 认证：`AI_GATEWAY_API_KEY`
 - 示例模型：`vercel-ai-gateway/anthropic/claude-opus-4.5`
-- CLI：`Root onboard --auth-choice ai-gateway-api-key`
+- CLI：`Korvus onboard --auth-choice ai-gateway-api-key`
 
 ### 其他内置提供商
 
@@ -191,8 +191,8 @@ Qwen 通过设备码流程提供对 Qwen Coder + Vision 的 OAuth 访问。
 启用捆绑插件，然后登录：
 
 ```bash
-Root plugins enable qwen-portal-auth
-Root models auth login --provider qwen-portal --set-default
+Korvus plugins enable qwen-portal-auth
+Korvus models auth login --provider qwen-portal --set-default
 ```
 
 模型引用：
@@ -209,7 +209,7 @@ Synthetic 通过 `synthetic` 提供商提供 Anthropic 兼容模型：
 - 提供商：`synthetic`
 - 认证：`SYNTHETIC_API_KEY`
 - 示例模型：`synthetic/hf:MiniMaxAI/MiniMax-M2.1`
-- CLI：`Root onboard --auth-choice synthetic-api-key`
+- CLI：`Korvus onboard --auth-choice synthetic-api-key`
 
 ```json5
 {
@@ -312,9 +312,9 @@ ollama pull llama3.3
 ## CLI 示例
 
 ```bash
-Root onboard --auth-choice opencode-zen
-Root models set opencode/claude-opus-4-5
-Root models list
+Korvus onboard --auth-choice opencode-zen
+Korvus models set opencode/claude-opus-4-5
+Korvus models list
 ```
 
 另请参阅：[/gateway/configuration](/gateway/configuration) 了解完整配置示例。

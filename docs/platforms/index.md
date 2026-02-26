@@ -36,16 +36,16 @@ Native companion apps for Windows are also planned; the Gateway is recommended v
 - Install guide: [Getting Started](/start/getting-started)
 - Gateway runbook: [Gateway](/gateway)
 - Gateway configuration: [Configuration](/gateway/configuration)
-- Service status: `Root gateway status`
+- Service status: `Korvus gateway status`
 
 ## Gateway service install (CLI)
 
 Use one of these (all supported):
 
-- Wizard (recommended): `Root onboard --install-daemon`
-- Direct: `Root gateway install`
-- Configure flow: `Root configure` → select **Gateway service**
-- Repair/migrate: `Root doctor` (offers to install or fix the service)
+- Wizard (recommended): `Korvus onboard --install-daemon`
+- Direct: `Korvus gateway install`
+- Configure flow: `Korvus configure` → select **Gateway service**
+- Repair/migrate: `Korvus doctor` (offers to install or fix the service)
 
 The service target depends on OS:
 

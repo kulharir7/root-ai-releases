@@ -1,4 +1,4 @@
-# Root Threat Model v1.0
+# Korvus Threat Model v1.0
 
 ## MITRE ATLAS Framework
 
@@ -34,7 +34,7 @@ This is a living document maintained by the Root community. See [CONTRIBUTING-TH
 
 ### 1.1 Purpose
 
-This threat model documents adversarial threats to the Root AI agent platform and ClawHub skill marketplace, using the MITRE ATLAS framework designed specifically for AI/ML systems.
+This threat model documents adversarial threats to the Korvus agent platform and ClawHub skill marketplace, using the MITRE ATLAS framework designed specifically for AI/ML systems.
 
 ### 1.2 Scope
 
@@ -144,7 +144,7 @@ Nothing is explicitly out of scope for this threat model.
 | Attribute               | Value                                                                |
 | ----------------------- | -------------------------------------------------------------------- |
 | **ATLAS ID**            | AML.T0006 - Active Scanning                                          |
-| **Description**         | Attacker scans for exposed Root gateway endpoints                |
+| **Description**         | Attacker scans for exposed Korvus gateway endpoints                |
 | **Attack Vector**       | Network scanning, shodan queries, DNS enumeration                    |
 | **Affected Components** | Gateway, exposed API endpoints                                       |
 | **Current Mitigations** | Tailscale auth option, bind to loopback by default                   |
@@ -595,7 +595,7 @@ T-EXEC-002 → T-EXFIL-001 → External exfiltration
 | **Gateway**          | Root's message routing and authentication layer       |
 | **MCP**              | Model Context Protocol - tool provider interface          |
 | **Prompt Injection** | Attack where malicious instructions are embedded in input |
-| **Skill**            | Downloadable extension for Root agents                |
+| **Skill**            | Downloadable extension for Korvus agents                |
 | **SSRF**             | Server-Side Request Forgery                               |
 
 ---

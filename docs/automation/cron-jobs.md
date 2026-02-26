@@ -33,7 +33,7 @@ Troubleshooting: [/automation/troubleshooting](/automation/troubleshooting)
 Create a one-shot reminder, verify it exists, and run it immediately:
 
 ```bash
-Root cron add \
+Korvus cron add \
   --name "Reminder" \
   --at "2026-02-01T16:00:00Z" \
   --session main \
@@ -41,15 +41,15 @@ Root cron add \
   --wake now \
   --delete-after-run
 
-Root cron list
-Root cron run <job-id>
-Root cron runs --id <job-id>
+Korvus cron list
+Korvus cron run <job-id>
+Korvus cron runs --id <job-id>
 ```
 
 Schedule a recurring isolated job with delivery:
 
 ```bash
-Root cron add \
+Korvus cron add \
   --name "Morning brief" \
   --cron "0 7 * * *" \
   --tz "America/Los_Angeles" \
@@ -68,7 +68,7 @@ For the canonical JSON shapes and examples, see [JSON schema for tool calls](/au
 
 Cron jobs are persisted on the Gateway host at `~/.Root/cron/jobs.json` by default.
 The Gateway loads the file into memory and writes it back on changes, so manual edits
-are only safe when the Gateway is stopped. Prefer `Root cron add/edit` or the cron
+are only safe when the Gateway is stopped. Prefer `Korvus cron add/edit` or the cron
 tool call API for changes.
 
 ## Beginner-friendly overview
@@ -347,7 +347,7 @@ Disable cron entirely:
 One-shot reminder (UTC ISO, auto-delete after success):
 
 ```bash
-Root cron add \
+Korvus cron add \
   --name "Send reminder" \
   --at "2026-01-12T18:00:00Z" \
   --session main \
@@ -359,7 +359,7 @@ Root cron add \
 One-shot reminder (main session, wake immediately):
 
 ```bash
-Root cron add \
+Korvus cron add \
   --name "Calendar check" \
   --at "20m" \
   --session main \
@@ -370,7 +370,7 @@ Root cron add \
 Recurring isolated job (announce to WhatsApp):
 
 ```bash
-Root cron add \
+Korvus cron add \
   --name "Morning status" \
   --cron "0 7 * * *" \
   --tz "America/Los_Angeles" \
@@ -384,7 +384,7 @@ Root cron add \
 Recurring isolated job (deliver to a Telegram topic):
 
 ```bash
-Root cron add \
+Korvus cron add \
   --name "Nightly summary (topic)" \
   --cron "0 22 * * *" \
   --tz "America/Los_Angeles" \
@@ -398,7 +398,7 @@ Root cron add \
 Isolated job with model and thinking override:
 
 ```bash
-Root cron add \
+Korvus cron add \
   --name "Deep analysis" \
   --cron "0 6 * * 1" \
   --tz "America/Los_Angeles" \
@@ -415,24 +415,24 @@ Agent selection (multi-agent setups):
 
 ```bash
 # Pin a job to agent "ops" (falls back to default if that agent is missing)
-Root cron add --name "Ops sweep" --cron "0 6 * * *" --session isolated --message "Check ops queue" --agent ops
+Korvus cron add --name "Ops sweep" --cron "0 6 * * *" --session isolated --message "Check ops queue" --agent ops
 
 # Switch or clear the agent on an existing job
-Root cron edit <jobId> --agent ops
-Root cron edit <jobId> --clear-agent
+Korvus cron edit <jobId> --agent ops
+Korvus cron edit <jobId> --clear-agent
 ```
 
 Manual run (force is the default, use `--due` to only run when due):
 
 ```bash
-Root cron run <jobId>
-Root cron run <jobId> --due
+Korvus cron run <jobId>
+Korvus cron run <jobId> --due
 ```
 
 Edit an existing job (patch fields):
 
 ```bash
-Root cron edit <jobId> \
+Korvus cron edit <jobId> \
   --message "Updated prompt" \
   --model "opus" \
   --thinking low
@@ -441,7 +441,7 @@ Root cron edit <jobId> \
 Run history:
 
 ```bash
-Root cron runs --id <jobId> --limit 50
+Korvus cron runs --id <jobId> --limit 50
 ```
 
 Immediate system event without creating a job:

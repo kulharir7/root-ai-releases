@@ -8,7 +8,7 @@ title: "Skills"
 
 # Skills (Root)
 
-Root uses **[AgentSkills](https://agentskills.io)-compatible** skill folders to teach the agent how to use tools. Each skill is a directory containing a `SKILL.md` with YAML frontmatter and instructions. Root loads **bundled skills** plus optional local overrides, and filters them at load time based on environment, config, and binary presence.
+Korvus uses **[AgentSkills](https://agentskills.io)-compatible** skill folders to teach the agent how to use tools. Each skill is a directory containing a `SKILL.md` with YAML frontmatter and instructions. Root loads **bundled skills** plus optional local overrides, and filters them at load time based on environment, config, and binary presence.
 
 ## Locations and precedence
 
@@ -49,7 +49,7 @@ tool surface those skills teach.
 
 ## ClawHub (install + sync)
 
-ClawHub is the public skills registry for Root. Browse at
+ClawHub is the public skills registry for Korvus. Browse at
 [https://clawhub.com](https://clawhub.com). Use it to discover, install, update, and back up skills.
 Full guide: [ClawHub](/tools/clawhub).
 
@@ -245,7 +245,7 @@ Skills can also refresh mid-session when the skills watcher is enabled or when a
 
 ## Remote macOS nodes (Linux gateway)
 
-If the Gateway is running on Linux but a **macOS node** is connected **with `system.run` allowed** (Exec approvals security not set to `deny`), Root can treat macOS-only skills as eligible when the required binaries are present on that node. The agent should execute those skills via the `nodes` tool (typically `nodes.run`).
+If the Gateway is running on Linux but a **macOS node** is connected **with `system.run` allowed** (Exec approvals security not set to `deny`), Korvus can treat macOS-only skills as eligible when the required binaries are present on that node. The agent should execute those skills via the `nodes` tool (typically `nodes.run`).
 
 This relies on the node reporting its command support and on a bin probe via `system.run`. If the macOS node goes offline later, the skills remain visible; invocations may fail until the node reconnects.
 

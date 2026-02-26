@@ -1,14 +1,14 @@
 ---
-summary: "Messaging platforms Root can connect to"
+summary: "Messaging platforms Korvus can connect to"
 read_when:
-  - You want to choose a chat channel for Root
+  - You want to choose a chat channel for Korvus
   - You need a quick overview of supported messaging platforms
 title: "Chat Channels"
 ---
 
 # Chat Channels
 
-Root can talk to you on any chat app you already use. Each channel connects via the Gateway.
+Korvus can talk to you on any chat app you already use. Each channel connects via the Gateway.
 Text is supported everywhere; media and reactions vary by channel.
 
 ## Supported channels
@@ -37,7 +37,7 @@ Text is supported everywhere; media and reactions vary by channel.
 
 ## Notes
 
-- Channels can run simultaneously; configure multiple and Root will route per chat.
+- Channels can run simultaneously; configure multiple and Korvus will route per chat.
 - Fastest setup is usually **Telegram** (simple bot token). WhatsApp requires QR pairing and
   stores more state on disk.
 - Group behavior varies by channel; see [Groups](/channels/groups).

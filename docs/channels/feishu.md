@@ -8,7 +8,7 @@ title: Feishu
 
 # Feishu bot
 
-Feishu (Lark) is a team chat platform used by companies for messaging and collaboration. This plugin connects Root to a Feishu/Lark bot using the platform’s WebSocket event subscription so messages can be received without exposing a public webhook URL.
+Feishu (Lark) is a team chat platform used by companies for messaging and collaboration. This plugin connects Korvus to a Feishu/Lark bot using the platform’s WebSocket event subscription so messages can be received without exposing a public webhook URL.
 
 ---
 
@@ -17,13 +17,13 @@ Feishu (Lark) is a team chat platform used by companies for messaging and collab
 Install the Feishu plugin:
 
 ```bash
-Root plugins install @Root/feishu
+Korvus plugins install @Root/feishu
 ```
 
 Local checkout (when running from a git repo):
 
 ```bash
-Root plugins install ./extensions/feishu
+Korvus plugins install ./extensions/feishu
 ```
 
 ---
@@ -37,7 +37,7 @@ There are two ways to add the Feishu channel:
 If you just installed Root, run the wizard:
 
 ```bash
-Root onboard
+Korvus onboard
 ```
 
 The wizard guides you through:
@@ -48,24 +48,24 @@ The wizard guides you through:
 
 ✅ **After configuration**, check gateway status:
 
-- `Root gateway status`
-- `Root logs --follow`
+- `Korvus gateway status`
+- `Korvus logs --follow`
 
 ### Method 2: CLI setup
 
 If you already completed initial install, add the channel via CLI:
 
 ```bash
-Root channels add
+Korvus channels add
 ```
 
 Choose **Feishu**, then enter the App ID and App Secret.
 
 ✅ **After configuration**, manage the gateway:
 
-- `Root gateway status`
-- `Root gateway restart`
-- `Root logs --follow`
+- `Korvus gateway status`
+- `Korvus gateway restart`
+- `Korvus logs --follow`
 
 ---
 
@@ -141,8 +141,8 @@ In **App Capability** > **Bot**:
 
 ⚠️ **Important:** before setting event subscription, make sure:
 
-1. You already ran `Root channels add` for Feishu
-2. The gateway is running (`Root gateway status`)
+1. You already ran `Korvus channels add` for Feishu
+2. The gateway is running (`Korvus gateway status`)
 
 In **Event Subscription**:
 
@@ -161,12 +161,12 @@ In **Event Subscription**:
 
 ---
 
-## Step 2: Configure Root
+## Step 2: Configure Korvus
 
 ### Configure with the wizard (recommended)
 
 ```bash
-Root channels add
+Korvus channels add
 ```
 
 Choose **Feishu** and paste your App ID + App Secret.
@@ -227,7 +227,7 @@ If your tenant is on Lark (international), set the domain to `lark` (or a full d
 ### 1. Start the gateway
 
 ```bash
-Root gateway
+Korvus gateway
 ```
 
 ### 2. Send a test message
@@ -337,7 +337,7 @@ Group IDs look like `oc_xxx`.
 **Method 1 (recommended)**
 
 1. Start the gateway and @mention the bot in the group
-2. Run `Root logs --follow` and look for `chat_id`
+2. Run `Korvus logs --follow` and look for `chat_id`
 
 **Method 2**
 
@@ -350,7 +350,7 @@ User IDs look like `ou_xxx`.
 **Method 1 (recommended)**
 
 1. Start the gateway and DM the bot
-2. Run `Root logs --follow` and look for `open_id`
+2. Run `Korvus logs --follow` and look for `open_id`
 
 **Method 2**
 
@@ -376,11 +376,11 @@ Root pairing list feishu
 
 | Command                    | Description                   |
 | -------------------------- | ----------------------------- |
-| `Root gateway status`  | Show gateway status           |
-| `Root gateway install` | Install/start gateway service |
-| `Root gateway stop`    | Stop gateway service          |
-| `Root gateway restart` | Restart gateway service       |
-| `Root logs --follow`   | Tail gateway logs             |
+| `Korvus gateway status`  | Show gateway status           |
+| `Korvus gateway install` | Install/start gateway service |
+| `Korvus gateway stop`    | Stop gateway service          |
+| `Korvus gateway restart` | Restart gateway service       |
+| `Korvus logs --follow`   | Tail gateway logs             |
 
 ---
 
@@ -391,7 +391,7 @@ Root pairing list feishu
 1. Ensure the bot is added to the group
 2. Ensure you @mention the bot (default behavior)
 3. Check `groupPolicy` is not set to `"disabled"`
-4. Check logs: `Root logs --follow`
+4. Check logs: `Korvus logs --follow`
 
 ### Bot does not receive messages
 
@@ -399,8 +399,8 @@ Root pairing list feishu
 2. Ensure event subscription includes `im.message.receive_v1`
 3. Ensure **long connection** is enabled
 4. Ensure app permissions are complete
-5. Ensure the gateway is running: `Root gateway status`
-6. Check logs: `Root logs --follow`
+5. Ensure the gateway is running: `Korvus gateway status`
+6. Check logs: `Korvus logs --follow`
 
 ### App Secret leak
 

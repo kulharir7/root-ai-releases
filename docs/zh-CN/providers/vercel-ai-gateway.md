@@ -26,7 +26,7 @@ x-i18n:
 1. 设置 API 密钥（推荐：为 Gateway 网关存储它）：
 
 ```bash
-Root onboard --auth-choice ai-gateway-api-key
+Korvus onboard --auth-choice ai-gateway-api-key
 ```
 
 2. 设置默认模型：
@@ -44,7 +44,7 @@ Root onboard --auth-choice ai-gateway-api-key
 ## 非交互式示例
 
 ```bash
-Root onboard --non-interactive \
+Korvus onboard --non-interactive \
   --mode local \
   --auth-choice ai-gateway-api-key \
   --ai-gateway-api-key "$AI_GATEWAY_API_KEY"

@@ -32,7 +32,7 @@ iwr -useb https://Root.ai/install.ps1 | iex
 下一步（如果你跳过了新手引导）：
 
 ```bash
-Root onboard --install-daemon
+Korvus onboard --install-daemon
 ```
 
 ## 系统要求
@@ -94,7 +94,7 @@ pnpm 需要显式批准带有构建脚本的包。在首次安装显示"Ignored 
 然后：
 
 ```bash
-Root onboard --install-daemon
+Korvus onboard --install-daemon
 ```
 
 ### 3）从源代码（贡献者/开发）
@@ -105,7 +105,7 @@ cd Root
 pnpm install
 pnpm ui:build # 首次运行时自动安装 UI 依赖
 pnpm build
-Root onboard --install-daemon
+Korvus onboard --install-daemon
 ```
 
 提示：如果你还没有全局安装，请通过 `pnpm Root ...` 运行仓库命令。
@@ -119,9 +119,9 @@ Root onboard --install-daemon
 
 ## 安装后
 
-- 运行新手引导：`Root onboard --install-daemon`
-- 快速检查：`Root doctor`
-- 检查 Gateway 网关健康状态：`Root status` + `Root health`
+- 运行新手引导：`Korvus onboard --install-daemon`
+- 快速检查：`Korvus doctor`
+- 检查 Gateway 网关健康状态：`Korvus status` + `Root health`
 - 打开仪表板：`Root dashboard`
 
 ## 安装方式：npm vs git（安装器）

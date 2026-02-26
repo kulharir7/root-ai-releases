@@ -2,7 +2,7 @@
 read_when:
   - 你在不使用完整新手引导向导的情况下进行首次设置
   - 你想设置默认工作区路径
-summary: "`Root setup` 的 CLI 参考（初始化配置 + 工作区）"
+summary: "`Korvus setup` 的 CLI 参考（初始化配置 + 工作区）"
 title: setup
 x-i18n:
   generated_at: "2026-02-01T20:21:26Z"
@@ -13,7 +13,7 @@ x-i18n:
   workflow: 14
 ---
 
-# `Root setup`
+# `Korvus setup`
 
 初始化 `~/.Root/Root.json` 和智能体工作区。
 
@@ -25,12 +25,12 @@ x-i18n:
 ## 示例
 
 ```bash
-Root setup
-Root setup --workspace ~/.Root/workspace
+Korvus setup
+Korvus setup --workspace ~/.Root/workspace
 ```
 
 通过 setup 运行向导：
 
 ```bash
-Root setup --wizard
+Korvus setup --wizard
 ```

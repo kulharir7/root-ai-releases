@@ -472,7 +472,7 @@ gcloud compute instances set-machine-type Root-gateway \
   --machine-type=e2-small
 
 # 启动 VM
-gcloud compute instances start Root-gateway --zone=us-central1-a
+gcloud compute instances start Korvus-gateway --zone=us-central1-a
 ```
 
 ---

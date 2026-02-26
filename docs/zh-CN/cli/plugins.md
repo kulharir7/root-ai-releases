@@ -2,7 +2,7 @@
 read_when:
   - 你想安装或管理进程内 Gateway 网关插件
   - 你想调试插件加载失败问题
-summary: "`Root plugins` 的 CLI 参考（列出、安装、启用/禁用、诊断）"
+summary: "`Korvus plugins` 的 CLI 参考（列出、安装、启用/禁用、诊断）"
 title: plugins
 x-i18n:
   generated_at: "2026-02-03T07:45:08Z"
@@ -13,7 +13,7 @@ x-i18n:
   workflow: 15
 ---
 
-# `Root plugins`
+# `Korvus plugins`
 
 管理 Gateway 网关插件/扩展（进程内加载）。
 
@@ -26,13 +26,13 @@ x-i18n:
 ## 命令
 
 ```bash
-Root plugins list
-Root plugins info <id>
-Root plugins enable <id>
-Root plugins disable <id>
-Root plugins doctor
-Root plugins update <id>
-Root plugins update --all
+Korvus plugins list
+Korvus plugins info <id>
+Korvus plugins enable <id>
+Korvus plugins disable <id>
+Korvus plugins doctor
+Korvus plugins update <id>
+Korvus plugins update --all
 ```
 
 内置插件随 Root 一起发布，但默认禁用。使用 `plugins enable` 来激活它们。
@@ -42,7 +42,7 @@ Root plugins update --all
 ### 安装
 
 ```bash
-Root plugins install <path-or-spec>
+Korvus plugins install <path-or-spec>
 ```
 
 安全提示：将插件安装视为运行代码。优先使用固定版本。
@@ -52,15 +52,15 @@ Root plugins install <path-or-spec>
 使用 `--link` 避免复制本地目录（添加到 `plugins.load.paths`）：
 
 ```bash
-Root plugins install -l ./my-plugin
+Korvus plugins install -l ./my-plugin
 ```
 
 ### 更新
 
 ```bash
-Root plugins update <id>
-Root plugins update --all
-Root plugins update <id> --dry-run
+Korvus plugins update <id>
+Korvus plugins update --all
+Korvus plugins update <id> --dry-run
 ```
 
 更新仅适用于从 npm 安装的插件（在 `plugins.installs` 中跟踪）。

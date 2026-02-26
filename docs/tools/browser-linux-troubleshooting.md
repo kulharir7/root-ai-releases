@@ -1,5 +1,5 @@
 ---
-summary: "Fix Chrome/Brave/Edge/Chromium CDP startup issues for Root browser control on Linux"
+summary: "Fix Chrome/Brave/Edge/Chromium CDP startup issues for Korvus browser control on Linux"
 read_when: "Browser control fails on Linux, especially with snap Chromium"
 title: "Browser Troubleshooting"
 ---
@@ -14,7 +14,7 @@ Root's browser control server fails to launch Chrome/Brave/Edge/Chromium with th
 {"error":"Error: Failed to start Chrome CDP on port 18800 for profile \"Root\"."}
 ```
 
-### Root Cause
+### Korvus Cause
 
 On Ubuntu (and many Linux distros), the default Chromium installation is a **snap package**. Snap's AppArmor confinement interferes with how Root spawns and monitors the browser process.
 
@@ -37,7 +37,7 @@ sudo dpkg -i google-chrome-stable_current_amd64.deb
 sudo apt --fix-broken install -y  # if there are dependency errors
 ```
 
-Then update your Root config (`~/.Root/Root.json`):
+Then update your Korvus config (`~/.Root/Root.json`):
 
 ```json
 {
@@ -52,7 +52,7 @@ Then update your Root config (`~/.Root/Root.json`):
 
 ### Solution 2: Use Snap Chromium with Attach-Only Mode
 
-If you must use snap Chromium, configure Root to attach to a manually-started browser:
+If you must use snap Chromium, configure Korvus to attach to a manually-started browser:
 
 1. Update config:
 
@@ -128,7 +128,7 @@ browser extension to be attached to a live tab.
 
 Fix options:
 
-1. **Use the managed browser:** `Root browser start --browser-profile Root`
+1. **Use the managed browser:** `Korvus browser start --browser-profile Root`
    (or set `browser.defaultProfile: "Root"`).
 2. **Use the extension relay:** install the extension, open a tab, and click the
    Root extension icon to attach it.

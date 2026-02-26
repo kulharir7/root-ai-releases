@@ -1,7 +1,7 @@
 ---
 summary: "Nostr DM channel via NIP-04 encrypted messages"
 read_when:
-  - You want Root to receive DMs via Nostr
+  - You want Korvus to receive DMs via Nostr
   - You're setting up decentralized messaging
 title: "Nostr"
 ---
@@ -10,13 +10,13 @@ title: "Nostr"
 
 **Status:** Optional plugin (disabled by default).
 
-Nostr is a decentralized protocol for social networking. This channel enables Root to receive and respond to encrypted direct messages (DMs) via NIP-04.
+Nostr is a decentralized protocol for social networking. This channel enables Korvus to receive and respond to encrypted direct messages (DMs) via NIP-04.
 
 ## Install (on demand)
 
 ### Onboarding (recommended)
 
-- The onboarding wizard (`Root onboard`) and `Root channels add` list optional channel plugins.
+- The onboarding wizard (`Korvus onboard`) and `Korvus channels add` list optional channel plugins.
 - Selecting Nostr prompts you to install the plugin on demand.
 
 Install defaults:
@@ -29,13 +29,13 @@ You can always override the choice in the prompt.
 ### Manual install
 
 ```bash
-Root plugins install @Root/nostr
+Korvus plugins install @Root/nostr
 ```
 
 Use a local checkout (dev workflows):
 
 ```bash
-Root plugins install --link <path-to-Root>/extensions/nostr
+Korvus plugins install --link <path-to-Root>/extensions/nostr
 ```
 
 Restart the Gateway after installing or enabling plugins.

@@ -1,6 +1,6 @@
 ---
 title: IRC
-description: Connect Root to IRC channels and direct messages.
+description: Connect Korvus to IRC channels and direct messages.
 ---
 
 Use IRC when you want Root in classic channels (`#room`) and direct messages.
@@ -29,7 +29,7 @@ IRC ships as an extension plugin, but it is configured in the main config under 
 3. Start/restart gateway:
 
 ```bash
-Root gateway run
+Korvus gateway run
 ```
 
 ## Security defaults

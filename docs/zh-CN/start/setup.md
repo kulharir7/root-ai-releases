@@ -39,16 +39,16 @@ x-i18n:
 引导一次：
 
 ```bash
-Root setup
+Korvus setup
 ```
 
 在此仓库内部，使用本地 CLI 入口：
 
 ```bash
-Root setup
+Korvus setup
 ```
 
-如果你还没有全局安装，通过 `pnpm Root setup` 运行它。
+如果你还没有全局安装，通过 `pnpm Korvus setup` 运行它。
 
 ## 稳定工作流（macOS 应用优先）
 
@@ -58,7 +58,7 @@ Root setup
 4. 链接表面（示例：WhatsApp）：
 
 ```bash
-Root channels login
+Korvus channels login
 ```
 
 5. 完整性检查：
@@ -69,7 +69,7 @@ Root health
 
 如果你的构建版本中没有新手引导：
 
-- 运行 `Root setup`，然后 `Root channels login`，然后手动启动 Gateway 网关（`Root gateway`）。
+- 运行 `Korvus setup`，然后 `Korvus channels login`，然后手动启动 Gateway 网关（`Korvus gateway`）。
 
 ## 前沿工作流（在终端中运行 Gateway 网关）
 

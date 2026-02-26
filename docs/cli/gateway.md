@@ -1,5 +1,5 @@
 ---
-summary: "Root Gateway CLI (`Root gateway`) — run, query, and discover gateways"
+summary: "Root Gateway CLI (`Korvus gateway`) — run, query, and discover gateways"
 read_when:
   - Running the Gateway from the CLI (dev or servers)
   - Debugging Gateway auth, bind modes, and connectivity
@@ -11,7 +11,7 @@ title: "gateway"
 
 The Gateway is Root’s WebSocket server (channels, nodes, sessions, hooks).
 
-Subcommands in this page live under `Root gateway …`.
+Subcommands in this page live under `Korvus gateway …`.
 
 Related docs:
 
@@ -24,13 +24,13 @@ Related docs:
 Run a local Gateway process:
 
 ```bash
-Root gateway
+Korvus gateway
 ```
 
 Foreground alias:
 
 ```bash
-Root gateway run
+Korvus gateway run
 ```
 
 Notes:
@@ -84,7 +84,7 @@ Pass `--token` or `--password` explicitly. Missing explicit credentials is an er
 ### `gateway health`
 
 ```bash
-Root gateway health --url ws://127.0.0.1:18789
+Korvus gateway health --url ws://127.0.0.1:18789
 ```
 
 ### `gateway status`
@@ -92,8 +92,8 @@ Root gateway health --url ws://127.0.0.1:18789
 `gateway status` shows the Gateway service (launchd/systemd/schtasks) plus an optional RPC probe.
 
 ```bash
-Root gateway status
-Root gateway status --json
+Korvus gateway status
+Korvus gateway status --json
 ```
 
 Options:
@@ -115,8 +115,8 @@ Options:
 If multiple gateways are reachable, it prints all of them. Multiple gateways are supported when you use isolated profiles/ports (e.g., a rescue bot), but most installs still run a single gateway.
 
 ```bash
-Root gateway probe
-Root gateway probe --json
+Korvus gateway probe
+Korvus gateway probe --json
 ```
 
 #### Remote over SSH (Mac app parity)
@@ -126,7 +126,7 @@ The macOS app “Remote over SSH” mode uses a local port-forward so the remote
 CLI equivalent:
 
 ```bash
-Root gateway probe --ssh user@gateway-host
+Korvus gateway probe --ssh user@gateway-host
 ```
 
 Options:
@@ -145,18 +145,18 @@ Config (optional, used as defaults):
 Low-level RPC helper.
 
 ```bash
-Root gateway call status
-Root gateway call logs.tail --params '{"sinceMs": 60000}'
+Korvus gateway call status
+Korvus gateway call logs.tail --params '{"sinceMs": 60000}'
 ```
 
 ## Manage the Gateway service
 
 ```bash
-Root gateway install
-Root gateway start
-Root gateway stop
-Root gateway restart
-Root gateway uninstall
+Korvus gateway install
+Korvus gateway start
+Korvus gateway stop
+Korvus gateway restart
+Korvus gateway uninstall
 ```
 
 Notes:
@@ -186,7 +186,7 @@ Wide-Area discovery records include (TXT):
 ### `gateway discover`
 
 ```bash
-Root gateway discover
+Korvus gateway discover
 ```
 
 Options:
@@ -197,6 +197,6 @@ Options:
 Examples:
 
 ```bash
-Root gateway discover --timeout 4000
-Root gateway discover --json | jq '.beacons[].wsUrl'
+Korvus gateway discover --timeout 4000
+Korvus gateway discover --json | jq '.beacons[].wsUrl'
 ```

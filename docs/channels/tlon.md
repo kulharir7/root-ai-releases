@@ -21,13 +21,13 @@ Tlon ships as a plugin and is not bundled with the core install.
 Install via CLI (npm registry):
 
 ```bash
-Root plugins install @Root/tlon
+Korvus plugins install @Root/tlon
 ```
 
 Local checkout (when running from a git repo):
 
 ```bash
-Root plugins install ./extensions/tlon
+Korvus plugins install ./extensions/tlon
 ```
 
 Details: [Plugins](/tools/plugin)
@@ -136,7 +136,7 @@ Group authorization (restricted by default):
 
 ## Delivery targets (CLI/cron)
 
-Use these with `Root message send` or cron delivery:
+Use these with `Korvus message send` or cron delivery:
 
 - DM: `~sampel-palnet` or `dm/~sampel-palnet`
 - Group: `chat/~host-ship/channel` or `group:~host-ship/channel`

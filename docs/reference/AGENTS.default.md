@@ -1,8 +1,8 @@
 ---
 title: "Default AGENTS.md"
-summary: "Default Root agent instructions and skills roster for the personal assistant setup"
+summary: "Default Korvus agent instructions and skills roster for the personal assistant setup"
 read_when:
-  - Starting a new Root agent session
+  - Starting a new Korvus agent session
   - Enabling or auditing default skills
 ---
 
@@ -10,7 +10,7 @@ read_when:
 
 ## First run (recommended)
 
-Root uses a dedicated workspace directory for the agent. Default: `~/.Root/workspace` (configurable via `agents.defaults.workspace`).
+Korvus uses a dedicated workspace directory for the agent. Default: `~/.Root/workspace` (configurable via `agents.defaults.workspace`).
 
 1. Create the workspace (if it doesn’t already exist):
 
@@ -119,6 +119,6 @@ git commit -m "Add Clawd workspace"
 - Run installs from the Skills tab; it hides the button if a binary is already present.
 - Keep heartbeats enabled so the assistant can schedule reminders, monitor inboxes, and trigger camera captures.
 - Canvas UI runs full-screen with native overlays. Avoid placing critical controls in the top-left/top-right/bottom edges; add explicit gutters in the layout and don’t rely on safe-area insets.
-- For browser-driven verification, use `Root browser` (tabs/status/screenshot) with the Root-managed Chrome profile.
-- For DOM inspection, use `Root browser eval|query|dom|snapshot` (and `--json`/`--out` when you need machine output).
-- For interactions, use `Root browser click|type|hover|drag|select|upload|press|wait|navigate|back|evaluate|run` (click/type require snapshot refs; use `evaluate` for CSS selectors).
+- For browser-driven verification, use `Korvus browser` (tabs/status/screenshot) with the Root-managed Chrome profile.
+- For DOM inspection, use `Korvus browser eval|query|dom|snapshot` (and `--json`/`--out` when you need machine output).
+- For interactions, use `Korvus browser click|type|hover|drag|select|upload|press|wait|navigate|back|evaluate|run` (click/type require snapshot refs; use `evaluate` for CSS selectors).

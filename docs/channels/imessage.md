@@ -42,7 +42,7 @@ imsg rpc --help
 
       </Step>
 
-      <Step title="Configure Root">
+      <Step title="Configure Korvus">
 
 ```json5
 {
@@ -61,7 +61,7 @@ imsg rpc --help
       <Step title="Start gateway">
 
 ```bash
-Root gateway
+Korvus gateway
 ```
 
       </Step>
@@ -187,7 +187,7 @@ imsg send <handle> "test"
     1. Create/sign in a dedicated macOS user.
     2. Sign into Messages with the bot Apple ID in that user.
     3. Install `imsg` in that user.
-    4. Create SSH wrapper so Root can run `imsg` in that user context.
+    4. Create SSH wrapper so Korvus can run `imsg` in that user context.
     5. Point `channels.imessage.accounts.<id>.cliPath` and `.dbPath` to that user profile.
 
     First run may require GUI approvals (Automation + Full Disk Access) in that bot user session.
@@ -295,7 +295,7 @@ Disable:
 
 ```bash
 imsg rpc --help
-Root channels status --probe
+Korvus channels status --probe
 ```
 
     If probe reports RPC unsupported, update `imsg`.

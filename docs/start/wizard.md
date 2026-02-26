@@ -15,7 +15,7 @@ It configures a local Gateway or a remote Gateway connection, plus channels, ski
 and workspace defaults in one guided flow.
 
 ```bash
-Root onboard
+Korvus onboard
 ```
 
 <Info>
@@ -26,8 +26,8 @@ Fastest first chat: open the Control UI (no channel setup needed). Run
 To reconfigure later:
 
 ```bash
-Root configure
-Root agents add <name>
+Korvus configure
+Korvus agents add <name>
 ```
 
 <Note>
@@ -36,7 +36,7 @@ Root agents add <name>
 
 <Tip>
 Recommended: set up a Brave Search API key so the agent can use `web_search`
-(`web_fetch` works without a key). Easiest path: `Root configure --section web`
+(`web_fetch` works without a key). Easiest path: `Korvus configure --section web`
 which stores `tools.web.search.apiKey`. Docs: [Web tools](/tools/web).
 </Tip>
 
@@ -73,7 +73,7 @@ The wizard starts with **QuickStart** (defaults) vs **Advanced** (full control).
 
 <Note>
 Re-running the wizard does **not** wipe anything unless you explicitly choose **Reset** (or pass `--reset`).
-If the config is invalid or contains legacy keys, the wizard asks you to run `Root doctor` first.
+If the config is invalid or contains legacy keys, the wizard asks you to run `Korvus doctor` first.
 </Note>
 
 **Remote mode** only configures the local client to connect to a Gateway elsewhere.
@@ -81,7 +81,7 @@ It does **not** install or change anything on the remote host.
 
 ## Add another agent
 
-Use `Root agents add <name>` to create a separate agent with its own workspace,
+Use `Korvus agents add <name>` to create a separate agent with its own workspace,
 sessions, and auth profiles. Running without `--workspace` launches the wizard.
 
 What it sets:
@@ -104,7 +104,7 @@ RPC API, and a full list of config fields the wizard writes, see the
 
 ## Related docs
 
-- CLI command reference: [`Root onboard`](/cli/onboard)
+- CLI command reference: [`Korvus onboard`](/cli/onboard)
 - Onboarding overview: [Onboarding Overview](/start/onboarding-overview)
 - macOS app onboarding: [Onboarding](/start/onboarding)
 - Agent first-run ritual: [Agent Bootstrapping](/start/bootstrapping)

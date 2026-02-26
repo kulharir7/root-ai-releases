@@ -1,12 +1,12 @@
 ---
-summary: "CLI reference for `Root hooks` (agent hooks)"
+summary: "CLI reference for `Korvus hooks` (agent hooks)"
 read_when:
   - You want to manage agent hooks
   - You want to install or update hooks
 title: "hooks"
 ---
 
-# `Root hooks`
+# `Korvus hooks`
 
 Manage agent hooks (event-driven automations for commands like `/new`, `/reset`, and gateway startup).
 
@@ -18,7 +18,7 @@ Related:
 ## List All Hooks
 
 ```bash
-Root hooks list
+Korvus hooks list
 ```
 
 List all discovered hooks from workspace, managed, and bundled directories.
@@ -44,7 +44,7 @@ Ready:
 **Example (verbose):**
 
 ```bash
-Root hooks list --verbose
+Korvus hooks list --verbose
 ```
 
 Shows missing requirements for ineligible hooks.
@@ -52,7 +52,7 @@ Shows missing requirements for ineligible hooks.
 **Example (JSON):**
 
 ```bash
-Root hooks list --json
+Korvus hooks list --json
 ```
 
 Returns structured JSON for programmatic use.
@@ -60,7 +60,7 @@ Returns structured JSON for programmatic use.
 ## Get Hook Information
 
 ```bash
-Root hooks info <name>
+Korvus hooks info <name>
 ```
 
 Show detailed information about a specific hook.
@@ -76,7 +76,7 @@ Show detailed information about a specific hook.
 **Example:**
 
 ```bash
-Root hooks info session-memory
+Korvus hooks info session-memory
 ```
 
 **Output:**
@@ -100,7 +100,7 @@ Requirements:
 ## Check Hooks Eligibility
 
 ```bash
-Root hooks check
+Korvus hooks check
 ```
 
 Show summary of hook eligibility status (how many are ready vs. not ready).
@@ -122,12 +122,12 @@ Not ready: 0
 ## Enable a Hook
 
 ```bash
-Root hooks enable <name>
+Korvus hooks enable <name>
 ```
 
 Enable a specific hook by adding it to your config (`~/.Root/config.json`).
 
-**Note:** Hooks managed by plugins show `plugin:<id>` in `Root hooks list` and
+**Note:** Hooks managed by plugins show `plugin:<id>` in `Korvus hooks list` and
 can’t be enabled/disabled here. Enable/disable the plugin instead.
 
 **Arguments:**
@@ -137,7 +137,7 @@ can’t be enabled/disabled here. Enable/disable the plugin instead.
 **Example:**
 
 ```bash
-Root hooks enable session-memory
+Korvus hooks enable session-memory
 ```
 
 **Output:**
@@ -159,7 +159,7 @@ Root hooks enable session-memory
 ## Disable a Hook
 
 ```bash
-Root hooks disable <name>
+Korvus hooks disable <name>
 ```
 
 Disable a specific hook by updating your config.
@@ -171,7 +171,7 @@ Disable a specific hook by updating your config.
 **Example:**
 
 ```bash
-Root hooks disable command-logger
+Korvus hooks disable command-logger
 ```
 
 **Output:**
@@ -187,7 +187,7 @@ Root hooks disable command-logger
 ## Install Hooks
 
 ```bash
-Root hooks install <path-or-spec>
+Korvus hooks install <path-or-spec>
 ```
 
 Install a hook pack from a local folder/archive or npm.
@@ -211,23 +211,23 @@ specs are rejected. Dependency installs run with `--ignore-scripts` for safety.
 
 ```bash
 # Local directory
-Root hooks install ./my-hook-pack
+Korvus hooks install ./my-hook-pack
 
 # Local archive
-Root hooks install ./my-hook-pack.zip
+Korvus hooks install ./my-hook-pack.zip
 
 # NPM package
-Root hooks install @Root/my-hook-pack
+Korvus hooks install @Root/my-hook-pack
 
 # Link a local directory without copying
-Root hooks install -l ./my-hook-pack
+Korvus hooks install -l ./my-hook-pack
 ```
 
 ## Update Hooks
 
 ```bash
-Root hooks update <id>
-Root hooks update --all
+Korvus hooks update <id>
+Korvus hooks update --all
 ```
 
 Update installed hook packs (npm installs only).
@@ -246,7 +246,7 @@ Saves session context to memory when you issue `/new`.
 **Enable:**
 
 ```bash
-Root hooks enable session-memory
+Korvus hooks enable session-memory
 ```
 
 **Output:** `~/.Root/workspace/memory/YYYY-MM-DD-slug.md`
@@ -260,7 +260,7 @@ Injects additional bootstrap files (for example monorepo-local `AGENTS.md` / `TO
 **Enable:**
 
 ```bash
-Root hooks enable bootstrap-extra-files
+Korvus hooks enable bootstrap-extra-files
 ```
 
 **See:** [bootstrap-extra-files documentation](/automation/hooks#bootstrap-extra-files)
@@ -272,7 +272,7 @@ Logs all command events to a centralized audit file.
 **Enable:**
 
 ```bash
-Root hooks enable command-logger
+Korvus hooks enable command-logger
 ```
 
 **Output:** `~/.Root/logs/commands.log`
@@ -301,7 +301,7 @@ Runs `BOOT.md` when the gateway starts (after channels start).
 **Enable**:
 
 ```bash
-Root hooks enable boot-md
+Korvus hooks enable boot-md
 ```
 
 **See:** [boot-md documentation](/automation/hooks#boot-md)

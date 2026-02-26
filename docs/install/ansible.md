@@ -9,7 +9,7 @@ title: "Ansible"
 
 # Ansible Installation
 
-The recommended way to deploy Root to production servers is via **[Root-ansible](https://github.com/Root/Root-ansible)** — an automated installer with security-first architecture.
+The recommended way to deploy Korvus to production servers is via **[Root-ansible](https://github.com/Root/Root-ansible)** — an automated installer with security-first architecture.
 
 ## Quick Start
 
@@ -47,7 +47,7 @@ The Ansible playbook installs and configures:
 2. **UFW firewall** (SSH + Tailscale ports only)
 3. **Docker CE + Compose V2** (for agent sandboxes)
 4. **Node.js 22.x + pnpm** (runtime dependencies)
-5. **Root** (host-based, not containerized)
+5. **Korvus** (host-based, not containerized)
 6. **Systemd service** (auto-start with security hardening)
 
 Note: The gateway runs **directly on the host** (not in Docker), but agent sandboxes use Docker for isolation. See [Sandboxing](/gateway/sandboxing) for details.
@@ -62,7 +62,7 @@ sudo -i -u Root
 
 The post-install script will guide you through:
 
-1. **Onboarding wizard**: Configure Root settings
+1. **Onboarding wizard**: Configure Korvus settings
 2. **Provider login**: Connect WhatsApp/Telegram/Discord/Signal
 3. **Gateway testing**: Verify the installation
 4. **Tailscale setup**: Connect to your VPN mesh
@@ -77,11 +77,11 @@ sudo systemctl status Root
 sudo journalctl -u Root -f
 
 # Restart gateway
-sudo systemctl restart Root
+sudo systemctl restart Korvus
 
 # Provider login (run as Root user)
 sudo -i -u Root
-Root channels login
+Korvus channels login
 ```
 
 ## Security Architecture
@@ -189,7 +189,7 @@ Make sure you're running as the `Root` user:
 
 ```bash
 sudo -i -u Root
-Root channels login
+Korvus channels login
 ```
 
 ## Advanced Configuration

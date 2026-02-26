@@ -6,9 +6,9 @@ read_when:
 title: "macOS App"
 ---
 
-# Root macOS Companion (menu bar + gateway broker)
+# Korvus macOS Companion (menu bar + gateway broker)
 
-The macOS app is the **menu‑bar companion** for Root. It owns permissions,
+The macOS app is the **menu‑bar companion** for Korvus. It owns permissions,
 manages/attaches to the Gateway locally (launchd or manual), and exposes macOS
 capabilities to the agent as a node.
 
@@ -26,7 +26,7 @@ capabilities to the agent as a node.
 ## Local vs remote mode
 
 - **Local** (default): the app attaches to a running local Gateway if present;
-  otherwise it enables the launchd service via `Root gateway install`.
+  otherwise it enables the launchd service via `Korvus gateway install`.
 - **Remote**: the app connects to a Gateway over SSH/Tailscale and never starts
   a local process.
   The app starts the local **node host service** so the remote Gateway can reach this Mac.
@@ -45,7 +45,7 @@ launchctl bootout gui/$UID/bot.molt.gateway
 Replace the label with `bot.molt.<profile>` when running a named profile.
 
 If the LaunchAgent isn’t installed, enable it from the app or run
-`Root gateway install`.
+`Korvus gateway install`.
 
 ## Node capabilities (mac)
 
@@ -143,7 +143,7 @@ Safety:
 ## Build & dev workflow (native)
 
 - `cd apps/macos && swift build`
-- `swift run Root` (or Xcode)
+- `swift run Korvus` (or Xcode)
 - Package app: `scripts/package-mac-app.sh`
 
 ## Debug gateway connectivity (macOS CLI)
@@ -153,8 +153,8 @@ logic that the macOS app uses, without launching the app.
 
 ```bash
 cd apps/macos
-swift run Root-mac connect --json
-swift run Root-mac discover --timeout 3000 --json
+swift run Korvus-mac connect --json
+swift run Korvus-mac discover --timeout 3000 --json
 ```
 
 Connect options:
@@ -171,7 +171,7 @@ Discovery options:
 - `--timeout <ms>`: overall discovery window (default: `2000`)
 - `--json`: structured output for diffing
 
-Tip: compare against `Root gateway discover --json` to see whether the
+Tip: compare against `Korvus gateway discover --json` to see whether the
 macOS app’s discovery pipeline (NWBrowser + tailnet DNS‑SD fallback) differs from
 the Node CLI’s `dns-sd` based discovery.
 

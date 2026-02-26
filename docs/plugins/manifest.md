@@ -9,7 +9,7 @@ title: "Plugin Manifest"
 # Plugin manifest (Root.plugin.json)
 
 Every plugin **must** ship a `Root.plugin.json` file in the **plugin root**.
-Root uses this manifest to validate configuration **without executing plugin
+Korvus uses this manifest to validate configuration **without executing plugin
 code**. Missing or invalid manifests are treated as plugin errors and block
 config validation.
 

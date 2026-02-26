@@ -15,9 +15,9 @@ Zen is currently in beta.
 ## CLI setup
 
 ```bash
-Root onboard --auth-choice opencode-zen
+Korvus onboard --auth-choice opencode-zen
 # or non-interactive
-Root onboard --opencode-zen-api-key "$OPENCODE_API_KEY"
+Korvus onboard --opencode-zen-api-key "$OPENCODE_API_KEY"
 ```
 
 ## Config snippet

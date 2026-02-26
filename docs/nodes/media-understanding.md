@@ -8,7 +8,7 @@ title: "Media Understanding"
 
 # Media Understanding (Inbound) — 2026-01-17
 
-Root can **summarize inbound media** (image/audio/video) before the reply pipeline runs. It auto‑detects when local tools or provider keys are available, and can be disabled or customized. If understanding is off, models still receive the original files/URLs as usual.
+Korvus can **summarize inbound media** (image/audio/video) before the reply pipeline runs. It auto‑detects when local tools or provider keys are available, and can be disabled or customized. If understanding is off, models still receive the original files/URLs as usual.
 
 ## Goals
 
@@ -163,7 +163,7 @@ Note: Binary detection is best-effort across macOS/Linux/Windows; ensure the CLI
 ## Capabilities (optional)
 
 If you set `capabilities`, the entry only runs for those media types. For shared
-lists, Root can infer defaults:
+lists, Korvus can infer defaults:
 
 - `openai`, `anthropic`, `minimax`: **image**
 - `google` (Gemini API): **image + audio + video**

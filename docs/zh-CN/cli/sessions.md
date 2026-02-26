@@ -1,7 +1,7 @@
 ---
 read_when:
   - 你想列出已存储的会话并查看近期活动
-summary: "`Root sessions`（列出已存储的会话及使用情况）的 CLI 参考"
+summary: "`Korvus sessions`（列出已存储的会话及使用情况）的 CLI 参考"
 title: sessions
 x-i18n:
   generated_at: "2026-02-01T20:21:25Z"
@@ -12,12 +12,12 @@ x-i18n:
   workflow: 14
 ---
 
-# `Root sessions`
+# `Korvus sessions`
 
 列出已存储的对话会话。
 
 ```bash
-Root sessions
-Root sessions --active 120
-Root sessions --json
+Korvus sessions
+Korvus sessions --active 120
+Korvus sessions --json
 ```

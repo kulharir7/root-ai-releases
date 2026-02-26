@@ -38,7 +38,7 @@ Plist location (per‑user):
 Manager:
 
 - The macOS app owns LaunchAgent install/update in Local mode.
-- The CLI can also install it: `Root gateway install`.
+- The CLI can also install it: `Korvus gateway install`.
 
 Behavior:
 
@@ -63,11 +63,11 @@ Root --version
 
 Root_SKIP_CHANNELS=1 \
 Root_SKIP_CANVAS_HOST=1 \
-Root gateway --port 18999 --bind loopback
+Korvus gateway --port 18999 --bind loopback
 ```
 
 Then:
 
 ```bash
-Root gateway call health --url ws://127.0.0.1:18999 --timeout 3000
+Korvus gateway call health --url ws://127.0.0.1:18999 --timeout 3000
 ```

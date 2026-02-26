@@ -2,7 +2,7 @@
 summary: "Sign in to GitHub Copilot from Root using the device flow"
 read_when:
   - You want to use GitHub Copilot as a model provider
-  - You need the `Root models auth login-github-copilot` flow
+  - You need the `Korvus models auth login-github-copilot` flow
 title: "GitHub Copilot"
 ---
 
@@ -11,7 +11,7 @@ title: "GitHub Copilot"
 ## What is GitHub Copilot?
 
 GitHub Copilot is GitHub's AI coding assistant. It provides access to Copilot
-models for your GitHub account and plan. Root can use Copilot as a model
+models for your GitHub account and plan. Korvus can use Copilot as a model
 provider in two different ways.
 
 ## Two ways to use Copilot in Root
@@ -36,7 +36,7 @@ profile.
 ## CLI setup
 
 ```bash
-Root models auth login-github-copilot
+Korvus models auth login-github-copilot
 ```
 
 You'll be prompted to visit a URL and enter a one-time code. Keep the terminal
@@ -45,14 +45,14 @@ open until it completes.
 ### Optional flags
 
 ```bash
-Root models auth login-github-copilot --profile-id github-copilot:work
-Root models auth login-github-copilot --yes
+Korvus models auth login-github-copilot --profile-id github-copilot:work
+Korvus models auth login-github-copilot --yes
 ```
 
 ## Set a default model
 
 ```bash
-Root models set github-copilot/gpt-4o
+Korvus models set github-copilot/gpt-4o
 ```
 
 ### Config snippet

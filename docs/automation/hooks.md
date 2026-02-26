@@ -15,7 +15,7 @@ Hooks provide an extensible event-driven system for automating actions in respon
 Hooks are small scripts that run when something happens. There are two kinds:
 
 - **Hooks** (this page): run inside the Gateway when agent events fire, like `/new`, `/reset`, `/stop`, or lifecycle events.
-- **Webhooks**: external HTTP webhooks that let other systems trigger work in Root. See [Webhook Hooks](/automation/webhook) or use `Root webhooks` for Gmail helper commands.
+- **Webhooks**: external HTTP webhooks that let other systems trigger work in Root. See [Webhook Hooks](/automation/webhook) or use `Korvus webhooks` for Gmail helper commands.
 
 Hooks can also be bundled inside plugins; see [Plugins](/tools/plugin#plugin-hooks).
 
@@ -51,30 +51,30 @@ Root ships with four bundled hooks that are automatically discovered:
 List available hooks:
 
 ```bash
-Root hooks list
+Korvus hooks list
 ```
 
 Enable a hook:
 
 ```bash
-Root hooks enable session-memory
+Korvus hooks enable session-memory
 ```
 
 Check hook status:
 
 ```bash
-Root hooks check
+Korvus hooks check
 ```
 
 Get detailed information:
 
 ```bash
-Root hooks info session-memory
+Korvus hooks info session-memory
 ```
 
 ### Onboarding
 
-During onboarding (`Root onboard`), you'll be prompted to enable recommended hooks. The wizard automatically discovers eligible hooks and presents them for selection.
+During onboarding (`Korvus onboard`), you'll be prompted to enable recommended hooks. The wizard automatically discovers eligible hooks and presents them for selection.
 
 ## Hook Discovery
 
@@ -100,7 +100,7 @@ Hook packs are standard npm packages that export one or more hooks via `Root.hoo
 `package.json`. Install them with:
 
 ```bash
-Root hooks install <path-or-spec>
+Korvus hooks install <path-or-spec>
 ```
 
 Npm specs are registry-only (package name + optional version/tag). Git/URL/file specs are rejected.
@@ -120,7 +120,7 @@ Example `package.json`:
 Each entry points to a hook directory containing `HOOK.md` and `handler.ts` (or `index.ts`).
 Hook packs can ship dependencies; they will be installed under `~/.Root/hooks/<id>`.
 
-Security note: `Root hooks install` installs dependencies with `npm install --ignore-scripts`
+Security note: `Korvus hooks install` installs dependencies with `npm install --ignore-scripts`
 (no lifecycle scripts). Keep hook pack dependency trees "pure JS/TS" and avoid packages that rely
 on `postinstall` builds.
 
@@ -311,10 +311,10 @@ export default handler;
 
 ```bash
 # Verify hook is discovered
-Root hooks list
+Korvus hooks list
 
 # Enable it
-Root hooks enable my-hook
+Korvus hooks enable my-hook
 
 # Restart your gateway process (menu bar app restart on macOS, or restart your dev process)
 
@@ -410,46 +410,46 @@ Note: `module` must be a workspace-relative path. Absolute paths and traversal o
 
 ```bash
 # List all hooks
-Root hooks list
+Korvus hooks list
 
 # Show only eligible hooks
-Root hooks list --eligible
+Korvus hooks list --eligible
 
 # Verbose output (show missing requirements)
-Root hooks list --verbose
+Korvus hooks list --verbose
 
 # JSON output
-Root hooks list --json
+Korvus hooks list --json
 ```
 
 ### Hook Information
 
 ```bash
 # Show detailed info about a hook
-Root hooks info session-memory
+Korvus hooks info session-memory
 
 # JSON output
-Root hooks info session-memory --json
+Korvus hooks info session-memory --json
 ```
 
 ### Check Eligibility
 
 ```bash
 # Show eligibility summary
-Root hooks check
+Korvus hooks check
 
 # JSON output
-Root hooks check --json
+Korvus hooks check --json
 ```
 
 ### Enable/Disable
 
 ```bash
 # Enable a hook
-Root hooks enable session-memory
+Korvus hooks enable session-memory
 
 # Disable a hook
-Root hooks disable command-logger
+Korvus hooks disable command-logger
 ```
 
 ## Bundled hook reference
@@ -490,7 +490,7 @@ Saves session context to memory when you issue `/new`.
 **Enable**:
 
 ```bash
-Root hooks enable session-memory
+Korvus hooks enable session-memory
 ```
 
 ### bootstrap-extra-files
@@ -531,7 +531,7 @@ Injects additional bootstrap files (for example monorepo-local `AGENTS.md` / `TO
 **Enable**:
 
 ```bash
-Root hooks enable bootstrap-extra-files
+Korvus hooks enable bootstrap-extra-files
 ```
 
 ### command-logger
@@ -573,7 +573,7 @@ grep '"action":"new"' ~/.Root/logs/commands.log | jq .
 **Enable**:
 
 ```bash
-Root hooks enable command-logger
+Korvus hooks enable command-logger
 ```
 
 ### boot-md
@@ -594,7 +594,7 @@ Internal hooks must be enabled for this to run.
 **Enable**:
 
 ```bash
-Root hooks enable boot-md
+Korvus hooks enable boot-md
 ```
 
 ## Best Practices
@@ -678,7 +678,7 @@ Registered hook: boot-md -> gateway:startup
 List all discovered hooks:
 
 ```bash
-Root hooks list --verbose
+Korvus hooks list --verbose
 ```
 
 ### Check Registration
@@ -697,7 +697,7 @@ const handler: HookHandler = async (event) => {
 Check why a hook isn't eligible:
 
 ```bash
-Root hooks info my-hook
+Korvus hooks info my-hook
 ```
 
 Look for missing requirements in the output.
@@ -803,7 +803,7 @@ Session reset
 3. List all discovered hooks:
 
    ```bash
-   Root hooks list
+   Korvus hooks list
    ```
 
 ### Hook Not Eligible
@@ -811,7 +811,7 @@ Session reset
 Check requirements:
 
 ```bash
-Root hooks info my-hook
+Korvus hooks info my-hook
 ```
 
 Look for missing:
@@ -826,7 +826,7 @@ Look for missing:
 1. Verify hook is enabled:
 
    ```bash
-   Root hooks list
+   Korvus hooks list
    # Should show ✓ next to enabled hooks
    ```
 
@@ -910,7 +910,7 @@ node -e "import('./path/to/handler.ts').then(console.log)"
 4. Verify and restart your gateway process:
 
    ```bash
-   Root hooks list
+   Korvus hooks list
    # Should show: 🎯 my-hook ✓
    ```
 

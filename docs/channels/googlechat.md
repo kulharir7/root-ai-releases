@@ -34,7 +34,7 @@ Status: ready for DMs + spaces via Google Chat API webhooks (HTTP only).
    - Under **Functionality**, check **Join spaces and group conversations**.
    - Under **Connection settings**, select **HTTP endpoint URL**.
    - Under **Triggers**, select **Use a common HTTP endpoint URL for all triggers** and set it to your gateway's public URL followed by `/googlechat`.
-     - _Tip: Run `Root status` to find your gateway's public URL._
+     - _Tip: Run `Korvus status` to find your gateway's public URL._
    - Under **Visibility**, check **Make this Chat app available to specific people and groups in &lt;Your Domain&gt;**.
    - Enter your email address (e.g. `user@example.com`) in the text box.
    - Click **Save** at the bottom.
@@ -43,7 +43,7 @@ Status: ready for DMs + spaces via Google Chat API webhooks (HTTP only).
    - Look for the **App status** section (usually near the top or bottom after saving).
    - Change the status to **Live - available to users**.
    - Click **Save** again.
-7. Configure Root with the service account path + webhook audience:
+7. Configure Korvus with the service account path + webhook audience:
    - Env: `GOOGLE_CHAT_SERVICE_ACCOUNT_FILE=/path/to/service-account.json`
    - Or config: `channels.googlechat.serviceAccountFile: "/path/to/service-account.json"`.
 8. Set the webhook audience type + value (matches your Chat app config).
@@ -213,7 +213,7 @@ This means the webhook handler isn't registered. Common causes:
 1. **Channel not configured**: The `channels.googlechat` section is missing from your config. Verify with:
 
    ```bash
-   Root config get channels.googlechat
+   Korvus config get channels.googlechat
    ```
 
    If it returns "Config path not found", add the configuration (see [Config highlights](#config-highlights)).
@@ -221,7 +221,7 @@ This means the webhook handler isn't registered. Common causes:
 2. **Plugin not enabled**: Check plugin status:
 
    ```bash
-   Root plugins list | grep googlechat
+   Korvus plugins list | grep googlechat
    ```
 
    If it shows "disabled", add `plugins.entries.googlechat.enabled: true` to your config.
@@ -229,22 +229,22 @@ This means the webhook handler isn't registered. Common causes:
 3. **Gateway not restarted**: After adding config, restart the gateway:
 
    ```bash
-   Root gateway restart
+   Korvus gateway restart
    ```
 
 Verify the channel is running:
 
 ```bash
-Root channels status
+Korvus channels status
 # Should show: Google Chat default: enabled, configured, ...
 ```
 
 ### Other issues
 
-- Check `Root channels status --probe` for auth errors or missing audience config.
+- Check `Korvus channels status --probe` for auth errors or missing audience config.
 - If no messages arrive, confirm the Chat app's webhook URL + event subscriptions.
 - If mention gating blocks replies, set `botUser` to the app's user resource name and verify `requireMention`.
-- Use `Root logs --follow` while sending a test message to see if requests reach the gateway.
+- Use `Korvus logs --follow` while sending a test message to see if requests reach the gateway.
 
 Related docs:
 

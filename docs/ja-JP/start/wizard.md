@@ -19,7 +19,7 @@ x-i18n:
 CLIオンボーディングウィザードは、macOS、Linux、Windows（WSL2経由）でRootをセットアップする際の推奨パスです。ローカルGatewayまたはリモートGateway接続に加えて、ワークスペースのデフォルト設定、チャンネル、Skillsを構成します。
 
 ```bash
-Root onboard
+Korvus onboard
 ```
 
 <Info>
@@ -58,8 +58,8 @@ Root onboard
 ## よく使うフォローアップコマンド
 
 ```bash
-Root configure
-Root agents add <name>
+Korvus configure
+Korvus agents add <name>
 ```
 
 <Note>
@@ -67,11 +67,11 @@ Root agents add <name>
 </Note>
 
 <Tip>
-推奨：エージェントが `web_search` を使用できるように、Brave Search APIキーを設定してください（`web_fetch` はキーなしで動作します）。最も簡単な方法：`Root configure --section web` を実行すると `tools.web.search.apiKey` が保存されます。ドキュメント：[Webツール](/tools/web)。
+推奨：エージェントが `web_search` を使用できるように、Brave Search APIキーを設定してください（`web_fetch` はキーなしで動作します）。最も簡単な方法：`Korvus configure --section web` を実行すると `tools.web.search.apiKey` が保存されます。ドキュメント：[Webツール](/tools/web)。
 </Tip>
 
 ## 関連ドキュメント
 
-- CLIコマンドリファレンス：[`Root onboard`](/cli/onboard)
+- CLIコマンドリファレンス：[`Korvus onboard`](/cli/onboard)
 - macOSアプリのオンボーディング：[オンボーディング](/start/onboarding)
 - エージェント初回起動の手順：[エージェントブートストラップ](/start/bootstrapping)

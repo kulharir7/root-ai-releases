@@ -53,7 +53,7 @@ Status: production-ready for bot DMs + groups via grammY. Long polling is the de
   <Step title="Start gateway and approve first DM">
 
 ```bash
-Root gateway
+Korvus gateway
 Root pairing list telegram
 Root pairing approve telegram <CODE>
 ```
@@ -114,14 +114,14 @@ Token resolution order is account-aware. In practice, config values win over env
 
     `channels.telegram.allowFrom` accepts numeric Telegram user IDs. `telegram:` / `tg:` prefixes are accepted and normalized.
     The onboarding wizard accepts `@username` input and resolves it to numeric IDs.
-    If you upgraded and your config contains `@username` allowlist entries, run `Root doctor --fix` to resolve them (best-effort; requires a Telegram bot token).
+    If you upgraded and your config contains `@username` allowlist entries, run `Korvus doctor --fix` to resolve them (best-effort; requires a Telegram bot token).
 
     ### Finding your Telegram user ID
 
     Safer (no third-party bot):
 
     1. DM your bot.
-    2. Run `Root logs --follow`.
+    2. Run `Korvus logs --follow`.
     3. Read `from.id`.
 
     Official Bot API method:
@@ -202,7 +202,7 @@ curl "https://api.telegram.org/bot<bot_token>/getUpdates"
     Getting the group chat ID:
 
     - forward a group message to `@userinfobot` / `@getidsbot`
-    - or read `chat.id` from `Root logs --follow`
+    - or read `chat.id` from `Korvus logs --follow`
     - or inspect Bot API `getUpdates`
 
   </Tab>
@@ -222,7 +222,7 @@ curl "https://api.telegram.org/bot<bot_token>/getUpdates"
 
 <AccordionGroup>
   <Accordion title="Draft streaming in Telegram DMs">
-    Root can stream partial replies with Telegram draft bubbles (`sendMessageDraft`).
+    Korvus can stream partial replies with Telegram draft bubbles (`sendMessageDraft`).
 
     Requirements:
 
@@ -623,8 +623,8 @@ curl "https://api.telegram.org/bot<bot_token>/getUpdates"
     CLI send target can be numeric chat ID or username:
 
 ```bash
-Root message send --channel telegram --target 123456789 --message "hi"
-Root message send --channel telegram --target @name --message "hi"
+Korvus message send --channel telegram --target 123456789 --message "hi"
+Korvus message send --channel telegram --target @name --message "hi"
 ```
 
   </Accordion>
@@ -638,8 +638,8 @@ Root message send --channel telegram --target @name --message "hi"
     - If `requireMention=false`, Telegram privacy mode must allow full visibility.
       - BotFather: `/setprivacy` -> Disable
       - then remove + re-add bot to group
-    - `Root channels status` warns when config expects unmentioned group messages.
-    - `Root channels status --probe` can check explicit numeric group IDs; wildcard `"*"` cannot be membership-probed.
+    - `Korvus channels status` warns when config expects unmentioned group messages.
+    - `Korvus channels status --probe` can check explicit numeric group IDs; wildcard `"*"` cannot be membership-probed.
     - quick session test: `/activation always`.
 
   </Accordion>
@@ -648,7 +648,7 @@ Root message send --channel telegram --target @name --message "hi"
 
     - when `channels.telegram.groups` exists, group must be listed (or include `"*"`)
     - verify bot membership in group
-    - review logs: `Root logs --follow` for skip reasons
+    - review logs: `Korvus logs --follow` for skip reasons
 
   </Accordion>
 
@@ -684,9 +684,9 @@ Primary reference:
 - `channels.telegram.botToken`: bot token (BotFather).
 - `channels.telegram.tokenFile`: read token from file path.
 - `channels.telegram.dmPolicy`: `pairing | allowlist | open | disabled` (default: pairing).
-- `channels.telegram.allowFrom`: DM allowlist (numeric Telegram user IDs). `open` requires `"*"`. `Root doctor --fix` can resolve legacy `@username` entries to IDs.
+- `channels.telegram.allowFrom`: DM allowlist (numeric Telegram user IDs). `open` requires `"*"`. `Korvus doctor --fix` can resolve legacy `@username` entries to IDs.
 - `channels.telegram.groupPolicy`: `open | allowlist | disabled` (default: allowlist).
-- `channels.telegram.groupAllowFrom`: group sender allowlist (numeric Telegram user IDs). `Root doctor --fix` can resolve legacy `@username` entries to IDs.
+- `channels.telegram.groupAllowFrom`: group sender allowlist (numeric Telegram user IDs). `Korvus doctor --fix` can resolve legacy `@username` entries to IDs.
 - `channels.telegram.groups`: per-group defaults + allowlist (use `"*"` for global defaults).
   - `channels.telegram.groups.<id>.groupPolicy`: per-group override for groupPolicy (`open | allowlist | disabled`).
   - `channels.telegram.groups.<id>.requireMention`: mention gating default.

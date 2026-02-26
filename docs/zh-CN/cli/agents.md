@@ -1,7 +1,7 @@
 ---
 read_when:
   - 你需要多个隔离的智能体（工作区 + 路由 + 认证）
-summary: "`Root agents` 的 CLI 参考（列出/添加/删除/设置身份）"
+summary: "`Korvus agents` 的 CLI 参考（列出/添加/删除/设置身份）"
 title: agents
 x-i18n:
   generated_at: "2026-02-01T19:58:38Z"
@@ -12,7 +12,7 @@ x-i18n:
   workflow: 14
 ---
 
-# `Root agents`
+# `Korvus agents`
 
 管理隔离的智能体（工作区 + 认证 + 路由）。
 
@@ -24,11 +24,11 @@ x-i18n:
 ## 示例
 
 ```bash
-Root agents list
-Root agents add work --workspace ~/.Root/workspace-work
-Root agents set-identity --workspace ~/.Root/workspace --from-identity
-Root agents set-identity --agent main --avatar avatars/Root.png
-Root agents delete work
+Korvus agents list
+Korvus agents add work --workspace ~/.Root/workspace-work
+Korvus agents set-identity --workspace ~/.Root/workspace --from-identity
+Korvus agents set-identity --agent main --avatar avatars/Root.png
+Korvus agents delete work
 ```
 
 ## 身份文件
@@ -52,13 +52,13 @@ Root agents delete work
 从 `IDENTITY.md` 加载：
 
 ```bash
-Root agents set-identity --workspace ~/.Root/workspace --from-identity
+Korvus agents set-identity --workspace ~/.Root/workspace --from-identity
 ```
 
 显式覆盖字段：
 
 ```bash
-Root agents set-identity --agent main --name "Root" --emoji "🦞" --avatar avatars/Root.png
+Korvus agents set-identity --agent main --name "Root" --emoji "🦞" --avatar avatars/Root.png
 ```
 
 配置示例：

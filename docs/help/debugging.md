@@ -92,7 +92,7 @@ Note: `--dev` is a **global** profile flag and gets eaten by some runners.
 If you need to spell it out, use the env var form:
 
 ```bash
-Root_PROFILE=dev Root gateway --dev --reset
+Root_PROFILE=dev Korvus gateway --dev --reset
 ```
 
 `--reset` wipes config, credentials, sessions, and the dev workspace (using
@@ -101,12 +101,12 @@ Root_PROFILE=dev Root gateway --dev --reset
 Tip: if a non‑dev gateway is already running (launchd/systemd), stop it first:
 
 ```bash
-Root gateway stop
+Korvus gateway stop
 ```
 
 ## Raw stream logging (Root)
 
-Root can log the **raw assistant stream** before any filtering/formatting.
+Korvus can log the **raw assistant stream** before any filtering/formatting.
 This is the best way to see whether reasoning is arriving as plain text deltas
 (or as separate thinking blocks).
 

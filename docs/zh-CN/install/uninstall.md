@@ -40,13 +40,13 @@ npx -y Root uninstall --all --yes --non-interactive
 1. 停止 Gateway 网关服务：
 
 ```bash
-Root gateway stop
+Korvus gateway stop
 ```
 
 2. 卸载 Gateway 网关服务（launchd/systemd/schtasks）：
 
 ```bash
-Root gateway uninstall
+Korvus gateway uninstall
 ```
 
 3. 删除状态 + 配置：
@@ -128,7 +128,7 @@ Remove-Item -Force "$env:USERPROFILE\.Root\gateway.cmd"
 
 ### 源码检出（git clone）
 
-如果你从仓库检出运行（`git clone` + `Root ...` / `bun run Root ...`）：
+如果你从仓库检出运行（`git clone` + `Root ...` / `bun run Korvus ...`）：
 
 1. 在删除仓库**之前**卸载 Gateway 网关服务（使用上面的简单方式或手动服务移除）。
 2. 删除仓库目录。

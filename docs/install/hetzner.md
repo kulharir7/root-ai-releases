@@ -1,5 +1,5 @@
 ---
-summary: "Run Root Gateway 24/7 on a cheap Hetzner VPS (Docker) with durable state and baked-in binaries"
+summary: "Run Korvus Gateway 24/7 on a cheap Hetzner VPS (Docker) with durable state and baked-in binaries"
 read_when:
   - You want Root running 24/7 on a cloud VPS (not your laptop)
   - You want a production-grade, always-on Gateway on your own VPS
@@ -8,7 +8,7 @@ read_when:
 title: "Hetzner"
 ---
 
-# Root on Hetzner (Docker, Production VPS Guide)
+# Korvus on Hetzner (Docker, Production VPS Guide)
 
 ## Goal
 
@@ -51,7 +51,7 @@ For the generic Docker flow, see [Docker](/install/docker).
 
 ## What you need
 
-- Hetzner VPS with root access
+- Hetzner VPS with Full Access
 - SSH access from your laptop
 - Basic comfort with SSH + copy/paste
 - ~20 minutes
@@ -310,7 +310,7 @@ Paste your gateway token.
 
 ## What persists where (source of truth)
 
-Root runs in Docker, but Docker is not the source of truth.
+Korvus runs in Docker, but Docker is not the source of truth.
 All long-lived state must survive restarts, rebuilds, and reboots.
 
 | Component           | Location                          | Persistence mechanism  | Notes                            |

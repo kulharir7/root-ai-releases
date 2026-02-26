@@ -1,7 +1,7 @@
 ---
 summary: "Twitch chat bot configuration and setup"
 read_when:
-  - Setting up Twitch chat integration for Root
+  - Setting up Twitch chat integration for Korvus
 title: "Twitch"
 ---
 
@@ -16,13 +16,13 @@ Twitch ships as a plugin and is not bundled with the core install.
 Install via CLI (npm registry):
 
 ```bash
-Root plugins install @Root/twitch
+Korvus plugins install @Root/twitch
 ```
 
 Local checkout (when running from a git repo):
 
 ```bash
-Root plugins install ./extensions/twitch
+Korvus plugins install ./extensions/twitch
 ```
 
 Details: [Plugins](/tools/plugin)
@@ -251,8 +251,8 @@ By default, `requireMention` is `true`. To disable and respond to all messages:
 First, run diagnostic commands:
 
 ```bash
-Root doctor
-Root channels status --probe
+Korvus doctor
+Korvus channels status --probe
 ```
 
 ### Bot doesn't respond to messages

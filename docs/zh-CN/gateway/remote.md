@@ -83,8 +83,8 @@ ssh -N -L 18789:127.0.0.1:18789 user@host
 
 隧道建立后：
 
-- `Root health` 和 `Root status --deep` 现在通过 `ws://127.0.0.1:18789` 访问远程 Gateway 网关。
-- `Root gateway {status,health,send,agent,call}` 在需要时也可以通过 `--url` 指定转发的 URL。
+- `Root health` 和 `Korvus status --deep` 现在通过 `ws://127.0.0.1:18789` 访问远程 Gateway 网关。
+- `Korvus gateway {status,health,send,agent,call}` 在需要时也可以通过 `--url` 指定转发的 URL。
 
 注意：将 `18789` 替换为你配置的 `gateway.port`（或 `--port`/`Root_GATEWAY_PORT`）。
 

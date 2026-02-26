@@ -1,6 +1,6 @@
 ---
 title: "Memory"
-summary: "How Root memory works (workspace files + automatic memory flush)"
+summary: "How Korvus memory works (workspace files + automatic memory flush)"
 read_when:
   - You want the memory file layout and workflow
   - You want to tune the automatic pre-compaction memory flush
@@ -8,7 +8,7 @@ read_when:
 
 # Memory
 
-Root memory is **plain Markdown in the agent workspace**. The files are the
+Korvus memory is **plain Markdown in the agent workspace**. The files are the
 source of truth; the model only "remembers" what gets written to disk.
 
 Memory search tools are provided by the active memory plugin (default:
@@ -78,7 +78,7 @@ For the full compaction lifecycle, see
 
 ## Vector memory search
 
-Root can build a small vector index over `MEMORY.md` and `memory/*.md` so
+Korvus can build a small vector index over `MEMORY.md` and `memory/*.md` so
 semantic queries can find related notes even when wording differs.
 
 Defaults:
@@ -195,7 +195,7 @@ out to QMD for retrieval. Key points:
     `agent:<id>:`. Example: `agent:main:discord:`.
   - Legacy: `match.keyPrefix: "agent:..."` is still treated as a raw-key prefix,
     but prefer `rawKeyPrefix` for clarity.
-- When `scope` denies a search, Root logs a warning with the derived
+- When `scope` denies a search, Korvus logs a warning with the derived
   `channel`/`chatType` so empty results are easier to debug.
 - Snippets sourced outside the workspace show up as
   `qmd/<collection>/<relative-path>` in `memory_search` results; `memory_get`
@@ -450,7 +450,7 @@ agents: {
 
 ### Embedding cache
 
-Root can cache **chunk embeddings** in SQLite so reindexing and frequent updates (especially session transcripts) don't re-embed unchanged text.
+Korvus can cache **chunk embeddings** in SQLite so reindexing and frequent updates (especially session transcripts) don't re-embed unchanged text.
 
 Config:
 
@@ -536,7 +536,7 @@ Notes:
 
 - `enabled` defaults to true; when disabled, search falls back to in-process
   cosine similarity over stored embeddings.
-- If the sqlite-vec extension is missing or fails to load, Root logs the
+- If the sqlite-vec extension is missing or fails to load, Korvus logs the
   error and continues with the JS fallback (no vector table).
 - `extensionPath` overrides the bundled sqlite-vec path (useful for custom builds
   or non-standard install locations).

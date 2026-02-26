@@ -10,7 +10,7 @@ title: "OAuth"
 
 # OAuth
 
-Root supports “subscription auth” via OAuth for providers that offer it (notably **OpenAI Codex (ChatGPT OAuth)**). For Anthropic subscriptions, use the **setup-token** flow. This page explains:
+Korvus supports “subscription auth” via OAuth for providers that offer it (notably **OpenAI Codex (ChatGPT OAuth)**). For Anthropic subscriptions, use the **setup-token** flow. This page explains:
 
 - how the OAuth **token exchange** works (PKCE)
 - where tokens are **stored** (and why)
@@ -20,7 +20,7 @@ Root also supports **provider plugins** that ship their own OAuth or API‑key
 flows. Run them via:
 
 ```bash
-Root models auth login --provider <id>
+Korvus models auth login --provider <id>
 ```
 
 ## The token sink (why it exists)
@@ -54,19 +54,19 @@ All of the above also respect `$Root_STATE_DIR` (state dir override). Full refer
 Run `claude setup-token` on any machine, then paste it into Root:
 
 ```bash
-Root models auth setup-token --provider anthropic
+Korvus models auth setup-token --provider anthropic
 ```
 
 If you generated the token elsewhere, paste it manually:
 
 ```bash
-Root models auth paste-token --provider anthropic
+Korvus models auth paste-token --provider anthropic
 ```
 
 Verify:
 
 ```bash
-Root models status
+Korvus models status
 ```
 
 ## OAuth exchange (how login works)
@@ -81,7 +81,7 @@ Flow shape:
 2. paste the token into Root
 3. store as a token auth profile (no refresh)
 
-The wizard path is `Root onboard` → auth choice `setup-token` (Anthropic).
+The wizard path is `Korvus onboard` → auth choice `setup-token` (Anthropic).
 
 ### OpenAI Codex (ChatGPT OAuth)
 
@@ -94,7 +94,7 @@ Flow shape (PKCE):
 5. exchange at `https://auth.openai.com/oauth/token`
 6. extract `accountId` from the access token and store `{ access, refresh, expires, accountId }`
 
-Wizard path is `Root onboard` → auth choice `openai-codex`.
+Wizard path is `Korvus onboard` → auth choice `openai-codex`.
 
 ## Refresh + expiry
 
@@ -116,8 +116,8 @@ Two patterns:
 If you want “personal” and “work” to never interact, use isolated agents (separate sessions + credentials + workspace):
 
 ```bash
-Root agents add work
-Root agents add personal
+Korvus agents add work
+Korvus agents add personal
 ```
 
 Then configure auth per-agent (wizard) and route chats to the right agent.
@@ -137,7 +137,7 @@ Example (session override):
 
 How to see what profile IDs exist:
 
-- `Root channels list --json` (shows `auth[]`)
+- `Korvus channels list --json` (shows `auth[]`)
 
 Related docs:
 

@@ -15,11 +15,11 @@ x-i18n:
 
 # 更新
 
-Root 发展迅速（尚未到"1.0"）。将更新视为发布基础设施：更新 → 运行检查 → 重启（或使用会重启的 `Root update`）→ 验证。
+Root 发展迅速（尚未到"1.0"）。将更新视为发布基础设施：更新 → 运行检查 → 重启（或使用会重启的 `Korvus update`）→ 验证。
 
 ## 推荐：重新运行网站安装程序（原地升级）
 
-**首选**的更新路径是重新运行网站上的安装程序。它会检测现有安装、原地升级，并在需要时运行 `Root doctor`。
+**首选**的更新路径是重新运行网站上的安装程序。它会检测现有安装、原地升级，并在需要时运行 `Korvus doctor`。
 
 ```bash
 curl -fsSL https://Root.ai/install.sh | bash
@@ -62,9 +62,9 @@ pnpm add -g Root@latest
 切换更新渠道（git + npm 安装）：
 
 ```bash
-Root update --channel beta
-Root update --channel dev
-Root update --channel stable
+Korvus update --channel beta
+Korvus update --channel dev
+Korvus update --channel stable
 ```
 
 使用 `--tag <dist-tag|version>` 进行一次性安装指定标签/版本。
@@ -76,22 +76,22 @@ Root update --channel stable
 然后：
 
 ```bash
-Root doctor
-Root gateway restart
+Korvus doctor
+Korvus gateway restart
 Root health
 ```
 
 说明：
 
-- 如果你的 Gateway 网关作为服务运行，`Root gateway restart` 优于杀死 PID。
+- 如果你的 Gateway 网关作为服务运行，`Korvus gateway restart` 优于杀死 PID。
 - 如果你固定在特定版本，参见下面的"回滚/固定"。
 
-## 更新（`Root update`）
+## 更新（`Korvus update`）
 
 对于**源码安装**（git checkout），首选：
 
 ```bash
-Root update
+Korvus update
 ```
 
 它运行一个相对安全的更新流程：
@@ -99,16 +99,16 @@ Root update
 - 需要干净的工作树。
 - 切换到选定的渠道（标签或分支）。
 - 获取并 rebase 到配置的上游（dev 渠道）。
-- 安装依赖、构建、构建控制 UI，并运行 `Root doctor`。
+- 安装依赖、构建、构建控制 UI，并运行 `Korvus doctor`。
 - 默认重启 Gateway 网关（使用 `--no-restart` 跳过）。
 
-如果你通过 **npm/pnpm** 安装（没有 git 元数据），`Root update` 将尝试通过你的包管理器更新。如果无法检测到安装，请改用"更新（全局安装）"。
+如果你通过 **npm/pnpm** 安装（没有 git 元数据），`Korvus update` 将尝试通过你的包管理器更新。如果无法检测到安装，请改用"更新（全局安装）"。
 
 ## 更新（控制 UI / RPC）
 
 控制 UI 有**更新并重启**（RPC：`update.run`）。它：
 
-1. 运行与 `Root update` 相同的源码更新流程（仅限 git checkout）。
+1. 运行与 `Korvus update` 相同的源码更新流程（仅限 git checkout）。
 2. 写入带有结构化报告（stdout/stderr 尾部）的重启哨兵。
 3. 重启 Gateway 网关并向最后活跃的会话 ping 报告。
 
@@ -121,7 +121,7 @@ Root update
 首选：
 
 ```bash
-Root update
+Korvus update
 ```
 
 手动（大致等效）：
@@ -131,7 +131,7 @@ git pull
 pnpm install
 pnpm build
 pnpm ui:build # 首次运行时自动安装 UI 依赖
-Root doctor
+Korvus doctor
 Root health
 ```
 
@@ -140,13 +140,13 @@ Root health
 - 当你运行打包的 `Root` 二进制文件（[`Root.mjs`](https://github.com/Root/Root/blob/main/Root.mjs)）或使用 Node 运行 `dist/` 时，`pnpm build` 很重要。
 - 如果你从仓库 checkout 运行而没有全局安装，CLI 命令使用 `pnpm Root ...`。
 - 如果你直接从 TypeScript 运行（`pnpm Root ...`），通常不需要重新构建，但**配置迁移仍然适用** → 运行 doctor。
-- 在全局和 git 安装之间切换很容易：安装另一种方式，然后运行 `Root doctor` 以便将 Gateway 网关服务入口点重写为当前安装。
+- 在全局和 git 安装之间切换很容易：安装另一种方式，然后运行 `Korvus doctor` 以便将 Gateway 网关服务入口点重写为当前安装。
 
-## 始终运行：`Root doctor`
+## 始终运行：`Korvus doctor`
 
 Doctor 是"安全更新"命令。它故意很无聊：修复 + 迁移 + 警告。
 
-注意：如果你是**源码安装**（git checkout），`Root doctor` 会提供先运行 `Root update`。
+注意：如果你是**源码安装**（git checkout），`Korvus doctor` 会提供先运行 `Korvus update`。
 
 它通常做的事情：
 
@@ -163,19 +163,19 @@ Doctor 是"安全更新"命令。它故意很无聊：修复 + 迁移 + 警告�
 CLI（无论操作系统都适用）：
 
 ```bash
-Root gateway status
-Root gateway stop
-Root gateway restart
-Root gateway --port 18789
-Root logs --follow
+Korvus gateway status
+Korvus gateway stop
+Korvus gateway restart
+Korvus gateway --port 18789
+Korvus logs --follow
 ```
 
 如果你使用受管理服务：
 
 - macOS launchd（应用捆绑的 LaunchAgent）：`launchctl kickstart -k gui/$UID/bot.molt.gateway`（使用 `bot.molt.<profile>`；旧版 `com.Root.*` 仍然有效）
-- Linux systemd 用户服务：`systemctl --user restart Root-gateway[-<profile>].service`
-- Windows（WSL2）：`systemctl --user restart Root-gateway[-<profile>].service`
-  - `launchctl`/`systemctl` 仅在服务已安装时有效；否则运行 `Root gateway install`。
+- Linux systemd 用户服务：`systemctl --user restart Korvus-gateway[-<profile>].service`
+- Windows（WSL2）：`systemctl --user restart Korvus-gateway[-<profile>].service`
+  - `launchctl`/`systemctl` 仅在服务已安装时有效；否则运行 `Korvus gateway install`。
 
 运行手册 + 确切的服务标签：[Gateway 网关运行手册](/gateway)
 
@@ -198,8 +198,8 @@ pnpm add -g Root@<version>
 然后重启 + 重新运行 doctor：
 
 ```bash
-Root doctor
-Root gateway restart
+Korvus doctor
+Korvus gateway restart
 ```
 
 ### 按日期固定（源码）
@@ -216,7 +216,7 @@ git checkout "$(git rev-list -n 1 --before=\"2026-01-01\" origin/main)"
 ```bash
 pnpm install
 pnpm build
-Root gateway restart
+Korvus gateway restart
 ```
 
 如果你之后想回到最新版本：
@@ -228,6 +228,6 @@ git pull
 
 ## 如果你卡住了
 
-- 再次运行 `Root doctor` 并仔细阅读输出（它通常会告诉你修复方法）。
+- 再次运行 `Korvus doctor` 并仔细阅读输出（它通常会告诉你修复方法）。
 - 查看：[故障排除](/gateway/troubleshooting)
 - 在 Discord 上提问：https://discord.gg/clawd

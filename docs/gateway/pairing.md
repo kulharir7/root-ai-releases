@@ -37,11 +37,11 @@ Pending requests expire automatically after **5 minutes**.
 ## CLI workflow (headless friendly)
 
 ```bash
-Root nodes pending
-Root nodes approve <requestId>
-Root nodes reject <requestId>
-Root nodes status
-Root nodes rename --node <id|name|ip> --name "Living Room iPad"
+Korvus nodes pending
+Korvus nodes approve <requestId>
+Korvus nodes reject <requestId>
+Korvus nodes status
+Korvus nodes rename --node <id|name|ip> --name "Living Room iPad"
 ```
 
 `nodes status` shows paired/connected nodes and their capabilities.

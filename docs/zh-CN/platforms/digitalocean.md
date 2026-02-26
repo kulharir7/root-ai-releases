@@ -73,7 +73,7 @@ apt update && apt upgrade -y
 curl -fsSL https://deb.nodesource.com/setup_22.x | bash -
 apt install -y nodejs
 
-# Install Root
+# Install Korvus
 curl -fsSL https://Root.ai/install.sh | bash
 
 # Verify
@@ -83,7 +83,7 @@ Root --version
 ## 4) 运行新手引导
 
 ```bash
-Root onboard --install-daemon
+Korvus onboard --install-daemon
 ```
 
 向导将引导你完成：
@@ -97,7 +97,7 @@ Root onboard --install-daemon
 
 ```bash
 # Check status
-Root status
+Korvus status
 
 # Check service
 systemctl --user status Root-gateway.service
@@ -127,8 +127,8 @@ curl -fsSL https://tailscale.com/install.sh | sh
 tailscale up
 
 # Configure Gateway to use Tailscale Serve
-Root config set gateway.tailscale.mode serve
-Root gateway restart
+Korvus config set gateway.tailscale.mode serve
+Korvus gateway restart
 ```
 
 打开：`https://<magicdns>/`
@@ -141,8 +141,8 @@ Root gateway restart
 **选项 C：Tailnet 绑定（不使用 Serve）**
 
 ```bash
-Root config set gateway.bind tailnet
-Root gateway restart
+Korvus config set gateway.bind tailnet
+Korvus gateway restart
 ```
 
 打开：`http://<tailscale-ip>:18789`（需要令牌）。
@@ -159,7 +159,7 @@ Root pairing approve telegram <CODE>
 ### WhatsApp
 
 ```bash
-Root channels login whatsapp
+Korvus channels login whatsapp
 # Scan QR code
 ```
 
@@ -237,8 +237,8 @@ Oracle Cloud 提供 **Always Free** ARM 实例，比这里任何付费选项都�
 ### Gateway 网关无法启动
 
 ```bash
-Root gateway status
-Root doctor --non-interactive
+Korvus gateway status
+Korvus doctor --non-interactive
 journalctl -u Root --no-pager -n 50
 ```
 

@@ -60,7 +60,7 @@ Gateway 网关可以托管**一个智能体**（默认）或**多个智能体**�
 使用智能体向导添加新的隔离智能体：
 
 ```bash
-Root agents add work
+Korvus agents add work
 ```
 
 然后添加 `bindings`（或让向导完成）来路由入站消息。
@@ -68,7 +68,7 @@ Root agents add work
 验证：
 
 ```bash
-Root agents list --bindings
+Korvus agents list --bindings
 ```
 
 ## 多个智能体 = 多个人、多种人格

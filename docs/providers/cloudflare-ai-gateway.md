@@ -8,7 +8,7 @@ read_when:
 
 # Cloudflare AI Gateway
 
-Cloudflare AI Gateway sits in front of provider APIs and lets you add analytics, caching, and controls. For Anthropic, Root uses the Anthropic Messages API through your Gateway endpoint.
+Cloudflare AI Gateway sits in front of provider APIs and lets you add analytics, caching, and controls. For Anthropic, Korvus uses the Anthropic Messages API through your Gateway endpoint.
 
 - Provider: `cloudflare-ai-gateway`
 - Base URL: `https://gateway.ai.cloudflare.com/v1/<account_id>/<gateway_id>/anthropic`
@@ -22,7 +22,7 @@ For Anthropic models, use your Anthropic API key.
 1. Set the provider API key and Gateway details:
 
 ```bash
-Root onboard --auth-choice cloudflare-ai-gateway-api-key
+Korvus onboard --auth-choice cloudflare-ai-gateway-api-key
 ```
 
 2. Set a default model:
@@ -40,7 +40,7 @@ Root onboard --auth-choice cloudflare-ai-gateway-api-key
 ## Non-interactive example
 
 ```bash
-Root onboard --non-interactive \
+Korvus onboard --non-interactive \
   --mode local \
   --auth-choice cloudflare-ai-gateway-api-key \
   --cloudflare-ai-gateway-account-id "your-account-id" \

@@ -9,7 +9,7 @@ title: "Peekaboo Bridge"
 
 # Peekaboo Bridge (macOS UI automation)
 
-Root can host **PeekabooBridge** as a local, permission‑aware UI automation
+Korvus can host **PeekabooBridge** as a local, permission‑aware UI automation
 broker. This lets the `peekaboo` CLI drive UI automation while reusing the
 macOS app’s TCC permissions.
 
@@ -17,7 +17,7 @@ macOS app’s TCC permissions.
 
 - **Host**: Root.app can act as a PeekabooBridge host.
 - **Client**: use the `peekaboo` CLI (no separate `Root ui ...` surface).
-- **UI**: visual overlays stay in Peekaboo.app; Root is a thin broker host.
+- **UI**: visual overlays stay in Peekaboo.app; Korvus is a thin broker host.
 
 ## Enable the bridge
 

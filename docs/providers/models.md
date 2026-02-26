@@ -8,7 +8,7 @@ title: "Model Provider Quickstart"
 
 # Model Providers
 
-Root can use many LLM providers. Pick one, authenticate, then set the default
+Korvus can use many LLM providers. Pick one, authenticate, then set the default
 model as `provider/model`.
 
 ## Highlight: Venice (Venice AI)
@@ -22,7 +22,7 @@ See [Venice AI](/providers/venice).
 
 ## Quick start (two steps)
 
-1. Authenticate with the provider (usually via `Root onboard`).
+1. Authenticate with the provider (usually via `Korvus onboard`).
 2. Set the default model:
 
 ```json5

@@ -59,7 +59,7 @@ Gateway 网关从与 Gateway 网关 WebSocket 相同的端口提供一个小型*
 然后启动 Gateway 网关：
 
 ```bash
-Root gateway
+Korvus gateway
 ```
 
 打开：
@@ -81,7 +81,7 @@ Root gateway
 然后启动 Gateway 网关（非本地回环绑定需要令牌）：
 
 ```bash
-Root gateway
+Korvus gateway
 ```
 
 打开：

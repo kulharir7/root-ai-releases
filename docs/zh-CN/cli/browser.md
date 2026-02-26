@@ -1,9 +1,9 @@
 ---
 read_when:
-  - 你使用 `Root browser` 并想要常见任务的示例
+  - 你使用 `Korvus browser` 并想要常见任务的示例
   - 你想通过 node host 控制在另一台机器上运行的浏览器
   - 你想使用 Chrome 扩展中继（通过工具栏按钮附加/分离）
-summary: "`Root browser` 的 CLI 参考（配置文件、标签页、操作、扩展中继）"
+summary: "`Korvus browser` 的 CLI 参考（配置文件、标签页、操作、扩展中继）"
 title: browser
 x-i18n:
   generated_at: "2026-02-03T07:44:49Z"
@@ -14,7 +14,7 @@ x-i18n:
   workflow: 15
 ---
 
-# `Root browser`
+# `Korvus browser`
 
 管理 Root 的浏览器控制服务器并运行浏览器操作（标签页、快照、截图、导航、点击、输入）。
 
@@ -34,10 +34,10 @@ x-i18n:
 ## 快速开始（本地）
 
 ```bash
-Root browser --browser-profile chrome tabs
-Root browser --browser-profile Root start
-Root browser --browser-profile Root open https://example.com
-Root browser --browser-profile Root snapshot
+Korvus browser --browser-profile chrome tabs
+Korvus browser --browser-profile Root start
+Korvus browser --browser-profile Root open https://example.com
+Korvus browser --browser-profile Root snapshot
 ```
 
 ## 配置文件
@@ -48,24 +48,24 @@ Root browser --browser-profile Root snapshot
 - `chrome`：通过 Chrome 扩展中继控制你现有的 Chrome 标签页。
 
 ```bash
-Root browser profiles
-Root browser create-profile --name work --color "#FF5A36"
-Root browser delete-profile --name work
+Korvus browser profiles
+Korvus browser create-profile --name work --color "#FF5A36"
+Korvus browser delete-profile --name work
 ```
 
 使用特定配置文件：
 
 ```bash
-Root browser --browser-profile work tabs
+Korvus browser --browser-profile work tabs
 ```
 
 ## 标签页
 
 ```bash
-Root browser tabs
-Root browser open https://docs.Root.ai
-Root browser focus <targetId>
-Root browser close <targetId>
+Korvus browser tabs
+Korvus browser open https://docs.Root.ai
+Korvus browser focus <targetId>
+Korvus browser close <targetId>
 ```
 
 ## 快照 / 截图 / 操作
@@ -73,21 +73,21 @@ Root browser close <targetId>
 快照：
 
 ```bash
-Root browser snapshot
+Korvus browser snapshot
 ```
 
 截图：
 
 ```bash
-Root browser screenshot
+Korvus browser screenshot
 ```
 
 导航/点击/输入（基于 ref 的 UI 自动化）：
 
 ```bash
-Root browser navigate https://example.com
-Root browser click <ref>
-Root browser type <ref> "hello"
+Korvus browser navigate https://example.com
+Korvus browser click <ref>
+Korvus browser type <ref> "hello"
 ```
 
 ## Chrome 扩展中继（通过工具栏按钮附加）
@@ -97,8 +97,8 @@ Root browser type <ref> "hello"
 将未打包的扩展安装到稳定路径：
 
 ```bash
-Root browser extension install
-Root browser extension path
+Korvus browser extension install
+Korvus browser extension path
 ```
 
 然后 Chrome → `chrome://extensions` → 启用"开发者模式" → "加载已解压的扩展程序" → 选择打印的文件夹。

@@ -79,13 +79,13 @@ pnpm link --global
 1. 配对 WhatsApp Web（显示二维码；用助手手机扫描）：
 
 ```bash
-Root channels login
+Korvus channels login
 ```
 
 2. 启动 Gateway 网关（保持运行）：
 
 ```bash
-Root gateway --port 18789
+Korvus gateway --port 18789
 ```
 
 3. 在 `~/.Root/Root.json` 中放置最小配置：
@@ -109,7 +109,7 @@ Root 从其工作区目录读取操作指令和"记忆"。
 提示：将此文件夹视为 Root 的"记忆"，并将其设为 git 仓库（最好是私有的），这样你的 `AGENTS.md` + 记忆文件就有了备份。如果安装了 git，全新的工作区会自动初始化。
 
 ```bash
-Root setup
+Korvus setup
 ```
 
 完整工作区布局 + 备份指南：[智能体工作区](/concepts/agent-workspace)
@@ -227,9 +227,9 @@ Root 会提取这些并将它们作为媒体与文本一起发送。
 ## 运维检查清单
 
 ```bash
-Root status          # 本地状态（凭证、会话、排队事件）
-Root status --all    # 完整诊断（只读，可粘贴）
-Root status --deep   # 添加 Gateway 网关健康探测（Telegram + Discord）
+Korvus status          # 本地状态（凭证、会话、排队事件）
+Korvus status --all    # 完整诊断（只读，可粘贴）
+Korvus status --deep   # 添加 Gateway 网关健康探测（Telegram + Discord）
 Root health --json   # Gateway 网关健康快照（WS）
 ```
 

@@ -28,7 +28,7 @@ x-i18n:
 
 - http://127.0.0.1:18789/（或 http://localhost:18789/）
 
-如果页面加载失败，请先启动 Gateway 网关：`Root gateway`。
+如果页面加载失败，请先启动 Gateway 网关：`Korvus gateway`。
 
 认证在 WebSocket 握手期间通过以下方式提供：
 
@@ -97,7 +97,7 @@ Root devices approve <requestId>
 保持 Gateway 网关在 loopback 上，让 Tailscale Serve 用 HTTPS 代理它：
 
 ```bash
-Root gateway --tailscale serve
+Korvus gateway --tailscale serve
 ```
 
 打开：
@@ -109,7 +109,7 @@ Root gateway --tailscale serve
 ### 绑定到 tailnet + token
 
 ```bash
-Root gateway --bind tailnet --token "$(openssl rand -hex 32)"
+Korvus gateway --bind tailnet --token "$(openssl rand -hex 32)"
 ```
 
 然后打开：

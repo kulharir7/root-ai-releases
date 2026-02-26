@@ -8,7 +8,7 @@ title: "Zalo Personal Plugin"
 
 # Zalo Personal (plugin)
 
-Zalo Personal support for Root via a plugin, using `zca-cli` to automate a normal Zalo user account.
+Zalo Personal support for Korvus via a plugin, using `zca-cli` to automate a normal Zalo user account.
 
 > **Warning:** Unofficial automation may lead to account suspension/ban. Use at your own risk.
 
@@ -27,7 +27,7 @@ If you use a remote Gateway, install/configure it on the **machine running the G
 ### Option A: install from npm
 
 ```bash
-Root plugins install @Root/zalouser
+Korvus plugins install @Root/zalouser
 ```
 
 Restart the Gateway afterwards.
@@ -35,7 +35,7 @@ Restart the Gateway afterwards.
 ### Option B: install from a local folder (dev)
 
 ```bash
-Root plugins install ./extensions/zalouser
+Korvus plugins install ./extensions/zalouser
 cd ./extensions/zalouser && pnpm install
 ```
 
@@ -67,10 +67,10 @@ Channel config lives under `channels.zalouser` (not `plugins.entries.*`):
 ## CLI
 
 ```bash
-Root channels login --channel zalouser
-Root channels logout --channel zalouser
-Root channels status --probe
-Root message send --channel zalouser --target <threadId> --message "Hello from Root"
+Korvus channels login --channel zalouser
+Korvus channels logout --channel zalouser
+Korvus channels status --probe
+Korvus message send --channel zalouser --target <threadId> --message "Hello from Root"
 Root directory peers list --channel zalouser --query "name"
 ```
 

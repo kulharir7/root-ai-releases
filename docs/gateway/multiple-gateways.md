@@ -59,8 +59,8 @@ Port spacing: leave at least 20 ports between base ports so the derived browser/
 ```bash
 # Main bot (existing or fresh, without --profile param)
 # Runs on port 18789 + Chrome CDC/Canvas/... Ports
-Root onboard
-Root gateway install
+Korvus onboard
+Korvus gateway install
 
 # Rescue bot (isolated profile + ports)
 Root --profile rescue onboard
@@ -96,11 +96,11 @@ If you override any of these in config or env, you must keep them unique per ins
 ```bash
 Root_CONFIG_PATH=~/.Root/main.json \
 Root_STATE_DIR=~/.Root-main \
-Root gateway --port 18789
+Korvus gateway --port 18789
 
 Root_CONFIG_PATH=~/.Root/rescue.json \
 Root_STATE_DIR=~/.Root-rescue \
-Root gateway --port 19001
+Korvus gateway --port 19001
 ```
 
 ## Quick checks

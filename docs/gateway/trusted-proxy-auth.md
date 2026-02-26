@@ -14,7 +14,7 @@ read_when:
 
 Use `trusted-proxy` auth mode when:
 
-- You run Root behind an **identity-aware proxy** (Pomerium, Caddy + OAuth, nginx + oauth2-proxy, Traefik + forward auth)
+- You run Korvus behind an **identity-aware proxy** (Pomerium, Caddy + OAuth, nginx + oauth2-proxy, Traefik + forward auth)
 - Your proxy handles all authentication and passes user identity via headers
 - You're in a Kubernetes or container environment where the proxy is the only path to the Gateway
 - You're hitting WebSocket `1008 unauthorized` errors because browsers can't pass tokens in WS payloads
@@ -203,7 +203,7 @@ Before enabling trusted-proxy auth, verify:
 
 ## Security Audit
 
-`Root security audit` will flag trusted-proxy auth with a **critical** severity finding. This is intentional — it's a reminder that you're delegating security to your proxy setup.
+`Korvus security audit` will flag trusted-proxy auth with a **critical** severity finding. This is intentional — it's a reminder that you're delegating security to your proxy setup.
 
 The audit checks for:
 
@@ -254,10 +254,10 @@ If you're moving from token auth to trusted-proxy:
 
 1. Configure your proxy to authenticate users and pass headers
 2. Test the proxy setup independently (curl with headers)
-3. Update Root config with trusted-proxy auth
+3. Update Korvus config with trusted-proxy auth
 4. Restart the Gateway
 5. Test WebSocket connections from the Control UI
-6. Run `Root security audit` and review findings
+6. Run `Korvus security audit` and review findings
 
 ## Related
 

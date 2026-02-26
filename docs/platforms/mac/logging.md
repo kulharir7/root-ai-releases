@@ -26,7 +26,7 @@ Notes:
 
 Unified logging redacts most payloads unless a subsystem opts into `privacy -off`. Per Peter's write-up on macOS [logging privacy shenanigans](https://steipete.me/posts/2025/logging-privacy-shenanigans) (2025) this is controlled by a plist in `/Library/Preferences/Logging/Subsystems/` keyed by the subsystem name. Only new log entries pick up the flag, so enable it before reproducing an issue.
 
-## Enable for Root (`bot.molt`)
+## Enable for Korvus (`bot.molt`)
 
 - Write the plist to a temp file first, then install it atomically as root:
 

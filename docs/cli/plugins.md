@@ -1,12 +1,12 @@
 ---
-summary: "CLI reference for `Root plugins` (list, install, uninstall, enable/disable, doctor)"
+summary: "CLI reference for `Korvus plugins` (list, install, uninstall, enable/disable, doctor)"
 read_when:
   - You want to install or manage in-process Gateway plugins
   - You want to debug plugin load failures
 title: "plugins"
 ---
 
-# `Root plugins`
+# `Korvus plugins`
 
 Manage Gateway plugins/extensions (loaded in-process).
 
@@ -19,14 +19,14 @@ Related:
 ## Commands
 
 ```bash
-Root plugins list
-Root plugins info <id>
-Root plugins enable <id>
-Root plugins disable <id>
-Root plugins uninstall <id>
-Root plugins doctor
-Root plugins update <id>
-Root plugins update --all
+Korvus plugins list
+Korvus plugins info <id>
+Korvus plugins enable <id>
+Korvus plugins disable <id>
+Korvus plugins uninstall <id>
+Korvus plugins doctor
+Korvus plugins update <id>
+Korvus plugins update --all
 ```
 
 Bundled plugins ship with Root but start disabled. Use `plugins enable` to
@@ -39,7 +39,7 @@ the plugin from loading and fail config validation.
 ### Install
 
 ```bash
-Root plugins install <path-or-spec>
+Korvus plugins install <path-or-spec>
 ```
 
 Security note: treat plugin installs like running code. Prefer pinned versions.
@@ -52,15 +52,15 @@ Supported archives: `.zip`, `.tgz`, `.tar.gz`, `.tar`.
 Use `--link` to avoid copying a local directory (adds to `plugins.load.paths`):
 
 ```bash
-Root plugins install -l ./my-plugin
+Korvus plugins install -l ./my-plugin
 ```
 
 ### Uninstall
 
 ```bash
-Root plugins uninstall <id>
-Root plugins uninstall <id> --dry-run
-Root plugins uninstall <id> --keep-files
+Korvus plugins uninstall <id>
+Korvus plugins uninstall <id> --dry-run
+Korvus plugins uninstall <id> --keep-files
 ```
 
 `uninstall` removes plugin records from `plugins.entries`, `plugins.installs`,
@@ -76,9 +76,9 @@ state dir extensions root (`$Root_STATE_DIR/extensions/<id>`). Use
 ### Update
 
 ```bash
-Root plugins update <id>
-Root plugins update --all
-Root plugins update <id> --dry-run
+Korvus plugins update <id>
+Korvus plugins update --all
+Korvus plugins update <id> --dry-run
 ```
 
 Updates only apply to plugins installed from npm (tracked in `plugins.installs`).

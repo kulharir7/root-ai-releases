@@ -1,12 +1,12 @@
 ---
-summary: "CLI reference for `Root doctor` (health checks + guided repairs)"
+summary: "CLI reference for `Korvus doctor` (health checks + guided repairs)"
 read_when:
   - You have connectivity/auth issues and want guided fixes
   - You updated and want a sanity check
 title: "doctor"
 ---
 
-# `Root doctor`
+# `Korvus doctor`
 
 Health checks + quick fixes for the gateway and channels.
 
@@ -18,9 +18,9 @@ Related:
 ## Examples
 
 ```bash
-Root doctor
-Root doctor --repair
-Root doctor --deep
+Korvus doctor
+Korvus doctor --repair
+Korvus doctor --deep
 ```
 
 Notes:

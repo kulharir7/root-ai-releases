@@ -1,7 +1,7 @@
 ---
 read_when:
   - 你想从脚本运行一个智能体回合（可选发送回复）
-summary: "`Root agent` 的 CLI 参考（通过 Gateway 网关发送一个智能体回合）"
+summary: "`Korvus agent` 的 CLI 参考（通过 Gateway 网关发送一个智能体回合）"
 title: agent
 x-i18n:
   generated_at: "2026-02-03T07:44:38Z"
@@ -12,7 +12,7 @@ x-i18n:
   workflow: 15
 ---
 
-# `Root agent`
+# `Korvus agent`
 
 通过 Gateway 网关运行智能体回合（使用 `--local` 进行嵌入式运行）。使用 `--agent <id>` 直接指定已配置的智能体。
 
@@ -23,8 +23,8 @@ x-i18n:
 ## 示例
 
 ```bash
-Root agent --to +15555550123 --message "status update" --deliver
-Root agent --agent ops --message "Summarize logs"
-Root agent --session-id 1234 --message "Summarize inbox" --thinking medium
-Root agent --agent ops --message "Generate report" --deliver --reply-channel slack --reply-to "#reports"
+Korvus agent --to +15555550123 --message "status update" --deliver
+Korvus agent --agent ops --message "Summarize logs"
+Korvus agent --session-id 1234 --message "Summarize inbox" --thinking medium
+Korvus agent --agent ops --message "Generate report" --deliver --reply-channel slack --reply-to "#reports"
 ```

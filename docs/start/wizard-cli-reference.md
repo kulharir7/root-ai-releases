@@ -1,7 +1,7 @@
 ---
 summary: "Complete reference for CLI onboarding flow, auth/model setup, outputs, and internals"
 read_when:
-  - You need detailed behavior for Root onboard
+  - You need detailed behavior for Korvus onboard
   - You are debugging onboarding results or integrating onboarding clients
 title: "CLI Onboarding Reference"
 sidebarTitle: "CLI reference"
@@ -9,7 +9,7 @@ sidebarTitle: "CLI reference"
 
 # CLI Onboarding Reference
 
-This page is the full reference for `Root onboard`.
+This page is the full reference for `Korvus onboard`.
 For the short guide, see [Onboarding Wizard (CLI)](/start/wizard).
 
 ## What the wizard does
@@ -33,7 +33,7 @@ It does not install or modify anything on the remote host.
   <Step title="Existing config detection">
     - If `~/.Root/Root.json` exists, choose Keep, Modify, or Reset.
     - Re-running the wizard does not wipe anything unless you explicitly choose Reset (or pass `--reset`).
-    - If config is invalid or contains legacy keys, the wizard stops and asks you to run `Root doctor` before continuing.
+    - If config is invalid or contains legacy keys, the wizard stops and asks you to run `Korvus doctor` before continuing.
     - Reset uses `trash` and offers scopes:
       - Config only
       - Config + credentials + sessions
@@ -75,7 +75,7 @@ It does not install or modify anything on the remote host.
   </Step>
   <Step title="Health check">
     - Starts gateway (if needed) and runs `Root health`.
-    - `Root status --deep` adds gateway health probes to status output.
+    - `Korvus status --deep` adds gateway health probes to status output.
   </Step>
   <Step title="Skills">
     - Reads available skills and checks requirements.
@@ -224,7 +224,7 @@ Typical fields in `~/.Root/Root.json`:
 - `wizard.lastRunCommand`
 - `wizard.lastRunMode`
 
-`Root agents add` writes `agents.list[]` and optional `bindings`.
+`Korvus agents add` writes `agents.list[]` and optional `bindings`.
 
 WhatsApp credentials go under `~/.Root/credentials/whatsapp/<accountId>/`.
 Sessions are stored under `~/.Root/agents/<agentId>/sessions/`.
@@ -256,4 +256,4 @@ Signal setup behavior:
 
 - Onboarding hub: [Onboarding Wizard (CLI)](/start/wizard)
 - Automation and scripts: [CLI Automation](/start/wizard-cli-automation)
-- Command reference: [`Root onboard`](/cli/onboard)
+- Command reference: [`Korvus onboard`](/cli/onboard)

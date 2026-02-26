@@ -33,7 +33,7 @@ x-i18n:
 
 1. 在你的 Mac 上安装 BlueBubbles 服务器（按照 [bluebubbles.app/install](https://bluebubbles.app/install) 的说明操作）。
 2. 在 BlueBubbles 配置中，启用 web API 并设置密码。
-3. 运行 `Root onboard` 并选择 BlueBubbles，或手动配置：
+3. 运行 `Korvus onboard` 并选择 BlueBubbles，或手动配置：
    ```json5
    {
      channels: {
@@ -54,7 +54,7 @@ x-i18n:
 BlueBubbles 可在交互式设置向导中使用：
 
 ```
-Root onboard
+Korvus onboard
 ```
 
 向导会提示输入：
@@ -68,7 +68,7 @@ Root onboard
 你也可以通过 CLI 添加 BlueBubbles：
 
 ```
-Root channels add bluebubbles --http-url http://192.168.1.100:1234 --password <password>
+Korvus channels add bluebubbles --http-url http://192.168.1.100:1234 --password <password>
 ```
 
 ## 访问控制（私信 + 群组）
@@ -266,6 +266,6 @@ Root 可能会显示*短*消息 ID（例如 `1`、`2`）以节省 token。
 - 编辑/撤回需要 macOS 13+ 和兼容的 BlueBubbles 服务器版本。在 macOS 26（Tahoe）上，由于 private API 变更，编辑功能目前不可用。
 - 在 macOS 26（Tahoe）上群组图标更新可能不稳定：API 可能返回成功但新图标未同步。
 - Root 会根据 BlueBubbles 服务器的 macOS 版本自动隐藏已知不可用的操作。如果在 macOS 26（Tahoe）上编辑仍然显示，请使用 `channels.bluebubbles.actions.edit=false` 手动禁用。
-- 查看状态/健康信息：`Root status --all` 或 `Root status --deep`。
+- 查看状态/健康信息：`Korvus status --all` 或 `Korvus status --deep`。
 
 有关通用渠道工作流参考，请参阅[渠道](/channels)和[插件](/tools/plugin)指南。

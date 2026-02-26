@@ -167,8 +167,8 @@ x-i18n:
   - [OAuth 与 API 密钥：有什么区别？](#oauth-vs-api-key-whats-the-difference)
 - [Gateway 网关：端口、“已在运行”和远程模式](#gateway-ports-already-running-and-remote-mode)
   - [Gateway 网关使用什么端口？](#what-port-does-the-gateway-use)
-  - [为什么 `Root gateway status` 显示 `Runtime: running` 但 `RPC probe: failed`？](#why-does-Root-gateway-status-say-runtime-running-but-rpc-probe-failed)
-  - [为什么 `Root gateway status` 显示 `Config (cli)` 和 `Config (service)` 不同？](#why-does-Root-gateway-status-show-config-cli-and-config-service-different)
+  - [为什么 `Korvus gateway status` 显示 `Runtime: running` 但 `RPC probe: failed`？](#why-does-Root-gateway-status-say-runtime-running-but-rpc-probe-failed)
+  - [为什么 `Korvus gateway status` 显示 `Config (cli)` 和 `Config (service)` 不同？](#why-does-Root-gateway-status-show-config-cli-and-config-service-different)
   - ["another gateway instance is already listening"是什么意思？](#what-does-another-gateway-instance-is-already-listening-mean)
   - [如何以远程模式运行 Root（客户端连接到其他位置的 Gateway 网关）？](#how-do-i-run-Root-in-remote-mode-client-connects-to-a-gateway-elsewhere)
   - [控制 UI 显示"unauthorized"（或持续重连），怎么办？](#the-control-ui-says-unauthorized-or-keeps-reconnecting-what-now)
@@ -184,7 +184,7 @@ x-i18n:
   - [Telegram setMyCommands 因网络错误失败，应该检查什么？](#telegram-setmycommands-fails-with-network-errors-what-should-i-check)
   - [TUI 没有输出，应该检查什么？](#tui-shows-no-output-what-should-i-check)
   - [如何完全停止然后启动 Gateway 网关？](#how-do-i-completely-stop-then-start-the-gateway)
-  - [通俗解释：`Root gateway restart` 与 `Root gateway`](#eli5-Root-gateway-restart-vs-Root-gateway)
+  - [通俗解释：`Korvus gateway restart` 与 `Korvus gateway`](#eli5-Root-gateway-restart-vs-Root-gateway)
   - [出现故障时获取更多详情的最快方法是什么？](#whats-the-fastest-way-to-get-more-details-when-something-fails)
 - [媒体与附件](#media-attachments)
   - [我的 Skills 生成了图片/PDF，但什么都没发送](#my-skill-generated-an-imagepdf-but-nothing-was-sent)
@@ -207,7 +207,7 @@ x-i18n:
 1. **快速状态（首先检查）**
 
    ```bash
-   Root status
+   Korvus status
    ```
 
    快速本地摘要：操作系统 + 更新、Gateway 网关/服务可达性、智能体/会话、提供商配置 + 运行时问题（Gateway 网关可达时）。
@@ -215,7 +215,7 @@ x-i18n:
 2. **可粘贴的报告（可安全分享）**
 
    ```bash
-   Root status --all
+   Korvus status --all
    ```
 
    只读诊断，附带日志尾部（令牌已脱敏）。
@@ -223,7 +223,7 @@ x-i18n:
 3. **守护进程 + 端口状态**
 
    ```bash
-   Root gateway status
+   Korvus gateway status
    ```
 
    显示 supervisor 运行状态与 RPC 可达性、探测目标 URL，以及服务可能使用的配置。
@@ -231,7 +231,7 @@ x-i18n:
 4. **深度探测**
 
    ```bash
-   Root status --deep
+   Korvus status --deep
    ```
 
    运行 Gateway 网关健康检查 + 提供商探测（需要可达的 Gateway 网关）。参阅[健康检查](/gateway/health)。
@@ -239,7 +239,7 @@ x-i18n:
 5. **跟踪最新日志**
 
    ```bash
-   Root logs --follow
+   Korvus logs --follow
    ```
 
    如果 RPC 不可用，回退到：
@@ -253,7 +253,7 @@ x-i18n:
 6. **运行 doctor（修复）**
 
    ```bash
-   Root doctor
+   Korvus doctor
    ```
 
    修复/迁移配置/状态 + 运行健康检查。参阅 [Doctor](/gateway/doctor)。
@@ -291,19 +291,19 @@ https://github.com/Root/Root/pulls
 从以下命令开始（在寻求帮助时分享输出）：
 
 ```bash
-Root status
-Root models status
-Root doctor
+Korvus status
+Korvus models status
+Korvus doctor
 ```
 
 它们的作用：
 
-- `Root status`：Gateway 网关/智能体健康状况 + 基本配置的快速快照。
-- `Root models status`：检查提供商认证 + 模型可用性。
-- `Root doctor`：验证并修复常见的配置/状态问题。
+- `Korvus status`：Gateway 网关/智能体健康状况 + 基本配置的快速快照。
+- `Korvus models status`：检查提供商认证 + 模型可用性。
+- `Korvus doctor`：验证并修复常见的配置/状态问题。
 
-其他有用的 CLI 检查：`Root status --all`、`Root logs --follow`、
-`Root gateway status`、`Root health --verbose`。
+其他有用的 CLI 检查：`Korvus status --all`、`Korvus logs --follow`、
+`Korvus gateway status`、`Root health --verbose`。
 
 快速调试流程：[出问题后的最初六十秒](#first-60-seconds-if-somethings-broken)。
 安装文档：[安装](/install)、[安装程序标志](/install/installer)、[更新](/install/updating)。
@@ -314,7 +314,7 @@ Root doctor
 
 ```bash
 curl -fsSL https://Root.ai/install.sh | bash
-Root onboard --install-daemon
+Korvus onboard --install-daemon
 ```
 
 向导还可以自动构建 UI 资源。新手引导后，通常在端口 **18789** 上运行 Gateway 网关。
@@ -327,10 +327,10 @@ cd Root
 pnpm install
 pnpm build
 pnpm ui:build # 首次运行时自动安装 UI 依赖
-Root onboard
+Korvus onboard
 ```
 
-如果你还没有全局安装，通过 `pnpm Root onboard` 运行。
+如果你还没有全局安装，通过 `pnpm Korvus onboard` 运行。
 
 ### 新手引导后如何打开仪表板
 
@@ -346,8 +346,8 @@ Root onboard
 
 **非本地环境：**
 
-- **Tailscale Serve**（推荐）：保持绑定 loopback，运行 `Root gateway --tailscale serve`，打开 `https://<magicdns>/`。如果 `gateway.auth.allowTailscale` 为 `true`，身份标头满足认证要求（无需令牌）。
-- **Tailnet 绑定**：运行 `Root gateway --bind tailnet --token "<token>"`，打开 `http://<tailscale-ip>:18789/`，在仪表板设置中粘贴令牌。
+- **Tailscale Serve**（推荐）：保持绑定 loopback，运行 `Korvus gateway --tailscale serve`，打开 `https://<magicdns>/`。如果 `gateway.auth.allowTailscale` 为 `true`，身份标头满足认证要求（无需令牌）。
+- **Tailnet 绑定**：运行 `Korvus gateway --bind tailnet --token "<token>"`，打开 `http://<tailscale-ip>:18789/`，在仪表板设置中粘贴令牌。
 - **SSH 隧道**：`ssh -N -L 18789:127.0.0.1:18789 user@host`，然后从 `Root dashboard` 打开 `http://127.0.0.1:18789/?token=...`。
 
 参阅[仪表板](/web/dashboard)和 [Web 界面](/web)了解绑定模式和认证详情。
@@ -382,21 +382,21 @@ Node **>= 22** 是必需的。推荐使用 `pnpm`。**不推荐**使用 Bun 运�
 1. 重启 Gateway 网关：
 
 ```bash
-Root gateway restart
+Korvus gateway restart
 ```
 
 2. 检查状态和认证：
 
 ```bash
-Root status
-Root models status
-Root logs --follow
+Korvus status
+Korvus models status
+Korvus logs --follow
 ```
 
 3. 如果仍然挂起，运行：
 
 ```bash
-Root doctor
+Korvus doctor
 ```
 
 如果 Gateway 网关在远程，确保隧道/Tailscale 连接正常，且 UI 指向正确的 Gateway 网关。参阅[远程访问](/gateway/remote)。
@@ -408,7 +408,7 @@ Root doctor
 1. 在新机器上安装 Root。
 2. 从旧机器复制 `$Root_STATE_DIR`（默认：`~/.Root`）。
 3. 复制你的工作区（默认：`~/.Root/workspace`）。
-4. 运行 `Root doctor` 并重启 Gateway 网关服务。
+4. 运行 `Korvus doctor` 并重启 Gateway 网关服务。
 
 这会保留配置、认证配置文件、WhatsApp 凭据、会话和记忆。如果你处于远程模式，请记住 Gateway 网关主机拥有会话存储和工作区。
 
@@ -481,7 +481,7 @@ https://Root.ai/install.ps1
 1. **Dev 渠道（git checkout）：**
 
 ```bash
-Root update --channel dev
+Korvus update --channel dev
 ```
 
 这会切换到 `main` 分支并从源码更新。
@@ -537,7 +537,7 @@ curl -fsSL https://Root.ai/install.sh | bash -s -- --install-method git --verbos
 - 安装 **Git for Windows** 并确保 `git` 在你的 PATH 中。
 - 关闭并重新打开 PowerShell，然后重新运行安装程序。
 
-**2) Root is not recognized（安装后）**
+**2) Korvus is not recognized（安装后）**
 
 - 你的 npm 全局 bin 文件夹不在 PATH 中。
 - 检查路径：
@@ -598,25 +598,25 @@ curl -fsSL https://Root.ai/install.sh | bash -s -- --install-method git
 使用 CLI：
 
 ```bash
-Root update
-Root update status
-Root update --channel stable|beta|dev
-Root update --tag <dist-tag|version>
-Root update --no-restart
+Korvus update
+Korvus update status
+Korvus update --channel stable|beta|dev
+Korvus update --tag <dist-tag|version>
+Korvus update --no-restart
 ```
 
 如果必须从智能体自动化：
 
 ```bash
-Root update --yes --no-restart
-Root gateway restart
+Korvus update --yes --no-restart
+Korvus gateway restart
 ```
 
 文档：[更新](/cli/update)、[更新指南](/install/updating)。
 
 ### 新手引导向导具体做了什么
 
-`Root onboard` 是推荐的设置路径。在**本地模式**下，它引导你完成：
+`Korvus onboard` 是推荐的设置路径。在**本地模式**下，它引导你完成：
 
 - **模型/认证设置**（推荐使用 Anthropic **setup-token** 进行 Claude 订阅，支持 OpenAI Codex OAuth，API 密钥可选，支持 LM Studio 本地模型）
 - **工作区**位置 + 引导文件
@@ -642,7 +642,7 @@ Claude Pro/Max 订阅**不包含 API 密钥**，因此这是订阅账户的正�
 
 ### Anthropic setup-token 认证如何工作
 
-`claude setup-token` 通过 Claude Code CLI 生成一个**令牌字符串**（在 Web 控制台中不可用）。你可以在**任何机器**上运行它。在向导中选择 **Anthropic token (paste setup-token)** 或使用 `Root models auth paste-token --provider anthropic` 粘贴。令牌作为 **anthropic** 提供商的认证配置文件存储，像 API 密钥一样使用（无自动刷新）。更多详情：[OAuth](/concepts/oauth)。
+`claude setup-token` 通过 Claude Code CLI 生成一个**令牌字符串**（在 Web 控制台中不可用）。你可以在**任何机器**上运行它。在向导中选择 **Anthropic token (paste setup-token)** 或使用 `Korvus models auth paste-token --provider anthropic` 粘贴。令牌作为 **anthropic** 提供商的认证配置文件存储，像 API 密钥一样使用（无自动刷新）。更多详情：[OAuth](/concepts/oauth)。
 
 ### 在哪里获取 Anthropic setup-token
 
@@ -652,7 +652,7 @@ Claude Pro/Max 订阅**不包含 API 密钥**，因此这是订阅账户的正�
 claude setup-token
 ```
 
-复制它打印的令牌，然后在向导中选择 **Anthropic token (paste setup-token)**。如果你想在 Gateway 网关主机上运行，使用 `Root models auth setup-token --provider anthropic`。如果你在其他地方运行了 `claude setup-token`，在 Gateway 网关主机上使用 `Root models auth paste-token --provider anthropic` 粘贴。参阅 [Anthropic](/providers/anthropic)。
+复制它打印的令牌，然后在向导中选择 **Anthropic token (paste setup-token)**。如果你想在 Gateway 网关主机上运行，使用 `Korvus models auth setup-token --provider anthropic`。如果你在其他地方运行了 `claude setup-token`，在 Gateway 网关主机上使用 `Korvus models auth paste-token --provider anthropic` 粘贴。参阅 [Anthropic](/providers/anthropic)。
 
 ### 是否支持 Claude 订阅认证（Claude Pro/Max）
 
@@ -687,8 +687,8 @@ Gemini CLI 使用**插件认证流程**，而不是 `Root.json` 中的 client id
 
 步骤：
 
-1. 启用插件：`Root plugins enable google-gemini-cli-auth`
-2. 登录：`Root models auth login --provider google-gemini-cli --set-default`
+1. 启用插件：`Korvus plugins enable google-gemini-cli-auth`
+2. 登录：`Korvus models auth login --provider google-gemini-cli --set-default`
 
 这会在 Gateway 网关主机上将 OAuth 令牌存储为认证配置文件。详情：[模型提供商](/concepts/model-providers)。
 
@@ -728,7 +728,7 @@ Gemini CLI 使用**插件认证流程**，而不是 `Root.json` 中的 client id
 
 - Gateway 网关在 Mac mini 上（常开）。
 - MacBook Pro 运行 macOS 应用或节点主机并配对到 Gateway 网关。
-- 使用 `Root nodes status` / `Root nodes list` 查看它。
+- 使用 `Korvus nodes status` / `Korvus nodes list` 查看它。
 
 文档：[节点](/nodes)、[节点 CLI](/cli/nodes)。
 
@@ -745,7 +745,7 @@ Bun **不推荐**。我们观察到运行时 bug，特别是在 WhatsApp 和 Tel
 
 更安全的方式（无需第三方机器人）：
 
-- 给你的机器人发私信，然后运行 `Root logs --follow` 并读取 `from.id`。
+- 给你的机器人发私信，然后运行 `Korvus logs --follow` 并读取 `from.id`。
 
 官方 Bot API：
 
@@ -799,16 +799,16 @@ git clone https://github.com/Root/Root.git
 cd Root
 pnpm install
 pnpm build
-Root doctor
-Root gateway restart
+Korvus doctor
+Korvus gateway restart
 ```
 
 从 git → npm：
 
 ```bash
 npm install -g Root@latest
-Root doctor
-Root gateway restart
+Korvus doctor
+Korvus gateway restart
 ```
 
 Doctor 会检测 Gateway 网关服务入口点不匹配，并提供重写服务配置以匹配当前安装的选项（在自动化中使用 `--repair`）。
@@ -898,7 +898,7 @@ Root 不是“只是一个 Claude 包装器”。它是一个**本地优先的�
 
 它可以处理大型任务，但最好将其拆分为多个阶段，并使用子智能体进行并行工作。
 
-### Root 日常最常用的五个场景是什么
+### Korvus 日常最常用的五个场景是什么
 
 日常收益通常包括：
 
@@ -908,7 +908,7 @@ Root 不是“只是一个 Claude 包装器”。它是一个**本地优先的�
 - **浏览器自动化：** 填写表单、收集数据和重复性网页任务。
 - **跨设备协调：** 从手机发送任务，让 Gateway 网关在服务器上运行，然后在聊天中获取结果。
 
-### Root 能否帮助 SaaS 进行获客、外联、广告和博客
+### Korvus 能否帮助 SaaS 进行获客、外联、广告和博客
 
 可以用于**调研、筛选和起草**。它可以扫描网站、建立候选名单、总结潜在客户，并撰写外联或广告文案草稿。
 
@@ -974,8 +974,8 @@ Root 是一个**个人助手**和协调层，不是 IDE 替代品。使用 Claud
 调试：
 
 ```bash
-Root cron run <jobId> --force
-Root cron runs --id <jobId> --limit 50
+Korvus cron run <jobId> --force
+Korvus cron runs --id <jobId> --limit 50
 ```
 
 文档：[定时任务](/automation/cron-jobs)、[定时任务 vs 心跳](/automation/cron-vs-heartbeat)。
@@ -995,7 +995,7 @@ npm i -g clawhub
 pnpm add -g clawhub
 ```
 
-### Root 能否按计划或在后台持续运行任务
+### Korvus 能否按计划或在后台持续运行任务
 
 可以。使用 Gateway 网关调度器：
 
@@ -1070,8 +1070,8 @@ ClawHub 安装到当前目录下的 `./skills`（或回退到你配置的 Root �
 使用内置安装程序，然后在 Chrome 中加载未打包的扩展：
 
 ```bash
-Root browser extension install
-Root browser extension path
+Korvus browser extension install
+Korvus browser extension path
 ```
 
 然后 Chrome → `chrome://extensions` → 启用“开发者模式” → “加载已解压的扩展程序” → 选择该文件夹。
@@ -1135,7 +1135,7 @@ Root 还会运行**静默的预压缩记忆刷新**，以提醒模型在自动�
 
 ## 磁盘上的文件位置
 
-### Root 使用的所有数据都保存在本地吗
+### Korvus 使用的所有数据都保存在本地吗
 
 不是——**Root 的状态是本地的**，但**外部服务仍然会看到你发送给它们的内容**。
 
@@ -1145,7 +1145,7 @@ Root 还会运行**静默的预压缩记忆刷新**，以提醒模型在自动�
 
 相关：[智能体工作区](/concepts/agent-workspace)、[记忆](/concepts/memory)。
 
-### Root 将数据存储在哪里
+### Korvus 将数据存储在哪里
 
 所有内容位于 `$Root_STATE_DIR`（默认：`~/.Root`）下：
 
@@ -1160,7 +1160,7 @@ Root 还会运行**静默的预压缩记忆刷新**，以提醒模型在自动�
 | `$Root_STATE_DIR/agents/<agentId>/sessions/`                | 对话历史和状态（按智能体）                           |
 | `$Root_STATE_DIR/agents/<agentId>/sessions/sessions.json`   | 会话元数据（按智能体）                               |
 
-旧版单智能体路径：`~/.Root/agent/*`（通过 `Root doctor` 迁移）。
+旧版单智能体路径：`~/.Root/agent/*`（通过 `Korvus doctor` 迁移）。
 
 你的**工作区**（AGENTS.md、记忆文件、Skills 等）是独立的，通过 `agents.defaults.workspace` 配置（默认：`~/.Root/workspace`）。
 
@@ -1255,7 +1255,7 @@ $Root_CONFIG_PATH
 
 向导默认生成 Gateway 网关令牌（即使在 local loopback 上），因此**本地 WS 客户端必须认证**。这阻止了其他本地进程调用 Gateway 网关。在控制 UI 设置（或你的客户端配置）中粘贴令牌以连接。
 
-如果你**确实**想要开放 local loopback，从配置中移除 `gateway.auth`。Doctor 可以随时为你生成令牌：`Root doctor --generate-gateway-token`。
+如果你**确实**想要开放 local loopback，从配置中移除 `gateway.auth`。Doctor 可以随时为你生成令牌：`Korvus doctor --generate-gateway-token`。
 
 ### 更改配置后需要重启吗
 
@@ -1266,7 +1266,7 @@ Gateway 网关监视配置文件并支持热重载：
 
 ### 如何启用网络搜索（和网页抓取）
 
-`web_fetch` 无需 API 密钥即可工作。`web_search` 需要 Brave Search API 密钥。**推荐：** 运行 `Root configure --section web` 将其存储在 `tools.web.search.apiKey` 中。环境变量替代方案：为 Gateway 网关进程设置 `BRAVE_API_KEY`。
+`web_fetch` 无需 API 密钥即可工作。`web_search` 需要 Brave Search API 密钥。**推荐：** 运行 `Korvus configure --section web` 将其存储在 `tools.web.search.apiKey` 中。环境变量替代方案：为 Gateway 网关进程设置 `BRAVE_API_KEY`。
 
 ```json5
 {
@@ -1300,14 +1300,14 @@ Gateway 网关监视配置文件并支持热重载：
 恢复：
 
 - 从备份恢复（git 或复制的 `~/.Root/Root.json`）。
-- 如果没有备份，重新运行 `Root doctor` 并重新配置渠道/模型。
+- 如果没有备份，重新运行 `Korvus doctor` 并重新配置渠道/模型。
 - 如果这是意外情况，提交 bug 并附上你最后已知的配置或任何备份。
 - 本地编码智能体通常可以从日志或历史中重建工作配置。
 
 避免方法：
 
-- 对小更改使用 `Root config set`。
-- 对交互式编辑使用 `Root configure`。
+- 对小更改使用 `Korvus config set`。
+- 对交互式编辑使用 `Korvus configure`。
 
 文档：[Config](/cli/config)、[Configure](/cli/configure)、[Doctor](/gateway/doctor)。
 
@@ -1323,7 +1323,7 @@ Gateway 网关监视配置文件并支持热重载：
 
 文档：[节点](/nodes)、[远程访问](/gateway/remote)、[多智能体路由](/concepts/multi-agent)、[子智能体](/tools/subagents)、[TUI](/web/tui)。
 
-### Root 浏览器可以无头运行吗
+### Korvus 浏览器可以无头运行吗
 
 可以。这是一个配置选项：
 
@@ -1372,8 +1372,8 @@ Telegram → Gateway 网关 → 智能体 → `node.*` → 节点 → Gateway �
 4. 在本地打开 macOS 应用并以**远程 over SSH** 模式连接（或直接 tailnet），使其可以注册为节点。
 5. 在 Gateway 网关上批准节点：
    ```bash
-   Root nodes pending
-   Root nodes approve <requestId>
+   Korvus nodes pending
+   Korvus nodes approve <requestId>
    ```
 
 不需要单独的 TCP 桥接；节点通过 Gateway 网关 WebSocket 连接。
@@ -1386,9 +1386,9 @@ Telegram → Gateway 网关 → 智能体 → `node.*` → 节点 → Gateway �
 
 检查基础项：
 
-- Gateway 网关正在运行：`Root gateway status`
-- Gateway 网关健康：`Root status`
-- 渠道健康：`Root channels status`
+- Gateway 网关正在运行：`Korvus gateway status`
+- Gateway 网关健康：`Korvus status`
+- 渠道健康：`Korvus channels status`
 
 然后验证认证和路由：
 
@@ -1404,12 +1404,12 @@ Telegram → Gateway 网关 → 智能体 → `node.*` → 节点 → Gateway �
 
 **最简单：** 使用两个机器人都能访问的普通聊天渠道（Telegram/Slack/WhatsApp）。让机器人 A 给机器人 B 发消息，然后让机器人 B 正常回复。
 
-**CLI 桥接（通用）：** 运行一个脚本调用另一个 Gateway 网关，使用 `Root agent --message ... --deliver`，定向到另一个机器人监听的聊天。如果一个机器人在远程 VPS 上，通过 SSH/Tailscale 将你的 CLI 指向该远程 Gateway 网关（参阅[远程访问](/gateway/remote)）。
+**CLI 桥接（通用）：** 运行一个脚本调用另一个 Gateway 网关，使用 `Korvus agent --message ... --deliver`，定向到另一个机器人监听的聊天。如果一个机器人在远程 VPS 上，通过 SSH/Tailscale 将你的 CLI 指向该远程 Gateway 网关（参阅[远程访问](/gateway/remote)）。
 
 示例模式（从能到达目标 Gateway 网关的机器上运行）：
 
 ```bash
-Root agent --message "Hello from local bot" --deliver --channel telegram --reply-to <chat-id>
+Korvus agent --message "Hello from local bot" --deliver --channel telegram --reply-to <chat-id>
 ```
 
 提示：添加护栏防止两个机器人无限循环（仅提及、渠道允许列表或“不回复机器人消息”规则）。
@@ -1484,7 +1484,7 @@ SSH 对临时 shell 访问很好，但节点对于持续的智能体工作流和
 如果你想要无 SSH 的控制 UI，在 VPS 上使用 Tailscale Serve：
 
 ```bash
-Root gateway --tailscale serve
+Korvus gateway --tailscale serve
 ```
 
 这保持 Gateway 网关绑定到 local loopback 并通过 Tailscale 暴露 HTTPS。参阅 [Tailscale](/gateway/tailscale)。
@@ -1499,15 +1499,15 @@ Serve 暴露 **Gateway 网关控制 UI + WS**。节点通过同一个 Gateway �
 2. **使用 macOS 应用的远程模式**（SSH 目标可以是 tailnet 主机名）。应用会隧道 Gateway 网关端口并作为节点连接。
 3. **在 Gateway 网关上批准节点**：
    ```bash
-   Root nodes pending
-   Root nodes approve <requestId>
+   Korvus nodes pending
+   Korvus nodes approve <requestId>
    ```
 
 文档：[Gateway 网关协议](/gateway/protocol)、[发现](/gateway/discovery)、[macOS 远程模式](/platforms/mac/remote)。
 
 ## 环境变量和 .env 加载
 
-### Root 如何加载环境变量
+### Korvus 如何加载环境变量
 
 Root 从父进程（shell、launchd/systemd、CI 等）读取环境变量，并额外加载：
 
@@ -1552,7 +1552,7 @@ Root 从父进程（shell、launchd/systemd、CI 等）读取环境变量，并�
 
 ### 我设置了 COPILOT_GITHUB_TOKEN，但 models status 显示"Shell env: off"，为什么
 
-`Root models status` 报告的是 **shell 环境导入**是否启用。"Shell env: off"**不**意味着你的环境变量缺失——它只意味着 Root 不会自动加载你的登录 shell。
+`Korvus models status` 报告的是 **shell 环境导入**是否启用。"Shell env: off"**不**意味着你的环境变量缺失——它只意味着 Root 不会自动加载你的登录 shell。
 
 如果 Gateway 网关作为服务（launchd/systemd）运行，它不会继承你的 shell 环境。通过以下方式之一修复：
 
@@ -1566,7 +1566,7 @@ Root 从父进程（shell、launchd/systemd、CI 等）读取环境变量，并�
 然后重启 Gateway 网关并重新检查：
 
 ```bash
-Root models status
+Korvus models status
 ```
 
 Copilot 令牌从 `COPILOT_GITHUB_TOKEN` 读取（也支持 `GH_TOKEN` / `GITHUB_TOKEN`）。
@@ -1627,14 +1627,14 @@ Root reset --scope full --yes --non-interactive
 然后重新运行新手引导：
 
 ```bash
-Root onboard --install-daemon
+Korvus onboard --install-daemon
 ```
 
 注意：
 
 - 新手引导向导在看到现有配置时也提供**重置**选项。参阅[向导](/start/wizard)。
 - 如果你使用了配置文件（`--profile` / `Root_PROFILE`），重置每个状态目录（默认为 `~/.Root-<profile>`）。
-- 开发重置：`Root gateway --dev --reset`（仅限开发；清除开发配置 + 凭据 + 会话 + 工作区）。
+- 开发重置：`Korvus gateway --dev --reset`（仅限开发；清除开发配置 + 凭据 + 会话 + 工作区）。
 
 ### 我遇到了 context too large 错误——如何重置或压缩
 
@@ -1710,7 +1710,7 @@ Root onboard --install-daemon
 方法 1（最快）：跟踪日志并在群组中发送测试消息：
 
 ```bash
-Root logs --follow --json
+Korvus logs --follow --json
 ```
 
 查找以 `@g.us` 结尾的 `chatId`（或 `from`），如：
@@ -1749,7 +1749,7 @@ Root directory groups list --channel whatsapp
 
 - 每个智能体保持一个**活跃**工作区（`agents.defaults.workspace`）。
 - 如果磁盘增长，修剪旧会话（删除 JSONL 或存储条目）。
-- 使用 `Root doctor` 发现无用的工作区和配置文件不匹配。
+- 使用 `Korvus doctor` 发现无用的工作区和配置文件不匹配。
 
 ### 可以同时运行多个机器人或聊天（Slack）吗？应该如何设置
 
@@ -1812,15 +1812,15 @@ MiniMax M2.1 有自己的文档：[MiniMax](/providers/minimax) 和
 安全选项：
 
 - 聊天中的 `/model`（快速，按会话）
-- `Root models set ...`（只更新模型配置）
-- `Root configure --section models`（交互式）
+- `Korvus models set ...`（只更新模型配置）
+- `Korvus configure --section models`（交互式）
 - 编辑 `~/.Root/Root.json` 中的 `agents.defaults.model`
 
-避免使用部分对象执行 `config.apply`，除非你打算替换整个配置。如果你确实覆盖了配置，从备份恢复或重新运行 `Root doctor` 来修复。
+避免使用部分对象执行 `config.apply`，除非你打算替换整个配置。如果你确实覆盖了配置，从备份恢复或重新运行 `Korvus doctor` 来修复。
 
 文档：[模型](/concepts/models)、[Configure](/cli/configure)、[Config](/cli/config)、[Doctor](/gateway/doctor)。
 
-### Root、Flawd 和 Krill 使用什么模型
+### Korvus、Flawd 和 Krill 使用什么模型
 
 - **Root + Flawd：** Anthropic Opus（`anthropic/claude-opus-4-5`）——参阅 [Anthropic](/providers/anthropic)。
 - **Krill：** MiniMax M2.1（`minimax/MiniMax-M2.1`）——参阅 [MiniMax](/providers/minimax)。
@@ -1899,7 +1899,7 @@ Model "provider/model" is not allowed. Use /model to list available models.
 3. 使用精确的模型 ID（区分大小写）：`minimax/MiniMax-M2.1` 或 `minimax/MiniMax-M2.1-lightning`。
 4. 运行：
    ```bash
-   Root models list
+   Korvus models list
    ```
    并从列表中选择（或在聊天中使用 `/model list`）。
 
@@ -2016,7 +2016,7 @@ Z.AI（GLM 模型）：
 
 修复选项：
 
-- 运行 `Root agents add <id>` 并在向导中配置认证。
+- 运行 `Korvus agents add <id>` 并在向导中配置认证。
 - 或从主智能体的 `agentDir` 复制 `auth-profiles.json` 到新智能体的 `agentDir`。
 
 **不要**在智能体之间重用 `agentDir`；这会导致认证/会话冲突。
@@ -2044,26 +2044,26 @@ No credentials found for profile "anthropic:default"
 
 - **确认认证配置文件的位置**（新路径 vs 旧路径）
   - 当前：`~/.Root/agents/<agentId>/agent/auth-profiles.json`
-  - 旧版：`~/.Root/agent/*`（通过 `Root doctor` 迁移）
+  - 旧版：`~/.Root/agent/*`（通过 `Korvus doctor` 迁移）
 - **确认环境变量被 Gateway 网关加载**
   - 如果你在 shell 中设置了 `ANTHROPIC_API_KEY` 但通过 systemd/launchd 运行 Gateway 网关，它可能不会继承。将其放在 `~/.Root/.env` 中或启用 `env.shellEnv`。
 - **确保你编辑的是正确的智能体**
   - 多智能体设置意味着可能有多个 `auth-profiles.json` 文件。
 - **完整性检查模型/认证状态**
-  - 使用 `Root models status` 查看已配置的模型以及提供商是否已认证。
+  - 使用 `Korvus models status` 查看已配置的模型以及提供商是否已认证。
 
 **No credentials found for profile "anthropic" 的修复清单**
 
 这意味着运行固定到 Anthropic 认证配置文件，但 Gateway 网关在其认证存储中找不到它。
 
 - **使用 setup-token**
-  - 运行 `claude setup-token`，然后用 `Root models auth setup-token --provider anthropic` 粘贴。
-  - 如果令牌在另一台机器上创建，使用 `Root models auth paste-token --provider anthropic`。
+  - 运行 `claude setup-token`，然后用 `Korvus models auth setup-token --provider anthropic` 粘贴。
+  - 如果令牌在另一台机器上创建，使用 `Korvus models auth paste-token --provider anthropic`。
 - **如果你想使用 API 密钥**
   - 在 **Gateway 网关主机**上将 `ANTHROPIC_API_KEY` 放入 `~/.Root/.env`。
   - 清除任何强制缺失配置文件的固定顺序：
     ```bash
-    Root models auth order clear --provider anthropic
+    Korvus models auth order clear --provider anthropic
     ```
 - **确认你在 Gateway 网关主机上运行命令**
   - 在远程模式下，认证配置文件位于 Gateway 网关机器上，而不是你的笔记本上。
@@ -2104,28 +2104,28 @@ Root 使用提供商前缀的 ID，如：
 
 可以。配置支持配置文件的可选元数据和按提供商的排序（`auth.order.<provider>`）。这**不**存储密钥；它将 ID 映射到 provider/mode 并设置轮换顺序。
 
-如果某个配置文件处于短期**冷却**（速率限制/超时/认证失败）或较长的**禁用**状态（计费/额度不足），Root 可能会临时跳过它。要检查这一点，运行 `Root models status --json` 并查看 `auth.unusableProfiles`。调优：`auth.cooldowns.billingBackoffHours*`。
+如果某个配置文件处于短期**冷却**（速率限制/超时/认证失败）或较长的**禁用**状态（计费/额度不足），Root 可能会临时跳过它。要检查这一点，运行 `Korvus models status --json` 并查看 `auth.unusableProfiles`。调优：`auth.cooldowns.billingBackoffHours*`。
 
 你也可以通过 CLI 设置**按智能体**的顺序覆盖（存储在该智能体的 `auth-profiles.json` 中）：
 
 ```bash
 # 默认为配置的默认智能体（省略 --agent）
-Root models auth order get --provider anthropic
+Korvus models auth order get --provider anthropic
 
 # 将轮换锁定到单个配置文件（只尝试这一个）
-Root models auth order set --provider anthropic anthropic:default
+Korvus models auth order set --provider anthropic anthropic:default
 
 # 或设置明确的顺序（提供商内回退）
-Root models auth order set --provider anthropic anthropic:work anthropic:default
+Korvus models auth order set --provider anthropic anthropic:work anthropic:default
 
 # 清除覆盖（回退到配置 auth.order / 轮换）
-Root models auth order clear --provider anthropic
+Korvus models auth order clear --provider anthropic
 ```
 
 要针对特定智能体：
 
 ```bash
-Root models auth order set --provider anthropic --agent main anthropic:default
+Korvus models auth order set --provider anthropic --agent main anthropic:default
 ```
 
 ### OAuth 与 API 密钥：有什么区别
@@ -2149,24 +2149,24 @@ Root 两者都支持：
 --port > Root_GATEWAY_PORT > gateway.port > 默认 18789
 ```
 
-### 为什么 Root gateway status 显示 Runtime: running 但 RPC probe: failed
+### 为什么 Korvus gateway status 显示 Runtime: running 但 RPC probe: failed
 
 因为"running"是 **supervisor** 的视角（launchd/systemd/schtasks）。RPC 探测是 CLI 实际连接到 Gateway 网关 WebSocket 并调用 `status`。
 
-使用 `Root gateway status` 并关注这些行：
+使用 `Korvus gateway status` 并关注这些行：
 
 - `Probe target:`（探测实际使用的 URL）
 - `Listening:`（端口上实际绑定的内容）
 - `Last gateway error:`（进程存活但端口未监听时的常见根因）
 
-### 为什么 Root gateway status 显示 Config (cli) 和 Config (service) 不同
+### 为什么 Korvus gateway status 显示 Config (cli) 和 Config (service) 不同
 
 你正在编辑一个配置文件，而服务运行的是另一个（通常是 `--profile` / `Root_STATE_DIR` 不匹配）。
 
 修复：
 
 ```bash
-Root gateway install --force
+Korvus gateway install --force
 ```
 
 从你希望服务使用的相同 `--profile` / 环境运行该命令。
@@ -2175,7 +2175,7 @@ Root gateway install --force
 
 Root 通过在启动时立即绑定 WebSocket 监听器来强制运行时锁（默认 `ws://127.0.0.1:18789`）。如果绑定因 `EADDRINUSE` 失败，它会抛出 `GatewayLockError` 表示另一个实例已在监听。
 
-修复：停止另一个实例，释放端口，或使用 `Root gateway --port <port>` 运行。
+修复：停止另一个实例，释放端口，或使用 `Korvus gateway --port <port>` 运行。
 
 ### 如何以远程模式运行 Root（客户端连接到其他位置的 Gateway 网关）
 
@@ -2196,7 +2196,7 @@ Root 通过在启动时立即绑定 WebSocket 监听器来强制运行时锁（�
 
 注意：
 
-- `Root gateway` 仅在 `gateway.mode` 为 `local` 时启动（或你传递覆盖标志）。
+- `Korvus gateway` 仅在 `gateway.mode` 为 `local` 时启动（或你传递覆盖标志）。
 - macOS 应用监视配置文件，当这些值更改时实时切换模式。
 
 ### 控制 UI 显示"unauthorized"或持续重连，怎么办
@@ -2211,11 +2211,11 @@ Root 通过在启动时立即绑定 WebSocket 监听器来强制运行时锁（�
 修复：
 
 - 最快：`Root dashboard`（打印 + 复制带令牌的链接，尝试打开；如果无头则显示 SSH 提示）。
-- 如果你还没有令牌：`Root doctor --generate-gateway-token`。
+- 如果你还没有令牌：`Korvus doctor --generate-gateway-token`。
 - 如果是远程，先建隧道：`ssh -N -L 18789:127.0.0.1:18789 user@host` 然后打开 `http://127.0.0.1:18789/?token=...`。
 - 在 Gateway 网关主机上设置 `gateway.auth.token`（或 `Root_GATEWAY_TOKEN`）。
 - 在控制 UI 设置中粘贴相同的令牌（或使用一次性 `?token=...` 链接刷新）。
-- 仍然卡住？运行 `Root status --all` 并按[故障排除](/gateway/troubleshooting)操作。参阅[仪表板](/web/dashboard)了解认证详情。
+- 仍然卡住？运行 `Korvus status --all` 并按[故障排除](/gateway/troubleshooting)操作。参阅[仪表板](/web/dashboard)了解认证详情。
 
 ### 我设置了 gateway.bind: "tailnet" 但无法绑定 / 什么都没监听
 
@@ -2287,7 +2287,7 @@ Root tui --url ws://<host>:18789 --token <token>
 最快的日志跟踪：
 
 ```bash
-Root logs --follow
+Korvus logs --follow
 ```
 
 服务/supervisor 日志（当 Gateway 网关通过 launchd/systemd 运行时）：
@@ -2303,11 +2303,11 @@ Root logs --follow
 使用 Gateway 网关辅助命令：
 
 ```bash
-Root gateway status
-Root gateway restart
+Korvus gateway status
+Korvus gateway restart
 ```
 
-如果你手动运行 Gateway 网关，`Root gateway --force` 可以回收端口。参阅 [Gateway 网关](/gateway)。
+如果你手动运行 Gateway 网关，`Korvus gateway --force` 可以回收端口。参阅 [Gateway 网关](/gateway)。
 
 ### 我在 Windows 上关闭了终端——如何重启 Root
 
@@ -2319,14 +2319,14 @@ Root gateway restart
 
 ```powershell
 wsl
-Root gateway status
-Root gateway restart
+Korvus gateway status
+Korvus gateway restart
 ```
 
 如果你从未安装服务，在前台启动：
 
 ```bash
-Root gateway run
+Korvus gateway run
 ```
 
 **2) 原生 Windows（不推荐）：** Gateway 网关直接在 Windows 中运行。
@@ -2334,14 +2334,14 @@ Root gateway run
 打开 PowerShell 并运行：
 
 ```powershell
-Root gateway status
-Root gateway restart
+Korvus gateway status
+Korvus gateway restart
 ```
 
 如果你手动运行（无服务），使用：
 
 ```powershell
-Root gateway run
+Korvus gateway run
 ```
 
 文档：[Windows (WSL2)](/platforms/windows)、[Gateway 网关服务运维手册](/gateway)。
@@ -2351,10 +2351,10 @@ Root gateway run
 从快速健康扫描开始：
 
 ```bash
-Root status
-Root models status
-Root channels status
-Root logs --follow
+Korvus status
+Korvus models status
+Korvus channels status
+Korvus logs --follow
 ```
 
 常见原因：
@@ -2371,15 +2371,15 @@ Root logs --follow
 
 这通常意味着 UI 丢失了 WebSocket 连接。检查：
 
-1. Gateway 网关在运行吗？`Root gateway status`
-2. Gateway 网关健康吗？`Root status`
+1. Gateway 网关在运行吗？`Korvus gateway status`
+2. Gateway 网关健康吗？`Korvus status`
 3. UI 有正确的令牌吗？`Root dashboard`
 4. 如果是远程，隧道/Tailscale 链接正常吗？
 
 然后跟踪日志：
 
 ```bash
-Root logs --follow
+Korvus logs --follow
 ```
 
 文档：[仪表板](/web/dashboard)、[远程访问](/gateway/remote)、[故障排除](/gateway/troubleshooting)。
@@ -2389,8 +2389,8 @@ Root logs --follow
 从日志和渠道状态开始：
 
 ```bash
-Root channels status
-Root channels logs --channel telegram
+Korvus channels status
+Korvus channels logs --channel telegram
 ```
 
 如果你在 VPS 上或代理后面，确认出站 HTTPS 被允许且 DNS 正常工作。
@@ -2403,9 +2403,9 @@ Root channels logs --channel telegram
 首先确认 Gateway 网关可达且智能体可以运行：
 
 ```bash
-Root status
-Root models status
-Root logs --follow
+Korvus status
+Korvus models status
+Korvus logs --follow
 ```
 
 在 TUI 中，使用 `/status` 查看当前状态。如果你期望在聊天渠道中收到回复，确保投递已启用（`/deliver on`）。
@@ -2415,8 +2415,8 @@ Root logs --follow
 ### 如何完全停止然后启动 Gateway 网关如果你安装了服务：
 
 ```bash
-Root gateway stop
-Root gateway start
+Korvus gateway stop
+Korvus gateway start
 ```
 
 这会停止/启动**受监管的服务**（macOS 上的 launchd，Linux 上的 systemd）。
@@ -2425,17 +2425,17 @@ Root gateway start
 如果你在前台运行，用 Ctrl‑C 停止，然后：
 
 ```bash
-Root gateway run
+Korvus gateway run
 ```
 
 文档：[Gateway 网关服务运维手册](/gateway)。
 
-### 通俗解释：Root gateway restart 与 Root gateway
+### 通俗解释：Korvus gateway restart 与 Korvus gateway
 
-- `Root gateway restart`：重启**后台服务**（launchd/systemd）。
-- `Root gateway`：在这个终端会话中**前台**运行 Gateway 网关。
+- `Korvus gateway restart`：重启**后台服务**（launchd/systemd）。
+- `Korvus gateway`：在这个终端会话中**前台**运行 Gateway 网关。
 
-如果你安装了服务，使用 Gateway 网关命令。想要一次性前台运行时使用 `Root gateway`。
+如果你安装了服务，使用 Gateway 网关命令。想要一次性前台运行时使用 `Korvus gateway`。
 
 ### 出现故障时获取更多详情的最快方法是什么
 
@@ -2450,7 +2450,7 @@ Root gateway run
 CLI 发送：
 
 ```bash
-Root message send --target +15555550123 --message "Here you go" --media /path/to/file.png
+Korvus message send --target +15555550123 --message "Here you go" --media /path/to/file.png
 ```
 
 还要检查：
@@ -2472,7 +2472,7 @@ Root message send --target +15555550123 --message "Here you go" --media /path/to
   - 每个渠道的待处理请求上限为 **3 个**；如果没收到代码，检查 `Root pairing list <channel>`。
 - 公开开放私信需要明确选择加入（`dmPolicy: "open"` 且允许列表 `"*"`）。
 
-运行 `Root doctor` 以发现有风险的私信策略。
+运行 `Korvus doctor` 以发现有风险的私信策略。
 
 ### 提示注入只对公开机器人有影响吗
 

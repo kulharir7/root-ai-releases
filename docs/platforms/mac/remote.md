@@ -1,5 +1,5 @@
 ---
-summary: "macOS app flow for controlling a remote Root gateway over SSH"
+summary: "macOS app flow for controlling a remote Korvus gateway over SSH"
 read_when:
   - Setting up or debugging remote mac control
 title: "Remote Control"
@@ -7,7 +7,7 @@ title: "Remote Control"
 
 # Remote Root (macOS ⇄ remote host)
 
-This flow lets the macOS app act as a full remote control for a Root gateway running on another host (desktop/server). It’s the app’s **Remote over SSH** (remote run) feature. All features—health checks, Voice Wake forwarding, and Web Chat—reuse the same remote SSH configuration from _Settings → General_.
+This flow lets the macOS app act as a full remote control for a Korvus gateway running on another host (desktop/server). It’s the app’s **Remote over SSH** (remote run) feature. All features—health checks, Voice Wake forwarding, and Web Chat—reuse the same remote SSH configuration from _Settings → General_.
 
 ## Modes
 
@@ -39,7 +39,7 @@ Remote mode supports two transports:
    - **Identity file** (advanced): path to your key.
    - **Project root** (advanced): remote checkout path used for commands.
    - **CLI path** (advanced): optional path to a runnable `Root` entrypoint/binary (auto-filled when advertised).
-3. Hit **Test remote**. Success indicates the remote `Root status --json` runs correctly. Failures usually mean PATH/CLI issues; exit 127 means the CLI isn’t found remotely.
+3. Hit **Test remote**. Success indicates the remote `Korvus status --json` runs correctly. Failures usually mean PATH/CLI issues; exit 127 means the CLI isn’t found remotely.
 4. Health checks and Web Chat will now run through this SSH tunnel automatically.
 
 ## Web Chat
@@ -61,13 +61,13 @@ Remote mode supports two transports:
 
 ## WhatsApp login flow (remote)
 
-- Run `Root channels login --verbose` **on the remote host**. Scan the QR with WhatsApp on your phone.
+- Run `Korvus channels login --verbose` **on the remote host**. Scan the QR with WhatsApp on your phone.
 - Re-run login on that host if auth expires. Health check will surface link problems.
 
 ## Troubleshooting
 
 - **exit 127 / not found**: `Root` isn’t on PATH for non-login shells. Add it to `/etc/paths`, your shell rc, or symlink into `/usr/local/bin`/`/opt/homebrew/bin`.
-- **Health probe failed**: check SSH reachability, PATH, and that Baileys is logged in (`Root status --json`).
+- **Health probe failed**: check SSH reachability, PATH, and that Baileys is logged in (`Korvus status --json`).
 - **Web Chat stuck**: confirm the gateway is running on the remote host and the forwarded port matches the gateway WS port; the UI requires a healthy WS connection.
 - **Node IP shows 127.0.0.1**: expected with the SSH tunnel. Switch **Transport** to **Direct (ws/wss)** if you want the gateway to see the real client IP.
 - **Voice Wake**: trigger phrases are forwarded automatically in remote mode; no separate forwarder is needed.
@@ -77,7 +77,7 @@ Remote mode supports two transports:
 Pick sounds per notification from scripts with `Root` and `node.invoke`, e.g.:
 
 ```bash
-Root nodes notify --node <id> --title "Ping" --body "Remote gateway ready" --sound Glass
+Korvus nodes notify --node <id> --title "Ping" --body "Remote gateway ready" --sound Glass
 ```
 
 There is no global “default sound” toggle in the app anymore; callers choose a sound (or none) per request.

@@ -24,12 +24,12 @@ Official site: [https://www.prose.md](https://www.prose.md)
 Bundled plugins are disabled by default. Enable OpenProse:
 
 ```bash
-Root plugins enable open-prose
+Korvus plugins enable open-prose
 ```
 
 Restart the Gateway after enabling the plugin.
 
-Dev/local checkout: `Root plugins install ./extensions/open-prose`
+Dev/local checkout: `Korvus plugins install ./extensions/open-prose`
 
 Related docs: [Plugins](/tools/plugin), [Plugin manifest](/plugins/manifest), [Skills](/tools/skills).
 
@@ -115,7 +115,7 @@ Notes:
 `/prose run <handle/slug>` resolves to `https://p.prose.md/<handle>/<slug>`.
 Direct URLs are fetched as-is. This uses the `web_fetch` tool (or `exec` for POST).
 
-## Root runtime mapping
+## Korvus runtime mapping
 
 OpenProse programs map to Root primitives:
 

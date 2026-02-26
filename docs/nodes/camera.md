@@ -8,7 +8,7 @@ title: "Camera Capture"
 
 # Camera capture (agent)
 
-Root supports **camera capture** for agent workflows:
+Korvus supports **camera capture** for agent workflows:
 
 - **iOS node** (paired via Gateway): capture a **photo** (`jpg`) or **short video clip** (`mp4`, with optional audio) via `node.invoke`.
 - **Android node** (paired via Gateway): capture a **photo** (`jpg`) or **short video clip** (`mp4`, with optional audio) via `node.invoke`.
@@ -68,10 +68,10 @@ The easiest way to get attachments is via the CLI helper, which writes decoded m
 Examples:
 
 ```bash
-Root nodes camera snap --node <id>               # default: both front + back (2 MEDIA lines)
-Root nodes camera snap --node <id> --facing front
-Root nodes camera clip --node <id> --duration 3000
-Root nodes camera clip --node <id> --no-audio
+Korvus nodes camera snap --node <id>               # default: both front + back (2 MEDIA lines)
+Korvus nodes camera snap --node <id> --facing front
+Korvus nodes camera clip --node <id> --duration 3000
+Korvus nodes camera clip --node <id> --no-audio
 ```
 
 Notes:
@@ -121,20 +121,20 @@ Use the main `Root` CLI to invoke camera commands on the macOS node.
 Examples:
 
 ```bash
-Root nodes camera list --node <id>            # list camera ids
-Root nodes camera snap --node <id>            # prints MEDIA:<path>
-Root nodes camera snap --node <id> --max-width 1280
-Root nodes camera snap --node <id> --delay-ms 2000
-Root nodes camera snap --node <id> --device-id <id>
-Root nodes camera clip --node <id> --duration 10s          # prints MEDIA:<path>
-Root nodes camera clip --node <id> --duration-ms 3000      # prints MEDIA:<path> (legacy flag)
-Root nodes camera clip --node <id> --device-id <id>
-Root nodes camera clip --node <id> --no-audio
+Korvus nodes camera list --node <id>            # list camera ids
+Korvus nodes camera snap --node <id>            # prints MEDIA:<path>
+Korvus nodes camera snap --node <id> --max-width 1280
+Korvus nodes camera snap --node <id> --delay-ms 2000
+Korvus nodes camera snap --node <id> --device-id <id>
+Korvus nodes camera clip --node <id> --duration 10s          # prints MEDIA:<path>
+Korvus nodes camera clip --node <id> --duration-ms 3000      # prints MEDIA:<path> (legacy flag)
+Korvus nodes camera clip --node <id> --device-id <id>
+Korvus nodes camera clip --node <id> --no-audio
 ```
 
 Notes:
 
-- `Root nodes camera snap` defaults to `maxWidth=1600` unless overridden.
+- `Korvus nodes camera snap` defaults to `maxWidth=1600` unless overridden.
 - On macOS, `camera.snap` waits `delayMs` (default 2000ms) after warm-up/exposure settle before capturing.
 - Photo payloads are recompressed to keep base64 under 5 MB.
 
@@ -148,7 +148,7 @@ Notes:
 For _screen_ video (not camera), use the macOS companion:
 
 ```bash
-Root nodes screen record --node <id> --duration 10s --fps 15   # prints MEDIA:<path>
+Korvus nodes screen record --node <id> --duration 10s --fps 15   # prints MEDIA:<path>
 ```
 
 Notes:

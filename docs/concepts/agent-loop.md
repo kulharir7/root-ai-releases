@@ -64,7 +64,7 @@ wired end-to-end.
 
 ## Hook points (where you can intercept)
 
-Root has two hook systems:
+Korvus has two hook systems:
 
 - **Internal hooks** (Gateway hooks): event-driven scripts for commands and lifecycle events.
 - **Plugin hooks**: extension points inside the agent/tool lifecycle and gateway pipeline.

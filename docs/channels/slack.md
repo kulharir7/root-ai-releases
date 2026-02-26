@@ -34,7 +34,7 @@ Status: production-ready for DMs + channels via Slack app integrations. Default 
         - install app and copy **Bot Token** (`xoxb-...`)
       </Step>
 
-      <Step title="Configure Root">
+      <Step title="Configure Korvus">
 
 ```json5
 {
@@ -74,7 +74,7 @@ SLACK_BOT_TOKEN=xoxb-...
       <Step title="Start gateway">
 
 ```bash
-Root gateway
+Korvus gateway
 ```
 
       </Step>
@@ -92,7 +92,7 @@ Root gateway
 
       </Step>
 
-      <Step title="Configure Root HTTP mode">
+      <Step title="Configure Korvus HTTP mode">
 
 ```json5
 {
@@ -296,7 +296,7 @@ Available action groups in current Slack tooling:
 {
   "display_information": {
     "name": "Root",
-    "description": "Slack connector for Root"
+    "description": "Slack connector for Korvus"
   },
   "features": {
     "bot_user": {
@@ -389,9 +389,9 @@ Available action groups in current Slack tooling:
     Useful commands:
 
 ```bash
-Root channels status --probe
-Root logs --follow
-Root doctor
+Korvus channels status --probe
+Korvus logs --follow
+Korvus doctor
 ```
 
   </Accordion>

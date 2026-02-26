@@ -57,7 +57,7 @@ DISCORD_BOT_TOKEN=...
     Invite the bot to your server with message permissions.
 
 ```bash
-Root gateway
+Korvus gateway
 ```
 
   </Step>
@@ -243,7 +243,7 @@ Use `bindings[].match.roles` to route Discord guild members to different agents 
     - channel ID
     - user ID
 
-    Prefer numeric IDs in Root config for reliable audits and probes.
+    Prefer numeric IDs in Korvus config for reliable audits and probes.
 
   </Accordion>
 </AccordionGroup>
@@ -519,9 +519,9 @@ message(action="send", channel="discord", target="channel:123", path="/path/to/a
     Useful checks:
 
 ```bash
-Root doctor
-Root channels status --probe
-Root logs --follow
+Korvus doctor
+Korvus channels status --probe
+Korvus logs --follow
 ```
 
   </Accordion>
@@ -580,7 +580,7 @@ High-signal Discord fields:
 
 - Treat bot tokens as secrets (`DISCORD_BOT_TOKEN` preferred in supervised environments).
 - Grant least-privilege Discord permissions.
-- If command deploy/state is stale, restart gateway and re-check with `Root channels status --probe`.
+- If command deploy/state is stale, restart gateway and re-check with `Korvus channels status --probe`.
 
 ## Related
 

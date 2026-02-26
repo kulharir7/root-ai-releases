@@ -34,7 +34,7 @@ x-i18n:
 ### 选项 A：从 npm 安装
 
 ```bash
-Root plugins install @Root/zalouser
+Korvus plugins install @Root/zalouser
 ```
 
 之后重启 Gateway 网关。
@@ -42,7 +42,7 @@ Root plugins install @Root/zalouser
 ### 选项 B：从本地文件夹安装（开发）
 
 ```bash
-Root plugins install ./extensions/zalouser
+Korvus plugins install ./extensions/zalouser
 cd ./extensions/zalouser && pnpm install
 ```
 
@@ -74,10 +74,10 @@ zca --version
 ## CLI
 
 ```bash
-Root channels login --channel zalouser
-Root channels logout --channel zalouser
-Root channels status --probe
-Root message send --channel zalouser --target <threadId> --message "Hello from Root"
+Korvus channels login --channel zalouser
+Korvus channels logout --channel zalouser
+Korvus channels status --probe
+Korvus message send --channel zalouser --target <threadId> --message "Hello from Root"
 Root directory peers list --channel zalouser --query "name"
 ```
 

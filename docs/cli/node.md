@@ -96,8 +96,8 @@ The first connection creates a pending node pair request on the Gateway.
 Approve it via:
 
 ```bash
-Root nodes pending
-Root nodes approve <requestId>
+Korvus nodes pending
+Korvus nodes approve <requestId>
 ```
 
 The node host stores its node id, token, display name, and gateway connection info in

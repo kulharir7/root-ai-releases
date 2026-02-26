@@ -1,7 +1,7 @@
 ---
-summary: "Symptom first troubleshooting hub for Root"
+summary: "Symptom first troubleshooting hub for Korvus"
 read_when:
-  - Root is not working and you need the fastest path to a fix
+  - Korvus is not working and you need the fastest path to a fix
   - You want a triage flow before diving into deep runbooks
 title: "Troubleshooting"
 ---
@@ -15,30 +15,30 @@ If you only have 2 minutes, use this page as a triage front door.
 Run this exact ladder in order:
 
 ```bash
-Root status
-Root status --all
-Root gateway probe
-Root gateway status
-Root doctor
-Root channels status --probe
-Root logs --follow
+Korvus status
+Korvus status --all
+Korvus gateway probe
+Korvus gateway status
+Korvus doctor
+Korvus channels status --probe
+Korvus logs --follow
 ```
 
 Good output in one line:
 
-- `Root status` → shows configured channels and no obvious auth errors.
-- `Root status --all` → full report is present and shareable.
-- `Root gateway probe` → expected gateway target is reachable.
-- `Root gateway status` → `Runtime: running` and `RPC probe: ok`.
-- `Root doctor` → no blocking config/service errors.
-- `Root channels status --probe` → channels report `connected` or `ready`.
-- `Root logs --follow` → steady activity, no repeating fatal errors.
+- `Korvus status` → shows configured channels and no obvious auth errors.
+- `Korvus status --all` → full report is present and shareable.
+- `Korvus gateway probe` → expected gateway target is reachable.
+- `Korvus gateway status` → `Runtime: running` and `RPC probe: ok`.
+- `Korvus doctor` → no blocking config/service errors.
+- `Korvus channels status --probe` → channels report `connected` or `ready`.
+- `Korvus logs --follow` → steady activity, no repeating fatal errors.
 
 ## Decision tree
 
 ```mermaid
 flowchart TD
-  A[Root is not working] --> B{What breaks first}
+  A[Korvus is not working] --> B{What breaks first}
   B --> C[No replies]
   B --> D[Dashboard or Control UI will not connect]
   B --> E[Gateway will not start or service not running]
@@ -59,11 +59,11 @@ flowchart TD
 <AccordionGroup>
   <Accordion title="No replies">
     ```bash
-    Root status
-    Root gateway status
-    Root channels status --probe
+    Korvus status
+    Korvus gateway status
+    Korvus channels status --probe
     Root pairing list <channel>
-    Root logs --follow
+    Korvus logs --follow
     ```
 
     Good output looks like:
@@ -89,16 +89,16 @@ flowchart TD
 
   <Accordion title="Dashboard or Control UI will not connect">
     ```bash
-    Root status
-    Root gateway status
-    Root logs --follow
-    Root doctor
-    Root channels status --probe
+    Korvus status
+    Korvus gateway status
+    Korvus logs --follow
+    Korvus doctor
+    Korvus channels status --probe
     ```
 
     Good output looks like:
 
-    - `Dashboard: http://...` is shown in `Root gateway status`
+    - `Dashboard: http://...` is shown in `Korvus gateway status`
     - `RPC probe: ok`
     - No auth loop in logs
 
@@ -118,11 +118,11 @@ flowchart TD
 
   <Accordion title="Gateway will not start or service installed but not running">
     ```bash
-    Root status
-    Root gateway status
-    Root logs --follow
-    Root doctor
-    Root channels status --probe
+    Korvus status
+    Korvus gateway status
+    Korvus logs --follow
+    Korvus doctor
+    Korvus channels status --probe
     ```
 
     Good output looks like:
@@ -147,11 +147,11 @@ flowchart TD
 
   <Accordion title="Channel connects but messages do not flow">
     ```bash
-    Root status
-    Root gateway status
-    Root logs --follow
-    Root doctor
-    Root channels status --probe
+    Korvus status
+    Korvus gateway status
+    Korvus logs --follow
+    Korvus doctor
+    Korvus channels status --probe
     ```
 
     Good output looks like:
@@ -175,12 +175,12 @@ flowchart TD
 
   <Accordion title="Cron or heartbeat did not fire or did not deliver">
     ```bash
-    Root status
-    Root gateway status
-    Root cron status
-    Root cron list
-    Root cron runs --id <jobId> --limit 20
-    Root logs --follow
+    Korvus status
+    Korvus gateway status
+    Korvus cron status
+    Korvus cron list
+    Korvus cron runs --id <jobId> --limit 20
+    Korvus logs --follow
     ```
 
     Good output looks like:
@@ -206,11 +206,11 @@ flowchart TD
 
   <Accordion title="Node is paired but tool fails camera canvas screen exec">
     ```bash
-    Root status
-    Root gateway status
-    Root nodes status
-    Root nodes describe --node <idOrNameOrIp>
-    Root logs --follow
+    Korvus status
+    Korvus gateway status
+    Korvus nodes status
+    Korvus nodes describe --node <idOrNameOrIp>
+    Korvus logs --follow
     ```
 
     Good output looks like:
@@ -236,11 +236,11 @@ flowchart TD
 
   <Accordion title="Browser tool fails">
     ```bash
-    Root status
-    Root gateway status
-    Root browser status
-    Root logs --follow
-    Root doctor
+    Korvus status
+    Korvus gateway status
+    Korvus browser status
+    Korvus logs --follow
+    Korvus doctor
     ```
 
     Good output looks like:

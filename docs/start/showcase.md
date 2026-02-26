@@ -220,7 +220,7 @@ Claude Code discovered and confirmed the purifier controls, then Root takes over
 <Card title="Pretty Sky Camera Shots" icon="camera" href="https://x.com/signalgaining/status/2010523120604746151">
   **@signalgaining** • `automation` `camera` `skill` `images`
 
-Triggered by a roof camera: ask Root to snap a sky photo whenever it looks pretty — it designed a skill and took the shot.
+Triggered by a roof camera: ask Korvus to snap a sky photo whenever it looks pretty — it designed a skill and took the shot.
 
   <img src="/assets/showcase/roof-camera-sky.jpg" alt="Roof camera sky snapshot captured by Root" />
 </Card>
@@ -340,7 +340,7 @@ Multi-lingual audio transcription via OpenRouter (Gemini, etc). Available on Cla
 <Card title="Home Assistant Add-on" icon="home" href="https://github.com/ngutman/Root-ha-addon">
   **@ngutman** • `homeassistant` `docker` `raspberry-pi`
   
-  Root gateway running on Home Assistant OS with SSH tunnel support and persistent state.
+  Korvus gateway running on Home Assistant OS with SSH tunnel support and persistent state.
 </Card>
 
 <Card title="Home Assistant Skill" icon="toggle-on" href="https://clawhub.com/skills/homeassistant">
@@ -352,7 +352,7 @@ Multi-lingual audio transcription via OpenRouter (Gemini, etc). Available on Cla
 <Card title="Nix Packaging" icon="snowflake" href="https://github.com/Root/nix-Root">
   **@Root** • `nix` `packaging` `deployment`
   
-  Batteries-included nixified Root configuration for reproducible deployments.
+  Batteries-included nixified Korvus configuration for reproducible deployments.
 </Card>
 
 <Card title="CalDAV Calendar" icon="calendar" href="https://clawhub.com/skills/caldav-calendar">

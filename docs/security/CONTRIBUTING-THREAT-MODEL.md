@@ -87,4 +87,4 @@ If you're unsure about the risk level, just describe the impact and we'll assess
 
 ## Recognition
 
-Contributors to the threat model are recognized in the threat model acknowledgments, release notes, and the Root security hall of fame for significant contributions.
+Contributors to the threat model are recognized in the threat model acknowledgments, release notes, and the Korvus security hall of fame for significant contributions.

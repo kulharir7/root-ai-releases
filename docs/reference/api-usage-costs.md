@@ -26,14 +26,14 @@ Root features that can generate provider usage or paid API calls.
 
 **CLI usage windows (provider quotas)**
 
-- `Root status --usage` and `Root channels list` show provider **usage windows**
+- `Korvus status --usage` and `Korvus channels list` show provider **usage windows**
   (quota snapshots, not per-message costs).
 
 See [Token use & costs](/reference/token-use) for details and examples.
 
 ## How keys are discovered
 
-Root can pick up credentials from:
+Korvus can pick up credentials from:
 
 - **Auth profiles** (per-agent, stored in `auth-profiles.json`).
 - **Environment variables** (e.g. `OPENAI_API_KEY`, `BRAVE_API_KEY`, `FIRECRAWL_API_KEY`).
@@ -103,8 +103,8 @@ See [Web tools](/tools/web).
 Some status commands call **provider usage endpoints** to display quota windows or auth health.
 These are typically low-volume calls but still hit provider APIs:
 
-- `Root status --usage`
-- `Root models status --json`
+- `Korvus status --usage`
+- `Korvus models status --json`
 
 See [Models CLI](/cli/models).
 
@@ -117,7 +117,7 @@ See [Session management + compaction](/reference/session-management-compaction).
 
 ### 8) Model scan / probe
 
-`Root models scan` can probe OpenRouter models and uses `OPENROUTER_API_KEY` when
+`Korvus models scan` can probe OpenRouter models and uses `OPENROUTER_API_KEY` when
 probing is enabled.
 
 See [Models CLI](/cli/models).

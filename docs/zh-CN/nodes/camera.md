@@ -75,10 +75,10 @@ Root 支持用于智能体工作流的**相机捕获**：
 示例：
 
 ```bash
-Root nodes camera snap --node <id>               # default: both front + back (2 MEDIA lines)
-Root nodes camera snap --node <id> --facing front
-Root nodes camera clip --node <id> --duration 3000
-Root nodes camera clip --node <id> --no-audio
+Korvus nodes camera snap --node <id>               # default: both front + back (2 MEDIA lines)
+Korvus nodes camera snap --node <id> --facing front
+Korvus nodes camera clip --node <id> --duration 3000
+Korvus nodes camera clip --node <id> --no-audio
 ```
 
 注意事项：
@@ -127,20 +127,20 @@ macOS 配套应用暴露一个复选框：
 示例：
 
 ```bash
-Root nodes camera list --node <id>            # list camera ids
-Root nodes camera snap --node <id>            # prints MEDIA:<path>
-Root nodes camera snap --node <id> --max-width 1280
-Root nodes camera snap --node <id> --delay-ms 2000
-Root nodes camera snap --node <id> --device-id <id>
-Root nodes camera clip --node <id> --duration 10s          # prints MEDIA:<path>
-Root nodes camera clip --node <id> --duration-ms 3000      # prints MEDIA:<path> (legacy flag)
-Root nodes camera clip --node <id> --device-id <id>
-Root nodes camera clip --node <id> --no-audio
+Korvus nodes camera list --node <id>            # list camera ids
+Korvus nodes camera snap --node <id>            # prints MEDIA:<path>
+Korvus nodes camera snap --node <id> --max-width 1280
+Korvus nodes camera snap --node <id> --delay-ms 2000
+Korvus nodes camera snap --node <id> --device-id <id>
+Korvus nodes camera clip --node <id> --duration 10s          # prints MEDIA:<path>
+Korvus nodes camera clip --node <id> --duration-ms 3000      # prints MEDIA:<path> (legacy flag)
+Korvus nodes camera clip --node <id> --device-id <id>
+Korvus nodes camera clip --node <id> --no-audio
 ```
 
 注意事项：
 
-- `Root nodes camera snap` 默认 `maxWidth=1600`，除非被覆盖。
+- `Korvus nodes camera snap` 默认 `maxWidth=1600`，除非被覆盖。
 - 在 macOS 上，`camera.snap` 在预热/曝光稳定后等待 `delayMs`（默认 2000ms）再捕获。
 - 照片载荷会重新压缩以保持 base64 小于 5 MB。
 
@@ -154,7 +154,7 @@ Root nodes camera clip --node <id> --no-audio
 对于*屏幕*视频（非相机），使用 macOS 配套应用：
 
 ```bash
-Root nodes screen record --node <id> --duration 10s --fps 15   # prints MEDIA:<path>
+Korvus nodes screen record --node <id> --duration 10s --fps 15   # prints MEDIA:<path>
 ```
 
 注意事项：

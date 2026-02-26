@@ -89,7 +89,7 @@ rg "telegram http error" /tmp/Root/Root-*.log
 tail -f /tmp/Root/Root-$(date +%F).log | rg "telegram http error"
 ```
 
-对于远程 Gateway 网关，你也可以使用 `Root logs --follow`（参见 [/cli/logs](/cli/logs)）。
+对于远程 Gateway 网关，你也可以使用 `Korvus logs --follow`（参见 [/cli/logs](/cli/logs)）。
 
 ## 注意事项
 

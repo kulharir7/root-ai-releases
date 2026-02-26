@@ -1,16 +1,16 @@
 ---
-summary: "CLI reference for `Root sessions` (list stored sessions + usage)"
+summary: "CLI reference for `Korvus sessions` (list stored sessions + usage)"
 read_when:
   - You want to list stored sessions and see recent activity
 title: "sessions"
 ---
 
-# `Root sessions`
+# `Korvus sessions`
 
 List stored conversation sessions.
 
 ```bash
-Root sessions
-Root sessions --active 120
-Root sessions --json
+Korvus sessions
+Korvus sessions --active 120
+Korvus sessions --json
 ```

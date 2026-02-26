@@ -13,15 +13,15 @@ Status: experimental. Direct messages only; groups coming soon per Zalo docs.
 
 Zalo ships as a plugin and is not bundled with the core install.
 
-- Install via CLI: `Root plugins install @Root/zalo`
+- Install via CLI: `Korvus plugins install @Root/zalo`
 - Or select **Zalo** during onboarding and confirm the install prompt
 - Details: [Plugins](/tools/plugin)
 
 ## Quick setup (beginner)
 
 1. Install the Zalo plugin:
-   - From a source checkout: `Root plugins install ./extensions/zalo`
-   - From npm (if published): `Root plugins install @Root/zalo`
+   - From a source checkout: `Korvus plugins install ./extensions/zalo`
+   - From npm (if published): `Korvus plugins install @Root/zalo`
    - Or pick **Zalo** in onboarding and confirm the install prompt
 2. Set the token:
    - Env: `ZALO_BOT_TOKEN=...`
@@ -141,15 +141,15 @@ Multi-account support: use `channels.zalo.accounts` with per-account tokens and 
 ## Delivery targets (CLI/cron)
 
 - Use a chat id as the target.
-- Example: `Root message send --channel zalo --target 123456789 --message "hi"`.
+- Example: `Korvus message send --channel zalo --target 123456789 --message "hi"`.
 
 ## Troubleshooting
 
 **Bot doesn't respond:**
 
-- Check that the token is valid: `Root channels status --probe`
+- Check that the token is valid: `Korvus channels status --probe`
 - Verify the sender is approved (pairing or allowFrom)
-- Check gateway logs: `Root logs --follow`
+- Check gateway logs: `Korvus logs --follow`
 
 **Webhook not receiving events:**
 

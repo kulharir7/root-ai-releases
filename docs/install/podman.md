@@ -1,5 +1,5 @@
 ---
-summary: "Run Root in a rootless Podman container"
+summary: "Run Korvus in a rootless Podman container"
 read_when:
   - You want a containerized gateway with Podman instead of Docker
 title: "Podman"
@@ -7,7 +7,7 @@ title: "Podman"
 
 # Podman
 
-Run the Root gateway in a **rootless** Podman container. Uses the same image as Docker (build from the repo [Dockerfile](https://github.com/Root/Root/blob/main/Dockerfile)).
+Run the Korvus gateway in a **rootless** Podman container. Uses the same image as Docker (build from the repo [Dockerfile](https://github.com/Root/Root/blob/main/Dockerfile)).
 
 ## Requirements
 
@@ -50,12 +50,12 @@ Then open `http://127.0.0.1:18789/` and use the token from `~Root/.Root/.env` (o
 
 If you ran `./setup-podman.sh --quadlet` (or `Root_PODMAN_QUADLET=1`), a [Podman Quadlet](https://docs.podman.io/en/latest/markdown/podman-systemd.unit.5.html) unit is installed so the gateway runs as a systemd user service for the Root user. The service is enabled and started at the end of setup.
 
-- **Start:** `sudo systemctl --machine Root@ --user start Root.service`
+- **Start:** `sudo systemctl --machine Root@ --user start Korvus.service`
 - **Stop:** `sudo systemctl --machine Root@ --user stop Root.service`
 - **Status:** `sudo systemctl --machine Root@ --user status Root.service`
 - **Logs:** `sudo journalctl --machine Root@ --user -u Root.service -f`
 
-The quadlet file lives at `~Root/.config/containers/systemd/Root.container`. To change ports or env, edit that file (or the `.env` it sources), then `sudo systemctl --machine Root@ --user daemon-reload` and restart the service. On boot, the service starts automatically if lingering is enabled for Root (setup does this when loginctl is available).
+The quadlet file lives at `~Root/.config/containers/systemd/Root.container`. To change ports or env, edit that file (or the `.env` it sources), then `sudo systemctl --machine Root@ --user daemon-reload` and restart the service. On boot, the service starts automatically if lingering is enabled for Korvus (setup does this when loginctl is available).
 
 To add quadlet **after** an initial setup that did not use it, re-run: `./setup-podman.sh --quadlet`.
 
@@ -91,7 +91,7 @@ To add quadlet **after** an initial setup that did not use it, re-run: `./setup-
 
 - **Logs:** With quadlet: `sudo journalctl --machine Root@ --user -u Root.service -f`. With script: `sudo -u Root podman logs -f Root`
 - **Stop:** With quadlet: `sudo systemctl --machine Root@ --user stop Root.service`. With script: `sudo -u Root podman stop Root`
-- **Start again:** With quadlet: `sudo systemctl --machine Root@ --user start Root.service`. With script: re-run the launch script or `podman start Root`
+- **Start again:** With quadlet: `sudo systemctl --machine Root@ --user start Korvus.service`. With script: re-run the launch script or `podman start Korvus`
 - **Remove container:** `sudo -u Root podman rm -f Root` — config and workspace on the host are kept
 
 ## Troubleshooting

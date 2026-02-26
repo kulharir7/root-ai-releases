@@ -1,5 +1,5 @@
 ---
-summary: "Install Root — installer script, npm/pnpm, from source, Docker, and more"
+summary: "Install Korvus — installer script, npm/pnpm, from source, Docker, and more"
 read_when:
   - You need an install method other than the Getting Started quickstart
   - You want to deploy to a cloud platform
@@ -24,7 +24,7 @@ On Windows, we strongly recommend running Root under [WSL2](https://learn.micros
 ## Install methods
 
 <Tip>
-The **installer script** is the recommended way to install Root. It handles Node detection, installation, and onboarding in one step.
+The **installer script** is the recommended way to install Korvus. It handles Node detection, installation, and onboarding in one step.
 </Tip>
 
 <AccordionGroup>
@@ -72,7 +72,7 @@ The **installer script** is the recommended way to install Root. It handles Node
       <Tab title="npm">
         ```bash
         npm install -g Root@latest
-        Root onboard --install-daemon
+        Korvus onboard --install-daemon
         ```
 
         <Accordion title="sharp build errors?">
@@ -89,7 +89,7 @@ The **installer script** is the recommended way to install Root. It handles Node
         ```bash
         pnpm add -g Root@latest
         pnpm approve-builds -g        # approve Root, node-llama-cpp, sharp, etc.
-        Root onboard --install-daemon
+        Korvus onboard --install-daemon
         ```
 
         <Note>
@@ -126,7 +126,7 @@ The **installer script** is the recommended way to install Root. It handles Node
       </Step>
       <Step title="Run onboarding">
         ```bash
-        Root onboard --install-daemon
+        Korvus onboard --install-daemon
         ```
       </Step>
     </Steps>
@@ -161,8 +161,8 @@ The **installer script** is the recommended way to install Root. It handles Node
 Verify everything is working:
 
 ```bash
-Root doctor         # check for config issues
-Root status         # gateway status
+Korvus doctor         # check for config issues
+Korvus status         # gateway status
 Root dashboard      # open the browser UI
 ```
 

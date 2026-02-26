@@ -7,7 +7,7 @@ read_when:
 title: "Raspberry Pi"
 ---
 
-# Root on Raspberry Pi
+# Korvus on Raspberry Pi
 
 ## Goal
 
@@ -107,7 +107,7 @@ echo 'vm.swappiness=10' | sudo tee -a /etc/sysctl.conf
 sudo sysctl -p
 ```
 
-## 6) Install Root
+## 6) Install Korvus
 
 ### Option A: Standard Install (Recommended)
 
@@ -130,7 +130,7 @@ The hackable install gives you direct access to logs and code — useful for deb
 ## 7) Run Onboarding
 
 ```bash
-Root onboard --install-daemon
+Korvus onboard --install-daemon
 ```
 
 Follow the wizard:
@@ -144,7 +144,7 @@ Follow the wizard:
 
 ```bash
 # Check status
-Root status
+Korvus status
 
 # Check service
 sudo systemctl status Root
@@ -173,8 +173,8 @@ curl -fsSL https://tailscale.com/install.sh | sh
 sudo tailscale up
 
 # Update config
-Root config set gateway.bind tailnet
-sudo systemctl restart Root
+Korvus config set gateway.bind tailnet
+sudo systemctl restart Korvus
 ```
 
 ---
@@ -277,7 +277,7 @@ sudo systemctl is-enabled Root
 sudo systemctl enable Root
 
 # Start on boot
-sudo systemctl start Root
+sudo systemctl start Korvus
 ```
 
 ---
@@ -309,7 +309,7 @@ journalctl -u Root --no-pager -n 100
 # Common fix: rebuild
 cd ~/Root  # if using hackable install
 npm run build
-sudo systemctl restart Root
+sudo systemctl restart Korvus
 ```
 
 ### ARM Binary Issues

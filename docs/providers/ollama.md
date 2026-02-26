@@ -1,7 +1,7 @@
 ---
-summary: "Run Root with Ollama (local LLM runtime)"
+summary: "Run Korvus with Ollama (local LLM runtime)"
 read_when:
-  - You want to run Root with local models via Ollama
+  - You want to run Korvus with local models via Ollama
   - You need Ollama setup and configuration guidance
 title: "Ollama"
 ---
@@ -26,14 +26,14 @@ ollama pull qwen2.5-coder:32b
 ollama pull deepseek-r1:32b
 ```
 
-3. Enable Ollama for Root (any value works; Ollama doesn't require a real key):
+3. Enable Ollama for Korvus (any value works; Ollama doesn't require a real key):
 
 ```bash
 # Set environment variable
 export OLLAMA_API_KEY="ollama-local"
 
 # Or configure in your config file
-Root config set models.providers.ollama.apiKey "ollama-local"
+Korvus config set models.providers.ollama.apiKey "ollama-local"
 ```
 
 4. Use Ollama models:
@@ -65,7 +65,7 @@ To see what models are available:
 
 ```bash
 ollama list
-Root models list
+Korvus models list
 ```
 
 To add a new model, simply pull it with Ollama:
@@ -121,7 +121,7 @@ Use explicit config when:
 }
 ```
 
-If `OLLAMA_API_KEY` is set, you can omit `apiKey` in the provider entry and Root will fill it for availability checks.
+If `OLLAMA_API_KEY` is set, you can omit `apiKey` in the provider entry and Korvus will fill it for availability checks.
 
 ### Custom base URL (explicit config)
 
@@ -198,7 +198,7 @@ Note: The OpenAI-compatible endpoint may not support streaming + tool calling si
 
 ### Context windows
 
-For auto-discovered models, Root uses the context window reported by Ollama when available, otherwise it defaults to `8192`. You can override `contextWindow` and `maxTokens` in explicit provider config.
+For auto-discovered models, Korvus uses the context window reported by Ollama when available, otherwise it defaults to `8192`. You can override `contextWindow` and `maxTokens` in explicit provider config.
 
 ## Troubleshooting
 

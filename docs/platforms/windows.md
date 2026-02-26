@@ -32,19 +32,19 @@ Native Windows companion apps are planned.
 Inside WSL2:
 
 ```
-Root onboard --install-daemon
+Korvus onboard --install-daemon
 ```
 
 Or:
 
 ```
-Root gateway install
+Korvus gateway install
 ```
 
 Or:
 
 ```
-Root configure
+Korvus configure
 ```
 
 Select **Gateway service** when prompted.
@@ -52,7 +52,7 @@ Select **Gateway service** when prompted.
 Repair/migrate:
 
 ```
-Root doctor
+Korvus doctor
 ```
 
 ## Advanced: expose WSL services over LAN (portproxy)
@@ -95,7 +95,7 @@ Notes:
 
 - SSH from another machine targets the **Windows host IP** (example: `ssh user@windows-host -p 2222`).
 - Remote nodes must point at a **reachable** Gateway URL (not `127.0.0.1`); use
-  `Root status --all` to confirm.
+  `Korvus status --all` to confirm.
 - Use `listenaddress=0.0.0.0` for LAN access; `127.0.0.1` keeps it local only.
 - If you want this automatic, register a Scheduled Task to run the refresh
   step at login.
@@ -138,7 +138,7 @@ Re-open Ubuntu, then verify:
 systemctl --user status
 ```
 
-### 3) Install Root (inside WSL)
+### 3) Install Korvus (inside WSL)
 
 Follow the Linux Getting Started flow inside WSL:
 
@@ -148,7 +148,7 @@ cd Root
 pnpm install
 pnpm ui:build # auto-installs UI deps on first run
 pnpm build
-Root onboard
+Korvus onboard
 ```
 
 Full guide: [Getting Started](/start/getting-started)

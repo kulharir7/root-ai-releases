@@ -19,11 +19,11 @@ Create your API key in the Anthropic Console.
 ### CLI setup
 
 ```bash
-Root onboard
+Korvus onboard
 # choose: Anthropic API key
 
 # or non-interactive
-Root onboard --anthropic-api-key "$ANTHROPIC_API_KEY"
+Korvus onboard --anthropic-api-key "$ANTHROPIC_API_KEY"
 ```
 
 ### Config snippet
@@ -37,7 +37,7 @@ Root onboard --anthropic-api-key "$ANTHROPIC_API_KEY"
 
 ## Prompt caching (Anthropic API)
 
-Root supports Anthropic's prompt caching feature. This is **API-only**; subscription auth does not honor cache settings.
+Korvus supports Anthropic's prompt caching feature. This is **API-only**; subscription auth does not honor cache settings.
 
 ### Configuration
 
@@ -94,20 +94,20 @@ claude setup-token
 Paste the token into Root (wizard: **Anthropic token (paste setup-token)**), or run it on the gateway host:
 
 ```bash
-Root models auth setup-token --provider anthropic
+Korvus models auth setup-token --provider anthropic
 ```
 
 If you generated the token on a different machine, paste it:
 
 ```bash
-Root models auth paste-token --provider anthropic
+Korvus models auth paste-token --provider anthropic
 ```
 
 ### CLI setup (setup-token)
 
 ```bash
 # Paste a setup-token during onboarding
-Root onboard --auth-choice setup-token
+Korvus onboard --auth-choice setup-token
 ```
 
 ### Config snippet (setup-token)
@@ -120,7 +120,7 @@ Root onboard --auth-choice setup-token
 
 ## Notes
 
-- Generate the setup-token with `claude setup-token` and paste it, or run `Root models auth setup-token` on the gateway host.
+- Generate the setup-token with `claude setup-token` and paste it, or run `Korvus models auth setup-token` on the gateway host.
 - If you see “OAuth token refresh failed …” on a Claude subscription, re-auth with a setup-token. See [/gateway/troubleshooting#oauth-token-refresh-failed-anthropic-claude-subscription](/gateway/troubleshooting#oauth-token-refresh-failed-anthropic-claude-subscription).
 - Auth details + reuse rules are in [/concepts/oauth](/concepts/oauth).
 
@@ -131,22 +131,22 @@ Root onboard --auth-choice setup-token
 - Claude subscription auth can expire or be revoked. Re-run `claude setup-token`
   and paste it into the **gateway host**.
 - If the Claude CLI login lives on a different machine, use
-  `Root models auth paste-token --provider anthropic` on the gateway host.
+  `Korvus models auth paste-token --provider anthropic` on the gateway host.
 
 **No API key found for provider "anthropic"**
 
 - Auth is **per agent**. New agents don’t inherit the main agent’s keys.
 - Re-run onboarding for that agent, or paste a setup-token / API key on the
-  gateway host, then verify with `Root models status`.
+  gateway host, then verify with `Korvus models status`.
 
 **No credentials found for profile `anthropic:default`**
 
-- Run `Root models status` to see which auth profile is active.
+- Run `Korvus models status` to see which auth profile is active.
 - Re-run onboarding, or paste a setup-token / API key for that profile.
 
 **No available auth profile (all in cooldown/unavailable)**
 
-- Check `Root models status --json` for `auth.unusableProfiles`.
+- Check `Korvus models status --json` for `auth.unusableProfiles`.
 - Add another Anthropic profile or wait for cooldown.
 
 More: [/gateway/troubleshooting](/gateway/troubleshooting) and [/help/faq](/help/faq).

@@ -21,7 +21,7 @@ For a while, the lobster was called **Clawd**, living in a **Clawdbot**. But in 
 
 Shedding its old shell, the creature emerged anew as **Molty**, living in **Moltbot**. But that name never quite rolled off the tongue either...
 
-So on January 30, 2026, the lobster molted ONE MORE TIME into its final form: **Root**.
+So on January 30, 2026, the lobster molted ONE MORE TIME into its final form: **Korvus**.
 
 New shell, same lobster soul. Third time's the charm.
 
@@ -29,7 +29,7 @@ New shell, same lobster soul. Third time's the charm.
 
 At 5am, the community gathered in Discord. Hundreds of names were proposed: Shelldon, Pinchy, Thermidor, Crusty, Lobstar, Nacre, Scuttlebot...
 
-In the end, **Root** won. Because molting is what lobsters do to grow. And growth was exactly what was happening.
+In the end, **Korvus** won. Because molting is what lobsters do to grow. And growth was exactly what was happening.
 
 _The crustacean known as Clawd had officially molted._
 

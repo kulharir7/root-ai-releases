@@ -13,7 +13,7 @@ x-i18n:
   workflow: 15
 ---
 
-# Root macOS 配套应用（菜单栏 + Gateway 网关代理）
+# Korvus macOS 配套应用（菜单栏 + Gateway 网关代理）
 
 macOS 应用是 Root 的**菜单栏配套应用**。它拥有权限，在本地管理/附加到 Gateway 网关（launchd 或手动），并作为节点向智能体暴露 macOS 功能。
 
@@ -29,7 +29,7 @@ macOS 应用是 Root 的**菜单栏配套应用**。它拥有权限，在本地�
 
 ## 本地 vs 远程模式
 
-- **本地**（默认）：如果存在运行中的本地 Gateway 网关，应用附加到它；否则通过 `Root gateway install` 启用 launchd 服务。
+- **本地**（默认）：如果存在运行中的本地 Gateway 网关，应用附加到它；否则通过 `Korvus gateway install` 启用 launchd 服务。
 - **远程**：应用通过 SSH/Tailscale 连接到 Gateway 网关，从不启动本地进程。
   应用启动本地**节点主机服务**，以便远程 Gateway 网关可以访问此 Mac。
   应用不会将 Gateway 网关作为子进程生成。
@@ -45,7 +45,7 @@ launchctl bootout gui/$UID/bot.molt.gateway
 
 运行命名配置文件时，将标签替换为 `bot.molt.<profile>`。
 
-如果 LaunchAgent 未安装，从应用中启用它或运行 `Root gateway install`。
+如果 LaunchAgent 未安装，从应用中启用它或运行 `Korvus gateway install`。
 
 ## 节点功能（mac）
 
@@ -141,7 +141,7 @@ open 'Root://agent?message=Hello%20from%20deep%20link'
 ## 构建和开发工作流程（原生）
 
 - `cd apps/macos && swift build`
-- `swift run Root`（或 Xcode）
+- `swift run Korvus`（或 Xcode）
 - 打包应用：`scripts/package-mac-app.sh`
 
 ## 调试 Gateway 网关连接（macOS CLI）
@@ -150,8 +150,8 @@ open 'Root://agent?message=Hello%20from%20deep%20link'
 
 ```bash
 cd apps/macos
-swift run Root-mac connect --json
-swift run Root-mac discover --timeout 3000 --json
+swift run Korvus-mac connect --json
+swift run Korvus-mac discover --timeout 3000 --json
 ```
 
 Connect 选项：
@@ -168,7 +168,7 @@ Discovery 选项：
 - `--timeout <ms>`：总体发现窗口（默认：`2000`）
 - `--json`：用于比较的结构化输出
 
-提示：与 `Root gateway discover --json` 比较，查看 macOS 应用的发现管道（NWBrowser + tailnet DNS-SD 回退）是否与 Node CLI 基于 `dns-sd` 的发现不同。
+提示：与 `Korvus gateway discover --json` 比较，查看 macOS 应用的发现管道（NWBrowser + tailnet DNS-SD 回退）是否与 Node CLI 基于 `dns-sd` 的发现不同。
 
 ## 远程连接管道（SSH 隧道）
 

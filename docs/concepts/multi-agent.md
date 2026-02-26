@@ -47,7 +47,7 @@ reach other host locations unless sandboxing is enabled. See
 
 ### Single-agent mode (default)
 
-If you do nothing, Root runs a single agent:
+If you do nothing, Korvus runs a single agent:
 
 - `agentId` defaults to **`main`**.
 - Sessions are keyed as `agent:main:<mainKey>`.
@@ -59,7 +59,7 @@ If you do nothing, Root runs a single agent:
 Use the agent wizard to add a new isolated agent:
 
 ```bash
-Root agents add work
+Korvus agents add work
 ```
 
 Then add `bindings` (or let the wizard do it) to route inbound messages.
@@ -67,7 +67,7 @@ Then add `bindings` (or let the wizard do it) to route inbound messages.
 Verify with:
 
 ```bash
-Root agents list --bindings
+Korvus agents list --bindings
 ```
 
 ## Multiple agents = multiple people, multiple personalities

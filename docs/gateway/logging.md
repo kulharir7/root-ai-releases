@@ -10,7 +10,7 @@ title: "Logging"
 
 For a user-facing overview (CLI + Control UI + config), see [/logging](/logging).
 
-Root has two log “surfaces”:
+Korvus has two log “surfaces”:
 
 - **Console output** (what you see in the terminal / Debug UI).
 - **File logs** (JSON lines) written by the gateway logger.
@@ -29,7 +29,7 @@ The Control UI Logs tab tails this file via the gateway (`logs.tail`).
 CLI can do the same:
 
 ```bash
-Root logs --follow
+Korvus logs --follow
 ```
 
 **Verbose vs. log levels**
@@ -73,7 +73,7 @@ The gateway prints WebSocket protocol logs in two modes:
 
 ### WS log style
 
-`Root gateway` supports a per-gateway style switch:
+`Korvus gateway` supports a per-gateway style switch:
 
 - `--ws-log auto` (default): normal mode is optimized; verbose mode uses compact output
 - `--ws-log compact`: compact output (paired request/response) when verbose
@@ -84,13 +84,13 @@ Examples:
 
 ```bash
 # optimized (only errors/slow)
-Root gateway
+Korvus gateway
 
 # show all WS traffic (paired)
-Root gateway --verbose --ws-log compact
+Korvus gateway --verbose --ws-log compact
 
 # show all WS traffic (full meta)
-Root gateway --verbose --ws-log full
+Korvus gateway --verbose --ws-log full
 ```
 
 ## Console formatting (subsystem logging)

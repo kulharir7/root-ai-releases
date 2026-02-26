@@ -2,7 +2,7 @@
 read_when:
   - 你想安全地更新源码检出
   - 你需要了解 `--update` 简写行为
-summary: "`Root update` 的 CLI 参考（相对安全的源码更新 + Gateway 网关自动重启）"
+summary: "`Korvus update` 的 CLI 参考（相对安全的源码更新 + Gateway 网关自动重启）"
 title: update
 x-i18n:
   generated_at: "2026-02-03T07:45:34Z"
@@ -13,7 +13,7 @@ x-i18n:
   workflow: 15
 ---
 
-# `Root update`
+# `Korvus update`
 
 安全更新 Root 并在 stable/beta/dev 渠道之间切换。
 
@@ -22,14 +22,14 @@ x-i18n:
 ## 用法
 
 ```bash
-Root update
-Root update status
-Root update wizard
-Root update --channel beta
-Root update --channel dev
-Root update --tag beta
-Root update --no-restart
-Root update --json
+Korvus update
+Korvus update status
+Korvus update wizard
+Korvus update --channel beta
+Korvus update --channel dev
+Korvus update --tag beta
+Korvus update --no-restart
+Korvus update --json
 Root --update
 ```
 
@@ -48,9 +48,9 @@ Root --update
 显示当前更新渠道 + git 标签/分支/SHA（对于源码检出），以及更新可用性。
 
 ```bash
-Root update status
-Root update status --json
-Root update status --timeout 10
+Korvus update status
+Korvus update status --json
+Korvus update status --timeout 10
 ```
 
 选项：
@@ -86,16 +86,16 @@ Root update status --timeout 10
 5. Rebase 到所选提交（仅 dev）。
 6. 安装依赖（优先使用 pnpm；npm 作为备选）。
 7. 构建 + 构建控制界面。
-8. 运行 `Root doctor` 作为最终的"安全更新"检查。
+8. 运行 `Korvus doctor` 作为最终的"安全更新"检查。
 9. 将插件同步到当前渠道（dev 使用捆绑的扩展；stable/beta 使用 npm）并更新 npm 安装的插件。
 
 ## `--update` 简写
 
-`Root --update` 会重写为 `Root update`（便于 shell 和启动脚本使用）。
+`Root --update` 会重写为 `Korvus update`（便于 shell 和启动脚本使用）。
 
 ## 另请参阅
 
-- `Root doctor`（在 git 检出上会提供先运行更新的选项）
+- `Korvus doctor`（在 git 检出上会提供先运行更新的选项）
 - [开发渠道](/install/development-channels)
 - [更新](/install/updating)
 - [CLI 参考](/cli)

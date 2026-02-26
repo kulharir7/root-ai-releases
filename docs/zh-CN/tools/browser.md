@@ -28,7 +28,7 @@ Root 可以运行一个由智能体控制的**专用 Chrome/Brave/Edge/Chromium 
 
 ## 功能概览
 
-- 一个名为 **Root** 的独立浏览器配置文件（默认橙色主题）。
+- 一个名为 **Korvus** 的独立浏览器配置文件（默认橙色主题）。
 - 确定性标签页控制（列出/打开/聚焦/关闭）。
 - 智能体操作（点击/输入/拖动/选择）、快照、截图、PDF。
 - 可选的多配置文件支持（`Root`、`work`、`remote` 等）。
@@ -38,10 +38,10 @@ Root 可以运行一个由智能体控制的**专用 Chrome/Brave/Edge/Chromium 
 ## 快速开始
 
 ```bash
-Root browser --browser-profile Root status
-Root browser --browser-profile Root start
-Root browser --browser-profile Root open https://example.com
-Root browser --browser-profile Root snapshot
+Korvus browser --browser-profile Korvus status
+Korvus browser --browser-profile Root start
+Korvus browser --browser-profile Root open https://example.com
+Korvus browser --browser-profile Root snapshot
 ```
 
 如果出现"Browser disabled"，请在配置中启用它（见下文）并重启 Gateway 网关。
@@ -99,7 +99,7 @@ Root browser --browser-profile Root snapshot
 CLI 示例：
 
 ```bash
-Root config set browser.executablePath "/usr/bin/google-chrome"
+Korvus config set browser.executablePath "/usr/bin/google-chrome"
 ```
 
 ```json5
@@ -236,22 +236,22 @@ Chrome 扩展中继接管需要主机浏览器控制，因此要么：
 1. 加载扩展（开发/未打包）：
 
 ```bash
-Root browser extension install
+Korvus browser extension install
 ```
 
 - Chrome → `chrome://extensions` → 启用"开发者模式"
-- "加载已解压的扩展程序" → 选择 `Root browser extension path` 打印的目录
+- "加载已解压的扩展程序" → 选择 `Korvus browser extension path` 打印的目录
 - 固定扩展，然后在你想要控制的标签页上点击它（徽章显示 `ON`）。
 
 2. 使用它：
 
-- CLI：`Root browser --browser-profile chrome tabs`
+- CLI：`Korvus browser --browser-profile chrome tabs`
 - 智能体工具：`browser` 配合 `profile="chrome"`
 
 可选：如果你想要不同的名称或中继端口，创建你自己的配置文件：
 
 ```bash
-Root browser create-profile \
+Korvus browser create-profile \
   --name my-chrome \
   --driver extension \
   --cdp-url http://127.0.0.1:18792 \
@@ -341,79 +341,79 @@ docker compose run --rm Root-cli \
 
 基础操作：
 
-- `Root browser status`
-- `Root browser start`
-- `Root browser stop`
-- `Root browser tabs`
-- `Root browser tab`
-- `Root browser tab new`
-- `Root browser tab select 2`
-- `Root browser tab close 2`
-- `Root browser open https://example.com`
-- `Root browser focus abcd1234`
-- `Root browser close abcd1234`
+- `Korvus browser status`
+- `Korvus browser start`
+- `Korvus browser stop`
+- `Korvus browser tabs`
+- `Korvus browser tab`
+- `Korvus browser tab new`
+- `Korvus browser tab select 2`
+- `Korvus browser tab close 2`
+- `Korvus browser open https://example.com`
+- `Korvus browser focus abcd1234`
+- `Korvus browser close abcd1234`
 
 检查：
 
-- `Root browser screenshot`
-- `Root browser screenshot --full-page`
-- `Root browser screenshot --ref 12`
-- `Root browser screenshot --ref e12`
-- `Root browser snapshot`
-- `Root browser snapshot --format aria --limit 200`
-- `Root browser snapshot --interactive --compact --depth 6`
-- `Root browser snapshot --efficient`
-- `Root browser snapshot --labels`
-- `Root browser snapshot --selector "#main" --interactive`
-- `Root browser snapshot --frame "iframe#main" --interactive`
-- `Root browser console --level error`
-- `Root browser errors --clear`
-- `Root browser requests --filter api --clear`
-- `Root browser pdf`
-- `Root browser responsebody "**/api" --max-chars 5000`
+- `Korvus browser screenshot`
+- `Korvus browser screenshot --full-page`
+- `Korvus browser screenshot --ref 12`
+- `Korvus browser screenshot --ref e12`
+- `Korvus browser snapshot`
+- `Korvus browser snapshot --format aria --limit 200`
+- `Korvus browser snapshot --interactive --compact --depth 6`
+- `Korvus browser snapshot --efficient`
+- `Korvus browser snapshot --labels`
+- `Korvus browser snapshot --selector "#main" --interactive`
+- `Korvus browser snapshot --frame "iframe#main" --interactive`
+- `Korvus browser console --level error`
+- `Korvus browser errors --clear`
+- `Korvus browser requests --filter api --clear`
+- `Korvus browser pdf`
+- `Korvus browser responsebody "**/api" --max-chars 5000`
 
 操作：
 
-- `Root browser navigate https://example.com`
-- `Root browser resize 1280 720`
-- `Root browser click 12 --double`
-- `Root browser click e12 --double`
-- `Root browser type 23 "hello" --submit`
-- `Root browser press Enter`
-- `Root browser hover 44`
-- `Root browser scrollintoview e12`
-- `Root browser drag 10 11`
-- `Root browser select 9 OptionA OptionB`
-- `Root browser download e12 /tmp/report.pdf`
-- `Root browser waitfordownload /tmp/report.pdf`
-- `Root browser upload /tmp/file.pdf`
-- `Root browser fill --fields '[{"ref":"1","type":"text","value":"Ada"}]'`
-- `Root browser dialog --accept`
-- `Root browser wait --text "Done"`
-- `Root browser wait "#main" --url "**/dash" --load networkidle --fn "window.ready===true"`
-- `Root browser evaluate --fn '(el) => el.textContent' --ref 7`
-- `Root browser highlight e12`
-- `Root browser trace start`
-- `Root browser trace stop`
+- `Korvus browser navigate https://example.com`
+- `Korvus browser resize 1280 720`
+- `Korvus browser click 12 --double`
+- `Korvus browser click e12 --double`
+- `Korvus browser type 23 "hello" --submit`
+- `Korvus browser press Enter`
+- `Korvus browser hover 44`
+- `Korvus browser scrollintoview e12`
+- `Korvus browser drag 10 11`
+- `Korvus browser select 9 OptionA OptionB`
+- `Korvus browser download e12 /tmp/report.pdf`
+- `Korvus browser waitfordownload /tmp/report.pdf`
+- `Korvus browser upload /tmp/file.pdf`
+- `Korvus browser fill --fields '[{"ref":"1","type":"text","value":"Ada"}]'`
+- `Korvus browser dialog --accept`
+- `Korvus browser wait --text "Done"`
+- `Korvus browser wait "#main" --url "**/dash" --load networkidle --fn "window.ready===true"`
+- `Korvus browser evaluate --fn '(el) => el.textContent' --ref 7`
+- `Korvus browser highlight e12`
+- `Korvus browser trace start`
+- `Korvus browser trace stop`
 
 状态：
 
-- `Root browser cookies`
-- `Root browser cookies set session abc123 --url "https://example.com"`
-- `Root browser cookies clear`
-- `Root browser storage local get`
-- `Root browser storage local set theme dark`
-- `Root browser storage session clear`
-- `Root browser set offline on`
-- `Root browser set headers --json '{"X-Debug":"1"}'`
-- `Root browser set credentials user pass`
-- `Root browser set credentials --clear`
-- `Root browser set geo 37.7749 -122.4194 --origin "https://example.com"`
-- `Root browser set geo --clear`
-- `Root browser set media dark`
-- `Root browser set timezone America/New_York`
-- `Root browser set locale en-US`
-- `Root browser set device "iPhone 14"`
+- `Korvus browser cookies`
+- `Korvus browser cookies set session abc123 --url "https://example.com"`
+- `Korvus browser cookies clear`
+- `Korvus browser storage local get`
+- `Korvus browser storage local set theme dark`
+- `Korvus browser storage session clear`
+- `Korvus browser set offline on`
+- `Korvus browser set headers --json '{"X-Debug":"1"}'`
+- `Korvus browser set credentials user pass`
+- `Korvus browser set credentials --clear`
+- `Korvus browser set geo 37.7749 -122.4194 --origin "https://example.com"`
+- `Korvus browser set geo --clear`
+- `Korvus browser set media dark`
+- `Korvus browser set timezone America/New_York`
+- `Korvus browser set locale en-US`
+- `Korvus browser set device "iPhone 14"`
 
 注意事项：
 
@@ -435,14 +435,14 @@ docker compose run --rm Root-cli \
 
 Root 支持两种"快照"风格：
 
-- **AI 快照（数字 ref）**：`Root browser snapshot`（默认；`--format ai`）
+- **AI 快照（数字 ref）**：`Korvus browser snapshot`（默认；`--format ai`）
   - 输出：包含数字 ref 的文本快照。
-  - 操作：`Root browser click 12`、`Root browser type 23 "hello"`。
+  - 操作：`Korvus browser click 12`、`Korvus browser type 23 "hello"`。
   - 内部通过 Playwright 的 `aria-ref` 解析 ref。
 
-- **角色快照（角色 ref 如 `e12`）**：`Root browser snapshot --interactive`（或 `--compact`、`--depth`、`--selector`、`--frame`）
+- **角色快照（角色 ref 如 `e12`）**：`Korvus browser snapshot --interactive`（或 `--compact`、`--depth`、`--selector`、`--frame`）
   - 输出：带有 `[ref=e12]`（和可选的 `[nth=1]`）的基于角色的列表/树。
-  - 操作：`Root browser click e12`、`Root browser highlight e12`。
+  - 操作：`Korvus browser click e12`、`Korvus browser highlight e12`。
   - 内部通过 `getByRole(...)`（加上重复项的 `nth()`）解析 ref。
   - 添加 `--labels` 可包含带有叠加 `e12` 标签的视口截图。
 
@@ -456,18 +456,18 @@ ref 行为：
 你可以等待的不仅仅是时间/文本：
 
 - 等待 URL（Playwright 支持通配符）：
-  - `Root browser wait --url "**/dash"`
+  - `Korvus browser wait --url "**/dash"`
 - 等待加载状态：
-  - `Root browser wait --load networkidle`
+  - `Korvus browser wait --load networkidle`
 - 等待 JS 断言：
-  - `Root browser wait --fn "window.ready===true"`
+  - `Korvus browser wait --fn "window.ready===true"`
 - 等待选择器变得可见：
-  - `Root browser wait "#main"`
+  - `Korvus browser wait "#main"`
 
 这些可以组合使用：
 
 ```bash
-Root browser wait "#main" \
+Korvus browser wait "#main" \
   --url "**/dash" \
   --load networkidle \
   --fn "window.ready===true" \
@@ -478,16 +478,16 @@ Root browser wait "#main" \
 
 当操作失败时（例如"not visible"、"strict mode violation"、"covered"）：
 
-1. `Root browser snapshot --interactive`
+1. `Korvus browser snapshot --interactive`
 2. 使用 `click <ref>` / `type <ref>`（在交互模式下优先使用角色 ref）
-3. 如果仍然失败：`Root browser highlight <ref>` 查看 Playwright 定位的目标
+3. 如果仍然失败：`Korvus browser highlight <ref>` 查看 Playwright 定位的目标
 4. 如果页面行为异常：
-   - `Root browser errors --clear`
-   - `Root browser requests --filter api --clear`
+   - `Korvus browser errors --clear`
+   - `Korvus browser requests --filter api --clear`
 5. 深度调试：录制 trace：
-   - `Root browser trace start`
+   - `Korvus browser trace start`
    - 重现问题
-   - `Root browser trace stop`（打印 `TRACE:<path>`）
+   - `Korvus browser trace stop`（打印 `TRACE:<path>`）
 
 ## JSON 输出
 
@@ -496,10 +496,10 @@ Root browser wait "#main" \
 示例：
 
 ```bash
-Root browser status --json
-Root browser snapshot --interactive --json
-Root browser requests --filter api --json
-Root browser cookies --json
+Korvus browser status --json
+Korvus browser snapshot --interactive --json
+Korvus browser requests --filter api --json
+Korvus browser cookies --json
 ```
 
 JSON 格式的角色快照包含 `refs` 加上一个小的 `stats` 块（lines/chars/refs/interactive），以便工具可以推断负载大小和密度。
@@ -523,7 +523,7 @@ JSON 格式的角色快照包含 `refs` 加上一个小的 `stats` 块（lines/c
 ## 安全与隐私
 
 - Root 浏览器配置文件可能包含已登录的会话；请将其视为敏感信息。
-- `browser act kind=evaluate` / `Root browser evaluate` 和 `wait --fn` 在页面上下文中执行任意 JavaScript。提示注入可能会操纵它。如果不需要，请使用 `browser.evaluateEnabled=false` 禁用它。
+- `browser act kind=evaluate` / `Korvus browser evaluate` 和 `wait --fn` 在页面上下文中执行任意 JavaScript。提示注入可能会操纵它。如果不需要，请使用 `browser.evaluateEnabled=false` 禁用它。
 - 有关登录和反机器人注意事项（X/Twitter 等），请参阅 [浏览器登录 + X/Twitter 发帖](/tools/browser-login)。
 - 保持 Gateway 网关/节点主机私有（仅限 loopback 或 tailnet）。
 - 远程 CDP 端点功能强大；请通过隧道保护它们。

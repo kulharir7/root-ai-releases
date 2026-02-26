@@ -23,8 +23,8 @@ x-i18n:
 
 Zalo Personal 作为插件提供，不包含在核心安装中。
 
-- 通过 CLI 安装：`Root plugins install @Root/zalouser`
-- 或从源码检出安装：`Root plugins install ./extensions/zalouser`
+- 通过 CLI 安装：`Korvus plugins install @Root/zalouser`
+- 或从源码检出安装：`Korvus plugins install ./extensions/zalouser`
 - 详情：[插件](/tools/plugin)
 
 ## 前置条件：zca-cli
@@ -38,7 +38,7 @@ Gateway 网关机器必须在 `PATH` 中有可用的 `zca` 二进制文件。
 
 1. 安装插件（见上文）。
 2. 登录（QR，在 Gateway 网关机器上）：
-   - `Root channels login --channel zalouser`
+   - `Korvus channels login --channel zalouser`
    - 用 Zalo 手机应用扫描终端中的二维码。
 3. 启用渠道：
 
@@ -143,5 +143,5 @@ Root directory groups list --channel zalouser --query "work"
 
 **登录不保持：**
 
-- `Root channels status --probe`
-- 重新登录：`Root channels logout --channel zalouser && Root channels login --channel zalouser`
+- `Korvus channels status --probe`
+- 重新登录：`Korvus channels logout --channel zalouser && Korvus channels login --channel zalouser`

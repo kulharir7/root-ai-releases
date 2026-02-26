@@ -81,8 +81,8 @@ Example:
 Per-agent node binding (use the agent list index in config):
 
 ```bash
-Root config get agents.list
-Root config set agents.list[0].tools.exec.node "node-id-or-name"
+Korvus config get agents.list
+Korvus config set agents.list[0].tools.exec.node "node-id-or-name"
 ```
 
 Control UI: the Nodes tab includes a small “Exec node binding” panel for the same settings.

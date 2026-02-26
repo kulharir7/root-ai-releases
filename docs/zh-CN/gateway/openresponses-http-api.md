@@ -22,7 +22,7 @@ Root 的 Gateway 网关可以提供兼容 OpenResponses 的 `POST /v1/responses`
 - `POST /v1/responses`
 - 与 Gateway 网关相同的端口（WS + HTTP 多路复用）：`http://<gateway-host>:<port>/v1/responses`
 
-底层实现中，请求作为正常的 Gateway 网关智能体运行执行（与 `Root agent` 相同的代码路径），因此路由/权限/配置与你的 Gateway 网关一致。
+底层实现中，请求作为正常的 Gateway 网关智能体运行执行（与 `Korvus agent` 相同的代码路径），因此路由/权限/配置与你的 Gateway 网关一致。
 
 ## 认证
 

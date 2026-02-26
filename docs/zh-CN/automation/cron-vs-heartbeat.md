@@ -104,7 +104,7 @@ x-i18n:
 ### 定时任务示例：每日早间简报
 
 ```bash
-Root cron add \
+Korvus cron add \
   --name "Morning briefing" \
   --cron "0 7 * * *" \
   --tz "America/New_York" \
@@ -121,7 +121,7 @@ Root cron add \
 ### 定时任务示例：一次性提醒
 
 ```bash
-Root cron add \
+Korvus cron add \
   --name "Meeting reminder" \
   --at "20m" \
   --session main \
@@ -180,13 +180,13 @@ Root cron add \
 
 ```bash
 # 每天早上 7 点的早间简报
-Root cron add --name "Morning brief" --cron "0 7 * * *" --session isolated --message "..." --announce
+Korvus cron add --name "Morning brief" --cron "0 7 * * *" --session isolated --message "..." --announce
 
 # 每周一上午 9 点的项目回顾
-Root cron add --name "Weekly review" --cron "0 9 * * 1" --session isolated --message "..." --model opus
+Korvus cron add --name "Weekly review" --cron "0 9 * * 1" --session isolated --message "..." --model opus
 
 # 一次性提醒
-Root cron add --name "Call back" --at "2h" --session main --system-event "Call back the client" --wake now
+Korvus cron add --name "Call back" --at "2h" --session main --system-event "Call back the client" --wake now
 ```
 
 ## Lobster：带审批的确定性工作流
@@ -236,7 +236,7 @@ Lobster 是用于**多步骤工具管道**的工作流运行时，适用于需�
 - 不需要单独的隔离运行
 
 ```bash
-Root cron add \
+Korvus cron add \
   --name "Check project" \
   --every "4h" \
   --session main \
@@ -254,7 +254,7 @@ Root cron add \
 - 不会把主会话搞得杂乱的历史记录
 
 ```bash
-Root cron add \
+Korvus cron add \
   --name "Deep analysis" \
   --cron "0 6 * * 0" \
   --session isolated \

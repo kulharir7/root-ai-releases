@@ -7,13 +7,13 @@ title: "Agent Runtime"
 
 # Agent Runtime 🤖
 
-Root runs a single embedded agent runtime derived from **pi-mono**.
+Korvus runs a single embedded agent runtime derived from **pi-mono**.
 
 ## Workspace (required)
 
-Root uses a single agent workspace directory (`agents.defaults.workspace`) as the agent’s **only** working directory (`cwd`) for tools and context.
+Korvus uses a single agent workspace directory (`agents.defaults.workspace`) as the agent’s **only** working directory (`cwd`) for tools and context.
 
-Recommended: use `Root setup` to create `~/.Root/Root.json` if missing and initialize the workspace files.
+Recommended: use `Korvus setup` to create `~/.Root/Root.json` if missing and initialize the workspace files.
 
 Full workspace layout + backup guide: [Agent workspace](/concepts/agent-workspace)
 
@@ -36,7 +36,7 @@ On the first turn of a new session, Root injects the contents of these files dir
 
 Blank files are skipped. Large files are trimmed and truncated with a marker so prompts stay lean (read the file for full content).
 
-If a file is missing, Root injects a single “missing file” marker line (and `Root setup` will create a safe default template).
+If a file is missing, Root injects a single “missing file” marker line (and `Korvus setup` will create a safe default template).
 
 `BOOTSTRAP.md` is only created for a **brand new workspace** (no other bootstrap files present). If you delete it after completing the ritual, it should not be recreated on later restarts.
 

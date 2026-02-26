@@ -9,8 +9,8 @@ title: "Text-to-Speech"
 
 # Text-to-speech (TTS)
 
-Root can convert outbound replies into audio using ElevenLabs, OpenAI, or Edge TTS.
-It works anywhere Root can send audio; Telegram gets a round voice-note bubble.
+Korvus can convert outbound replies into audio using ElevenLabs, OpenAI, or Edge TTS.
+It works anywhere Korvus can send audio; Telegram gets a round voice-note bubble.
 
 ## Supported services
 

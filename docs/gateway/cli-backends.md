@@ -9,7 +9,7 @@ title: "CLI Backends"
 
 # CLI backends (fallback runtime)
 
-Root can run **local AI CLIs** as a **text-only fallback** when API providers are down,
+Korvus can run **local AI CLIs** as a **text-only fallback** when API providers are down,
 rate-limited, or temporarily misbehaving. This is intentionally conservative:
 
 - **Tools are disabled** (no tool calls).
@@ -25,13 +25,13 @@ want “always works” text responses without relying on external APIs.
 You can use Claude Code CLI **without any config** (Root ships a built-in default):
 
 ```bash
-Root agent --message "hi" --model claude-cli/opus-4.6
+Korvus agent --message "hi" --model claude-cli/opus-4.6
 ```
 
 Codex CLI also works out of the box:
 
 ```bash
-Root agent --message "hi" --model codex-cli/gpt-5.3-codex
+Korvus agent --message "hi" --model codex-cli/gpt-5.3-codex
 ```
 
 If your gateway runs under launchd/systemd and PATH is minimal, add just the
@@ -162,7 +162,7 @@ imageArg: "--image",
 imageMode: "repeat"
 ```
 
-Root will write base64 images to temp files. If `imageArg` is set, those
+Korvus will write base64 images to temp files. If `imageArg` is set, those
 paths are passed as CLI args. If `imageArg` is missing, Root appends the
 file paths to the prompt (path injection), which is enough for CLIs that auto-
 load local files from plain paths (Claude Code CLI behavior).
@@ -213,7 +213,7 @@ Override only if needed (common: absolute `command` path).
 - **No streaming** (CLI output is collected then returned).
 - **Structured outputs** depend on the CLI’s JSON format.
 - **Codex CLI sessions** resume via text output (no JSONL), which is less
-  structured than the initial `--json` run. Root sessions still work
+  structured than the initial `--json` run. Korvus sessions still work
   normally.
 
 ## Troubleshooting

@@ -17,7 +17,7 @@ Synthetic exposes Anthropic-compatible endpoints. Root registers it as the
 2. Run onboarding:
 
 ```bash
-Root onboard --auth-choice synthetic-api-key
+Korvus onboard --auth-choice synthetic-api-key
 ```
 
 The default model is set to:

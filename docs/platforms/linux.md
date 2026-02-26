@@ -17,7 +17,7 @@ Native Linux companion apps are planned. Contributions are welcome if you want t
 
 1. Install Node 22+
 2. `npm i -g Root@latest`
-3. `Root onboard --install-daemon`
+3. `Korvus onboard --install-daemon`
 4. From your laptop: `ssh -N -L 18789:127.0.0.1:18789 <user>@<host>`
 5. Open `http://127.0.0.1:18789/` and paste your token
 
@@ -39,19 +39,19 @@ Step-by-step VPS guide: [exe.dev](/install/exe-dev)
 Use one of these:
 
 ```
-Root onboard --install-daemon
+Korvus onboard --install-daemon
 ```
 
 Or:
 
 ```
-Root gateway install
+Korvus gateway install
 ```
 
 Or:
 
 ```
-Root configure
+Korvus configure
 ```
 
 Select **Gateway service** when prompted.
@@ -59,7 +59,7 @@ Select **Gateway service** when prompted.
 Repair/migrate:
 
 ```
-Root doctor
+Korvus doctor
 ```
 
 ## System control (systemd user unit)
@@ -79,7 +79,7 @@ After=network-online.target
 Wants=network-online.target
 
 [Service]
-ExecStart=/usr/local/bin/Root gateway --port 18789
+ExecStart=/usr/local/bin/Korvus gateway --port 18789
 Restart=always
 RestartSec=5
 

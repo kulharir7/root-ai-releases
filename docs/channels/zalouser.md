@@ -1,7 +1,7 @@
 ---
 summary: "Zalo personal account support via zca-cli (QR login), capabilities, and configuration"
 read_when:
-  - Setting up Zalo Personal for Root
+  - Setting up Zalo Personal for Korvus
   - Debugging Zalo Personal login or message flow
 title: "Zalo Personal"
 ---
@@ -16,8 +16,8 @@ Status: experimental. This integration automates a **personal Zalo account** via
 
 Zalo Personal ships as a plugin and is not bundled with the core install.
 
-- Install via CLI: `Root plugins install @Root/zalouser`
-- Or from a source checkout: `Root plugins install ./extensions/zalouser`
+- Install via CLI: `Korvus plugins install @Root/zalouser`
+- Or from a source checkout: `Korvus plugins install ./extensions/zalouser`
 - Details: [Plugins](/tools/plugin)
 
 ## Prerequisite: zca-cli
@@ -31,7 +31,7 @@ The Gateway machine must have the `zca` binary available in `PATH`.
 
 1. Install the plugin (see above).
 2. Login (QR, on the Gateway machine):
-   - `Root channels login --channel zalouser`
+   - `Korvus channels login --channel zalouser`
    - Scan the QR code in the terminal with the Zalo mobile app.
 3. Enable the channel:
 
@@ -136,5 +136,5 @@ Accounts map to zca profiles. Example:
 
 **Login doesn’t stick:**
 
-- `Root channels status --probe`
-- Re-login: `Root channels logout --channel zalouser && Root channels login --channel zalouser`
+- `Korvus channels status --probe`
+- Re-login: `Korvus channels logout --channel zalouser && Korvus channels login --channel zalouser`

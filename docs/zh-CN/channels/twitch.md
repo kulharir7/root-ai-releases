@@ -23,13 +23,13 @@ Twitch 作为插件发布，未与核心安装捆绑。
 通过 CLI 安装（npm 注册表）：
 
 ```bash
-Root plugins install @Root/twitch
+Korvus plugins install @Root/twitch
 ```
 
 本地检出（从 git 仓库运行时）：
 
 ```bash
-Root plugins install ./extensions/twitch
+Korvus plugins install ./extensions/twitch
 ```
 
 详情：[插件](/tools/plugin)
@@ -258,8 +258,8 @@ Root_TWITCH_ACCESS_TOKEN=oauth:abc123...
 首先，运行诊断命令：
 
 ```bash
-Root doctor
-Root channels status --probe
+Korvus doctor
+Korvus channels status --probe
 ```
 
 ### 机器人不响应消息

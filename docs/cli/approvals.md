@@ -44,7 +44,7 @@ Root approvals allowlist remove "~/Projects/**/bin/rg"
 
 ## Notes
 
-- `--node` uses the same resolver as `Root nodes` (id, name, ip, or id prefix).
+- `--node` uses the same resolver as `Korvus nodes` (id, name, ip, or id prefix).
 - `--agent` defaults to `"*"`, which applies to all agents.
 - The node host must advertise `system.execApprovals.get/set` (macOS app or headless node host).
 - Approvals files are stored per host at `~/.Root/exec-approvals.json`.

@@ -24,7 +24,7 @@ Status: external CLI integration. Gateway talks to `signal-cli` over HTTP JSON-R
 3. Choose one setup path:
    - **Path A (QR link):** `signal-cli link -n "Root"` and scan with Signal.
    - **Path B (SMS register):** register a dedicated number with captcha + SMS verification.
-4. Configure Root and restart the gateway.
+4. Configure Korvus and restart the gateway.
 5. Send a first DM and approve pairing (`Root pairing approve signal <CODE>`).
 
 Minimal config:
@@ -138,15 +138,15 @@ signal-cli -a +<BOT_PHONE_NUMBER> register --captcha '<SIGNALCAPTCHA_URL>'
 signal-cli -a +<BOT_PHONE_NUMBER> verify <VERIFICATION_CODE>
 ```
 
-4. Configure Root, restart gateway, verify channel:
+4. Configure Korvus, restart gateway, verify channel:
 
 ```bash
 # If you run the gateway as a user systemd service:
-systemctl --user restart Root-gateway
+systemctl --user restart Korvus-gateway
 
 # Then verify:
-Root doctor
-Root channels status --probe
+Korvus doctor
+Korvus channels status --probe
 ```
 
 5. Pair your DM sender:
@@ -252,11 +252,11 @@ Config:
 Run this ladder first:
 
 ```bash
-Root status
-Root gateway status
-Root logs --follow
-Root doctor
-Root channels status --probe
+Korvus status
+Korvus gateway status
+Korvus logs --follow
+Korvus doctor
+Korvus channels status --probe
 ```
 
 Then confirm DM pairing state if needed:
@@ -270,7 +270,7 @@ Common failures:
 - Daemon reachable but no replies: verify account/daemon settings (`httpUrl`, `account`) and receive mode.
 - DMs ignored: sender is pending pairing approval.
 - Group messages ignored: group sender/mention gating blocks delivery.
-- Config validation errors after edits: run `Root doctor --fix`.
+- Config validation errors after edits: run `Korvus doctor --fix`.
 - Signal missing from diagnostics: confirm `channels.signal.enabled: true`.
 
 Extra checks:

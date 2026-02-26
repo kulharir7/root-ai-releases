@@ -14,28 +14,28 @@ Use this page for scheduler and delivery issues (`cron` + `heartbeat`).
 ## Command ladder
 
 ```bash
-Root status
-Root gateway status
-Root logs --follow
-Root doctor
-Root channels status --probe
+Korvus status
+Korvus gateway status
+Korvus logs --follow
+Korvus doctor
+Korvus channels status --probe
 ```
 
 Then run automation checks:
 
 ```bash
-Root cron status
-Root cron list
+Korvus cron status
+Korvus cron list
 Root system heartbeat last
 ```
 
 ## Cron not firing
 
 ```bash
-Root cron status
-Root cron list
-Root cron runs --id <jobId> --limit 20
-Root logs --follow
+Korvus cron status
+Korvus cron list
+Korvus cron runs --id <jobId> --limit 20
+Korvus logs --follow
 ```
 
 Good output looks like:
@@ -53,10 +53,10 @@ Common signatures:
 ## Cron fired but no delivery
 
 ```bash
-Root cron runs --id <jobId> --limit 20
-Root cron list
-Root channels status --probe
-Root logs --follow
+Korvus cron runs --id <jobId> --limit 20
+Korvus cron list
+Korvus channels status --probe
+Korvus logs --follow
 ```
 
 Good output looks like:
@@ -75,9 +75,9 @@ Common signatures:
 
 ```bash
 Root system heartbeat last
-Root logs --follow
-Root config get agents.defaults.heartbeat
-Root channels status --probe
+Korvus logs --follow
+Korvus config get agents.defaults.heartbeat
+Korvus channels status --probe
 ```
 
 Good output looks like:
@@ -95,11 +95,11 @@ Common signatures:
 ## Timezone and activeHours gotchas
 
 ```bash
-Root config get agents.defaults.heartbeat.activeHours
-Root config get agents.defaults.heartbeat.activeHours.timezone
-Root config get agents.defaults.userTimezone || echo "agents.defaults.userTimezone not set"
-Root cron list
-Root logs --follow
+Korvus config get agents.defaults.heartbeat.activeHours
+Korvus config get agents.defaults.heartbeat.activeHours.timezone
+Korvus config get agents.defaults.userTimezone || echo "agents.defaults.userTimezone not set"
+Korvus cron list
+Korvus logs --follow
 ```
 
 Quick rules:

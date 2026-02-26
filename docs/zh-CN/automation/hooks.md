@@ -22,7 +22,7 @@ Hooks 提供了一个可扩展的事件驱动系统，用于响应智能体命�
 Hooks 是在事件发生时运行的小脚本。有两种类型：
 
 - **Hooks**（本页）：当智能体事件触发时在 Gateway 网关内运行，如 `/new`、`/reset`、`/stop` 或生命周期事件。
-- **Webhooks**：外部 HTTP webhooks，让其他系统触发 Root 中的工作。参见 [Webhook Hooks](/automation/webhook) 或使用 `Root webhooks` 获取 Gmail 助手命令。
+- **Webhooks**：外部 HTTP webhooks，让其他系统触发 Root 中的工作。参见 [Webhook Hooks](/automation/webhook) 或使用 `Korvus webhooks` 获取 Gmail 助手命令。
 
 Hooks 也可以捆绑在插件中；参见 [插件](/tools/plugin#plugin-hooks)。
 
@@ -57,30 +57,30 @@ Root 附带三个自动发现的捆绑 hooks：
 列出可用的 hooks：
 
 ```bash
-Root hooks list
+Korvus hooks list
 ```
 
 启用一个 hook：
 
 ```bash
-Root hooks enable session-memory
+Korvus hooks enable session-memory
 ```
 
 检查 hook 状态：
 
 ```bash
-Root hooks check
+Korvus hooks check
 ```
 
 获取详细信息：
 
 ```bash
-Root hooks info session-memory
+Korvus hooks info session-memory
 ```
 
 ### 新手引导
 
-在新手引导期间（`Root onboard`），你将被提示启用推荐的 hooks。向导会自动发现符合条件的 hooks 并呈现供选择。
+在新手引导期间（`Korvus onboard`），你将被提示启用推荐的 hooks。向导会自动发现符合条件的 hooks 并呈现供选择。
 
 ## Hook 发现
 
@@ -105,7 +105,7 @@ my-hook/
 Hook 包是标准的 npm 包，通过 `package.json` 中的 `Root.hooks` 导出一个或多个 hooks。使用以下命令安装：
 
 ```bash
-Root hooks install <path-or-spec>
+Korvus hooks install <path-or-spec>
 ```
 
 示例 `package.json`：
@@ -310,10 +310,10 @@ export default handler;
 
 ```bash
 # Verify hook is discovered
-Root hooks list
+Korvus hooks list
 
 # Enable it
-Root hooks enable my-hook
+Korvus hooks enable my-hook
 
 # Restart your gateway process (menu bar app restart on macOS, or restart your dev process)
 
@@ -407,46 +407,46 @@ Hooks 可以有自定义配置：
 
 ```bash
 # List all hooks
-Root hooks list
+Korvus hooks list
 
 # Show only eligible hooks
-Root hooks list --eligible
+Korvus hooks list --eligible
 
 # Verbose output (show missing requirements)
-Root hooks list --verbose
+Korvus hooks list --verbose
 
 # JSON output
-Root hooks list --json
+Korvus hooks list --json
 ```
 
 ### Hook 信息
 
 ```bash
 # Show detailed info about a hook
-Root hooks info session-memory
+Korvus hooks info session-memory
 
 # JSON output
-Root hooks info session-memory --json
+Korvus hooks info session-memory --json
 ```
 
 ### 检查资格
 
 ```bash
 # Show eligibility summary
-Root hooks check
+Korvus hooks check
 
 # JSON output
-Root hooks check --json
+Korvus hooks check --json
 ```
 
 ### 启用/禁用
 
 ```bash
 # Enable a hook
-Root hooks enable session-memory
+Korvus hooks enable session-memory
 
 # Disable a hook
-Root hooks disable command-logger
+Korvus hooks disable command-logger
 ```
 
 ## 捆绑的 Hooks
@@ -487,7 +487,7 @@ Root hooks disable command-logger
 **启用**：
 
 ```bash
-Root hooks enable session-memory
+Korvus hooks enable session-memory
 ```
 
 ### command-logger
@@ -529,7 +529,7 @@ grep '"action":"new"' ~/.Root/logs/commands.log | jq .
 **启用**：
 
 ```bash
-Root hooks enable command-logger
+Korvus hooks enable command-logger
 ```
 
 ### boot-md
@@ -550,7 +550,7 @@ Root hooks enable command-logger
 **启用**：
 
 ```bash
-Root hooks enable boot-md
+Korvus hooks enable boot-md
 ```
 
 ## 最佳实践
@@ -633,7 +633,7 @@ Registered hook: boot-md -> gateway:startup
 列出所有发现的 hooks：
 
 ```bash
-Root hooks list --verbose
+Korvus hooks list --verbose
 ```
 
 ### 检查注册
@@ -652,7 +652,7 @@ const handler: HookHandler = async (event) => {
 检查为什么 hook 不符合条件：
 
 ```bash
-Root hooks info my-hook
+Korvus hooks info my-hook
 ```
 
 在输出中查找缺失的要求。
@@ -757,7 +757,7 @@ Gateway 网关启动
 
 3. 列出所有发现的 hooks：
    ```bash
-   Root hooks list
+   Korvus hooks list
    ```
 
 ### Hook 不符合条件
@@ -765,7 +765,7 @@ Gateway 网关启动
 检查要求：
 
 ```bash
-Root hooks info my-hook
+Korvus hooks info my-hook
 ```
 
 查找缺失的：
@@ -780,7 +780,7 @@ Root hooks info my-hook
 1. 验证 hook 已启用：
 
    ```bash
-   Root hooks list
+   Korvus hooks list
    # Should show ✓ next to enabled hooks
    ```
 
@@ -862,7 +862,7 @@ node -e "import('./path/to/handler.ts').then(console.log)"
 
 4. 验证并重启你的 Gateway 网关进程：
    ```bash
-   Root hooks list
+   Korvus hooks list
    # Should show: 🎯 my-hook ✓
    ```
 

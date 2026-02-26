@@ -65,7 +65,7 @@ export VENICE_API_KEY="vapi_xxxxxxxxxxxx"
 **方案 B：交互式设置（推荐）**
 
 ```bash
-Root onboard --auth-choice venice-api-key
+Korvus onboard --auth-choice venice-api-key
 ```
 
 这将：
@@ -78,7 +78,7 @@ Root onboard --auth-choice venice-api-key
 **方案 C：非交互式**
 
 ```bash
-Root onboard --non-interactive \
+Korvus onboard --non-interactive \
   --auth-choice venice-api-key \
   --venice-api-key "vapi_xxxxxxxxxxxx"
 ```
@@ -101,19 +101,19 @@ Root chat --model venice/llama-3.3-70b "Hello, are you working?"
 随时更改默认模型：
 
 ```bash
-Root models set venice/claude-opus-45
-Root models set venice/llama-3.3-70b
+Korvus models set venice/claude-opus-45
+Korvus models set venice/llama-3.3-70b
 ```
 
 列出所有可用模型：
 
 ```bash
-Root models list | grep venice
+Korvus models list | grep venice
 ```
 
-## 通过 `Root configure` 配置
+## 通过 `Korvus configure` 配置
 
-1. 运行 `Root configure`
+1. 运行 `Korvus configure`
 2. 选择 **Model/auth**
 3. 选择 **Venice AI**
 
@@ -223,14 +223,14 @@ Root chat --model venice/qwen3-coder-480b-a35b-instruct
 
 ```bash
 echo $VENICE_API_KEY
-Root models list | grep venice
+Korvus models list | grep venice
 ```
 
 确保密钥以 `vapi_` 开头。
 
 ### 模型不可用
 
-Venice 模型目录会动态更新。运行 `Root models list` 查看当前可用的模型。部分模型可能暂时离线。
+Venice 模型目录会动态更新。运行 `Korvus models list` 查看当前可用的模型。部分模型可能暂时离线。
 
 ### 连接问题
 

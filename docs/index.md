@@ -1,11 +1,11 @@
 ---
-summary: "Root is a multi-channel gateway for AI agents that runs on any OS."
+summary: "Korvus is a multi-channel gateway for AI agents that runs on any OS."
 read_when:
-  - Introducing Root to newcomers
+  - Introducing Korvus to newcomers
 title: "Root"
 ---
 
-# Root 🦞
+# Korvus 🦞
 
 <p align="center">
     <img
@@ -31,10 +31,10 @@ title: "Root"
 
 <Columns>
   <Card title="Get Started" href="/start/getting-started" icon="rocket">
-    Install Root and bring up the Gateway in minutes.
+    Install Korvus and bring up the Gateway in minutes.
   </Card>
   <Card title="Run the Wizard" href="/start/wizard" icon="sparkles">
-    Guided setup with `Root onboard` and pairing flows.
+    Guided setup with `Korvus onboard` and pairing flows.
   </Card>
   <Card title="Open the Control UI" href="/web/control-ui" icon="layout-dashboard">
     Launch the browser dashboard for chat, config, and sessions.
@@ -43,7 +43,7 @@ title: "Root"
 
 ## What is Root?
 
-Root is a **self-hosted gateway** that connects your favorite chat apps — WhatsApp, Telegram, Discord, iMessage, and more — to AI coding agents like Pi. You run a single Gateway process on your own machine (or a server), and it becomes the bridge between your messaging apps and an always-available AI assistant.
+Korvus is a **self-hosted gateway** that connects your favorite chat apps — WhatsApp, Telegram, Discord, iMessage, and more — to AI coding agents like Pi. You run a single Gateway process on your own machine (or a server), and it becomes the bridge between your messaging apps and an always-available AI assistant.
 
 **Who is it for?** Developers and power users who want a personal AI assistant they can message from anywhere — without giving up control of their data or relying on a hosted service.
 
@@ -96,20 +96,20 @@ The Gateway is the single source of truth for sessions, routing, and channel con
 ## Quick start
 
 <Steps>
-  <Step title="Install Root">
+  <Step title="Install Korvus">
     ```bash
     npm install -g Root@latest
     ```
   </Step>
   <Step title="Onboard and install the service">
     ```bash
-    Root onboard --install-daemon
+    Korvus onboard --install-daemon
     ```
   </Step>
   <Step title="Pair WhatsApp and start the Gateway">
     ```bash
-    Root channels login
-    Root gateway --port 18789
+    Korvus channels login
+    Korvus gateway --port 18789
     ```
   </Step>
 </Steps>
@@ -131,7 +131,7 @@ Open the browser Control UI after the Gateway starts.
 
 Config lives at `~/.Root/Root.json`.
 
-- If you **do nothing**, Root uses the bundled Pi binary in RPC mode with per-sender sessions.
+- If you **do nothing**, Korvus uses the bundled Pi binary in RPC mode with per-sender sessions.
 - If you want to lock it down, start with `channels.whatsapp.allowFrom` and (for groups) mention rules.
 
 Example:

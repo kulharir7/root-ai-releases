@@ -30,13 +30,13 @@ x-i18n:
 你可以**无需任何配置**使用 Claude Code CLI（Root 自带内置默认值）：
 
 ```bash
-Root agent --message "hi" --model claude-cli/opus-4.5
+Korvus agent --message "hi" --model claude-cli/opus-4.5
 ```
 
 Codex CLI 也可以开箱即用：
 
 ```bash
-Root agent --message "hi" --model codex-cli/gpt-5.2-codex
+Korvus agent --message "hi" --model codex-cli/gpt-5.2-codex
 ```
 
 如果你的 Gateway 网关在 launchd/systemd 下运行且 PATH 很精简，只需添加命令路径：

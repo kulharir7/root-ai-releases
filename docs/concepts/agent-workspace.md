@@ -36,7 +36,7 @@ inside a sandbox workspace under `~/.Root/sandboxes`, not your host workspace.
 }
 ```
 
-`Root onboard`, `Root configure`, or `Root setup` will create the
+`Korvus onboard`, `Korvus configure`, or `Korvus setup` will create the
 workspace and seed the bootstrap files if they are missing.
 
 If you already manage the workspace files yourself, you can disable bootstrap
@@ -57,7 +57,7 @@ extra folders, archive or move them to Trash (for example `trash ~/Root`).
 If you intentionally keep multiple workspaces, make sure
 `agents.defaults.workspace` points to the active one.
 
-`Root doctor` warns when it detects extra workspace directories.
+`Korvus doctor` warns when it detects extra workspace directories.
 
 ## Workspace file map (what each file means)
 
@@ -117,7 +117,7 @@ See [Memory](/concepts/memory) for the workflow and automatic memory flush.
 If any bootstrap file is missing, Root injects a "missing file" marker into
 the session and continues. Large bootstrap files are truncated when injected;
 adjust the limit with `agents.defaults.bootstrapMaxChars` (default: 20000).
-`Root setup` can recreate missing defaults without overwriting existing
+`Korvus setup` can recreate missing defaults without overwriting existing
 files.
 
 ## What is NOT in the workspace
@@ -221,7 +221,7 @@ Suggested `.gitignore` starter:
 
 1. Clone the repo to the desired path (default `~/.Root/workspace`).
 2. Set `agents.defaults.workspace` to that path in `~/.Root/Root.json`.
-3. Run `Root setup --workspace <path>` to seed any missing files.
+3. Run `Korvus setup --workspace <path>` to seed any missing files.
 4. If you need sessions, copy `~/.Root/agents/<agentId>/sessions/` from the
    old machine separately.
 

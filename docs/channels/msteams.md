@@ -24,17 +24,17 @@ Explainable: keeps core installs lighter and lets MS Teams dependencies update i
 Install via CLI (npm registry):
 
 ```bash
-Root plugins install @Root/msteams
+Korvus plugins install @Root/msteams
 ```
 
 Local checkout (when running from a git repo):
 
 ```bash
-Root plugins install ./extensions/msteams
+Korvus plugins install ./extensions/msteams
 ```
 
 If you choose Teams during configure/onboarding and a git checkout is detected,
-Root will offer the local install path automatically.
+Korvus will offer the local install path automatically.
 
 Details: [Plugins](/tools/plugin)
 
@@ -42,7 +42,7 @@ Details: [Plugins](/tools/plugin)
 
 1. Install the Microsoft Teams plugin.
 2. Create an **Azure Bot** (App ID + client secret + tenant ID).
-3. Configure Root with those credentials.
+3. Configure Korvus with those credentials.
 4. Expose `/api/messages` (port 3978 by default) via a public URL or tunnel.
 5. Install the Teams app package and start the gateway.
 
@@ -239,8 +239,8 @@ This is often easier than hand-editing JSON manifests.
 ## Setup (minimal text-only)
 
 1. **Install the Microsoft Teams plugin**
-   - From npm: `Root plugins install @Root/msteams`
-   - From a local checkout: `Root plugins install ./extensions/msteams`
+   - From npm: `Korvus plugins install @Root/msteams`
+   - From a local checkout: `Korvus plugins install ./extensions/msteams`
 
 2. **Bot registration**
    - Create an Azure Bot (see above) and note:
@@ -256,7 +256,7 @@ This is often easier than hand-editing JSON manifests.
    - Create icons: `outline.png` (32x32) and `color.png` (192x192).
    - Zip all three files together: `manifest.json`, `outline.png`, `color.png`.
 
-4. **Configure Root**
+4. **Configure Korvus**
 
    ```json
    {
@@ -559,7 +559,7 @@ Bots don't have a personal OneDrive drive (the `/me/drive` Graph API endpoint do
    # Response includes: "id": "contoso.sharepoint.com,guid1,guid2"
    ```
 
-4. **Configure Root:**
+4. **Configure Korvus:**
 
    ```json5
    {
@@ -598,7 +598,7 @@ Uploaded files are stored in a `/RootShared/` folder in the configured SharePoin
 
 Root sends Teams polls as Adaptive Cards (there is no native Teams poll API).
 
-- CLI: `Root message poll --channel msteams --target conversation:<id> ...`
+- CLI: `Korvus message poll --channel msteams --target conversation:<id> ...`
 - Votes are recorded by the gateway in `~/.Root/msteams-polls.json`.
 - The gateway must stay online to record votes.
 - Polls do not auto-post result summaries yet (inspect the store file if needed).
@@ -627,7 +627,7 @@ The `card` parameter accepts an Adaptive Card JSON object. When `card` is provid
 **CLI:**
 
 ```bash
-Root message send --channel msteams \
+Korvus message send --channel msteams \
   --target "conversation:19:abc...@thread.tacv2" \
   --card '{"type":"AdaptiveCard","version":"1.5","body":[{"type":"TextBlock","text":"Hello!"}]}'
 ```
@@ -649,16 +649,16 @@ MSTeams targets use prefixes to distinguish between users and conversations:
 
 ```bash
 # Send to a user by ID
-Root message send --channel msteams --target "user:40a1a0ed-..." --message "Hello"
+Korvus message send --channel msteams --target "user:40a1a0ed-..." --message "Hello"
 
 # Send to a user by display name (triggers Graph API lookup)
-Root message send --channel msteams --target "user:John Smith" --message "Hello"
+Korvus message send --channel msteams --target "user:John Smith" --message "Hello"
 
 # Send to a group chat or channel
-Root message send --channel msteams --target "conversation:19:abc...@thread.tacv2" --message "Hello"
+Korvus message send --channel msteams --target "conversation:19:abc...@thread.tacv2" --message "Hello"
 
 # Send an Adaptive Card to a conversation
-Root message send --channel msteams --target "conversation:19:abc...@thread.tacv2" \
+Korvus message send --channel msteams --target "conversation:19:abc...@thread.tacv2" \
   --card '{"type":"AdaptiveCard","version":"1.5","body":[{"type":"TextBlock","text":"Hello"}]}'
 ```
 

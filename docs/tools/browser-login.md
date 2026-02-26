@@ -10,7 +10,7 @@ title: "Browser Login"
 
 ## Manual login (recommended)
 
-When a site requires login, **sign in manually** in the **host** browser profile (the Root browser).
+When a site requires login, **sign in manually** in the **host** browser profile (the Korvus browser).
 
 Do **not** give the model your credentials. Automated logins often trigger anti‑bot defenses and can lock the account.
 
@@ -26,8 +26,8 @@ Two easy ways to access it:
 2. **Open it via CLI**:
 
 ```bash
-Root browser start
-Root browser open https://x.com
+Korvus browser start
+Korvus browser open https://x.com
 ```
 
 If you have multiple profiles, pass `--browser-profile <name>` (the default is `Root`).
@@ -61,7 +61,7 @@ If the agent is sandboxed, the browser tool defaults to the sandbox. To allow ho
 Then target the host browser:
 
 ```bash
-Root browser open https://x.com --browser-profile Root --target host
+Korvus browser open https://x.com --browser-profile Root --target host
 ```
 
 Or disable sandboxing for the agent that posts updates.

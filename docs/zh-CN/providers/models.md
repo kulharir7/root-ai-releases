@@ -28,7 +28,7 @@ Venice 是我们推荐的 Venice AI 设置，用于隐私优先的推理，并�
 
 ## 快速开始（两个步骤）
 
-1. 与提供商认证（通常通过 `Root onboard`）。
+1. 与提供商认证（通常通过 `Korvus onboard`）。
 2. 设置默认模型：
 
 ```json5

@@ -20,9 +20,9 @@ OpenCode Zen 是由 OpenCode 团队推荐的一组**精选模型列表**，适�
 ## CLI 设置
 
 ```bash
-Root onboard --auth-choice opencode-zen
+Korvus onboard --auth-choice opencode-zen
 # 或非交互式
-Root onboard --opencode-zen-api-key "$OPENCODE_API_KEY"
+Korvus onboard --opencode-zen-api-key "$OPENCODE_API_KEY"
 ```
 
 ## 配置片段

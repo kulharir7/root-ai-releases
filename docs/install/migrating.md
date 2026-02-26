@@ -1,12 +1,12 @@
 ---
 summary: "Move (migrate) a Root install from one machine to another"
 read_when:
-  - You are moving Root to a new laptop/server
+  - You are moving Korvus to a new laptop/server
   - You want to preserve sessions, auth, and channel logins (WhatsApp, etc.)
 title: "Migration Guide"
 ---
 
-# Migrating Root to a new machine
+# Migrating Korvus to a new machine
 
 This guide migrates a Root Gateway from one machine to another **without redoing onboarding**.
 
@@ -33,7 +33,7 @@ But it may be different if you use:
 If you’re not sure, run on the **old** machine:
 
 ```bash
-Root status
+Korvus status
 ```
 
 Look for mentions of `Root_STATE_DIR` / profile in the output. If you run multiple gateways, repeat for each profile.
@@ -72,7 +72,7 @@ Those live under `$Root_STATE_DIR`.
 On the **old** machine, stop the gateway first so files aren’t changing mid-copy:
 
 ```bash
-Root gateway stop
+Korvus gateway stop
 ```
 
 (Optional but recommended) archive the state dir and workspace:
@@ -87,7 +87,7 @@ tar -czf Root-workspace.tgz .Root/workspace
 
 If you have multiple profiles/state dirs (e.g. `~/.Root-main`, `~/.Root-work`), archive each.
 
-### Step 1 — Install Root on the new machine
+### Step 1 — Install Korvus on the new machine
 
 On the **new** machine, install the CLI (and Node if needed):
 
@@ -118,7 +118,7 @@ After copying, ensure:
 On the **new** machine:
 
 ```bash
-Root doctor
+Korvus doctor
 ```
 
 Doctor is the “safe boring” command. It repairs services, applies config migrations, and warns about mismatches.
@@ -126,8 +126,8 @@ Doctor is the “safe boring” command. It repairs services, applies config mig
 Then:
 
 ```bash
-Root gateway restart
-Root status
+Korvus gateway restart
+Korvus status
 ```
 
 ## Common footguns (and how to avoid them)
@@ -143,7 +143,7 @@ If you ran the old gateway with a profile (or `Root_STATE_DIR`), and the new gat
 Fix: run the gateway/service using the **same** profile/state dir you migrated, then rerun:
 
 ```bash
-Root doctor
+Korvus doctor
 ```
 
 ### Footgun: copying only `Root.json`
@@ -180,7 +180,7 @@ If you’re in remote mode, migrate the **gateway host**.
 
 On the new machine, confirm:
 
-- `Root status` shows the gateway running
+- `Korvus status` shows the gateway running
 - Your channels are still connected (e.g. WhatsApp doesn’t require re-pair)
 - The dashboard opens and shows existing sessions
 - Your workspace files (memory, configs) are present

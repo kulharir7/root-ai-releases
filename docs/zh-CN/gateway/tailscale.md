@@ -87,8 +87,8 @@ Root 仅在请求从 loopback 到达并带有 Tailscale 的 `x-forwarded-for`、
 ## CLI 示例
 
 ```bash
-Root gateway --tailscale serve
-Root gateway --tailscale funnel --auth password
+Korvus gateway --tailscale serve
+Korvus gateway --tailscale funnel --auth password
 ```
 
 ## 注意事项

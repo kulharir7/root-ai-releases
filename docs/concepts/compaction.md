@@ -32,7 +32,7 @@ You’ll see:
 - `🧹 Auto-compaction complete` in verbose mode
 - `/status` showing `🧹 Compactions: <count>`
 
-Before compaction, Root can run a **silent memory flush** turn to store
+Before compaction, Korvus can run a **silent memory flush** turn to store
 durable notes to disk. See [Memory](/concepts/memory) for details and config.
 
 ## Manual compaction
@@ -45,7 +45,7 @@ Use `/compact` (optionally with instructions) to force a compaction pass:
 
 ## Context window source
 
-Context window is model-specific. Root uses the model definition from the configured provider catalog to determine limits.
+Context window is model-specific. Korvus uses the model definition from the configured provider catalog to determine limits.
 
 ## Compaction vs pruning
 

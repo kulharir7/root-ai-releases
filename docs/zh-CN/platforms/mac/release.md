@@ -13,7 +13,7 @@ x-i18n:
   workflow: 15
 ---
 
-# Root macOS 发布（Sparkle）
+# Korvus macOS 发布（Sparkle）
 
 本应用现已支持 Sparkle 自动更新。发布构建必须经过 Developer ID 签名、压缩，并发布包含签名的 appcast 条目。
 

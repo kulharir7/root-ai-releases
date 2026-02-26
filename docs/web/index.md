@@ -52,7 +52,7 @@ Keep the Gateway on loopback and let Tailscale Serve proxy it:
 Then start the gateway:
 
 ```bash
-Root gateway
+Korvus gateway
 ```
 
 Open:
@@ -74,7 +74,7 @@ Open:
 Then start the gateway (token required for non-loopback binds):
 
 ```bash
-Root gateway
+Korvus gateway
 ```
 
 Open:

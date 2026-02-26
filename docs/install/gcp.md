@@ -1,5 +1,5 @@
 ---
-summary: "Run Root Gateway 24/7 on a GCP Compute Engine VM (Docker) with durable state"
+summary: "Run Korvus Gateway 24/7 on a GCP Compute Engine VM (Docker) with durable state"
 read_when:
   - You want Root running 24/7 on GCP
   - You want a production-grade, always-on Gateway on your own VM
@@ -7,7 +7,7 @@ read_when:
 title: "GCP"
 ---
 
-# Root on GCP Compute Engine (Docker, Production VPS Guide)
+# Korvus on GCP Compute Engine (Docker, Production VPS Guide)
 
 ## Goal
 
@@ -400,7 +400,7 @@ Paste your gateway token.
 
 ## What persists where (source of truth)
 
-Root runs in Docker, but Docker is not the source of truth.
+Korvus runs in Docker, but Docker is not the source of truth.
 All long-lived state must survive restarts, rebuilds, and reboots.
 
 | Component           | Location                          | Persistence mechanism  | Notes                            |
@@ -420,7 +420,7 @@ All long-lived state must survive restarts, rebuilds, and reboots.
 
 ## Updates
 
-To update Root on the VM:
+To update Korvus on the VM:
 
 ```bash
 cd ~/Root
@@ -461,7 +461,7 @@ gcloud compute instances set-machine-type Root-gateway \
   --machine-type=e2-small
 
 # Start the VM
-gcloud compute instances start Root-gateway --zone=us-central1-a
+gcloud compute instances start Korvus-gateway --zone=us-central1-a
 ```
 
 ---

@@ -47,7 +47,7 @@ Venice offers two privacy levels — understanding this is key to choosing your 
 2. Go to **Settings → API Keys → Create new key**
 3. Copy your API key (format: `vapi_xxxxxxxxxxxx`)
 
-### 2. Configure Root
+### 2. Configure Korvus
 
 **Option A: Environment Variable**
 
@@ -58,7 +58,7 @@ export VENICE_API_KEY="vapi_xxxxxxxxxxxx"
 **Option B: Interactive Setup (Recommended)**
 
 ```bash
-Root onboard --auth-choice venice-api-key
+Korvus onboard --auth-choice venice-api-key
 ```
 
 This will:
@@ -71,7 +71,7 @@ This will:
 **Option C: Non-interactive**
 
 ```bash
-Root onboard --non-interactive \
+Korvus onboard --non-interactive \
   --auth-choice venice-api-key \
   --venice-api-key "vapi_xxxxxxxxxxxx"
 ```
@@ -94,19 +94,19 @@ After setup, Root shows all available Venice models. Pick based on your needs:
 Change your default model anytime:
 
 ```bash
-Root models set venice/claude-opus-45
-Root models set venice/llama-3.3-70b
+Korvus models set venice/claude-opus-45
+Korvus models set venice/llama-3.3-70b
 ```
 
 List all available models:
 
 ```bash
-Root models list | grep venice
+Korvus models list | grep venice
 ```
 
-## Configure via `Root configure`
+## Configure via `Korvus configure`
 
-1. Run `Root configure`
+1. Run `Korvus configure`
 2. Select **Model/auth**
 3. Choose **Venice AI**
 
@@ -216,14 +216,14 @@ Root chat --model venice/qwen3-coder-480b-a35b-instruct
 
 ```bash
 echo $VENICE_API_KEY
-Root models list | grep venice
+Korvus models list | grep venice
 ```
 
 Ensure the key starts with `vapi_`.
 
 ### Model not available
 
-The Venice model catalog updates dynamically. Run `Root models list` to see currently available models. Some models may be temporarily offline.
+The Venice model catalog updates dynamically. Run `Korvus models list` to see currently available models. Some models may be temporarily offline.
 
 ### Connection issues
 

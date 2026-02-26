@@ -44,13 +44,13 @@ Status: production-ready via WhatsApp Web (Baileys). Gateway owns linked session
   <Step title="Link WhatsApp (QR)">
 
 ```bash
-Root channels login --channel whatsapp
+Korvus channels login --channel whatsapp
 ```
 
     For a specific account:
 
 ```bash
-Root channels login --channel whatsapp --account work
+Korvus channels login --channel whatsapp --account work
 ```
 
   </Step>
@@ -58,7 +58,7 @@ Root channels login --channel whatsapp --account work
   <Step title="Start the gateway">
 
 ```bash
-Root gateway
+Korvus gateway
 ```
 
   </Step>
@@ -85,7 +85,7 @@ Root recommends running WhatsApp on a separate number when possible. (The channe
   <Accordion title="Dedicated number (recommended)">
     This is the cleanest operational mode:
 
-    - separate WhatsApp identity for Root
+    - separate WhatsApp identity for Korvus
     - clearer DM allowlists and routing boundaries
     - lower chance of self-chat confusion
 
@@ -349,7 +349,7 @@ Behavior notes:
   </Accordion>
 
   <Accordion title="Logout behavior">
-    `Root channels logout --channel whatsapp [--account <id>]` clears WhatsApp auth state for that account.
+    `Korvus channels logout --channel whatsapp [--account <id>]` clears WhatsApp auth state for that account.
 
     In legacy auth directories, `oauth.json` is preserved while Baileys auth files are removed.
 
@@ -373,8 +373,8 @@ Behavior notes:
     Fix:
 
     ```bash
-    Root channels login --channel whatsapp
-    Root channels status
+    Korvus channels login --channel whatsapp
+    Korvus channels status
     ```
 
   </Accordion>
@@ -385,8 +385,8 @@ Behavior notes:
     Fix:
 
     ```bash
-    Root doctor
-    Root logs --follow
+    Korvus doctor
+    Korvus logs --follow
     ```
 
     If needed, re-link with `channels login`.

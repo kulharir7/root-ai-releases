@@ -31,4 +31,4 @@ How to see whether the linked channel is healthy from the menu bar app.
 
 ## When in doubt
 
-- You can still use the CLI flow in [Gateway health](/gateway/health) (`Root status`, `Root status --deep`, `Root health --json`) and tail `/tmp/Root/Root-*.log` for `web-heartbeat` / `web-reconnect`.
+- You can still use the CLI flow in [Gateway health](/gateway/health) (`Korvus status`, `Korvus status --deep`, `Root health --json`) and tail `/tmp/Root/Root-*.log` for `web-heartbeat` / `web-reconnect`.

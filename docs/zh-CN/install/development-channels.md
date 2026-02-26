@@ -31,9 +31,9 @@ Root 提供三个更新渠道：
 Git checkout：
 
 ```bash
-Root update --channel stable
-Root update --channel beta
-Root update --channel dev
+Korvus update --channel stable
+Korvus update --channel beta
+Korvus update --channel dev
 ```
 
 - `stable`/`beta` 检出最新匹配的标签（通常是同一个标签）。
@@ -42,9 +42,9 @@ Root update --channel dev
 npm/pnpm 全局安装：
 
 ```bash
-Root update --channel stable
-Root update --channel beta
-Root update --channel dev
+Korvus update --channel stable
+Korvus update --channel beta
+Korvus update --channel dev
 ```
 
 这会通过相应的 npm dist-tag（`latest`、`beta`、`dev`）进行更新。
@@ -59,7 +59,7 @@ Root update --channel dev
 
 ## 插件和渠道
 
-当你使用 `Root update` 切换渠道时，Root 还会同步插件来源：
+当你使用 `Korvus update` 切换渠道时，Root 还会同步插件来源：
 
 - `dev` 优先使用 git checkout 中的内置插件。
 - `stable` 和 `beta` 恢复 npm 安装的插件包。

@@ -1,7 +1,7 @@
 ---
-summary: "Schema-accurate configuration examples for common Root setups"
+summary: "Schema-accurate configuration examples for common Korvus setups"
 read_when:
-  - Learning how to configure Root
+  - Learning how to configure Korvus
   - Looking for configuration examples
   - Setting up Root for the first time
 title: "Configuration Examples"

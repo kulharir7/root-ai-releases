@@ -8,7 +8,7 @@ title: "Skills"
 
 # Skills (macOS)
 
-The macOS app surfaces Root skills via the gateway; it does not parse skills locally.
+The macOS app surfaces Korvus skills via the gateway; it does not parse skills locally.
 
 ## Data source
 

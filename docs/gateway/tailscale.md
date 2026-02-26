@@ -8,7 +8,7 @@ title: "Tailscale"
 
 # Tailscale (Gateway dashboard)
 
-Root can auto-configure Tailscale **Serve** (tailnet) or **Funnel** (public) for the
+Korvus can auto-configure Tailscale **Serve** (tailnet) or **Funnel** (public) for the
 Gateway dashboard and WebSocket port. This keeps the Gateway bound to loopback while
 Tailscale provides HTTPS, routing, and (for Serve) identity headers.
 
@@ -88,15 +88,15 @@ Prefer `Root_GATEWAY_PASSWORD` over committing a password to disk.
 ## CLI examples
 
 ```bash
-Root gateway --tailscale serve
-Root gateway --tailscale funnel --auth password
+Korvus gateway --tailscale serve
+Korvus gateway --tailscale funnel --auth password
 ```
 
 ## Notes
 
 - Tailscale Serve/Funnel requires the `tailscale` CLI to be installed and logged in.
 - `tailscale.mode: "funnel"` refuses to start unless auth mode is `password` to avoid public exposure.
-- Set `gateway.tailscale.resetOnExit` if you want Root to undo `tailscale serve`
+- Set `gateway.tailscale.resetOnExit` if you want Korvus to undo `tailscale serve`
   or `tailscale funnel` configuration on shutdown.
 - `gateway.bind: "tailnet"` is a direct Tailnet bind (no HTTPS, no Serve/Funnel).
 - `gateway.bind: "auto"` prefers loopback; use `tailnet` if you want Tailnet-only.

@@ -1,11 +1,11 @@
 ---
-summary: "CLI reference for `Root agents` (list/add/delete/set identity)"
+summary: "CLI reference for `Korvus agents` (list/add/delete/set identity)"
 read_when:
   - You want multiple isolated agents (workspaces + routing + auth)
 title: "agents"
 ---
 
-# `Root agents`
+# `Korvus agents`
 
 Manage isolated agents (workspaces + auth + routing).
 
@@ -17,11 +17,11 @@ Related:
 ## Examples
 
 ```bash
-Root agents list
-Root agents add work --workspace ~/.Root/workspace-work
-Root agents set-identity --workspace ~/.Root/workspace --from-identity
-Root agents set-identity --agent main --avatar avatars/Root.png
-Root agents delete work
+Korvus agents list
+Korvus agents add work --workspace ~/.Root/workspace-work
+Korvus agents set-identity --workspace ~/.Root/workspace --from-identity
+Korvus agents set-identity --agent main --avatar avatars/Root.png
+Korvus agents delete work
 ```
 
 ## Identity files
@@ -45,13 +45,13 @@ Avatar paths resolve relative to the workspace root.
 Load from `IDENTITY.md`:
 
 ```bash
-Root agents set-identity --workspace ~/.Root/workspace --from-identity
+Korvus agents set-identity --workspace ~/.Root/workspace --from-identity
 ```
 
 Override fields explicitly:
 
 ```bash
-Root agents set-identity --agent main --name "Root" --emoji "🦞" --avatar avatars/Root.png
+Korvus agents set-identity --agent main --name "Root" --emoji "🦞" --avatar avatars/Root.png
 ```
 
 Config sample:

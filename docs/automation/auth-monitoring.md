@@ -8,13 +8,13 @@ title: "Auth Monitoring"
 
 # Auth monitoring
 
-Root exposes OAuth expiry health via `Root models status`. Use that for
+Root exposes OAuth expiry health via `Korvus models status`. Use that for
 automation and alerting; scripts are optional extras for phone workflows.
 
 ## Preferred: CLI check (portable)
 
 ```bash
-Root models status --check
+Korvus models status --check
 ```
 
 Exit codes:
@@ -30,7 +30,7 @@ This works in cron/systemd and requires no extra scripts.
 These live under `scripts/` and are **optional**. They assume SSH access to the
 gateway host and are tuned for systemd + Termux.
 
-- `scripts/claude-auth-status.sh` now uses `Root models status --json` as the
+- `scripts/claude-auth-status.sh` now uses `Korvus models status --json` as the
   source of truth (falling back to direct file reads if the CLI is unavailable),
   so keep `Root` on `PATH` for timers.
 - `scripts/auth-monitor.sh`: cron/systemd timer target; sends alerts (ntfy or phone).

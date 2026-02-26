@@ -1,28 +1,28 @@
 ---
-summary: "CLI reference for `Root update` (safe-ish source update + gateway auto-restart)"
+summary: "CLI reference for `Korvus update` (safe-ish source update + gateway auto-restart)"
 read_when:
   - You want to update a source checkout safely
   - You need to understand `--update` shorthand behavior
 title: "update"
 ---
 
-# `Root update`
+# `Korvus update`
 
-Safely update Root and switch between stable/beta/dev channels.
+Safely update Korvus and switch between stable/beta/dev channels.
 
 If you installed via **npm/pnpm** (global install, no git metadata), updates happen via the package manager flow in [Updating](/install/updating).
 
 ## Usage
 
 ```bash
-Root update
-Root update status
-Root update wizard
-Root update --channel beta
-Root update --channel dev
-Root update --tag beta
-Root update --no-restart
-Root update --json
+Korvus update
+Korvus update status
+Korvus update wizard
+Korvus update --channel beta
+Korvus update --channel dev
+Korvus update --tag beta
+Korvus update --no-restart
+Korvus update --json
 Root --update
 ```
 
@@ -41,9 +41,9 @@ Note: downgrades require confirmation because older versions can break configura
 Show the active update channel + git tag/branch/SHA (for source checkouts), plus update availability.
 
 ```bash
-Root update status
-Root update status --json
-Root update status --timeout 10
+Korvus update status
+Korvus update status --json
+Korvus update status --timeout 10
 ```
 
 Options:
@@ -83,16 +83,16 @@ High-level:
 5. Rebases onto the selected commit (dev only).
 6. Installs deps (pnpm preferred; npm fallback).
 7. Builds + builds the Control UI.
-8. Runs `Root doctor` as the final “safe update” check.
+8. Runs `Korvus doctor` as the final “safe update” check.
 9. Syncs plugins to the active channel (dev uses bundled extensions; stable/beta uses npm) and updates npm-installed plugins.
 
 ## `--update` shorthand
 
-`Root --update` rewrites to `Root update` (useful for shells and launcher scripts).
+`Root --update` rewrites to `Korvus update` (useful for shells and launcher scripts).
 
 ## See also
 
-- `Root doctor` (offers to run update first on git checkouts)
+- `Korvus doctor` (offers to run update first on git checkouts)
 - [Development channels](/install/development-channels)
 - [Updating](/install/updating)
 - [CLI reference](/cli)

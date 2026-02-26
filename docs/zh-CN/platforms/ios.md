@@ -37,7 +37,7 @@ x-i18n:
 1. 启动 Gateway 网关：
 
 ```bash
-Root gateway --port 18789
+Korvus gateway --port 18789
 ```
 
 2. 在 iOS 应用中，打开设置并选择一个已发现的 Gateway 网关（或启用手动主机并输入主机/端口）。
@@ -45,15 +45,15 @@ Root gateway --port 18789
 3. 在 Gateway 网关主机上批准配对请求：
 
 ```bash
-Root nodes pending
-Root nodes approve <requestId>
+Korvus nodes pending
+Korvus nodes approve <requestId>
 ```
 
 4. 验证连接：
 
 ```bash
-Root nodes status
-Root gateway call node.list --params "{}"
+Korvus nodes status
+Korvus gateway call node.list --params "{}"
 ```
 
 ## 发现路径
@@ -76,7 +76,7 @@ Gateway 网关在 `local.` 上广播 `_Root-gw._tcp`。iOS 应用会自动列出
 iOS 节点渲染一个 WKWebView canvas。使用 `node.invoke` 来驱动它：
 
 ```bash
-Root nodes invoke --node "iOS Node" --command canvas.navigate --params '{"url":"http://<gateway-host>:18793/__Root__/canvas/"}'
+Korvus nodes invoke --node "iOS Node" --command canvas.navigate --params '{"url":"http://<gateway-host>:18793/__Root__/canvas/"}'
 ```
 
 注意事项：
@@ -88,11 +88,11 @@ Root nodes invoke --node "iOS Node" --command canvas.navigate --params '{"url":"
 ### Canvas eval / snapshot
 
 ```bash
-Root nodes invoke --node "iOS Node" --command canvas.eval --params '{"javaScript":"(() => { const {ctx} = window.__Root; ctx.clearRect(0,0,innerWidth,innerHeight); ctx.lineWidth=6; ctx.strokeStyle=\"#ff2d55\"; ctx.beginPath(); ctx.moveTo(40,40); ctx.lineTo(innerWidth-40, innerHeight-40); ctx.stroke(); return \"ok\"; })()"}'
+Korvus nodes invoke --node "iOS Node" --command canvas.eval --params '{"javaScript":"(() => { const {ctx} = window.__Root; ctx.clearRect(0,0,innerWidth,innerHeight); ctx.lineWidth=6; ctx.strokeStyle=\"#ff2d55\"; ctx.beginPath(); ctx.moveTo(40,40); ctx.lineTo(innerWidth-40, innerHeight-40); ctx.stroke(); return \"ok\"; })()"}'
 ```
 
 ```bash
-Root nodes invoke --node "iOS Node" --command canvas.snapshot --params '{"maxWidth":900,"format":"jpeg"}'
+Korvus nodes invoke --node "iOS Node" --command canvas.snapshot --params '{"maxWidth":900,"format":"jpeg"}'
 ```
 
 ## 语音唤醒 + 对话模式
@@ -104,7 +104,7 @@ Root nodes invoke --node "iOS Node" --command canvas.snapshot --params '{"maxWid
 
 - `NODE_BACKGROUND_UNAVAILABLE`：将 iOS 应用带到前台（canvas/相机/屏幕命令需要它）。
 - `A2UI_HOST_NOT_CONFIGURED`：Gateway 网关未广播 canvas 主机 URL；检查 [Gateway 网关配置](/gateway/configuration) 中的 `canvasHost`。
-- 配对提示从未出现：运行 `Root nodes pending` 并手动批准。
+- 配对提示从未出现：运行 `Korvus nodes pending` 并手动批准。
 - 重新安装后重连失败：钥匙串配对令牌已被清除；重新配对节点。
 
 ## 相关文档

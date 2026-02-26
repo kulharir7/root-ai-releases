@@ -26,7 +26,7 @@ Status: bundled plugin that talks to the BlueBubbles macOS server over HTTP. **R
 
 1. Install the BlueBubbles server on your Mac (follow the instructions at [bluebubbles.app/install](https://bluebubbles.app/install)).
 2. In the BlueBubbles config, enable the web API and set a password.
-3. Run `Root onboard` and select BlueBubbles, or configure manually:
+3. Run `Korvus onboard` and select BlueBubbles, or configure manually:
 
    ```json5
    {
@@ -127,7 +127,7 @@ launchctl load ~/Library/LaunchAgents/com.user.poke-messages.plist
 BlueBubbles is available in the interactive setup wizard:
 
 ```
-Root onboard
+Korvus onboard
 ```
 
 The wizard prompts for:
@@ -141,7 +141,7 @@ The wizard prompts for:
 You can also add BlueBubbles via CLI:
 
 ```
-Root channels add bluebubbles --http-url http://192.168.1.100:1234 --password <password>
+Korvus channels add bluebubbles --http-url http://192.168.1.100:1234 --password <password>
 ```
 
 ## Access control (DMs + groups)
@@ -323,7 +323,7 @@ Prefer `chat_guid` for stable routing:
 - `chat_id:123`
 - `chat_identifier:...`
 - Direct handles: `+15555550123`, `user@example.com`
-  - If a direct handle does not have an existing DM chat, Root will create one via `POST /api/v1/chat/new`. This requires the BlueBubbles Private API to be enabled.
+  - If a direct handle does not have an existing DM chat, Korvus will create one via `POST /api/v1/chat/new`. This requires the BlueBubbles Private API to be enabled.
 
 ## Security
 
@@ -340,6 +340,6 @@ Prefer `chat_guid` for stable routing:
 - Edit/unsend require macOS 13+ and a compatible BlueBubbles server version. On macOS 26 (Tahoe), edit is currently broken due to private API changes.
 - Group icon updates can be flaky on macOS 26 (Tahoe): the API may return success but the new icon does not sync.
 - Root auto-hides known-broken actions based on the BlueBubbles server's macOS version. If edit still appears on macOS 26 (Tahoe), disable it manually with `channels.bluebubbles.actions.edit=false`.
-- For status/health info: `Root status --all` or `Root status --deep`.
+- For status/health info: `Korvus status --all` or `Korvus status --deep`.
 
 For general channel workflow reference, see [Channels](/channels) and the [Plugins](/tools/plugin) guide.

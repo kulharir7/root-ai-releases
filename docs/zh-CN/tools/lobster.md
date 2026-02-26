@@ -1,5 +1,5 @@
 ---
-description: Typed workflow runtime for Root — composable pipelines with approval gates.
+description: Typed workflow runtime for Korvus — composable pipelines with approval gates.
 read_when:
   - 你想要具有显式审批的确定性多步骤工作流
   - 你需要恢复工作流而不重新运行早期步骤

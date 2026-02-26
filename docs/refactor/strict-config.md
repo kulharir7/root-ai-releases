@@ -48,8 +48,8 @@ title: "Strict Config Validation"
 - Doctor runs **every time** config is loaded (dry-run by default).
 - If config invalid:
   - Print a summary + actionable errors.
-  - Instruct: `Root doctor --fix`.
-- `Root doctor --fix`:
+  - Instruct: `Korvus doctor --fix`.
+- `Korvus doctor --fix`:
   - Applies migrations.
   - Removes unknown keys.
   - Writes updated config.
@@ -58,14 +58,14 @@ title: "Strict Config Validation"
 
 Allowed (diagnostic-only):
 
-- `Root doctor`
-- `Root logs`
+- `Korvus doctor`
+- `Korvus logs`
 - `Root health`
 - `Root help`
-- `Root status`
-- `Root gateway status`
+- `Korvus status`
+- `Korvus gateway status`
 
-Everything else must hard-fail with: “Config invalid. Run `Root doctor --fix`.”
+Everything else must hard-fail with: “Config invalid. Run `Korvus doctor --fix`.”
 
 ## Error UX format
 

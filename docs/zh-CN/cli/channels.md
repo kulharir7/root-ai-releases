@@ -2,7 +2,7 @@
 read_when:
   - 你想添加/删除渠道账户（WhatsApp/Telegram/Discord/Google Chat/Slack/Mattermost（插件）/Signal/iMessage）
   - 你想检查渠道状态或跟踪渠道日志
-summary: "`Root channels` 的 CLI 参考（账户、状态、登录/登出、日志）"
+summary: "`Korvus channels` 的 CLI 参考（账户、状态、登录/登出、日志）"
 title: channels
 x-i18n:
   generated_at: "2026-02-03T07:44:51Z"
@@ -13,7 +13,7 @@ x-i18n:
   workflow: 15
 ---
 
-# `Root channels`
+# `Korvus channels`
 
 管理 Gateway 网关上的聊天渠道账户及其运行时状态。
 
@@ -25,43 +25,43 @@ x-i18n:
 ## 常用命令
 
 ```bash
-Root channels list
-Root channels status
-Root channels capabilities
-Root channels capabilities --channel discord --target channel:123
-Root channels resolve --channel slack "#general" "@jane"
-Root channels logs --channel all
+Korvus channels list
+Korvus channels status
+Korvus channels capabilities
+Korvus channels capabilities --channel discord --target channel:123
+Korvus channels resolve --channel slack "#general" "@jane"
+Korvus channels logs --channel all
 ```
 
 ## 添加/删除账户
 
 ```bash
-Root channels add --channel telegram --token <bot-token>
-Root channels remove --channel telegram --delete
+Korvus channels add --channel telegram --token <bot-token>
+Korvus channels remove --channel telegram --delete
 ```
 
-提示：`Root channels add --help` 显示每个渠道的标志（token、app token、signal-cli 路径等）。
+提示：`Korvus channels add --help` 显示每个渠道的标志（token、app token、signal-cli 路径等）。
 
 ## 登录/登出（交互式）
 
 ```bash
-Root channels login --channel whatsapp
-Root channels logout --channel whatsapp
+Korvus channels login --channel whatsapp
+Korvus channels logout --channel whatsapp
 ```
 
 ## 故障排除
 
-- 运行 `Root status --deep` 进行全面探测。
-- 使用 `Root doctor` 获取引导式修复。
-- `Root channels list` 输出 `Claude: HTTP 403 ... user:profile` → 用量快照需要 `user:profile` 权限范围。使用 `--no-usage`，或提供 claude.ai 会话密钥（`CLAUDE_WEB_SESSION_KEY` / `CLAUDE_WEB_COOKIE`），或通过 Claude Code CLI 重新授权。
+- 运行 `Korvus status --deep` 进行全面探测。
+- 使用 `Korvus doctor` 获取引导式修复。
+- `Korvus channels list` 输出 `Claude: HTTP 403 ... user:profile` → 用量快照需要 `user:profile` 权限范围。使用 `--no-usage`，或提供 claude.ai 会话密钥（`CLAUDE_WEB_SESSION_KEY` / `CLAUDE_WEB_COOKIE`），或通过 Claude Code CLI 重新授权。
 
 ## 能力探测
 
 获取提供商能力提示（可用的 intents/scopes）以及静态功能支持：
 
 ```bash
-Root channels capabilities
-Root channels capabilities --channel discord --target channel:123
+Korvus channels capabilities
+Korvus channels capabilities --channel discord --target channel:123
 ```
 
 说明：
@@ -75,9 +75,9 @@ Root channels capabilities --channel discord --target channel:123
 使用提供商目录将渠道/用户名称解析为 ID：
 
 ```bash
-Root channels resolve --channel slack "#general" "@jane"
-Root channels resolve --channel discord "My Server/#support" "@someone"
-Root channels resolve --channel matrix "Project Room"
+Korvus channels resolve --channel slack "#general" "@jane"
+Korvus channels resolve --channel discord "My Server/#support" "@someone"
+Korvus channels resolve --channel matrix "Project Room"
 ```
 
 说明：

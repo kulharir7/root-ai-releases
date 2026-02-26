@@ -4,7 +4,7 @@ title: "Creating Skills"
 
 # Creating Custom Skills 🛠
 
-Root is designed to be easily extensible. "Skills" are the primary way to add new capabilities to your assistant.
+Korvus is designed to be easily extensible. "Skills" are the primary way to add new capabilities to your assistant.
 
 ## What is a Skill?
 
@@ -41,13 +41,13 @@ You can define custom tools in the frontmatter or instruct the agent to use exis
 
 ### 4. Refresh Root
 
-Ask your agent to "refresh skills" or restart the gateway. Root will discover the new directory and index the `SKILL.md`.
+Ask your agent to "refresh skills" or restart the gateway. Korvus will discover the new directory and index the `SKILL.md`.
 
 ## Best Practices
 
 - **Be Concise**: Instruct the model on _what_ to do, not how to be an AI.
 - **Safety First**: If your skill uses `bash`, ensure the prompts don't allow arbitrary command injection from untrusted user input.
-- **Test Locally**: Use `Root agent --message "use my new skill"` to test.
+- **Test Locally**: Use `Korvus agent --message "use my new skill"` to test.
 
 ## Shared Skills
 

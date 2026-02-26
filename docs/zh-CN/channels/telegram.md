@@ -239,7 +239,7 @@ Root 在启动时向 Telegram 的机器人菜单注册原生命令（如 `/statu
 
 **提示：** 要获取你自己的用户 ID，私信机器人，它会回复你的用户 ID（配对消息），或者在命令启用后使用 `/whoami`。
 
-**隐私注意：** `@userinfobot` 是第三方机器人。如果你更倾向于其他方式，将机器人添加到群组，发送一条消息，然后使用 `Root logs --follow` 读取 `chat.id`，或使用 Bot API `getUpdates`。
+**隐私注意：** `@userinfobot` 是第三方机器人。如果你更倾向于其他方式，将机器人添加到群组，发送一条消息，然后使用 `Korvus logs --follow` 读取 `chat.id`，或使用 Bot API `getUpdates`。
 
 ## 配置写入
 
@@ -364,7 +364,7 @@ Telegram 功能可以在两个级别配置（上面显示的对象形式；旧�
 更安全（无第三方机器人）：
 
 1. 启动 Gateway 网关并私信你的机器人。
-2. 运行 `Root logs --follow` 并查找 `from.id`。
+2. 运行 `Korvus logs --follow` 并查找 `from.id`。
 
 备选（官方 Bot API）：
 
@@ -661,7 +661,7 @@ Telegram 反应作为**单独的 `message_reaction` 事件**到达，而不是�
 ## 投递目标（CLI/cron）
 
 - 使用聊天 id（`123456789`）或用户名（`@name`）作为目标。
-- 示例：`Root message send --channel telegram --target 123456789 --message "hi"`。
+- 示例：`Korvus message send --channel telegram --target 123456789 --message "hi"`。
 
 ## 故障排除
 
@@ -669,8 +669,8 @@ Telegram 反应作为**单独的 `message_reaction` 事件**到达，而不是�
 
 - 如果你设置了 `channels.telegram.groups.*.requireMention=false`，Telegram 的 Bot API **隐私模式**必须禁用。
   - BotFather：`/setprivacy` → **Disable**（然后从群组中移除并重新添加机器人）
-- `Root channels status` 在配置期望未提及群组消息时显示警告。
-- `Root channels status --probe` 可以额外检查显式数字群组 ID 的成员资格（它无法审计通配符 `"*"` 规则）。
+- `Korvus channels status` 在配置期望未提及群组消息时显示警告。
+- `Korvus channels status --probe` 可以额外检查显式数字群组 ID 的成员资格（它无法审计通配符 `"*"` 规则）。
 - 快速测试：`/activation always`（仅会话级别；使用配置以持久化）
 
 **机器人完全看不到群组消息：**
@@ -678,7 +678,7 @@ Telegram 反应作为**单独的 `message_reaction` 事件**到达，而不是�
 - 如果设置了 `channels.telegram.groups`，群组必须被列出或使用 `"*"`
 - 在 @BotFather 中检查隐私设置 →"Group Privacy"应为 **OFF**
 - 验证机器人确实是成员（不仅仅是没有读取权限的管理员）
-- 检查 Gateway 网关日志：`Root logs --follow`（查找"skipping group message"）
+- 检查 Gateway 网关日志：`Korvus logs --follow`（查找"skipping group message"）
 
 **机器人响应提及但不响应 `/activation always`：**
 

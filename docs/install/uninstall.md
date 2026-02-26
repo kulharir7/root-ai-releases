@@ -1,5 +1,5 @@
 ---
-summary: "Uninstall Root completely (CLI, service, state, workspace)"
+summary: "Uninstall Korvus completely (CLI, service, state, workspace)"
 read_when:
   - You want to remove Root from a machine
   - The gateway service is still running after uninstall
@@ -33,13 +33,13 @@ Manual steps (same result):
 1. Stop the gateway service:
 
 ```bash
-Root gateway stop
+Korvus gateway stop
 ```
 
 2. Uninstall the gateway service (launchd/systemd/schtasks):
 
 ```bash
-Root gateway uninstall
+Korvus gateway uninstall
 ```
 
 3. Delete state + config:
@@ -121,7 +121,7 @@ Remove it with `npm rm -g Root` (or `pnpm remove -g` / `bun remove -g` if you in
 
 ### Source checkout (git clone)
 
-If you run from a repo checkout (`git clone` + `Root ...` / `bun run Root ...`):
+If you run from a repo checkout (`git clone` + `Root ...` / `bun run Korvus ...`):
 
 1. Uninstall the gateway service **before** deleting the repo (use the easy path above or manual service removal).
 2. Delete the repo directory.

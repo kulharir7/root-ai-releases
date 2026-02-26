@@ -20,7 +20,7 @@ OpenRouter 提供了一个**统一 API**，通过单一端点和 API 密钥将�
 ## CLI 设置
 
 ```bash
-Root onboard --auth-choice apiKey --token-provider openrouter --token "$OPENROUTER_API_KEY"
+Korvus onboard --auth-choice apiKey --token-provider openrouter --token "$OPENROUTER_API_KEY"
 ```
 
 ## 配置片段

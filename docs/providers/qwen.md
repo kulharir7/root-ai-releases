@@ -14,7 +14,7 @@ Qwen provides a free-tier OAuth flow for Qwen Coder and Qwen Vision models
 ## Enable the plugin
 
 ```bash
-Root plugins enable qwen-portal-auth
+Korvus plugins enable qwen-portal-auth
 ```
 
 Restart the Gateway after enabling.
@@ -22,7 +22,7 @@ Restart the Gateway after enabling.
 ## Authenticate
 
 ```bash
-Root models auth login --provider qwen-portal --set-default
+Korvus models auth login --provider qwen-portal --set-default
 ```
 
 This runs the Qwen device-code OAuth flow and writes a provider entry to your
@@ -36,12 +36,12 @@ This runs the Qwen device-code OAuth flow and writes a provider entry to your
 Switch models with:
 
 ```bash
-Root models set qwen-portal/coder-model
+Korvus models set qwen-portal/coder-model
 ```
 
 ## Reuse Qwen Code CLI login
 
-If you already logged in with the Qwen Code CLI, Root will sync credentials
+If you already logged in with the Qwen Code CLI, Korvus will sync credentials
 from `~/.qwen/oauth_creds.json` when it loads the auth store. You still need a
 `models.providers.qwen-portal` entry (use the login command above to create one).
 

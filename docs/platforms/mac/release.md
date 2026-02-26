@@ -6,7 +6,7 @@ read_when:
 title: "macOS Release"
 ---
 
-# Root macOS release (Sparkle)
+# Korvus macOS release (Sparkle)
 
 This app now ships Sparkle auto-updates. Release builds must be Developer ID–signed, zipped, and published with a signed appcast entry.
 

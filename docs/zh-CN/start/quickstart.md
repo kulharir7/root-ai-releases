@@ -36,26 +36,26 @@ Root 需要 Node 22 或更新版本。
 <Steps>
   <Step title="新手引导并安装服务">
     ```bash
-    Root onboard --install-daemon
+    Korvus onboard --install-daemon
     ```
   </Step>
   <Step title="配对 WhatsApp">
     ```bash
-    Root channels login
+    Korvus channels login
     ```
   </Step>
   <Step title="启动 Gateway 网关">
     ```bash
-    Root gateway --port 18789
+    Korvus gateway --port 18789
     ```
   </Step>
 </Steps>
 
-完成新手引导后，Gateway 网关将通过用户服务运行。你也可以使用 `Root gateway` 手动启动。
+完成新手引导后，Gateway 网关将通过用户服务运行。你也可以使用 `Korvus gateway` 手动启动。
 
 <Info>
 之后在 npm 安装和 git 安装之间切换非常简单。安装另一种方式后，运行
-`Root doctor` 即可更新 Gateway 网关服务入口点。
+`Korvus doctor` 即可更新 Gateway 网关服务入口点。
 </Info>
 
 ## 从源码安装（开发）
@@ -66,7 +66,7 @@ cd Root
 pnpm install
 pnpm ui:build # 首次运行时会自动安装 UI 依赖
 pnpm build
-Root onboard --install-daemon
+Korvus onboard --install-daemon
 ```
 
 如果你还没有全局安装，可以在仓库目录中通过 `pnpm Root ...` 运行新手引导。
@@ -76,7 +76,7 @@ Root onboard --install-daemon
 ```bash
 Root_CONFIG_PATH=~/.Root/a.json \
 Root_STATE_DIR=~/.Root-a \
-Root gateway --port 19001
+Korvus gateway --port 19001
 ```
 
 ## 发送测试消息
@@ -84,5 +84,5 @@ Root gateway --port 19001
 需要一个正在运行的 Gateway 网关。
 
 ```bash
-Root message send --target +15555550123 --message "Hello from Root"
+Korvus message send --target +15555550123 --message "Hello from Root"
 ```

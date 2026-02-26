@@ -1,12 +1,12 @@
 ---
-summary: "CLI reference for `Root security` (audit and fix common security footguns)"
+summary: "CLI reference for `Korvus security` (audit and fix common security footguns)"
 read_when:
   - You want to run a quick security audit on config/state
   - You want to apply safe “fix” suggestions (chmod, tighten defaults)
 title: "security"
 ---
 
-# `Root security`
+# `Korvus security`
 
 Security tools (audit + optional fixes).
 
@@ -17,9 +17,9 @@ Related:
 ## Audit
 
 ```bash
-Root security audit
-Root security audit --deep
-Root security audit --fix
+Korvus security audit
+Korvus security audit --deep
+Korvus security audit --fix
 ```
 
 The audit warns when multiple DM senders share the main session and recommends **secure DM mode**: `session.dmScope="per-channel-peer"` (or `per-account-channel-peer` for multi-account channels) for shared inboxes.

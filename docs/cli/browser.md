@@ -1,13 +1,13 @@
 ---
-summary: "CLI reference for `Root browser` (profiles, tabs, actions, extension relay)"
+summary: "CLI reference for `Korvus browser` (profiles, tabs, actions, extension relay)"
 read_when:
-  - You use `Root browser` and want examples for common tasks
+  - You use `Korvus browser` and want examples for common tasks
   - You want to control a browser running on another machine via a node host
   - You want to use the Chrome extension relay (attach/detach via toolbar button)
 title: "browser"
 ---
 
-# `Root browser`
+# `Korvus browser`
 
 Manage Root’s browser control server and run browser actions (tabs, snapshots, screenshots, navigation, clicks, typing).
 
@@ -27,10 +27,10 @@ Related:
 ## Quick start (local)
 
 ```bash
-Root browser --browser-profile chrome tabs
-Root browser --browser-profile Root start
-Root browser --browser-profile Root open https://example.com
-Root browser --browser-profile Root snapshot
+Korvus browser --browser-profile chrome tabs
+Korvus browser --browser-profile Root start
+Korvus browser --browser-profile Root open https://example.com
+Korvus browser --browser-profile Root snapshot
 ```
 
 ## Profiles
@@ -41,24 +41,24 @@ Profiles are named browser routing configs. In practice:
 - `chrome`: controls your existing Chrome tab(s) via the Chrome extension relay.
 
 ```bash
-Root browser profiles
-Root browser create-profile --name work --color "#FF5A36"
-Root browser delete-profile --name work
+Korvus browser profiles
+Korvus browser create-profile --name work --color "#FF5A36"
+Korvus browser delete-profile --name work
 ```
 
 Use a specific profile:
 
 ```bash
-Root browser --browser-profile work tabs
+Korvus browser --browser-profile work tabs
 ```
 
 ## Tabs
 
 ```bash
-Root browser tabs
-Root browser open https://docs.Root.ai
-Root browser focus <targetId>
-Root browser close <targetId>
+Korvus browser tabs
+Korvus browser open https://docs.Root.ai
+Korvus browser focus <targetId>
+Korvus browser close <targetId>
 ```
 
 ## Snapshot / screenshot / actions
@@ -66,21 +66,21 @@ Root browser close <targetId>
 Snapshot:
 
 ```bash
-Root browser snapshot
+Korvus browser snapshot
 ```
 
 Screenshot:
 
 ```bash
-Root browser screenshot
+Korvus browser screenshot
 ```
 
 Navigate/click/type (ref-based UI automation):
 
 ```bash
-Root browser navigate https://example.com
-Root browser click <ref>
-Root browser type <ref> "hello"
+Korvus browser navigate https://example.com
+Korvus browser click <ref>
+Korvus browser type <ref> "hello"
 ```
 
 ## Chrome extension relay (attach via toolbar button)
@@ -90,8 +90,8 @@ This mode lets the agent control an existing Chrome tab that you attach manually
 Install the unpacked extension to a stable path:
 
 ```bash
-Root browser extension install
-Root browser extension path
+Korvus browser extension install
+Korvus browser extension path
 ```
 
 Then Chrome → `chrome://extensions` → enable “Developer mode” → “Load unpacked” → select the printed folder.

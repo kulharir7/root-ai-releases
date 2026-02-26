@@ -1,12 +1,12 @@
 ---
-summary: "CLI reference for `Root webhooks` (webhook helpers + Gmail Pub/Sub)"
+summary: "CLI reference for `Korvus webhooks` (webhook helpers + Gmail Pub/Sub)"
 read_when:
   - You want to wire Gmail Pub/Sub events into Root
   - You want webhook helper commands
 title: "webhooks"
 ---
 
-# `Root webhooks`
+# `Korvus webhooks`
 
 Webhook helpers and integrations (Gmail Pub/Sub, webhook helpers).
 
@@ -18,8 +18,8 @@ Related:
 ## Gmail
 
 ```bash
-Root webhooks gmail setup --account you@example.com
-Root webhooks gmail run
+Korvus webhooks gmail setup --account you@example.com
+Korvus webhooks gmail run
 ```
 
 See [Gmail Pub/Sub documentation](/automation/gmail-pubsub) for details.

@@ -9,7 +9,7 @@ title: "Firecrawl"
 
 # Firecrawl
 
-Root can use **Firecrawl** as a fallback extractor for `web_fetch`. It is a hosted
+Korvus can use **Firecrawl** as a fallback extractor for `web_fetch`. It is a hosted
 content extraction service that supports bot circumvention and caching, which helps
 with JS-heavy sites or pages that block plain HTTP fetches.
 

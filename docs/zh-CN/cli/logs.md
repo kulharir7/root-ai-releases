@@ -2,7 +2,7 @@
 read_when:
   - 你需要远程跟踪 Gateway 网关日志（无需 SSH）
   - 你需要 JSON 日志行用于工具处理
-summary: "`Root logs` 的 CLI 参考（通过 RPC 跟踪 Gateway 网关日志）"
+summary: "`Korvus logs` 的 CLI 参考（通过 RPC 跟踪 Gateway 网关日志）"
 title: logs
 x-i18n:
   generated_at: "2026-02-03T07:44:57Z"
@@ -13,7 +13,7 @@ x-i18n:
   workflow: 15
 ---
 
-# `Root logs`
+# `Korvus logs`
 
 通过 RPC 跟踪 Gateway 网关文件日志（在远程模式下可用）。
 
@@ -24,8 +24,8 @@ x-i18n:
 ## 示例
 
 ```bash
-Root logs
-Root logs --follow
-Root logs --json
-Root logs --limit 500
+Korvus logs
+Korvus logs --follow
+Korvus logs --json
+Korvus logs --limit 500
 ```

@@ -17,9 +17,9 @@ title: "Usage Tracking"
 
 - `/status` in chats: emoji‑rich status card with session tokens + estimated cost (API key only). Provider usage shows for the **current model provider** when available.
 - `/usage off|tokens|full` in chats: per-response usage footer (OAuth shows tokens only).
-- `/usage cost` in chats: local cost summary aggregated from Root session logs.
-- CLI: `Root status --usage` prints a full per-provider breakdown.
-- CLI: `Root channels list` prints the same usage snapshot alongside provider config (use `--no-usage` to skip).
+- `/usage cost` in chats: local cost summary aggregated from Korvus session logs.
+- CLI: `Korvus status --usage` prints a full per-provider breakdown.
+- CLI: `Korvus channels list` prints the same usage snapshot alongside provider config (use `--no-usage` to skip).
 - macOS menu bar: “Usage” section under Context (only if available).
 
 ## Providers + credentials

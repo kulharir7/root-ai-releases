@@ -10,7 +10,7 @@ title: "System Prompt"
 
 Root builds a custom system prompt for every agent run. The prompt is **Root-owned** and does not use the pi-coding-agent default prompt.
 
-The prompt is assembled by Root and injected into each agent run.
+The prompt is assembled by Korvus and injected into each agent run.
 
 ## Structure
 
@@ -34,7 +34,7 @@ Safety guardrails in the system prompt are advisory. They guide model behavior b
 
 ## Prompt modes
 
-Root can render smaller system prompts for sub-agents. The runtime sets a
+Korvus can render smaller system prompts for sub-agents. The runtime sets a
 `promptMode` for each run (not a user-facing config):
 
 - `full` (default): includes all sections above.
@@ -125,5 +125,5 @@ When available, the system prompt includes a **Documentation** section that poin
 local Root docs directory (either `docs/` in the repo workspace or the bundled npm
 package docs) and also notes the public mirror, source repo, community Discord, and
 ClawHub ([https://clawhub.com](https://clawhub.com)) for skills discovery. The prompt instructs the model to consult local docs first
-for Root behavior, commands, configuration, or architecture, and to run
-`Root status` itself when possible (asking the user only when it lacks access).
+for Korvus behavior, commands, configuration, or architecture, and to run
+`Korvus status` itself when possible (asking the user only when it lacks access).

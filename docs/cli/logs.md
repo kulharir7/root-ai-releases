@@ -1,12 +1,12 @@
 ---
-summary: "CLI reference for `Root logs` (tail gateway logs via RPC)"
+summary: "CLI reference for `Korvus logs` (tail gateway logs via RPC)"
 read_when:
   - You need to tail Gateway logs remotely (without SSH)
   - You want JSON log lines for tooling
 title: "logs"
 ---
 
-# `Root logs`
+# `Korvus logs`
 
 Tail Gateway file logs over RPC (works in remote mode).
 
@@ -17,12 +17,12 @@ Related:
 ## Examples
 
 ```bash
-Root logs
-Root logs --follow
-Root logs --json
-Root logs --limit 500
-Root logs --local-time
-Root logs --follow --local-time
+Korvus logs
+Korvus logs --follow
+Korvus logs --json
+Korvus logs --limit 500
+Korvus logs --local-time
+Korvus logs --follow --local-time
 ```
 
 Use `--local-time` to render timestamps in your local timezone.

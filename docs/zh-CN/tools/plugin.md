@@ -26,13 +26,13 @@ x-i18n:
 1. 查看已加载的内容：
 
 ```bash
-Root plugins list
+Korvus plugins list
 ```
 
 2. 安装官方插件（例如：Voice Call）：
 
 ```bash
-Root plugins install @Root/voice-call
+Korvus plugins install @Root/voice-call
 ```
 
 3. 重启 Gateway 网关，然后在 `plugins.entries.<id>.config` 下配置。
@@ -110,7 +110,7 @@ Root 按顺序扫描：
 
 - `<Root>/extensions/*`
 
-捆绑插件必须通过 `plugins.entries.<id>.enabled` 或 `Root plugins enable <id>` 显式启用。已安装的插件默认启用，但可以用相同方式禁用。
+捆绑插件必须通过 `plugins.entries.<id>.enabled` 或 `Korvus plugins enable <id>` 显式启用。已安装的插件默认启用，但可以用相同方式禁用。
 
 每个插件必须在其根目录中包含 `Root.plugin.json` 文件。如果路径指向文件，则插件根目录是文件的目录，必须包含清单。
 
@@ -264,19 +264,19 @@ Root 在运行时根据发现的插件增强 `uiHints`：
 ## CLI
 
 ```bash
-Root plugins list
-Root plugins info <id>
-Root plugins install <path>                 # copy a local file/dir into ~/.Root/extensions/<id>
-Root plugins install ./extensions/voice-call # relative path ok
-Root plugins install ./plugin.tgz           # install from a local tarball
-Root plugins install ./plugin.zip           # install from a local zip
-Root plugins install -l ./extensions/voice-call # link (no copy) for dev
-Root plugins install @Root/voice-call # install from npm
-Root plugins update <id>
-Root plugins update --all
-Root plugins enable <id>
-Root plugins disable <id>
-Root plugins doctor
+Korvus plugins list
+Korvus plugins info <id>
+Korvus plugins install <path>                 # copy a local file/dir into ~/.Root/extensions/<id>
+Korvus plugins install ./extensions/voice-call # relative path ok
+Korvus plugins install ./plugin.tgz           # install from a local tarball
+Korvus plugins install ./plugin.zip           # install from a local zip
+Korvus plugins install -l ./extensions/voice-call # link (no copy) for dev
+Korvus plugins install @Root/voice-call # install from npm
+Korvus plugins update <id>
+Korvus plugins update --all
+Korvus plugins enable <id>
+Korvus plugins disable <id>
+Korvus plugins doctor
 ```
 
 `plugins update` 仅适用于在 `plugins.installs` 下跟踪的 npm 安装。
@@ -308,8 +308,8 @@ export default function register(api) {
 
 - 钩子目录遵循正常的钩子结构（`HOOK.md` + `handler.ts`）。
 - 钩子资格规则仍然适用（操作系统/二进制文件/环境/配置要求）。
-- 插件管理的钩子在 `Root hooks list` 中显示为 `plugin:<id>`。
-- 你不能通过 `Root hooks` 启用/禁用插件管理的钩子；而是启用/禁用插件。
+- 插件管理的钩子在 `Korvus hooks list` 中显示为 `plugin:<id>`。
+- 你不能通过 `Korvus hooks` 启用/禁用插件管理的钩子；而是启用/禁用插件。
 
 ## 提供商插件（模型认证）
 
@@ -317,7 +317,7 @@ export default function register(api) {
 
 通过 `api.registerProvider(...)` 注册提供商。每个提供商暴露一个或多个认证方法（OAuth、API 密钥、设备码等）。这些方法驱动：
 
-- `Root models auth login --provider <id> [--method <id>]`
+- `Korvus models auth login --provider <id> [--method <id>]`
 
 示例：
 
@@ -606,7 +606,7 @@ export default function (api) {
 
 - 插件 `package.json` 必须包含带有一个或多个入口文件的 `Root.extensions`。
 - 入口文件可以是 `.js` 或 `.ts`（jiti 在运行时加载 TS）。
-- `Root plugins install <npm-spec>` 使用 `npm pack`，提取到 `~/.Root/extensions/<id>/`，并在配置中启用它。
+- `Korvus plugins install <npm-spec>` 使用 `npm pack`，提取到 `~/.Root/extensions/<id>/`，并在配置中启用它。
 - 配置键稳定性：作用域包被规范化为 `plugins.entries.*` 的**无作用域** id。
 
 ## 示例插件：Voice Call

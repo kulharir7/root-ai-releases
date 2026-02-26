@@ -1,6 +1,6 @@
 ---
 title: "Node.js"
-summary: "Install and configure Node.js for Root — version requirements, install options, and PATH troubleshooting"
+summary: "Install and configure Node.js for Korvus — version requirements, install options, and PATH troubleshooting"
 read_when:
   - "You need to install Node.js before installing Root"
   - "You installed Root but `Root` is command not found"

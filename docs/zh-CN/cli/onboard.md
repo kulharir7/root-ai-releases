@@ -1,7 +1,7 @@
 ---
 read_when:
   - 你想要 Gateway 网关、工作区、认证、渠道和 Skills 的引导式设置
-summary: "`Root onboard` 的 CLI 参考（交互式新手引导向导）"
+summary: "`Korvus onboard` 的 CLI 参考（交互式新手引导向导）"
 title: onboard
 x-i18n:
   generated_at: "2026-02-03T07:45:00Z"
@@ -12,7 +12,7 @@ x-i18n:
   workflow: 15
 ---
 
-# `Root onboard`
+# `Korvus onboard`
 
 交互式新手引导向导（本地或远程 Gateway 网关设置）。
 
@@ -23,10 +23,10 @@ x-i18n:
 ## 示例
 
 ```bash
-Root onboard
-Root onboard --flow quickstart
-Root onboard --flow manual
-Root onboard --mode remote --remote-url ws://gateway-host:18789
+Korvus onboard
+Korvus onboard --flow quickstart
+Korvus onboard --flow manual
+Korvus onboard --mode remote --remote-url ws://gateway-host:18789
 ```
 
 流程说明：

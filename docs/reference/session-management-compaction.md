@@ -30,7 +30,7 @@ If you want a higher-level overview first, start with:
 
 ## Source of truth: the Gateway
 
-Root is designed around a single **Gateway process** that owns session state.
+Korvus is designed around a single **Gateway process** that owns session state.
 
 - UIs (macOS app, web Control UI, TUI) should query the Gateway for session lists and token counts.
 - In remote mode, session files are on the remote host; “checking your local Mac files” won’t reflect what the Gateway is using.
@@ -222,15 +222,15 @@ Implementation: `ensurePiCompactionReserveTokens()` in `src/agents/pi-settings.t
 You can observe compaction and session state via:
 
 - `/status` (in any chat session)
-- `Root status` (CLI)
-- `Root sessions` / `sessions --json`
+- `Korvus status` (CLI)
+- `Korvus sessions` / `sessions --json`
 - Verbose mode: `🧹 Auto-compaction complete` + compaction count
 
 ---
 
 ## Silent housekeeping (`NO_REPLY`)
 
-Root supports “silent” turns for background tasks where the user should not see intermediate output.
+Korvus supports “silent” turns for background tasks where the user should not see intermediate output.
 
 Convention:
 
@@ -247,7 +247,7 @@ Goal: before auto-compaction happens, run a silent agentic turn that writes dura
 state to disk (e.g. `memory/YYYY-MM-DD.md` in the agent workspace) so compaction can’t
 erase critical context.
 
-Root uses the **pre-threshold flush** approach:
+Korvus uses the **pre-threshold flush** approach:
 
 1. Monitor session context usage.
 2. When it crosses a “soft threshold” (below Pi’s compaction threshold), run a silent
@@ -277,7 +277,7 @@ flush logic lives on the Gateway side today.
 ## Troubleshooting checklist
 
 - Session key wrong? Start with [/concepts/session](/concepts/session) and confirm the `sessionKey` in `/status`.
-- Store vs transcript mismatch? Confirm the Gateway host and the store path from `Root status`.
+- Store vs transcript mismatch? Confirm the Gateway host and the store path from `Korvus status`.
 - Compaction spam? Check:
   - model context window (too small)
   - compaction settings (`reserveTokens` too high for the model window can cause earlier compaction)

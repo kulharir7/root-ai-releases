@@ -38,4 +38,4 @@ x-i18n:
 
 ## 有疑问时
 
-- 你仍然可以使用 [Gateway 网关健康](/gateway/health) 中的 CLI 流程（`Root status`、`Root status --deep`、`Root health --json`），并在 `/tmp/Root/Root-*.log` 中跟踪 `web-heartbeat` / `web-reconnect`。
+- 你仍然可以使用 [Gateway 网关健康](/gateway/health) 中的 CLI 流程（`Korvus status`、`Korvus status --deep`、`Root health --json`），并在 `/tmp/Root/Root-*.log` 中跟踪 `web-heartbeat` / `web-reconnect`。

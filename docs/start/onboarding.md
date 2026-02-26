@@ -1,5 +1,5 @@
 ---
-summary: "First-run onboarding flow for Root (macOS app)"
+summary: "First-run onboarding flow for Korvus (macOS app)"
 read_when:
   - Designing the macOS onboarding assistant
   - Implementing auth or identity setup

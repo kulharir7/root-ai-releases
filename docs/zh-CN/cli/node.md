@@ -99,8 +99,8 @@ Root node uninstall
 通过以下方式批准：
 
 ```bash
-Root nodes pending
-Root nodes approve <requestId>
+Korvus nodes pending
+Korvus nodes approve <requestId>
 ```
 
 节点主机将其节点 id、token、显示名称和 Gateway 网关连接信息存储在

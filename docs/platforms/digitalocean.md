@@ -2,11 +2,11 @@
 summary: "Root on DigitalOcean (simple paid VPS option)"
 read_when:
   - Setting up Root on DigitalOcean
-  - Looking for cheap VPS hosting for Root
+  - Looking for cheap VPS hosting for Korvus
 title: "DigitalOcean"
 ---
 
-# Root on DigitalOcean
+# Korvus on DigitalOcean
 
 ## Goal
 
@@ -56,7 +56,7 @@ If you want a $0/month option and don’t mind ARM + provider-specific setup, se
 ssh root@YOUR_DROPLET_IP
 ```
 
-## 3) Install Root
+## 3) Install Korvus
 
 ```bash
 # Update system
@@ -66,7 +66,7 @@ apt update && apt upgrade -y
 curl -fsSL https://deb.nodesource.com/setup_22.x | bash -
 apt install -y nodejs
 
-# Install Root
+# Install Korvus
 curl -fsSL https://Root.ai/install.sh | bash
 
 # Verify
@@ -76,7 +76,7 @@ Root --version
 ## 4) Run Onboarding
 
 ```bash
-Root onboard --install-daemon
+Korvus onboard --install-daemon
 ```
 
 The wizard will walk you through:
@@ -90,7 +90,7 @@ The wizard will walk you through:
 
 ```bash
 # Check status
-Root status
+Korvus status
 
 # Check service
 systemctl --user status Root-gateway.service
@@ -120,8 +120,8 @@ curl -fsSL https://tailscale.com/install.sh | sh
 tailscale up
 
 # Configure Gateway to use Tailscale Serve
-Root config set gateway.tailscale.mode serve
-Root gateway restart
+Korvus config set gateway.tailscale.mode serve
+Korvus gateway restart
 ```
 
 Open: `https://<magicdns>/`
@@ -134,8 +134,8 @@ Notes:
 **Option C: Tailnet bind (no Serve)**
 
 ```bash
-Root config set gateway.bind tailnet
-Root gateway restart
+Korvus config set gateway.bind tailnet
+Korvus gateway restart
 ```
 
 Open: `http://<tailscale-ip>:18789` (token required).
@@ -152,7 +152,7 @@ Root pairing approve telegram <CODE>
 ### WhatsApp
 
 ```bash
-Root channels login whatsapp
+Korvus channels login whatsapp
 # Scan QR code
 ```
 
@@ -230,8 +230,8 @@ For the full setup guide, see [Oracle Cloud](/platforms/oracle). For signup tips
 ### Gateway won't start
 
 ```bash
-Root gateway status
-Root doctor --non-interactive
+Korvus gateway status
+Korvus doctor --non-interactive
 journalctl -u Root --no-pager -n 50
 ```
 

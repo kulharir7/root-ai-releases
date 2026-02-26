@@ -11,9 +11,9 @@ Short guide to verify channel connectivity without guessing.
 
 ## Quick checks
 
-- `Root status` — local summary: gateway reachability/mode, update hint, linked channel auth age, sessions + recent activity.
-- `Root status --all` — full local diagnosis (read-only, color, safe to paste for debugging).
-- `Root status --deep` — also probes the running Gateway (per-channel probes when supported).
+- `Korvus status` — local summary: gateway reachability/mode, update hint, linked channel auth age, sessions + recent activity.
+- `Korvus status --all` — full local diagnosis (read-only, color, safe to paste for debugging).
+- `Korvus status --deep` — also probes the running Gateway (per-channel probes when supported).
 - `Root health --json` — asks the running Gateway for a full health snapshot (WS-only; no direct Baileys socket).
 - Send `/status` as a standalone message in WhatsApp/WebChat to get a status reply without invoking the agent.
 - Logs: tail `/tmp/Root/Root-*.log` and filter for `web-heartbeat`, `web-reconnect`, `web-auto-reply`, `web-inbound`.
@@ -22,12 +22,12 @@ Short guide to verify channel connectivity without guessing.
 
 - Creds on disk: `ls -l ~/.Root/credentials/whatsapp/<accountId>/creds.json` (mtime should be recent).
 - Session store: `ls -l ~/.Root/agents/<agentId>/sessions/sessions.json` (path can be overridden in config). Count and recent recipients are surfaced via `status`.
-- Relink flow: `Root channels logout && Root channels login --verbose` when status codes 409–515 or `loggedOut` appear in logs. (Note: the QR login flow auto-restarts once for status 515 after pairing.)
+- Relink flow: `Korvus channels logout && Korvus channels login --verbose` when status codes 409–515 or `loggedOut` appear in logs. (Note: the QR login flow auto-restarts once for status 515 after pairing.)
 
 ## When something fails
 
-- `logged out` or status 409–515 → relink with `Root channels logout` then `Root channels login`.
-- Gateway unreachable → start it: `Root gateway --port 18789` (use `--force` if the port is busy).
+- `logged out` or status 409–515 → relink with `Korvus channels logout` then `Korvus channels login`.
+- Gateway unreachable → start it: `Korvus gateway --port 18789` (use `--force` if the port is busy).
 - No inbound messages → confirm linked phone is online and the sender is allowed (`channels.whatsapp.allowFrom`); for group chats, ensure allowlist + mention rules match (`channels.whatsapp.groups`, `agents.list[].groupChat.mentionPatterns`).
 
 ## Dedicated "health" command

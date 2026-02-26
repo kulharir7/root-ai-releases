@@ -1,6 +1,6 @@
 ---
 title: Formal Verification (Security Models)
-summary: Machine-checked security models for Root’s highest-risk paths.
+summary: Machine-checked security models for Korvus’s highest-risk paths.
 permalink: /security/formal-verification/
 ---
 
@@ -19,7 +19,7 @@ misconfiguration safety), under explicit assumptions.
 - Each claim has a runnable model-check over a finite state space.
 - Many claims have a paired **negative model** that produces a counterexample trace for a realistic bug class.
 
-**What this is not (yet):** a proof that “Root is secure in all respects” or that the full TypeScript implementation is correct.
+**What this is not (yet):** a proof that “Korvus is secure in all respects” or that the full TypeScript implementation is correct.
 
 ## Where the models live
 

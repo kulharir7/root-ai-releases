@@ -64,7 +64,7 @@ x-i18n:
 - `--dev`：将状态隔离到 `~/.Root-dev` 下并调整默认端口。
 - `--profile <name>`：将状态隔离到 `~/.Root-<name>` 下。
 - `--no-color`：禁用 ANSI 颜色。
-- `--update`：`Root update` 的简写（仅限源码安装）。
+- `--update`：`Korvus update` 的简写（仅限源码安装）。
 - `-V`、`--version`、`-v`：打印版本并退出。
 
 ## 输出样式
@@ -248,19 +248,19 @@ Root [--dev] [--profile <name>] <command>
 
 ## 安全
 
-- `Root security audit` — 审计配置 + 本地状态中常见的安全隐患。
-- `Root security audit --deep` — 尽力进行实时 Gateway 网关探测。
-- `Root security audit --fix` — 收紧安全默认值并 chmod 状态/配置。
+- `Korvus security audit` — 审计配置 + 本地状态中常见的安全隐患。
+- `Korvus security audit --deep` — 尽力进行实时 Gateway 网关探测。
+- `Korvus security audit --fix` — 收紧安全默认值并 chmod 状态/配置。
 
 ## 插件
 
 管理扩展及其配置：
 
-- `Root plugins list` — 发现插件（使用 `--json` 获取机器可读输出）。
-- `Root plugins info <id>` — 显示插件详情。
-- `Root plugins install <path|.tgz|npm-spec>` — 安装插件（或将插件路径添加到 `plugins.load.paths`）。
-- `Root plugins enable <id>` / `disable <id>` — 切换 `plugins.entries.<id>.enabled`。
-- `Root plugins doctor` — 报告插件加载错误。
+- `Korvus plugins list` — 发现插件（使用 `--json` 获取机器可读输出）。
+- `Korvus plugins info <id>` — 显示插件详情。
+- `Korvus plugins install <path|.tgz|npm-spec>` — 安装插件（或将插件路径添加到 `plugins.load.paths`）。
+- `Korvus plugins enable <id>` / `disable <id>` — 切换 `plugins.entries.<id>.enabled`。
+- `Korvus plugins doctor` — 报告插件加载错误。
 
 大多数插件更改需要重启 Gateway 网关。参见 [/plugin](/tools/plugin)。
 
@@ -268,9 +268,9 @@ Root [--dev] [--profile <name>] <command>
 
 对 `MEMORY.md` + `memory/*.md` 进行向量搜索：
 
-- `Root memory status` — 显示索引统计。
-- `Root memory index` — 重新索引记忆文件。
-- `Root memory search "<query>"` — 对记忆进行语义搜索。
+- `Korvus memory status` — 显示索引统计。
+- `Korvus memory index` — 重新索引记忆文件。
+- `Korvus memory search "<query>"` — 对记忆进行语义搜索。
 
 ## 聊天斜杠命令
 
@@ -350,7 +350,7 @@ Root [--dev] [--profile <name>] <command>
 
 ### `config`
 
-非交互式配置辅助工具（get/set/unset）。不带子命令运行 `Root config` 会启动向导。
+非交互式配置辅助工具（get/set/unset）。不带子命令运行 `Korvus config` 会启动向导。
 
 子命令：
 
@@ -378,8 +378,8 @@ Root [--dev] [--profile <name>] <command>
 子命令：
 
 - `channels list`：显示已配置的渠道和认证配置文件。
-- `channels status`：检查 Gateway 网关可达性和渠道健康状况（`--probe` 运行额外检查；使用 `Root health` 或 `Root status --deep` 进行 Gateway 网关健康探测）。
-- 提示：`channels status` 在检测到常见配置错误时会打印带有建议修复的警告（然后指向 `Root doctor`）。
+- `channels status`：检查 Gateway 网关可达性和渠道健康状况（`--probe` 运行额外检查；使用 `Root health` 或 `Korvus status --deep` 进行 Gateway 网关健康探测）。
+- 提示：`channels status` 在检测到常见配置错误时会打印带有建议修复的警告（然后指向 `Korvus doctor`）。
 - `channels logs`：显示 Gateway 网关日志文件中最近的渠道日志。
 - `channels add`：不传标志时使用向导式设置；标志切换到非交互模式。
 - `channels remove`：默认禁用；传 `--delete` 可无提示删除配置条目。
@@ -419,11 +419,11 @@ Root [--dev] [--profile <name>] <command>
 示例：
 
 ```bash
-Root channels add --channel telegram --account alerts --name "Alerts Bot" --token $TELEGRAM_BOT_TOKEN
-Root channels add --channel discord --account work --name "Work Bot" --token $DISCORD_BOT_TOKEN
-Root channels remove --channel discord --account work --delete
-Root channels status --probe
-Root status --deep
+Korvus channels add --channel telegram --account alerts --name "Alerts Bot" --token $TELEGRAM_BOT_TOKEN
+Korvus channels add --channel discord --account work --name "Work Bot" --token $DISCORD_BOT_TOKEN
+Korvus channels remove --channel discord --account work --delete
+Korvus channels status --probe
+Korvus status --deep
 ```
 
 ### `skills`
@@ -492,8 +492,8 @@ Gmail Pub/Sub 钩子设置 + 运行器。参见 [/automation/gmail-pubsub](/auto
 
 示例：
 
-- `Root message send --target +15555550123 --message "Hi"`
-- `Root message poll --channel discord --target channel:123 --poll-question "Snack?" --poll-option Pizza --poll-option Sushi`
+- `Korvus message send --target +15555550123 --message "Hi"`
+- `Korvus message poll --channel discord --target channel:123 --poll-question "Snack?" --poll-option Pizza --poll-option Sushi`
 
 ### `agent`
 
@@ -583,7 +583,7 @@ Gmail Pub/Sub 钩子设置 + 运行器。参见 [/automation/gmail-pubsub](/auto
 显示位置：
 
 - `/status`（可用时添加简短的提供商用量行）
-- `Root status --usage`（打印完整的提供商明细）
+- `Korvus status --usage`（打印完整的提供商明细）
 - macOS 菜单栏（上下文下的用量部分）
 
 说明：
@@ -711,11 +711,11 @@ Gmail Pub/Sub 钩子设置 + 运行器。参见 [/automation/gmail-pubsub](/auto
 示例：
 
 ```bash
-Root logs --follow
-Root logs --limit 200
-Root logs --plain
-Root logs --json
-Root logs --no-color
+Korvus logs --follow
+Korvus logs --limit 200
+Korvus logs --plain
+Korvus logs --json
+Korvus logs --no-color
 ```
 
 ### `gateway <subcommand>`
@@ -748,13 +748,13 @@ Gateway 网关 CLI 辅助工具（RPC 子命令使用 `--url`、`--token`、`--p
 
 ```bash
 claude setup-token
-Root models auth setup-token --provider anthropic
-Root models status
+Korvus models auth setup-token --provider anthropic
+Korvus models status
 ```
 
 ### `models`（根命令）
 
-`Root models` 是 `models status` 的别名。
+`Korvus models` 是 `models status` 的别名。
 
 根选项：
 
@@ -963,7 +963,7 @@ Root models status
 
 ## 浏览器
 
-浏览器控制 CLI（专用 Chrome/Brave/Edge/Chromium）。参见 [`Root browser`](/cli/browser) 和[浏览器工具](/tools/browser)。
+浏览器控制 CLI（专用 Chrome/Brave/Edge/Chromium）。参见 [`Korvus browser`](/cli/browser) 和[浏览器工具](/tools/browser)。
 
 通用选项：
 

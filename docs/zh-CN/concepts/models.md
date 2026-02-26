@@ -43,7 +43,7 @@ Root 按以下顺序选择模型：
 如果你不想手动编辑配置，请运行新手引导向导：
 
 ```bash
-Root onboard
+Korvus onboard
 ```
 
 它可以为常见提供商设置模型 + 认证，包括 **OpenAI Code（Codex）订阅**（OAuth）和 **Anthropic**（推荐使用 API 密钥；也支持 `claude setup-token`）。
@@ -113,27 +113,27 @@ Model "provider/model" is not allowed. Use /model to list available models.
 ## CLI 命令
 
 ```bash
-Root models list
-Root models status
-Root models set <provider/model>
-Root models set-image <provider/model>
+Korvus models list
+Korvus models status
+Korvus models set <provider/model>
+Korvus models set-image <provider/model>
 
-Root models aliases list
-Root models aliases add <alias> <provider/model>
-Root models aliases remove <alias>
+Korvus models aliases list
+Korvus models aliases add <alias> <provider/model>
+Korvus models aliases remove <alias>
 
-Root models fallbacks list
-Root models fallbacks add <provider/model>
-Root models fallbacks remove <provider/model>
-Root models fallbacks clear
+Korvus models fallbacks list
+Korvus models fallbacks add <provider/model>
+Korvus models fallbacks remove <provider/model>
+Korvus models fallbacks clear
 
-Root models image-fallbacks list
-Root models image-fallbacks add <provider/model>
-Root models image-fallbacks remove <provider/model>
-Root models image-fallbacks clear
+Korvus models image-fallbacks list
+Korvus models image-fallbacks add <provider/model>
+Korvus models image-fallbacks remove <provider/model>
+Korvus models image-fallbacks clear
 ```
 
-`Root models`（无子命令）是 `models status` 的快捷方式。
+`Korvus models`（无子命令）是 `models status` 的快捷方式。
 
 ### `models list`
 
@@ -156,12 +156,12 @@ JSON 包括 `auth.oauth`（警告窗口 + 配置文件）和 `auth.providers`（
 
 ```bash
 claude setup-token
-Root models status
+Korvus models status
 ```
 
 ## 扫描（OpenRouter 免费模型）
 
-`Root models scan` 检查 OpenRouter 的**免费模型目录**，并可选择性地探测模型的工具和图像支持。
+`Korvus models scan` 检查 OpenRouter 的**免费模型目录**，并可选择性地探测模型的工具和图像支持。
 
 关键标志：
 

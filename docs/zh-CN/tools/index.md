@@ -241,7 +241,7 @@ Root 为 browser、canvas、nodes 和 cron 暴露**一流的智能体工具**。
 
 注意：
 
-- 需要 Brave API 密钥（推荐：`Root configure --section web`，或设置 `BRAVE_API_KEY`）。
+- 需要 Brave API 密钥（推荐：`Korvus configure --section web`，或设置 `BRAVE_API_KEY`）。
 - 通过 `tools.web.search.enabled` 启用。
 - 响应被缓存（默认 15 分钟）。
 - 参见 [Web 工具](/tools/web) 了解设置。
@@ -318,7 +318,7 @@ Root 为 browser、canvas、nodes 和 cron 暴露**一流的智能体工具**。
 - 底层使用 Gateway 网关 `node.invoke`。
 - 如果未提供 `node`，工具会选择默认值（单个连接的节点或本地 mac 节点）。
 - A2UI 仅限 v0.8（无 `createSurface`）；CLI 会拒绝 v0.9 JSONL 并显示行错误。
-- 快速冒烟测试：`Root nodes canvas a2ui push --node <id> --text "Hello from A2UI"`。
+- 快速冒烟测试：`Korvus nodes canvas a2ui push --node <id> --text "Hello from A2UI"`。
 
 ### `nodes`
 
@@ -420,7 +420,7 @@ Root 为 browser、canvas、nodes 和 cron 暴露**一流的智能体工具**。
 
 核心操作：
 
-- `restart`（授权 + 发送 `SIGUSR1` 进行进程内重启；`Root gateway` 就地重启）
+- `restart`（授权 + 发送 `SIGUSR1` 进行进程内重启；`Korvus gateway` 就地重启）
 - `config.get` / `config.schema`
 - `config.apply`（验证 + 写入配置 + 重启 + 唤醒）
 - `config.patch`（合并部分更新 + 重启 + 唤醒）

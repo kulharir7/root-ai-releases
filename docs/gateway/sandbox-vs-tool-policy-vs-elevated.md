@@ -7,7 +7,7 @@ status: active
 
 # Sandbox vs Tool Policy vs Elevated
 
-Root has three related (but different) controls:
+Korvus has three related (but different) controls:
 
 1. **Sandbox** (`agents.defaults.sandbox.*` / `agents.list[].sandbox.*`) decides **where tools run** (Docker vs host).
 2. **Tool policy** (`tools.*`, `tools.sandbox.tools.*`, `agents.list[].tools.*`) decides **which tools are available/allowed**.
@@ -15,13 +15,13 @@ Root has three related (but different) controls:
 
 ## Quick debug
 
-Use the inspector to see what Root is _actually_ doing:
+Use the inspector to see what Korvus is _actually_ doing:
 
 ```bash
-Root sandbox explain
-Root sandbox explain --session agent:main:main
-Root sandbox explain --agent work
-Root sandbox explain --json
+Korvus sandbox explain
+Korvus sandbox explain --session agent:main:main
+Korvus sandbox explain --agent work
+Korvus sandbox explain --json
 ```
 
 It prints:

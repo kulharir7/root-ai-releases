@@ -1,11 +1,11 @@
 ---
-summary: "CLI reference for `Root onboard` (interactive onboarding wizard)"
+summary: "CLI reference for `Korvus onboard` (interactive onboarding wizard)"
 read_when:
   - You want guided setup for gateway, workspace, auth, channels, and skills
 title: "onboard"
 ---
 
-# `Root onboard`
+# `Korvus onboard`
 
 Interactive onboarding wizard (local or remote Gateway setup).
 
@@ -20,16 +20,16 @@ Interactive onboarding wizard (local or remote Gateway setup).
 ## Examples
 
 ```bash
-Root onboard
-Root onboard --flow quickstart
-Root onboard --flow manual
-Root onboard --mode remote --remote-url ws://gateway-host:18789
+Korvus onboard
+Korvus onboard --flow quickstart
+Korvus onboard --flow manual
+Korvus onboard --mode remote --remote-url ws://gateway-host:18789
 ```
 
 Non-interactive custom provider:
 
 ```bash
-Root onboard --non-interactive \
+Korvus onboard --non-interactive \
   --auth-choice custom-api-key \
   --custom-base-url "https://llm.example.com/v1" \
   --custom-model-id "foo-large" \
@@ -46,7 +46,7 @@ If you specifically want the GLM Coding Plan endpoints, pick `zai-coding-global`
 
 ```bash
 # Promptless endpoint selection
-Root onboard --non-interactive \
+Korvus onboard --non-interactive \
   --auth-choice zai-coding-global \
   --zai-api-key "$ZAI_API_KEY"
 
@@ -67,8 +67,8 @@ Flow notes:
 ## Common follow-up commands
 
 ```bash
-Root configure
-Root agents add <name>
+Korvus configure
+Korvus agents add <name>
 ```
 
 <Note>

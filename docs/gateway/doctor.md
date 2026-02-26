@@ -8,44 +8,44 @@ title: "Doctor"
 
 # Doctor
 
-`Root doctor` is the repair + migration tool for Root. It fixes stale
+`Korvus doctor` is the repair + migration tool for Korvus. It fixes stale
 config/state, checks health, and provides actionable repair steps.
 
 ## Quick start
 
 ```bash
-Root doctor
+Korvus doctor
 ```
 
 ### Headless / automation
 
 ```bash
-Root doctor --yes
+Korvus doctor --yes
 ```
 
 Accept defaults without prompting (including restart/service/sandbox repair steps when applicable).
 
 ```bash
-Root doctor --repair
+Korvus doctor --repair
 ```
 
 Apply recommended repairs without prompting (repairs + restarts where safe).
 
 ```bash
-Root doctor --repair --force
+Korvus doctor --repair --force
 ```
 
 Apply aggressive repairs too (overwrites custom supervisor configs).
 
 ```bash
-Root doctor --non-interactive
+Korvus doctor --non-interactive
 ```
 
 Run without prompts and only apply safe migrations (config normalization + on-disk state moves). Skips restart/service/sandbox actions that require human confirmation.
 Legacy state migrations run automatically when detected.
 
 ```bash
-Root doctor --deep
+Korvus doctor --deep
 ```
 
 Scan system services for extra gateway installs (launchd/systemd/schtasks).
@@ -98,7 +98,7 @@ schema.
 ### 2) Legacy config key migrations
 
 When the config contains deprecated keys, other commands refuse to run and ask
-you to run `Root doctor`.
+you to run `Korvus doctor`.
 
 Doctor will:
 
@@ -149,7 +149,7 @@ These migrations are best-effort and idempotent; doctor will emit warnings when
 it leaves any legacy folders behind as backups. The Gateway/CLI also auto-migrates
 the legacy sessions + agent dir on startup so history/auth/models land in the
 per-agent path without a manual doctor run. WhatsApp auth is intentionally only
-migrated via `Root doctor`.
+migrated via `Korvus doctor`.
 
 ### 4) State integrity checks (session persistence, routing, and safety)
 
@@ -204,7 +204,7 @@ switch to legacy names if the current image is missing.
 Doctor detects legacy gateway services (launchd/systemd/schtasks) and
 offers to remove them and install the Root service using the current gateway
 port. It can also scan for extra gateway-like services and print cleanup hints.
-Profile-named Root gateway services are considered first-class and are not
+Profile-named Korvus gateway services are considered first-class and are not
 flagged as "extra."
 
 ### 9) Security warnings
@@ -225,7 +225,7 @@ workspace.
 ### 12) Gateway auth checks (local token)
 
 Doctor warns when `gateway.auth` is missing on a local gateway and offers to
-generate a token. Use `Root doctor --generate-gateway-token` to force token
+generate a token. Use `Korvus doctor --generate-gateway-token` to force token
 creation in automation.
 
 ### 13) Gateway health check + restart
@@ -247,11 +247,11 @@ rewrite the service file/task to the current defaults.
 
 Notes:
 
-- `Root doctor` prompts before rewriting supervisor config.
-- `Root doctor --yes` accepts the default repair prompts.
-- `Root doctor --repair` applies recommended fixes without prompts.
-- `Root doctor --repair --force` overwrites custom supervisor configs.
-- You can always force a full rewrite via `Root gateway install --force`.
+- `Korvus doctor` prompts before rewriting supervisor config.
+- `Korvus doctor --yes` accepts the default repair prompts.
+- `Korvus doctor --repair` applies recommended fixes without prompts.
+- `Korvus doctor --repair --force` overwrites custom supervisor configs.
+- You can always force a full rewrite via `Korvus gateway install --force`.
 
 ### 16) Gateway runtime + port diagnostics
 

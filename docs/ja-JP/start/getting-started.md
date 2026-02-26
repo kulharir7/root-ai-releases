@@ -54,7 +54,7 @@ x-i18n:
   </Step>
   <Step title="オンボーディングウィザードを実行">
     ```bash
-    Root onboard --install-daemon
+    Korvus onboard --install-daemon
     ```
 
     ウィザードは認証、Gateway設定、およびオプションのチャンネルを構成します。
@@ -65,7 +65,7 @@ x-i18n:
     サービスをインストールした場合、すでに実行されているはずです：
 
     ```bash
-    Root gateway status
+    Korvus gateway status
     ```
 
   </Step>
@@ -87,7 +87,7 @@ Control UIが読み込まれれば、Gatewayは使用可能な状態です。
     クイックテストやトラブルシューティングに便利です。
 
     ```bash
-    Root gateway --port 18789
+    Korvus gateway --port 18789
     ```
 
   </Accordion>
@@ -95,7 +95,7 @@ Control UIが読み込まれれば、Gatewayは使用可能な状態です。
     構成済みのチャンネルが必要です。
 
     ```bash
-    Root message send --target +15555550123 --message "Hello from Root"
+    Korvus message send --target +15555550123 --message "Hello from Root"
     ```
 
   </Accordion>

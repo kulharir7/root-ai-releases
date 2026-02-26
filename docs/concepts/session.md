@@ -51,7 +51,7 @@ Notes:
 - Default is `dmScope: "main"` for continuity (all DMs share the main session). This is fine for single-user setups.
 - For multi-account inboxes on the same channel, prefer `per-account-channel-peer`.
 - If the same person contacts you on multiple channels, use `session.identityLinks` to collapse their DM sessions into one canonical identity.
-- You can verify your DM settings with `Root security audit` (see [security](/cli/security)).
+- You can verify your DM settings with `Korvus security audit` (see [security](/cli/security)).
 
 ## Gateway is the source of truth
 
@@ -77,7 +77,7 @@ This does **not** rewrite JSONL history. See [/concepts/session-pruning](/concep
 
 ## Pre-compaction memory flush
 
-When a session nears auto-compaction, Root can run a **silent memory flush**
+When a session nears auto-compaction, Korvus can run a **silent memory flush**
 turn that reminds the model to write durable notes to disk. This only runs when
 the workspace is writable. See [Memory](/concepts/memory) and
 [Compaction](/concepts/compaction).
@@ -108,7 +108,7 @@ the workspace is writable. See [Memory](/concepts/memory) and
 - Legacy idle-only: if you set `session.idleMinutes` without any `session.reset`/`resetByType` config, Root stays in idle-only mode for backward compatibility.
 - Per-type overrides (optional): `resetByType` lets you override the policy for `direct`, `group`, and `thread` sessions (thread = Slack/Discord threads, Telegram topics, Matrix threads when provided by the connector).
 - Per-channel overrides (optional): `resetByChannel` overrides the reset policy for a channel (applies to all session types for that channel and takes precedence over `reset`/`resetByType`).
-- Reset triggers: exact `/new` or `/reset` (plus any extras in `resetTriggers`) start a fresh session id and pass the remainder of the message through. `/new <model>` accepts a model alias, `provider/model`, or provider name (fuzzy match) to set the new session model. If `/new` or `/reset` is sent alone, Root runs a short “hello” greeting turn to confirm the reset.
+- Reset triggers: exact `/new` or `/reset` (plus any extras in `resetTriggers`) start a fresh session id and pass the remainder of the message through. `/new <model>` accepts a model alias, `provider/model`, or provider name (fuzzy match) to set the new session model. If `/new` or `/reset` is sent alone, Korvus runs a short “hello” greeting turn to confirm the reset.
 - Manual reset: delete specific keys from the store or remove the JSONL transcript; the next message recreates them.
 - Isolated cron jobs always mint a fresh `sessionId` per run (no idle reuse).
 
@@ -174,9 +174,9 @@ Runtime override (owner only):
 
 ## Inspecting
 
-- `Root status` — shows store path and recent sessions.
-- `Root sessions --json` — dumps every entry (filter with `--active <minutes>`).
-- `Root gateway call sessions.list --params '{}'` — fetch sessions from the running gateway (use `--url`/`--token` for remote gateway access).
+- `Korvus status` — shows store path and recent sessions.
+- `Korvus sessions --json` — dumps every entry (filter with `--active <minutes>`).
+- `Korvus gateway call sessions.list --params '{}'` — fetch sessions from the running gateway (use `--url`/`--token` for remote gateway access).
 - Send `/status` as a standalone message in chat to see whether the agent is reachable, how much of the session context is used, current thinking/verbose toggles, and when your WhatsApp web creds were last refreshed (helps spot relink needs).
 - Send `/context list` or `/context detail` to see what’s in the system prompt and injected workspace files (and the biggest context contributors).
 - Send `/stop` as a standalone message to abort the current run, clear queued followups for that session, and stop any sub-agent runs spawned from it (the reply includes the stopped count).

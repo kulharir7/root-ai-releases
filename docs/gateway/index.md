@@ -24,11 +24,11 @@ Use this page for day-1 startup and day-2 operations of the Gateway service.
   <Step title="Start the Gateway">
 
 ```bash
-Root gateway --port 18789
+Korvus gateway --port 18789
 # debug/trace mirrored to stdio
-Root gateway --port 18789 --verbose
+Korvus gateway --port 18789 --verbose
 # force-kill listener on selected port, then start
-Root gateway --force
+Korvus gateway --force
 ```
 
   </Step>
@@ -36,9 +36,9 @@ Root gateway --force
   <Step title="Verify service health">
 
 ```bash
-Root gateway status
-Root status
-Root logs --follow
+Korvus gateway status
+Korvus status
+Korvus logs --follow
 ```
 
 Healthy baseline: `Runtime: running` and `RPC probe: ok`.
@@ -48,7 +48,7 @@ Healthy baseline: `Runtime: running` and `RPC probe: ok`.
   <Step title="Validate channel readiness">
 
 ```bash
-Root channels status --probe
+Korvus channels status --probe
 ```
 
   </Step>
@@ -88,14 +88,14 @@ Default mode is `gateway.reload.mode="hybrid"`.
 ## Operator command set
 
 ```bash
-Root gateway status
-Root gateway status --deep
-Root gateway status --json
-Root gateway install
-Root gateway restart
-Root gateway stop
-Root logs --follow
-Root doctor
+Korvus gateway status
+Korvus gateway status --deep
+Korvus gateway status --json
+Korvus gateway install
+Korvus gateway restart
+Korvus gateway stop
+Korvus logs --follow
+Korvus doctor
 ```
 
 ## Remote access
@@ -123,22 +123,22 @@ Use supervised runs for production-like reliability.
   <Tab title="macOS (launchd)">
 
 ```bash
-Root gateway install
-Root gateway status
-Root gateway restart
-Root gateway stop
+Korvus gateway install
+Korvus gateway status
+Korvus gateway restart
+Korvus gateway stop
 ```
 
-LaunchAgent labels are `ai.Root.gateway` (default) or `ai.Root.<profile>` (named profile). `Root doctor` audits and repairs service config drift.
+LaunchAgent labels are `ai.Root.gateway` (default) or `ai.Root.<profile>` (named profile). `Korvus doctor` audits and repairs service config drift.
 
   </Tab>
 
   <Tab title="Linux (systemd user)">
 
 ```bash
-Root gateway install
+Korvus gateway install
 systemctl --user enable --now Root-gateway[-<profile>].service
-Root gateway status
+Korvus gateway status
 ```
 
 For persistence after logout, enable lingering:
@@ -176,8 +176,8 @@ Checklist per instance:
 Example:
 
 ```bash
-Root_CONFIG_PATH=~/.Root/a.json Root_STATE_DIR=~/.Root-a Root gateway --port 19001
-Root_CONFIG_PATH=~/.Root/b.json Root_STATE_DIR=~/.Root-b Root gateway --port 19002
+Root_CONFIG_PATH=~/.Root/a.json Root_STATE_DIR=~/.Root-a Korvus gateway --port 19001
+Root_CONFIG_PATH=~/.Root/b.json Root_STATE_DIR=~/.Root-b Korvus gateway --port 19002
 ```
 
 See: [Multiple gateways](/gateway/multiple-gateways).
@@ -216,8 +216,8 @@ See full protocol docs: [Gateway Protocol](/gateway/protocol).
 ### Readiness
 
 ```bash
-Root gateway status
-Root channels status --probe
+Korvus gateway status
+Korvus channels status --probe
 Root health
 ```
 

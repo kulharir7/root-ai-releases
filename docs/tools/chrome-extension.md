@@ -28,13 +28,13 @@ Root then controls the attached tab through the normal `browser` tool surface (s
 1. Install the extension to a stable local path:
 
 ```bash
-Root browser extension install
+Korvus browser extension install
 ```
 
 2. Print the installed extension directory path:
 
 ```bash
-Root browser extension path
+Korvus browser extension path
 ```
 
 3. Chrome → `chrome://extensions`
@@ -50,7 +50,7 @@ The extension ships inside the Root release (npm package) as static files. There
 
 After upgrading Root:
 
-- Re-run `Root browser extension install` to refresh the installed files under your Root state directory.
+- Re-run `Korvus browser extension install` to refresh the installed files under your Root state directory.
 - Chrome → `chrome://extensions` → click “Reload” on the extension.
 
 ## Use it (no extra config)
@@ -59,13 +59,13 @@ Root ships with a built-in browser profile named `chrome` that targets the exten
 
 Use it:
 
-- CLI: `Root browser --browser-profile chrome tabs`
+- CLI: `Korvus browser --browser-profile chrome tabs`
 - Agent tool: `browser` with `profile="chrome"`
 
 If you want a different name or a different relay port, create your own profile:
 
 ```bash
-Root browser create-profile \
+Korvus browser create-profile \
   --name my-chrome \
   --driver extension \
   --cdp-url http://127.0.0.1:18792 \
@@ -74,7 +74,7 @@ Root browser create-profile \
 
 ## Attach / detach (toolbar button)
 
-- Open the tab you want Root to control.
+- Open the tab you want Korvus to control.
 - Click the extension icon.
   - Badge shows `ON` when attached.
 - Click again to detach.
@@ -87,7 +87,7 @@ Root browser create-profile \
 
 ## Badge + common errors
 
-- `ON`: attached; Root can drive that tab.
+- `ON`: attached; Korvus can drive that tab.
 - `…`: connecting to the local relay.
 - `!`: relay not reachable (most common: browser relay server isn’t running on this machine).
 
@@ -138,7 +138,7 @@ Options:
 
 Then ensure the tool isn’t denied by tool policy, and (if needed) call `browser` with `target="host"`.
 
-Debugging: `Root sandbox explain`
+Debugging: `Korvus sandbox explain`
 
 ## Remote access tips
 
@@ -147,9 +147,9 @@ Debugging: `Root sandbox explain`
 
 ## How “extension path” works
 
-`Root browser extension path` prints the **installed** on-disk directory containing the extension files.
+`Korvus browser extension path` prints the **installed** on-disk directory containing the extension files.
 
-The CLI intentionally does **not** print a `node_modules` path. Always run `Root browser extension install` first to copy the extension to a stable location under your Root state directory.
+The CLI intentionally does **not** print a `node_modules` path. Always run `Korvus browser extension install` first to copy the extension to a stable location under your Root state directory.
 
 If you move or delete that install directory, Chrome will mark the extension as broken until you reload it from a valid path.
 

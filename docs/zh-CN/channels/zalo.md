@@ -20,15 +20,15 @@ x-i18n:
 
 Zalo 以插件形式提供，不包含在核心安装中。
 
-- 通过 CLI 安装：`Root plugins install @Root/zalo`
+- 通过 CLI 安装：`Korvus plugins install @Root/zalo`
 - 或在新手引导期间选择 **Zalo** 并确认安装提示
 - 详情：[插件](/tools/plugin)
 
 ## 快速设置（初学者）
 
 1. 安装 Zalo 插件：
-   - 从源代码检出：`Root plugins install ./extensions/zalo`
-   - 从 npm（如果已发布）：`Root plugins install @Root/zalo`
+   - 从源代码检出：`Korvus plugins install ./extensions/zalo`
+   - 从 npm（如果已发布）：`Korvus plugins install @Root/zalo`
    - 或在新手引导中选择 **Zalo** 并确认安装提示
 2. 设置 token：
    - 环境变量：`ZALO_BOT_TOKEN=...`
@@ -148,15 +148,15 @@ Zalo 是一款专注于越南市场的即时通讯应用；其 Bot API 让 Gatew
 ## 投递目标（CLI/cron）
 
 - 使用聊天 id 作为目标。
-- 示例：`Root message send --channel zalo --target 123456789 --message "hi"`。
+- 示例：`Korvus message send --channel zalo --target 123456789 --message "hi"`。
 
 ## 故障排除
 
 **Bot 不响应：**
 
-- 检查 token 是否有效：`Root channels status --probe`
+- 检查 token 是否有效：`Korvus channels status --probe`
 - 验证发送者已被批准（配对或 allowFrom）
-- 检查 Gateway 网关日志：`Root logs --follow`
+- 检查 Gateway 网关日志：`Korvus logs --follow`
 
 **Webhook 未收到事件：**
 

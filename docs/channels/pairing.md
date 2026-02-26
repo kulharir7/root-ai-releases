@@ -3,7 +3,7 @@ summary: "Pairing overview: approve who can DM you + which nodes can join"
 read_when:
   - Setting up DM access control
   - Pairing a new iOS/Android node
-  - Reviewing Root security posture
+  - Reviewing Korvus security posture
 title: "Pairing"
 ---
 
@@ -86,7 +86,7 @@ Stored under `~/.Root/devices/`:
 
 ### Notes
 
-- The legacy `node.pair.*` API (CLI: `Root nodes pending/approve`) is a
+- The legacy `node.pair.*` API (CLI: `Korvus nodes pending/approve`) is a
   separate gateway-owned pairing store. WS nodes still require device pairing.
 
 ## Related docs

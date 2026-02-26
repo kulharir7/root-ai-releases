@@ -2,7 +2,7 @@
 read_when:
   - 你想要索引或搜索语义记忆
   - 你正在调试记忆可用性或索引问题
-summary: "`Root memory`（status/index/search）的 CLI 参考"
+summary: "`Korvus memory`（status/index/search）的 CLI 参考"
 title: memory
 x-i18n:
   generated_at: "2026-02-01T20:21:11Z"
@@ -13,7 +13,7 @@ x-i18n:
   workflow: 14
 ---
 
-# `Root memory`
+# `Korvus memory`
 
 管理语义记忆的索引和搜索。
 由活跃的记忆插件提供（默认：`memory-core`；设置 `plugins.slots.memory = "none"` 可禁用）。
@@ -26,15 +26,15 @@ x-i18n:
 ## 示例
 
 ```bash
-Root memory status
-Root memory status --deep
-Root memory status --deep --index
-Root memory status --deep --index --verbose
-Root memory index
-Root memory index --verbose
-Root memory search "release checklist"
-Root memory status --agent main
-Root memory index --agent main --verbose
+Korvus memory status
+Korvus memory status --deep
+Korvus memory status --deep --index
+Korvus memory status --deep --index --verbose
+Korvus memory index
+Korvus memory index --verbose
+Korvus memory search "release checklist"
+Korvus memory status --agent main
+Korvus memory index --agent main --verbose
 ```
 
 ## 选项

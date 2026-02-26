@@ -1,5 +1,5 @@
 ---
-summary: "Agent tool surface for Root (browser, canvas, nodes, message, cron) replacing legacy `Root-*` skills"
+summary: "Agent tool surface for Korvus (browser, canvas, nodes, message, cron) replacing legacy `Root-*` skills"
 read_when:
   - Adding or modifying agent tools
   - Retiring or changing `Root-*` skills
@@ -27,7 +27,7 @@ Notes:
 
 - Matching is case-insensitive.
 - `*` wildcards are supported (`"*"` means all tools).
-- If `tools.allow` only references unknown or unloaded plugin tool names, Root logs a warning and ignores the allowlist so core tools stay available.
+- If `tools.allow` only references unknown or unloaded plugin tool names, Korvus logs a warning and ignores the allowlist so core tools stay available.
 
 ## Tool profiles (base allowlist)
 
@@ -235,7 +235,7 @@ Core parameters:
 
 Notes:
 
-- Requires a Brave API key (recommended: `Root configure --section web`, or set `BRAVE_API_KEY`).
+- Requires a Brave API key (recommended: `Korvus configure --section web`, or set `BRAVE_API_KEY`).
 - Enable via `tools.web.search.enabled`.
 - Responses are cached (default 15 min).
 - See [Web tools](/tools/web) for setup.
@@ -313,7 +313,7 @@ Notes:
 - Uses gateway `node.invoke` under the hood.
 - If no `node` is provided, the tool picks a default (single connected node or local mac node).
 - A2UI is v0.8 only (no `createSurface`); the CLI rejects v0.9 JSONL with line errors.
-- Quick smoke: `Root nodes canvas a2ui push --node <id> --text "Hello from A2UI"`.
+- Quick smoke: `Korvus nodes canvas a2ui push --node <id> --text "Hello from A2UI"`.
 
 ### `nodes`
 
@@ -415,7 +415,7 @@ Restart or apply updates to the running Gateway process (in-place).
 
 Core actions:
 
-- `restart` (authorizes + sends `SIGUSR1` for in-process restart; `Root gateway` restart in-place)
+- `restart` (authorizes + sends `SIGUSR1` for in-process restart; `Korvus gateway` restart in-place)
 - `config.get` / `config.schema`
 - `config.apply` (validate + write config + restart + wake)
 - `config.patch` (merge partial update + restart + wake)

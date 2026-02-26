@@ -148,8 +148,8 @@ aws ec2 associate-iam-instance-profile \
   --iam-instance-profile Name=EC2-Bedrock-Access
 
 # 3. 在 EC2 实例上启用发现功能
-Root config set models.bedrockDiscovery.enabled true
-Root config set models.bedrockDiscovery.region us-east-1
+Korvus config set models.bedrockDiscovery.enabled true
+Korvus config set models.bedrockDiscovery.region us-east-1
 
 # 4. 设置解决方法所需的环境变量
 echo 'export AWS_PROFILE=default' >> ~/.bashrc
@@ -157,7 +157,7 @@ echo 'export AWS_REGION=us-east-1' >> ~/.bashrc
 source ~/.bashrc
 
 # 5. 验证模型已被发现
-Root models list
+Korvus models list
 ```
 
 ## 注意事项

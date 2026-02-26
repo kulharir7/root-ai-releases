@@ -12,7 +12,7 @@ x-i18n:
   workflow: 15
 ---
 
-# Root 🦞
+# Korvus 🦞
 
 <p align="center">
     <img
@@ -41,7 +41,7 @@ x-i18n:
     安装 Root 并在几分钟内启动 Gateway 网关。
   </Card>
   <Card title="运行向导" href="/start/wizard" icon="sparkles">
-    通过 `Root onboard` 和配对流程进行引导式设置。
+    通过 `Korvus onboard` 和配对流程进行引导式设置。
   </Card>
   <Card title="打开控制界面" href="/web/control-ui" icon="layout-dashboard">
     启动浏览器仪表板，管理聊天、配置和会话。
@@ -97,13 +97,13 @@ Gateway 网关是会话、路由和渠道连接的唯一事实来源。
   </Step>
   <Step title="新手引导并安装服务">
     ```bash
-    Root onboard --install-daemon
+    Korvus onboard --install-daemon
     ```
   </Step>
   <Step title="配对 WhatsApp 并启动 Gateway 网关">
     ```bash
-    Root channels login
-    Root gateway --port 18789
+    Korvus channels login
+    Korvus gateway --port 18789
     ```
   </Step>
 </Steps>

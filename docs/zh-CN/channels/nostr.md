@@ -23,7 +23,7 @@ Nostr 是一个去中心化的社交网络协议。此渠道使 Root 能够通�
 
 ### 新手引导（推荐）
 
-- 新手引导向导（`Root onboard`）和 `Root channels add` 会列出可选的渠道插件。
+- 新手引导向导（`Korvus onboard`）和 `Korvus channels add` 会列出可选的渠道插件。
 - 选择 Nostr 会提示你按需安装插件。
 
 安装默认值：
@@ -36,13 +36,13 @@ Nostr 是一个去中心化的社交网络协议。此渠道使 Root 能够通�
 ### 手动安装
 
 ```bash
-Root plugins install @Root/nostr
+Korvus plugins install @Root/nostr
 ```
 
 使用本地 checkout（开发工作流）：
 
 ```bash
-Root plugins install --link <path-to-Root>/extensions/nostr
+Korvus plugins install --link <path-to-Root>/extensions/nostr
 ```
 
 安装或启用插件后重启 Gateway 网关。

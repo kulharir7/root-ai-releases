@@ -11,29 +11,29 @@ Manage Docker-based sandbox containers for isolated agent execution.
 
 ## Overview
 
-Root can run agents in isolated Docker containers for security. The `sandbox` commands help you manage these containers, especially after updates or configuration changes.
+Korvus can run agents in isolated Docker containers for security. The `sandbox` commands help you manage these containers, especially after updates or configuration changes.
 
 ## Commands
 
-### `Root sandbox explain`
+### `Korvus sandbox explain`
 
 Inspect the **effective** sandbox mode/scope/workspace access, sandbox tool policy, and elevated gates (with fix-it config key paths).
 
 ```bash
-Root sandbox explain
-Root sandbox explain --session agent:main:main
-Root sandbox explain --agent work
-Root sandbox explain --json
+Korvus sandbox explain
+Korvus sandbox explain --session agent:main:main
+Korvus sandbox explain --agent work
+Korvus sandbox explain --json
 ```
 
-### `Root sandbox list`
+### `Korvus sandbox list`
 
 List all sandbox containers with their status and configuration.
 
 ```bash
-Root sandbox list
-Root sandbox list --browser  # List only browser containers
-Root sandbox list --json     # JSON output
+Korvus sandbox list
+Korvus sandbox list --browser  # List only browser containers
+Korvus sandbox list --json     # JSON output
 ```
 
 **Output includes:**
@@ -44,16 +44,16 @@ Root sandbox list --json     # JSON output
 - Idle time (time since last use)
 - Associated session/agent
 
-### `Root sandbox recreate`
+### `Korvus sandbox recreate`
 
 Remove sandbox containers to force recreation with updated images/config.
 
 ```bash
-Root sandbox recreate --all                # Recreate all containers
-Root sandbox recreate --session main       # Specific session
-Root sandbox recreate --agent mybot        # Specific agent
-Root sandbox recreate --browser            # Only browser containers
-Root sandbox recreate --all --force        # Skip confirmation
+Korvus sandbox recreate --all                # Recreate all containers
+Korvus sandbox recreate --session main       # Specific session
+Korvus sandbox recreate --agent mybot        # Specific agent
+Korvus sandbox recreate --browser            # Only browser containers
+Korvus sandbox recreate --all --force        # Skip confirmation
 ```
 
 **Options:**
@@ -79,7 +79,7 @@ docker tag Root-sandbox:latest Root-sandbox:bookworm-slim
 # Edit config: agents.defaults.sandbox.docker.image (or agents.list[].sandbox.docker.image)
 
 # Recreate containers
-Root sandbox recreate --all
+Korvus sandbox recreate --all
 ```
 
 ### After changing sandbox configuration
@@ -88,22 +88,22 @@ Root sandbox recreate --all
 # Edit config: agents.defaults.sandbox.* (or agents.list[].sandbox.*)
 
 # Recreate to apply new config
-Root sandbox recreate --all
+Korvus sandbox recreate --all
 ```
 
 ### After changing setupCommand
 
 ```bash
-Root sandbox recreate --all
+Korvus sandbox recreate --all
 # or just one agent:
-Root sandbox recreate --agent family
+Korvus sandbox recreate --agent family
 ```
 
 ### For a specific agent only
 
 ```bash
 # Update only one agent's containers
-Root sandbox recreate --agent alfred
+Korvus sandbox recreate --agent alfred
 ```
 
 ## Why is this needed?
@@ -114,9 +114,9 @@ Root sandbox recreate --agent alfred
 - Containers are only pruned after 24h of inactivity
 - Regularly-used agents keep old containers running indefinitely
 
-**Solution:** Use `Root sandbox recreate` to force removal of old containers. They'll be recreated automatically with current settings when next needed.
+**Solution:** Use `Korvus sandbox recreate` to force removal of old containers. They'll be recreated automatically with current settings when next needed.
 
-Tip: prefer `Root sandbox recreate` over manual `docker rm`. It uses the
+Tip: prefer `Korvus sandbox recreate` over manual `docker rm`. It uses the
 Gateway’s container naming and avoids mismatches when scope/session keys change.
 
 ## Configuration

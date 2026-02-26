@@ -39,7 +39,7 @@ Android connects directly to the Gateway WebSocket (default `ws://<host>:18789`)
 ### 1) Start the Gateway
 
 ```bash
-Root gateway --port 18789 --verbose
+Korvus gateway --port 18789 --verbose
 ```
 
 Confirm in logs you see something like:
@@ -89,8 +89,8 @@ After the first successful pairing, Android auto-reconnects on launch:
 On the gateway machine:
 
 ```bash
-Root nodes pending
-Root nodes approve <requestId>
+Korvus nodes pending
+Korvus nodes approve <requestId>
 ```
 
 Pairing details: [Gateway pairing](/gateway/pairing).
@@ -100,13 +100,13 @@ Pairing details: [Gateway pairing](/gateway/pairing).
 - Via nodes status:
 
   ```bash
-  Root nodes status
+  Korvus nodes status
   ```
 
 - Via Gateway:
 
   ```bash
-  Root gateway call node.list --params "{}"
+  Korvus gateway call node.list --params "{}"
   ```
 
 ### 6) Chat + history
@@ -130,7 +130,7 @@ Note: nodes load canvas from the Gateway HTTP server (same port as `gateway.port
 2. Navigate the node to it (LAN):
 
 ```bash
-Root nodes invoke --node "<Android Node>" --command canvas.navigate --params '{"url":"http://<gateway-hostname>.local:18789/__Root__/canvas/"}'
+Korvus nodes invoke --node "<Android Node>" --command canvas.navigate --params '{"url":"http://<gateway-hostname>.local:18789/__Root__/canvas/"}'
 ```
 
 Tailnet (optional): if both devices are on Tailscale, use a MagicDNS name or tailnet IP instead of `.local`, e.g. `http://<gateway-magicdns>:18789/__Root__/canvas/`.

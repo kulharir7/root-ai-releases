@@ -13,7 +13,7 @@ Goal: go from zero to a first working chat with minimal setup.
 <Info>
 Fastest chat: open the Control UI (no channel setup needed). Run `Root dashboard`
 and chat in the browser, or open `http://127.0.0.1:18789/` on the
-<Tooltip headline="Gateway host" tip="The machine running the Root gateway service.">gateway host</Tooltip>.
+<Tooltip headline="Gateway host" tip="The machine running the Korvus gateway service.">gateway host</Tooltip>.
 Docs: [Dashboard](/web/dashboard) and [Control UI](/web/control-ui).
 </Info>
 
@@ -28,7 +28,7 @@ Check your Node version with `node --version` if you are unsure.
 ## Quick setup (CLI)
 
 <Steps>
-  <Step title="Install Root (recommended)">
+  <Step title="Install Korvus (recommended)">
     <Tabs>
       <Tab title="macOS/Linux">
         ```bash
@@ -54,7 +54,7 @@ Check your Node version with `node --version` if you are unsure.
   </Step>
   <Step title="Run the onboarding wizard">
     ```bash
-    Root onboard --install-daemon
+    Korvus onboard --install-daemon
     ```
 
     The wizard configures auth, gateway settings, and optional channels.
@@ -65,7 +65,7 @@ Check your Node version with `node --version` if you are unsure.
     If you installed the service, it should already be running:
 
     ```bash
-    Root gateway status
+    Korvus gateway status
     ```
 
   </Step>
@@ -87,7 +87,7 @@ If the Control UI loads, your Gateway is ready for use.
     Useful for quick tests or troubleshooting.
 
     ```bash
-    Root gateway --port 18789
+    Korvus gateway --port 18789
     ```
 
   </Accordion>
@@ -95,7 +95,7 @@ If the Control UI loads, your Gateway is ready for use.
     Requires a configured channel.
 
     ```bash
-    Root message send --target +15555550123 --message "Hello from Root"
+    Korvus message send --target +15555550123 --message "Hello from Root"
     ```
 
   </Accordion>
@@ -103,7 +103,7 @@ If the Control UI loads, your Gateway is ready for use.
 
 ## Useful environment variables
 
-If you run Root as a service account or want custom config/state locations:
+If you run Korvus as a service account or want custom config/state locations:
 
 - `Root_HOME` sets the home directory used for internal path resolution.
 - `Root_STATE_DIR` overrides the state directory.

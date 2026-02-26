@@ -11,7 +11,7 @@ title: "Configuration"
 
 Root reads an optional <Tooltip tip="JSON5 supports comments and trailing commas">**JSON5**</Tooltip> config from `~/.Root/Root.json`.
 
-If the file is missing, Root uses safe defaults. Common reasons to add a config:
+If the file is missing, Korvus uses safe defaults. Common reasons to add a config:
 
 - Connect channels and control who can message the bot
 - Set models, tools, sandboxing, or automation (cron, hooks)
@@ -20,7 +20,7 @@ If the file is missing, Root uses safe defaults. Common reasons to add a config:
 See the [full reference](/gateway/configuration-reference) for every available field.
 
 <Tip>
-**New to configuration?** Start with `Root onboard` for interactive setup, or check out the [Configuration Examples](/gateway/configuration-examples) guide for complete copy-paste configs.
+**New to configuration?** Start with `Korvus onboard` for interactive setup, or check out the [Configuration Examples](/gateway/configuration-examples) guide for complete copy-paste configs.
 </Tip>
 
 ## Minimal config
@@ -38,15 +38,15 @@ See the [full reference](/gateway/configuration-reference) for every available f
 <Tabs>
   <Tab title="Interactive wizard">
     ```bash
-    Root onboard       # full setup wizard
-    Root configure     # config wizard
+    Korvus onboard       # full setup wizard
+    Korvus configure     # config wizard
     ```
   </Tab>
   <Tab title="CLI (one-liners)">
     ```bash
-    Root config get agents.defaults.workspace
-    Root config set agents.defaults.heartbeat.every "2h"
-    Root config unset tools.web.search.apiKey
+    Korvus config get agents.defaults.workspace
+    Korvus config set agents.defaults.heartbeat.every "2h"
+    Korvus config unset tools.web.search.apiKey
     ```
   </Tab>
   <Tab title="Control UI">
@@ -67,9 +67,9 @@ Root only accepts configurations that fully match the schema. Unknown keys, malf
 When validation fails:
 
 - The Gateway does not boot
-- Only diagnostic commands work (`Root doctor`, `Root logs`, `Root health`, `Root status`)
-- Run `Root doctor` to see exact issues
-- Run `Root doctor --fix` (or `--yes`) to apply repairs
+- Only diagnostic commands work (`Korvus doctor`, `Korvus logs`, `Root health`, `Korvus status`)
+- Run `Korvus doctor` to see exact issues
+- Run `Korvus doctor --fix` (or `--yes`) to apply repairs
 
 ## Common tasks
 
@@ -374,7 +374,7 @@ Most fields hot-apply without downtime. In `hybrid` mode, restart-required chang
     Validates + writes the full config and restarts the Gateway in one step.
 
     <Warning>
-    `config.apply` replaces the **entire config**. Use `config.patch` for partial updates, or `Root config set` for single keys.
+    `config.apply` replaces the **entire config**. Use `config.patch` for partial updates, or `Korvus config set` for single keys.
     </Warning>
 
     Params:
@@ -386,8 +386,8 @@ Most fields hot-apply without downtime. In `hybrid` mode, restart-required chang
     - `restartDelayMs` (optional) — delay before restart (default 2000)
 
     ```bash
-    Root gateway call config.get --params '{}'  # capture payload.hash
-    Root gateway call config.apply --params '{
+    Korvus gateway call config.get --params '{}'  # capture payload.hash
+    Korvus gateway call config.apply --params '{
       "raw": "{ agents: { defaults: { workspace: \"~/.Root/workspace\" } } }",
       "baseHash": "<hash>",
       "sessionKey": "agent:main:whatsapp:dm:+15555550123"
@@ -410,7 +410,7 @@ Most fields hot-apply without downtime. In `hybrid` mode, restart-required chang
     - `sessionKey`, `note`, `restartDelayMs` — same as `config.apply`
 
     ```bash
-    Root gateway call config.patch --params '{
+    Korvus gateway call config.patch --params '{
       "raw": "{ channels: { telegram: { groups: { \"*\": { requireMention: false } } } } }",
       "baseHash": "<hash>"
     }'
@@ -438,7 +438,7 @@ Neither file overrides existing env vars. You can also set inline env vars in co
 ```
 
 <Accordion title="Shell env import (optional)">
-  If enabled and expected keys aren't set, Root runs your login shell and imports only the missing keys:
+  If enabled and expected keys aren't set, Korvus runs your login shell and imports only the missing keys:
 
 ```json5
 {

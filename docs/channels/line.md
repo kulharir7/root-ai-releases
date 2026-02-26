@@ -1,7 +1,7 @@
 ---
 summary: "LINE Messaging API plugin setup, config, and usage"
 read_when:
-  - You want to connect Root to LINE
+  - You want to connect Korvus to LINE
   - You need LINE webhook + credential setup
   - You want LINE-specific message options
 title: LINE
@@ -22,13 +22,13 @@ are not supported.
 Install the LINE plugin:
 
 ```bash
-Root plugins install @Root/line
+Korvus plugins install @Root/line
 ```
 
 Local checkout (when running from a git repo):
 
 ```bash
-Root plugins install ./extensions/line
+Korvus plugins install ./extensions/line
 ```
 
 ## Setup

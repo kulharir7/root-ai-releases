@@ -1,5 +1,5 @@
 ---
-summary: "Gmail Pub/Sub push wired into Root webhooks via gogcli"
+summary: "Gmail Pub/Sub push wired into Korvus webhooks via gogcli"
 read_when:
   - Wiring Gmail inbox triggers to Root
   - Setting up Pub/Sub push for agent wake
@@ -8,13 +8,13 @@ title: "Gmail PubSub"
 
 # Gmail Pub/Sub -> Root
 
-Goal: Gmail watch -> Pub/Sub push -> `gog gmail watch serve` -> Root webhook.
+Goal: Gmail watch -> Pub/Sub push -> `gog gmail watch serve` -> Korvus webhook.
 
 ## Prereqs
 
 - `gcloud` installed and logged in ([install guide](https://docs.cloud.google.com/sdk/docs/install-sdk)).
 - `gog` (gogcli) installed and authorized for the Gmail account ([gogcli.sh](https://gogcli.sh/)).
-- Root hooks enabled (see [Webhooks](/automation/webhook)).
+- Korvus hooks enabled (see [Webhooks](/automation/webhook)).
 - `tailscale` logged in ([tailscale.com](https://tailscale.com/)). Supported setup uses Tailscale Funnel for the public HTTPS endpoint.
   Other tunnel services can work, but are DIY/unsupported and require manual wiring.
   Right now, Tailscale is what we support.
@@ -95,14 +95,14 @@ under `~/.Root/hooks/transforms` (see [Webhooks](/automation/webhook)).
 Use the Root helper to wire everything together (installs deps on macOS via brew):
 
 ```bash
-Root webhooks gmail setup \
+Korvus webhooks gmail setup \
   --account Root@gmail.com
 ```
 
 Defaults:
 
 - Uses Tailscale Funnel for the public push endpoint.
-- Writes `hooks.gmail` config for `Root webhooks gmail run`.
+- Writes `hooks.gmail` config for `Korvus webhooks gmail run`.
 - Enables the Gmail hook preset (`hooks.presets: ["gmail"]`).
 
 Path note: when `tailscale.mode` is enabled, Root automatically sets
@@ -129,7 +129,7 @@ Gateway auto-start (recommended):
 Manual daemon (starts `gog gmail watch serve` + auto-renew):
 
 ```bash
-Root webhooks gmail run
+Korvus webhooks gmail run
 ```
 
 ## One-time setup
@@ -197,7 +197,7 @@ Notes:
 - `--hook-url` points to Root `/hooks/gmail` (mapped; isolated run + summary to main).
 - `--include-body` and `--max-bytes` control the body snippet sent to Root.
 
-Recommended: `Root webhooks gmail run` wraps the same flow and auto-renews the watch.
+Recommended: `Korvus webhooks gmail run` wraps the same flow and auto-renews the watch.
 
 ## Expose the handler (advanced, unsupported)
 

@@ -1,12 +1,12 @@
 ---
-summary: "CLI reference for `Root models` (status/list/set/scan, aliases, fallbacks, auth)"
+summary: "CLI reference for `Korvus models` (status/list/set/scan, aliases, fallbacks, auth)"
 read_when:
   - You want to change default models or view provider auth status
   - You want to scan available models/providers and debug auth profiles
 title: "models"
 ---
 
-# `Root models`
+# `Korvus models`
 
 Model discovery, scanning, and configuration (default model, fallbacks, auth profiles).
 
@@ -18,13 +18,13 @@ Related:
 ## Common commands
 
 ```bash
-Root models status
-Root models list
-Root models set <model-or-alias>
-Root models scan
+Korvus models status
+Korvus models list
+Korvus models set <model-or-alias>
+Korvus models scan
 ```
 
-`Root models status` shows the resolved default/fallbacks plus an auth overview.
+`Korvus models status` shows the resolved default/fallbacks plus an auth overview.
 When provider usage snapshots are available, the OAuth/token status section includes
 provider usage headers.
 Add `--probe` to run live auth probes against each configured provider profile.
@@ -57,21 +57,21 @@ Options:
 ## Aliases + fallbacks
 
 ```bash
-Root models aliases list
-Root models fallbacks list
+Korvus models aliases list
+Korvus models fallbacks list
 ```
 
 ## Auth profiles
 
 ```bash
-Root models auth add
-Root models auth login --provider <id>
-Root models auth setup-token
-Root models auth paste-token
+Korvus models auth add
+Korvus models auth login --provider <id>
+Korvus models auth setup-token
+Korvus models auth paste-token
 ```
 
 `models auth login` runs a provider plugin’s auth flow (OAuth/API key). Use
-`Root plugins list` to see which providers are installed.
+`Korvus plugins list` to see which providers are installed.
 
 Notes:
 

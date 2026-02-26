@@ -17,7 +17,7 @@ This doc explains the runtime rules and the data that backs them.
 
 ## Auth storage (keys + OAuth)
 
-Root uses **auth profiles** for both API keys and OAuth tokens.
+Korvus uses **auth profiles** for both API keys and OAuth tokens.
 
 - Secrets live in `~/.Root/agents/<agentId>/agent/auth-profiles.json` (legacy: `~/.Root/agent/auth-profiles.json`).
 - Config `auth.profiles` / `auth.order` are **metadata + routing only** (no secrets).
@@ -47,7 +47,7 @@ When a provider has multiple profiles, Root chooses an order like this:
 2. **Configured profiles**: `auth.profiles` filtered by provider.
 3. **Stored profiles**: entries in `auth-profiles.json` for the provider.
 
-If no explicit order is configured, Root uses a round‑robin order:
+If no explicit order is configured, Korvus uses a round‑robin order:
 
 - **Primary key:** profile type (**OAuth before API keys**).
 - **Secondary key:** `usageStats.lastUsed` (oldest first, within each type).

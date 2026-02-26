@@ -21,7 +21,7 @@ Root 的 Gateway 网关可以提供一个小型的 OpenAI 兼容 Chat Completion
 - `POST /v1/chat/completions`
 - 与 Gateway 网关相同的端口（WS + HTTP 多路复用）：`http://<gateway-host>:<port>/v1/chat/completions`
 
-底层实现中，请求作为普通的 Gateway 网关智能体运行执行（与 `Root agent` 相同的代码路径），因此路由/权限/配置与你的 Gateway 网关一致。
+底层实现中，请求作为普通的 Gateway 网关智能体运行执行（与 `Korvus agent` 相同的代码路径），因此路由/权限/配置与你的 Gateway 网关一致。
 
 ## 认证
 

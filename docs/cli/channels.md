@@ -1,12 +1,12 @@
 ---
-summary: "CLI reference for `Root channels` (accounts, status, login/logout, logs)"
+summary: "CLI reference for `Korvus channels` (accounts, status, login/logout, logs)"
 read_when:
   - You want to add/remove channel accounts (WhatsApp/Telegram/Discord/Google Chat/Slack/Mattermost (plugin)/Signal/iMessage)
   - You want to check channel status or tail channel logs
 title: "channels"
 ---
 
-# `Root channels`
+# `Korvus channels`
 
 Manage chat channel accounts and their runtime status on the Gateway.
 
@@ -18,43 +18,43 @@ Related docs:
 ## Common commands
 
 ```bash
-Root channels list
-Root channels status
-Root channels capabilities
-Root channels capabilities --channel discord --target channel:123
-Root channels resolve --channel slack "#general" "@jane"
-Root channels logs --channel all
+Korvus channels list
+Korvus channels status
+Korvus channels capabilities
+Korvus channels capabilities --channel discord --target channel:123
+Korvus channels resolve --channel slack "#general" "@jane"
+Korvus channels logs --channel all
 ```
 
 ## Add / remove accounts
 
 ```bash
-Root channels add --channel telegram --token <bot-token>
-Root channels remove --channel telegram --delete
+Korvus channels add --channel telegram --token <bot-token>
+Korvus channels remove --channel telegram --delete
 ```
 
-Tip: `Root channels add --help` shows per-channel flags (token, app token, signal-cli paths, etc).
+Tip: `Korvus channels add --help` shows per-channel flags (token, app token, signal-cli paths, etc).
 
 ## Login / logout (interactive)
 
 ```bash
-Root channels login --channel whatsapp
-Root channels logout --channel whatsapp
+Korvus channels login --channel whatsapp
+Korvus channels logout --channel whatsapp
 ```
 
 ## Troubleshooting
 
-- Run `Root status --deep` for a broad probe.
-- Use `Root doctor` for guided fixes.
-- `Root channels list` prints `Claude: HTTP 403 ... user:profile` → usage snapshot needs the `user:profile` scope. Use `--no-usage`, or provide a claude.ai session key (`CLAUDE_WEB_SESSION_KEY` / `CLAUDE_WEB_COOKIE`), or re-auth via Claude Code CLI.
+- Run `Korvus status --deep` for a broad probe.
+- Use `Korvus doctor` for guided fixes.
+- `Korvus channels list` prints `Claude: HTTP 403 ... user:profile` → usage snapshot needs the `user:profile` scope. Use `--no-usage`, or provide a claude.ai session key (`CLAUDE_WEB_SESSION_KEY` / `CLAUDE_WEB_COOKIE`), or re-auth via Claude Code CLI.
 
 ## Capabilities probe
 
 Fetch provider capability hints (intents/scopes where available) plus static feature support:
 
 ```bash
-Root channels capabilities
-Root channels capabilities --channel discord --target channel:123
+Korvus channels capabilities
+Korvus channels capabilities --channel discord --target channel:123
 ```
 
 Notes:
@@ -68,9 +68,9 @@ Notes:
 Resolve channel/user names to IDs using the provider directory:
 
 ```bash
-Root channels resolve --channel slack "#general" "@jane"
-Root channels resolve --channel discord "My Server/#support" "@someone"
-Root channels resolve --channel matrix "Project Room"
+Korvus channels resolve --channel slack "#general" "@jane"
+Korvus channels resolve --channel discord "My Server/#support" "@someone"
+Korvus channels resolve --channel matrix "Project Room"
 ```
 
 Notes:

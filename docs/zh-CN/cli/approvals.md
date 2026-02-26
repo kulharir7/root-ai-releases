@@ -51,7 +51,7 @@ Root approvals allowlist remove "~/Projects/**/bin/rg"
 
 ## 注意事项
 
-- `--node` 使用与 `Root nodes` 相同的解析器（id、name、ip 或 id 前缀）。
+- `--node` 使用与 `Korvus nodes` 相同的解析器（id、name、ip 或 id 前缀）。
 - `--agent` 默认为 `"*"`，表示适用于所有智能体。
 - 节点主机必须公开 `system.execApprovals.get/set`（macOS 应用或无头节点主机）。
 - 审批文件按主机存储在 `~/.Root/exec-approvals.json`。

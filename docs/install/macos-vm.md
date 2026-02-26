@@ -1,5 +1,5 @@
 ---
-summary: "Run Root in a sandboxed macOS VM (local or hosted) when you need isolation or iMessage"
+summary: "Run Korvus in a sandboxed macOS VM (local or hosted) when you need isolation or iMessage"
 read_when:
   - You want Root isolated from your main macOS environment
   - You want iMessage integration (BlueBubbles) in a sandbox
@@ -8,7 +8,7 @@ read_when:
 title: "macOS VMs"
 ---
 
-# Root on macOS VMs (Sandboxing)
+# Korvus on macOS VMs (Sandboxing)
 
 ## Recommended default (most users)
 
@@ -22,7 +22,7 @@ Use a macOS VM when you specifically need macOS-only capabilities (iMessage/Blue
 
 ### Local VM on your Apple Silicon Mac (Lume)
 
-Run Root in a sandboxed macOS VM on your existing Apple Silicon Mac using [Lume](https://cua.ai/docs/lume).
+Run Korvus in a sandboxed macOS VM on your existing Apple Silicon Mac using [Lume](https://cua.ai/docs/lume).
 
 This gives you:
 
@@ -47,8 +47,8 @@ Once you have SSH access to a macOS VM, continue at step 6 below.
 1. Install Lume
 2. `lume create Root --os macos --ipsw latest`
 3. Complete Setup Assistant, enable Remote Login (SSH)
-4. `lume run Root --no-display`
-5. SSH in, install Root, configure channels
+4. `lume run Korvus --no-display`
+5. SSH in, install Korvus, configure channels
 6. Done
 
 ---
@@ -132,13 +132,13 @@ Replace `youruser` with the account you created, and the IP with your VM's IP.
 
 ---
 
-## 6) Install Root
+## 6) Install Korvus
 
 Inside the VM:
 
 ```bash
 npm install -g Root@latest
-Root onboard --install-daemon
+Korvus onboard --install-daemon
 ```
 
 Follow the onboarding prompts to set up your model provider (Anthropic, OpenAI, etc.).
@@ -172,7 +172,7 @@ Add your channels:
 Then login to WhatsApp (scan QR):
 
 ```bash
-Root channels login
+Korvus channels login
 ```
 
 ---
@@ -183,7 +183,7 @@ Stop the VM and restart without display:
 
 ```bash
 lume stop Root
-lume run Root --no-display
+lume run Korvus --no-display
 ```
 
 The VM runs in the background. Root's daemon keeps the gateway running.
@@ -191,7 +191,7 @@ The VM runs in the background. Root's daemon keeps the gateway running.
 To check status:
 
 ```bash
-ssh youruser@192.168.64.X "Root status"
+ssh youruser@192.168.64.X "Korvus status"
 ```
 
 ---
@@ -207,7 +207,7 @@ Inside the VM:
 3. Enable the Web API and set a password
 4. Point BlueBubbles webhooks at your gateway (example: `https://your-gateway-host:3000/bluebubbles-webhook?password=<password>`)
 
-Add to your Root config:
+Add to your Korvus config:
 
 ```json
 {
@@ -241,7 +241,7 @@ Reset anytime:
 ```bash
 lume stop Root && lume delete Root
 lume clone Root-golden Root
-lume run Root --no-display
+lume run Korvus --no-display
 ```
 
 ---
@@ -265,7 +265,7 @@ For true always-on, consider a dedicated Mac mini or a small VPS. See [VPS hosti
 | Can't SSH into VM        | Check "Remote Login" is enabled in VM's System Settings                            |
 | VM IP not showing        | Wait for VM to fully boot, run `lume get Root` again                           |
 | Lume command not found   | Add `~/.local/bin` to your PATH                                                    |
-| WhatsApp QR not scanning | Ensure you're logged into the VM (not host) when running `Root channels login` |
+| WhatsApp QR not scanning | Ensure you're logged into the VM (not host) when running `Korvus channels login` |
 
 ---
 

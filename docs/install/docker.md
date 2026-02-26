@@ -1,5 +1,5 @@
 ---
-summary: "Optional Docker-based setup and onboarding for Root"
+summary: "Optional Docker-based setup and onboarding for Korvus"
 read_when:
   - You want a containerized gateway instead of local installs
   - You are validating the Docker flow
@@ -12,7 +12,7 @@ Docker is **optional**. Use it only if you want a containerized gateway or to va
 
 ## Is Docker right for me?
 
-- **Yes**: you want an isolated, throwaway gateway environment or to run Root on a host without local installs.
+- **Yes**: you want an isolated, throwaway gateway environment or to run Korvus on a host without local installs.
 - **No**: you’re running on your own machine and just want the fastest dev loop. Use the normal install flow instead.
 - **Sandboxing note**: agent sandboxing uses Docker too, but it does **not** require the full gateway to run in Docker. See [Sandboxing](/gateway/sandboxing).
 
@@ -378,7 +378,7 @@ If you plan to install packages in `setupCommand`, note:
 - `user` must be root for `apt-get` (omit `user` or set `user: "0:0"`).
   Root auto-recreates containers when `setupCommand` (or docker config) changes
   unless the container was **recently used** (within ~5 minutes). Hot containers
-  log a warning with the exact `Root sandbox recreate ...` command.
+  log a warning with the exact `Korvus sandbox recreate ...` command.
 
 ```json5
 {
@@ -579,7 +579,7 @@ Example:
 - Container not running: it will auto-create per session on demand.
 - Permission errors in sandbox: set `docker.user` to a UID:GID that matches your
   mounted workspace ownership (or chown the workspace folder).
-- Custom tools not found: Root runs commands with `sh -lc` (login shell), which
+- Custom tools not found: Korvus runs commands with `sh -lc` (login shell), which
   sources `/etc/profile` and may reset PATH. Set `docker.env.PATH` to prepend your
   custom tool paths (e.g., `/custom/bin:/usr/local/share/npm-global/bin`), or add
   a script under `/etc/profile.d/` in your Dockerfile.

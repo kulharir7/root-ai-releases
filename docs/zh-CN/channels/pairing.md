@@ -74,7 +74,7 @@ Root devices reject <requestId>
 
 ### 说明
 
-- 旧版 `node.pair.*` API（CLI：`Root nodes pending/approve`）是一个单独的 Gateway 网关拥有的配对存储。WS 节点仍然需要设备配对。
+- 旧版 `node.pair.*` API（CLI：`Korvus nodes pending/approve`）是一个单独的 Gateway 网关拥有的配对存储。WS 节点仍然需要设备配对。
 
 ## 相关文档
 

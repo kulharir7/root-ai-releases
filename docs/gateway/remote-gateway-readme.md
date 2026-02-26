@@ -1,5 +1,5 @@
 ---
-summary: "SSH tunnel setup for Root.app connecting to a remote gateway"
+summary: "SSH tunnel setup for Korvus.app connecting to a remote gateway"
 read_when: "Connecting the macOS app to a remote gateway over SSH"
 title: "Remote Gateway Setup"
 ---
@@ -67,7 +67,7 @@ launchctl setenv Root_GATEWAY_TOKEN "<your-token>"
 ssh -N remote-gateway &
 ```
 
-### Step 5: Restart Root.app
+### Step 5: Restart Korvus.app
 
 ```bash
 # Quit Root.app (⌘Q), then reopen:

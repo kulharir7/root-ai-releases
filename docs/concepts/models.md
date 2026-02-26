@@ -24,7 +24,7 @@ Root selects models in this order:
 
 Related:
 
-- `agents.defaults.models` is the allowlist/catalog of models Root can use (plus aliases).
+- `agents.defaults.models` is the allowlist/catalog of models Korvus can use (plus aliases).
 - `agents.defaults.imageModel` is used **only when** the primary model can’t accept images.
 - Per-agent defaults can override `agents.defaults.model` via `agents.list[].model` plus bindings (see [/concepts/multi-agent](/concepts/multi-agent)).
 
@@ -38,7 +38,7 @@ Related:
 If you don’t want to hand-edit config, run the onboarding wizard:
 
 ```bash
-Root onboard
+Korvus onboard
 ```
 
 It can set up model + auth for common providers, including **OpenAI Code (Codex)
@@ -115,27 +115,27 @@ Full command behavior/config: [Slash commands](/tools/slash-commands).
 ## CLI commands
 
 ```bash
-Root models list
-Root models status
-Root models set <provider/model>
-Root models set-image <provider/model>
+Korvus models list
+Korvus models status
+Korvus models set <provider/model>
+Korvus models set-image <provider/model>
 
-Root models aliases list
-Root models aliases add <alias> <provider/model>
-Root models aliases remove <alias>
+Korvus models aliases list
+Korvus models aliases add <alias> <provider/model>
+Korvus models aliases remove <alias>
 
-Root models fallbacks list
-Root models fallbacks add <provider/model>
-Root models fallbacks remove <provider/model>
-Root models fallbacks clear
+Korvus models fallbacks list
+Korvus models fallbacks add <provider/model>
+Korvus models fallbacks remove <provider/model>
+Korvus models fallbacks clear
 
-Root models image-fallbacks list
-Root models image-fallbacks add <provider/model>
-Root models image-fallbacks remove <provider/model>
-Root models image-fallbacks clear
+Korvus models image-fallbacks list
+Korvus models image-fallbacks add <provider/model>
+Korvus models image-fallbacks remove <provider/model>
+Korvus models image-fallbacks clear
 ```
 
-`Root models` (no subcommand) is a shortcut for `models status`.
+`Korvus models` (no subcommand) is a shortcut for `models status`.
 
 ### `models list`
 
@@ -163,12 +163,12 @@ Preferred Anthropic auth is the Claude Code CLI setup-token (run anywhere; paste
 
 ```bash
 claude setup-token
-Root models status
+Korvus models status
 ```
 
 ## Scanning (OpenRouter free models)
 
-`Root models scan` inspects OpenRouter’s **free model catalog** and can
+`Korvus models scan` inspects OpenRouter’s **free model catalog** and can
 optionally probe models for tool and image support.
 
 Key flags:

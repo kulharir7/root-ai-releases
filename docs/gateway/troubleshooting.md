@@ -16,29 +16,29 @@ Start at [/help/troubleshooting](/help/troubleshooting) if you want the fast tri
 Run these first, in this order:
 
 ```bash
-Root status
-Root gateway status
-Root logs --follow
-Root doctor
-Root channels status --probe
+Korvus status
+Korvus gateway status
+Korvus logs --follow
+Korvus doctor
+Korvus channels status --probe
 ```
 
 Expected healthy signals:
 
-- `Root gateway status` shows `Runtime: running` and `RPC probe: ok`.
-- `Root doctor` reports no blocking config/service issues.
-- `Root channels status --probe` shows connected/ready channels.
+- `Korvus gateway status` shows `Runtime: running` and `RPC probe: ok`.
+- `Korvus doctor` reports no blocking config/service issues.
+- `Korvus channels status --probe` shows connected/ready channels.
 
 ## No replies
 
 If channels are up but nothing answers, check routing and policy before reconnecting anything.
 
 ```bash
-Root status
-Root channels status --probe
+Korvus status
+Korvus channels status --probe
 Root pairing list <channel>
-Root config get channels
-Root logs --follow
+Korvus config get channels
+Korvus logs --follow
 ```
 
 Look for:
@@ -64,11 +64,11 @@ Related:
 When dashboard/control UI will not connect, validate URL, auth mode, and secure context assumptions.
 
 ```bash
-Root gateway status
-Root status
-Root logs --follow
-Root doctor
-Root gateway status --json
+Korvus gateway status
+Korvus status
+Korvus logs --follow
+Korvus doctor
+Korvus gateway status --json
 ```
 
 Look for:
@@ -94,11 +94,11 @@ Related:
 Use this when service is installed but process does not stay up.
 
 ```bash
-Root gateway status
-Root status
-Root logs --follow
-Root doctor
-Root gateway status --deep
+Korvus gateway status
+Korvus status
+Korvus logs --follow
+Korvus doctor
+Korvus gateway status --deep
 ```
 
 Look for:
@@ -109,7 +109,7 @@ Look for:
 
 Common signatures:
 
-- `Gateway start blocked: set gateway.mode=local` → local gateway mode is not enabled. Fix: set `gateway.mode="local"` in your config (or run `Root configure`). If you are running Root via Podman using the dedicated `Root` user, the config lives at `~Root/.Root/Root.json`.
+- `Gateway start blocked: set gateway.mode=local` → local gateway mode is not enabled. Fix: set `gateway.mode="local"` in your config (or run `Korvus configure`). If you are running Root via Podman using the dedicated `Root` user, the config lives at `~Root/.Root/Root.json`.
 - `refusing to bind gateway ... without auth` → non-loopback bind without token/password.
 - `another gateway instance is already listening` / `EADDRINUSE` → port conflict.
 
@@ -124,11 +124,11 @@ Related:
 If channel state is connected but message flow is dead, focus on policy, permissions, and channel specific delivery rules.
 
 ```bash
-Root channels status --probe
+Korvus channels status --probe
 Root pairing list <channel>
-Root status --deep
-Root logs --follow
-Root config get channels
+Korvus status --deep
+Korvus logs --follow
+Korvus config get channels
 ```
 
 Look for:
@@ -155,11 +155,11 @@ Related:
 If cron or heartbeat did not run or did not deliver, verify scheduler state first, then delivery target.
 
 ```bash
-Root cron status
-Root cron list
-Root cron runs --id <jobId> --limit 20
+Korvus cron status
+Korvus cron list
+Korvus cron runs --id <jobId> --limit 20
 Root system heartbeat last
-Root logs --follow
+Korvus logs --follow
 ```
 
 Look for:
@@ -186,11 +186,11 @@ Related:
 If a node is paired but tools fail, isolate foreground, permission, and approval state.
 
 ```bash
-Root nodes status
-Root nodes describe --node <idOrNameOrIp>
+Korvus nodes status
+Korvus nodes describe --node <idOrNameOrIp>
 Root approvals get --node <idOrNameOrIp>
-Root logs --follow
-Root status
+Korvus logs --follow
+Korvus status
 ```
 
 Look for:
@@ -217,11 +217,11 @@ Related:
 Use this when browser tool actions fail even though the gateway itself is healthy.
 
 ```bash
-Root browser status
-Root browser start --browser-profile Root
-Root browser profiles
-Root logs --follow
-Root doctor
+Korvus browser status
+Korvus browser start --browser-profile Root
+Korvus browser profiles
+Korvus logs --follow
+Korvus doctor
 ```
 
 Look for:
@@ -250,10 +250,10 @@ Most post-upgrade breakage is config drift or stricter defaults now being enforc
 ### 1) Auth and URL override behavior changed
 
 ```bash
-Root gateway status
-Root config get gateway.mode
-Root config get gateway.remote.url
-Root config get gateway.auth.mode
+Korvus gateway status
+Korvus config get gateway.mode
+Korvus config get gateway.remote.url
+Korvus config get gateway.auth.mode
 ```
 
 What to check:
@@ -269,10 +269,10 @@ Common signatures:
 ### 2) Bind and auth guardrails are stricter
 
 ```bash
-Root config get gateway.bind
-Root config get gateway.auth.token
-Root gateway status
-Root logs --follow
+Korvus config get gateway.bind
+Korvus config get gateway.auth.token
+Korvus gateway status
+Korvus logs --follow
 ```
 
 What to check:
@@ -290,8 +290,8 @@ Common signatures:
 ```bash
 Root devices list
 Root pairing list <channel>
-Root logs --follow
-Root doctor
+Korvus logs --follow
+Korvus doctor
 ```
 
 What to check:
@@ -307,8 +307,8 @@ Common signatures:
 If the service config and runtime still disagree after checks, reinstall service metadata from the same profile/state directory:
 
 ```bash
-Root gateway install --force
-Root gateway restart
+Korvus gateway install --force
+Korvus gateway restart
 ```
 
 Related:

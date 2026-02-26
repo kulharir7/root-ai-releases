@@ -13,7 +13,7 @@ title: "TUI"
 1. Start the Gateway.
 
 ```bash
-Root gateway
+Korvus gateway
 ```
 
 2. Open the TUI.
@@ -150,13 +150,13 @@ Pass `--token` or `--password` explicitly. Missing explicit credentials is an er
 No output after sending a message:
 
 - Run `/status` in the TUI to confirm the Gateway is connected and idle/busy.
-- Check the Gateway logs: `Root logs --follow`.
-- Confirm the agent can run: `Root status` and `Root models status`.
+- Check the Gateway logs: `Korvus logs --follow`.
+- Confirm the agent can run: `Korvus status` and `Korvus models status`.
 - If you expect messages in a chat channel, enable delivery (`/deliver on` or `--deliver`).
 - `--history-limit <n>`: History entries to load (default 200)
 
 ## Connection troubleshooting
 
 - `disconnected`: ensure the Gateway is running and your `--url/--token/--password` are correct.
-- No agents in picker: check `Root agents list` and your routing config.
+- No agents in picker: check `Korvus agents list` and your routing config.
 - Empty session picker: you might be in global scope or have no sessions yet.

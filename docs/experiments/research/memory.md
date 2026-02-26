@@ -177,8 +177,8 @@ Recommendation: **deep integration in Root**, but keep a separable core library.
   - the session model + heartbeats
   - logging + troubleshooting patterns
 - You want the agent itself to call the tools:
-  - `Root memory recall "…" --k 25 --since 30d`
-  - `Root memory reflect --since 7d`
+  - `Korvus memory recall "…" --k 25 --since 30d`
+  - `Korvus memory reflect --since 7d`
 
 ### Why still split a library?
 

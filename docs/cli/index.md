@@ -57,7 +57,7 @@ This page describes the current CLI behavior. If commands change, update this do
 - `--dev`: isolate state under `~/.Root-dev` and shift default ports.
 - `--profile <name>`: isolate state under `~/.Root-<name>`.
 - `--no-color`: disable ANSI colors.
-- `--update`: shorthand for `Root update` (source installs only).
+- `--update`: shorthand for `Korvus update` (source installs only).
 - `-V`, `--version`, `-v`: print version and exit.
 
 ## Output styling
@@ -70,7 +70,7 @@ This page describes the current CLI behavior. If commands change, update this do
 
 ## Color palette
 
-Root uses a lobster palette for CLI output.
+Korvus uses a lobster palette for CLI output.
 
 - `accent` (#FF5A2D): headings, labels, primary highlights.
 - `accentBright` (#FF7A3D): command names, emphasis.
@@ -241,19 +241,19 @@ Note: plugins can add additional top-level commands (for example `Root voicecall
 
 ## Security
 
-- `Root security audit` — audit config + local state for common security foot-guns.
-- `Root security audit --deep` — best-effort live Gateway probe.
-- `Root security audit --fix` — tighten safe defaults and chmod state/config.
+- `Korvus security audit` — audit config + local state for common security foot-guns.
+- `Korvus security audit --deep` — best-effort live Gateway probe.
+- `Korvus security audit --fix` — tighten safe defaults and chmod state/config.
 
 ## Plugins
 
 Manage extensions and their config:
 
-- `Root plugins list` — discover plugins (use `--json` for machine output).
-- `Root plugins info <id>` — show details for a plugin.
-- `Root plugins install <path|.tgz|npm-spec>` — install a plugin (or add a plugin path to `plugins.load.paths`).
-- `Root plugins enable <id>` / `disable <id>` — toggle `plugins.entries.<id>.enabled`.
-- `Root plugins doctor` — report plugin load errors.
+- `Korvus plugins list` — discover plugins (use `--json` for machine output).
+- `Korvus plugins info <id>` — show details for a plugin.
+- `Korvus plugins install <path|.tgz|npm-spec>` — install a plugin (or add a plugin path to `plugins.load.paths`).
+- `Korvus plugins enable <id>` / `disable <id>` — toggle `plugins.entries.<id>.enabled`.
+- `Korvus plugins doctor` — report plugin load errors.
 
 Most plugin changes require a gateway restart. See [/plugin](/tools/plugin).
 
@@ -261,9 +261,9 @@ Most plugin changes require a gateway restart. See [/plugin](/tools/plugin).
 
 Vector search over `MEMORY.md` + `memory/*.md`:
 
-- `Root memory status` — show index stats.
-- `Root memory index` — reindex memory files.
-- `Root memory search "<query>"` — semantic search over memory.
+- `Korvus memory status` — show index stats.
+- `Korvus memory index` — reindex memory files.
+- `Korvus memory search "<query>"` — semantic search over memory.
 
 ## Chat slash commands
 
@@ -348,7 +348,7 @@ Interactive configuration wizard (models, channels, skills, gateway).
 
 ### `config`
 
-Non-interactive config helpers (get/set/unset). Running `Root config` with no
+Non-interactive config helpers (get/set/unset). Running `Korvus config` with no
 subcommand launches the wizard.
 
 Subcommands:
@@ -377,8 +377,8 @@ Manage chat channel accounts (WhatsApp/Telegram/Discord/Google Chat/Slack/Matter
 Subcommands:
 
 - `channels list`: show configured channels and auth profiles.
-- `channels status`: check gateway reachability and channel health (`--probe` runs extra checks; use `Root health` or `Root status --deep` for gateway health probes).
-- Tip: `channels status` prints warnings with suggested fixes when it can detect common misconfigurations (then points you to `Root doctor`).
+- `channels status`: check gateway reachability and channel health (`--probe` runs extra checks; use `Root health` or `Korvus status --deep` for gateway health probes).
+- Tip: `channels status` prints warnings with suggested fixes when it can detect common misconfigurations (then points you to `Korvus doctor`).
 - `channels logs`: show recent channel logs from the gateway log file.
 - `channels add`: wizard-style setup when no flags are passed; flags switch to non-interactive mode.
 - `channels remove`: disable by default; pass `--delete` to remove config entries without prompts.
@@ -418,11 +418,11 @@ More detail: [/concepts/oauth](/concepts/oauth)
 Examples:
 
 ```bash
-Root channels add --channel telegram --account alerts --name "Alerts Bot" --token $TELEGRAM_BOT_TOKEN
-Root channels add --channel discord --account work --name "Work Bot" --token $DISCORD_BOT_TOKEN
-Root channels remove --channel discord --account work --delete
-Root channels status --probe
-Root status --deep
+Korvus channels add --channel telegram --account alerts --name "Alerts Bot" --token $TELEGRAM_BOT_TOKEN
+Korvus channels add --channel discord --account work --name "Work Bot" --token $DISCORD_BOT_TOKEN
+Korvus channels remove --channel discord --account work --delete
+Korvus channels status --probe
+Korvus status --deep
 ```
 
 ### `skills`
@@ -491,8 +491,8 @@ Subcommands:
 
 Examples:
 
-- `Root message send --target +15555550123 --message "Hi"`
-- `Root message poll --channel discord --target channel:123 --poll-question "Snack?" --poll-option Pizza --poll-option Sushi`
+- `Korvus message send --target +15555550123 --message "Hi"`
+- `Korvus message poll --channel discord --target channel:123 --poll-question "Snack?" --poll-option Pizza --poll-option Sushi`
 
 ### `agent`
 
@@ -577,12 +577,12 @@ Notes:
 
 ### Usage tracking
 
-Root can surface provider usage/quota when OAuth/API creds are available.
+Korvus can surface provider usage/quota when OAuth/API creds are available.
 
 Surfaces:
 
 - `/status` (adds a short provider usage line when available)
-- `Root status --usage` (prints full provider breakdown)
+- `Korvus status --usage` (prints full provider breakdown)
 - macOS menu bar (Usage section under Context)
 
 Notes:
@@ -710,11 +710,11 @@ Notes:
 Examples:
 
 ```bash
-Root logs --follow
-Root logs --limit 200
-Root logs --plain
-Root logs --json
-Root logs --no-color
+Korvus logs --follow
+Korvus logs --limit 200
+Korvus logs --plain
+Korvus logs --json
+Korvus logs --no-color
 ```
 
 ### `gateway <subcommand>`
@@ -750,13 +750,13 @@ Preferred Anthropic auth (setup-token):
 
 ```bash
 claude setup-token
-Root models auth setup-token --provider anthropic
-Root models status
+Korvus models auth setup-token --provider anthropic
+Korvus models status
 ```
 
 ### `models` (root)
 
-`Root models` is an alias for `models status`.
+`Korvus models` is an alias for `models status`.
 
 Root options:
 
@@ -967,7 +967,7 @@ Location:
 
 ## Browser
 
-Browser control CLI (dedicated Chrome/Brave/Edge/Chromium). See [`Root browser`](/cli/browser) and the [Browser tool](/tools/browser).
+Browser control CLI (dedicated Chrome/Brave/Edge/Chromium). See [`Korvus browser`](/cli/browser) and the [Browser tool](/tools/browser).
 
 Common options:
 

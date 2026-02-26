@@ -164,8 +164,8 @@ Root 包含三个 Vitest 测试套件（单元/集成、端到端、实时）以
 提示：要查看你的机器上可以测试什么（以及确切的 `provider/model` ID），运行：
 
 ```bash
-Root models list
-Root models list --json
+Korvus models list
+Korvus models list --json
 ```
 
 ## 实时测试：Anthropic 设置令牌冒烟测试
@@ -184,7 +184,7 @@ Root models list --json
 设置示例：
 
 ```bash
-Root models auth paste-token --provider anthropic --profile-id anthropic:setup-token-test
+Korvus models auth paste-token --provider anthropic --profile-id anthropic:setup-token-test
 Root_LIVE_SETUP_TOKEN=1 Root_LIVE_SETUP_TOKEN_PROFILE=anthropic:setup-token-test pnpm test:live src/agents/anthropic.setup-token.live.test.ts
 ```
 
@@ -289,7 +289,7 @@ Root_LIVE_CLI_BACKEND=1 \
 
 如果你启用了密钥，我们也支持通过以下方式测试：
 
-- OpenRouter：`openrouter/...`（数百个模型；使用 `Root models scan` 查找支持工具+图像的候选模型）
+- OpenRouter：`openrouter/...`（数百个模型；使用 `Korvus models scan` 查找支持工具+图像的候选模型）
 - OpenCode Zen：`opencode/...`（通过 `OPENCODE_API_KEY` / `OPENCODE_ZEN_API_KEY` 认证）
 
 如果你有凭证/配置，可以在实时矩阵中包含更多提供商：
@@ -304,7 +304,7 @@ Root_LIVE_CLI_BACKEND=1 \
 实时测试以与 CLI 相同的方式发现凭证。实际含义：
 
 - 如果 CLI 能工作，实时测试应该能找到相同的密钥。
-- 如果实时测试说"无凭证"，用调试 `Root models list`/模型选择相同的方式调试。
+- 如果实时测试说"无凭证"，用调试 `Korvus models list`/模型选择相同的方式调试。
 
 - 配置文件存储：`~/.Root/credentials/`（首选；测试中"配置文件密钥"的含义）
 - 配置：`~/.Root/Root.json`（或 `Root_CONFIG_PATH`）

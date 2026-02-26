@@ -41,7 +41,7 @@ x-i18n:
    - 在 **Functionality** 下，勾选 **Join spaces and group conversations**。
    - 在 **Connection settings** 下，选择 **HTTP endpoint URL**。
    - 在 **Triggers** 下，选择 **Use a common HTTP endpoint URL for all triggers** 并将其设置为你的 Gateway 网关公网 URL 后加 `/googlechat`。
-     - _提示：运行 `Root status` 查看你的 Gateway 网关公网 URL。_
+     - _提示：运行 `Korvus status` 查看你的 Gateway 网关公网 URL。_
    - 在 **Visibility** 下，勾选 **Make this Chat app available to specific people and groups in &lt;Your Domain&gt;**。
    - 在文本框中输入你的邮箱地址（例如 `user@example.com`）。
    - 点击底部的 **Save**。
@@ -218,7 +218,7 @@ status code: 405, reason phrase: HTTP error response: HTTP/1.1 405 Method Not Al
 1. **渠道未配置**：配置中缺少 `channels.googlechat` 部分。使用以下命令验证：
 
    ```bash
-   Root config get channels.googlechat
+   Korvus config get channels.googlechat
    ```
 
    如果返回"Config path not found"，请添加配置（参见[配置要点](#配置要点)）。
@@ -226,29 +226,29 @@ status code: 405, reason phrase: HTTP error response: HTTP/1.1 405 Method Not Al
 2. **插件未启用**：检查插件状态：
 
    ```bash
-   Root plugins list | grep googlechat
+   Korvus plugins list | grep googlechat
    ```
 
    如果显示"disabled"，请在配置中添加 `plugins.entries.googlechat.enabled: true`。
 
 3. **Gateway 网关未重启**：添加配置后，重启 Gateway 网关：
    ```bash
-   Root gateway restart
+   Korvus gateway restart
    ```
 
 验证渠道是否正在运行：
 
 ```bash
-Root channels status
+Korvus channels status
 # 应显示：Google Chat default: enabled, configured, ...
 ```
 
 ### 其他问题
 
-- 检查 `Root channels status --probe` 以查看认证错误或缺少 audience 配置。
+- 检查 `Korvus channels status --probe` 以查看认证错误或缺少 audience 配置。
 - 如果没有收到消息，请确认 Chat 应用的 webhook URL 和事件订阅。
 - 如果提及门控阻止了回复，请将 `botUser` 设置为应用的用户资源名称并验证 `requireMention`。
-- 在发送测试消息时使用 `Root logs --follow` 查看请求是否到达 Gateway 网关。
+- 在发送测试消息时使用 `Korvus logs --follow` 查看请求是否到达 Gateway 网关。
 
 相关文档：
 

@@ -24,9 +24,9 @@ without changing the version number — dist-tags are the source of truth for np
 Git checkout:
 
 ```bash
-Root update --channel stable
-Root update --channel beta
-Root update --channel dev
+Korvus update --channel stable
+Korvus update --channel beta
+Korvus update --channel dev
 ```
 
 - `stable`/`beta` check out the latest matching tag (often the same tag).
@@ -35,9 +35,9 @@ Root update --channel dev
 npm/pnpm global install:
 
 ```bash
-Root update --channel stable
-Root update --channel beta
-Root update --channel dev
+Korvus update --channel stable
+Korvus update --channel beta
+Korvus update --channel dev
 ```
 
 This updates via the corresponding npm dist-tag (`latest`, `beta`, `dev`).
@@ -53,7 +53,7 @@ Tip: if you want stable + dev in parallel, keep two clones and point your gatewa
 
 ## Plugins and channels
 
-When you switch channels with `Root update`, Root also syncs plugin sources:
+When you switch channels with `Korvus update`, Root also syncs plugin sources:
 
 - `dev` prefers bundled plugins from the git checkout.
 - `stable` and `beta` restore npm-installed plugin packages.

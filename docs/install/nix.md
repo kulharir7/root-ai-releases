@@ -1,5 +1,5 @@
 ---
-summary: "Install Root declaratively with Nix"
+summary: "Install Korvus declaratively with Nix"
 read_when:
   - You want reproducible, rollback-able installs
   - You're already using Nix/NixOS/Home Manager
@@ -9,7 +9,7 @@ title: "Nix"
 
 # Nix Installation
 
-The recommended way to run Root with Nix is via **[nix-Root](https://github.com/Root/nix-Root)** — a batteries-included Home Manager module.
+The recommended way to run Korvus with Nix is via **[nix-Root](https://github.com/Root/nix-Root)** — a batteries-included Home Manager module.
 
 ## Quick Start
 
@@ -47,7 +47,7 @@ Reference the nix-Root README for module options.
 
 When `Root_NIX_MODE=1` is set (automatic with nix-Root):
 
-Root supports a **Nix mode** that makes configuration deterministic and disables auto-install flows.
+Korvus supports a **Nix mode** that makes configuration deterministic and disables auto-install flows.
 Enable it by exporting:
 
 ```bash

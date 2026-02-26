@@ -184,8 +184,8 @@ Recall 应支持：
   - 会话模型 + 心跳
   - 日志记录 + 故障排除模式
 - 你希望智能体自己调用工具：
-  - `Root memory recall "…" --k 25 --since 30d`
-  - `Root memory reflect --since 7d`
+  - `Korvus memory recall "…" --k 25 --since 30d`
+  - `Korvus memory reflect --since 7d`
 
 ### 为什么仍要分离库？
 

@@ -18,19 +18,19 @@ title: "Polls"
 
 ```bash
 # WhatsApp
-Root message poll --target +15555550123 \
+Korvus message poll --target +15555550123 \
   --poll-question "Lunch today?" --poll-option "Yes" --poll-option "No" --poll-option "Maybe"
-Root message poll --target 123456789@g.us \
+Korvus message poll --target 123456789@g.us \
   --poll-question "Meeting time?" --poll-option "10am" --poll-option "2pm" --poll-option "4pm" --poll-multi
 
 # Discord
-Root message poll --channel discord --target channel:123456789 \
+Korvus message poll --channel discord --target channel:123456789 \
   --poll-question "Snack?" --poll-option "Pizza" --poll-option "Sushi"
-Root message poll --channel discord --target channel:123456789 \
+Korvus message poll --channel discord --target channel:123456789 \
   --poll-question "Plan?" --poll-option "A" --poll-option "B" --poll-duration-hours 48
 
 # MS Teams
-Root message poll --channel msteams --target conversation:19:abc@thread.tacv2 \
+Korvus message poll --channel msteams --target conversation:19:abc@thread.tacv2 \
   --poll-question "Lunch?" --poll-option "Pizza" --poll-option "Sushi"
 ```
 

@@ -53,10 +53,10 @@ Canvas is exposed via the **Gateway WebSocket**, so the agent can:
 CLI examples:
 
 ```bash
-Root nodes canvas present --node <id>
-Root nodes canvas navigate --node <id> --url "/"
-Root nodes canvas eval --node <id> --js "document.title"
-Root nodes canvas snapshot --node <id>
+Korvus nodes canvas present --node <id>
+Korvus nodes canvas navigate --node <id> --url "/"
+Korvus nodes canvas eval --node <id> --js "document.title"
+Korvus nodes canvas snapshot --node <id>
 ```
 
 Notes:
@@ -95,13 +95,13 @@ cat > /tmp/a2ui-v0.8.jsonl <<'EOFA2'
 {"beginRendering":{"surfaceId":"main","root":"root"}}
 EOFA2
 
-Root nodes canvas a2ui push --jsonl /tmp/a2ui-v0.8.jsonl --node <id>
+Korvus nodes canvas a2ui push --jsonl /tmp/a2ui-v0.8.jsonl --node <id>
 ```
 
 Quick smoke:
 
 ```bash
-Root nodes canvas a2ui push --node <id> --text "Hello from A2UI"
+Korvus nodes canvas a2ui push --node <id> --text "Hello from A2UI"
 ```
 
 ## Triggering agent runs from Canvas

@@ -1,5 +1,5 @@
 ---
-summary: "Run Root through LiteLLM Proxy for unified model access and cost tracking"
+summary: "Run Korvus through LiteLLM Proxy for unified model access and cost tracking"
 read_when:
   - You want to route Root through a LiteLLM proxy
   - You need cost tracking, logging, or model routing through LiteLLM
@@ -7,13 +7,13 @@ read_when:
 
 # LiteLLM
 
-[LiteLLM](https://litellm.ai) is an open-source LLM gateway that provides a unified API to 100+ model providers. Route Root through LiteLLM to get centralized cost tracking, logging, and the flexibility to switch backends without changing your Root config.
+[LiteLLM](https://litellm.ai) is an open-source LLM gateway that provides a unified API to 100+ model providers. Route Root through LiteLLM to get centralized cost tracking, logging, and the flexibility to switch backends without changing your Korvus config.
 
 ## Why use LiteLLM with Root?
 
 - **Cost tracking** — See exactly what Root spends across all models
 - **Model routing** — Switch between Claude, GPT-4, Gemini, Bedrock without config changes
-- **Virtual keys** — Create keys with spend limits for Root
+- **Virtual keys** — Create keys with spend limits for Korvus
 - **Logging** — Full request/response logs for debugging
 - **Fallbacks** — Automatic failover if your primary provider is down
 
@@ -22,7 +22,7 @@ read_when:
 ### Via onboarding
 
 ```bash
-Root onboard --auth-choice litellm-api-key
+Korvus onboard --auth-choice litellm-api-key
 ```
 
 ### Manual setup
@@ -34,7 +34,7 @@ pip install 'litellm[proxy]'
 litellm --model claude-opus-4-6
 ```
 
-2. Point Root to LiteLLM:
+2. Point Korvus to LiteLLM:
 
 ```bash
 export LITELLM_API_KEY="your-litellm-key"
@@ -93,7 +93,7 @@ export LITELLM_API_KEY="sk-litellm-key"
 
 ## Virtual keys
 
-Create a dedicated key for Root with spend limits:
+Create a dedicated key for Korvus with spend limits:
 
 ```bash
 curl -X POST "http://localhost:4000/key/generate" \

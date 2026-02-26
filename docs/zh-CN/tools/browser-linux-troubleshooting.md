@@ -134,7 +134,7 @@ curl -s http://127.0.0.1:18791/tabs
 
 修复选项：
 
-1. **使用托管浏览器：** `Root browser start --browser-profile Root`
+1. **使用托管浏览器：** `Korvus browser start --browser-profile Root`
    （或设置 `browser.defaultProfile: "Root"`）。
 2. **使用扩展中继：** 安装扩展，打开一个标签页，然后点击 Root 扩展图标来附加它。
 

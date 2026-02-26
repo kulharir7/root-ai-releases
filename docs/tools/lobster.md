@@ -1,7 +1,7 @@
 ---
 title: Lobster
-summary: "Typed workflow runtime for Root with resumable approval gates."
-description: Typed workflow runtime for Root — composable pipelines with approval gates.
+summary: "Typed workflow runtime for Korvus with resumable approval gates."
+description: Typed workflow runtime for Korvus — composable pipelines with approval gates.
 read_when:
   - You want deterministic multi-step workflows with explicit approvals
   - You need to resume a workflow without re-running earlier steps
@@ -19,7 +19,7 @@ Your assistant can build the tools that manage itself. Ask for a workflow, and 3
 
 Today, complex workflows require many back-and-forth tool calls. Each call costs tokens, and the LLM has to orchestrate every step. Lobster moves that orchestration into a typed runtime:
 
-- **One call instead of many**: Root runs one Lobster tool call and gets a structured result.
+- **One call instead of many**: Korvus runs one Lobster tool call and gets a structured result.
 - **Approvals built in**: Side effects (send email, post comment) halt the workflow until explicitly approved.
 - **Resumable**: Halted workflows return a token; approve and resume without re-running everything.
 

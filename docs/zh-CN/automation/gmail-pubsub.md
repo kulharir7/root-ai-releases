@@ -2,7 +2,7 @@
 read_when:
   - 将 Gmail 收件箱触发器接入 Root
   - 为智能体唤醒设置 Pub/Sub 推送
-summary: 通过 gogcli 将 Gmail Pub/Sub 推送接入 Root webhooks
+summary: 通过 gogcli 将 Gmail Pub/Sub 推送接入 Korvus webhooks
 title: Gmail PubSub
 x-i18n:
   generated_at: "2026-02-03T07:43:25Z"
@@ -15,13 +15,13 @@ x-i18n:
 
 # Gmail Pub/Sub -> Root
 
-目标：Gmail watch -> Pub/Sub 推送 -> `gog gmail watch serve` -> Root webhook。
+目标：Gmail watch -> Pub/Sub 推送 -> `gog gmail watch serve` -> Korvus webhook。
 
 ## 前置条件
 
 - 已安装并登录 `gcloud`（[安装指南](https://docs.cloud.google.com/sdk/docs/install-sdk)）。
 - 已安装 `gog` (gogcli) 并为 Gmail 账户授权（[gogcli.sh](https://gogcli.sh/)）。
-- 已启用 Root hooks（参见 [Webhooks](/automation/webhook)）。
+- 已启用 Korvus hooks（参见 [Webhooks](/automation/webhook)）。
 - 已登录 `tailscale`（[tailscale.com](https://tailscale.com/)）。支持的设置使用 Tailscale Funnel 作为公共 HTTPS 端点。
   其他隧道服务也可以使用，但需要自行配置/不受支持，需要手动接入。
   目前，我们支持的是 Tailscale。
@@ -97,14 +97,14 @@ x-i18n:
 使用 Root 助手将所有内容接入在一起（在 macOS 上通过 brew 安装依赖）：
 
 ```bash
-Root webhooks gmail setup \
+Korvus webhooks gmail setup \
   --account Root@gmail.com
 ```
 
 默认设置：
 
 - 使用 Tailscale Funnel 作为公共推送端点。
-- 为 `Root webhooks gmail run` 写入 `hooks.gmail` 配置。
+- 为 `Korvus webhooks gmail run` 写入 `hooks.gmail` 配置。
 - 启用 Gmail hook 预设（`hooks.presets: ["gmail"]`）。
 
 路径说明：当启用 `tailscale.mode` 时，Root 会自动将 `hooks.gmail.serve.path` 设置为 `/`，并将公共路径保持在 `hooks.gmail.tailscale.path`（默认 `/gmail-pubsub`），因为 Tailscale 在代理之前会剥离设置的路径前缀。
@@ -123,7 +123,7 @@ Gateway 网关自动启动（推荐）：
 手动守护进程（启动 `gog gmail watch serve` + 自动续期）：
 
 ```bash
-Root webhooks gmail run
+Korvus webhooks gmail run
 ```
 
 ## 一次性设置
@@ -191,7 +191,7 @@ gog gmail watch serve \
 - `--hook-url` 指向 Root `/hooks/gmail`（已映射；隔离运行 + 摘要发送到主线程）。
 - `--include-body` 和 `--max-bytes` 控制发送到 Root 的正文片段。
 
-推荐：`Root webhooks gmail run` 封装了相同的流程并自动续期 watch。
+推荐：`Korvus webhooks gmail run` 封装了相同的流程并自动续期 watch。
 
 ## 暴露处理程序（高级，不受支持）
 

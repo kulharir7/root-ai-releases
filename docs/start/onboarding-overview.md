@@ -1,5 +1,5 @@
 ---
-summary: "Overview of Root onboarding options and flows"
+summary: "Overview of Korvus onboarding options and flows"
 read_when:
   - Choosing an onboarding path
   - Setting up a new environment
@@ -9,7 +9,7 @@ sidebarTitle: "Onboarding Overview"
 
 # Onboarding Overview
 
-Root supports multiple onboarding paths depending on where the Gateway runs
+Korvus supports multiple onboarding paths depending on where the Gateway runs
 and how you prefer to configure providers.
 
 ## Choose your onboarding path
@@ -22,14 +22,14 @@ and how you prefer to configure providers.
 Run the wizard in a terminal:
 
 ```bash
-Root onboard
+Korvus onboard
 ```
 
 Use the CLI wizard when you want full control of the Gateway, workspace,
 channels, and skills. Docs:
 
 - [Onboarding Wizard (CLI)](/start/wizard)
-- [`Root onboard` command](/cli/onboard)
+- [`Korvus onboard` command](/cli/onboard)
 
 ## macOS app onboarding
 

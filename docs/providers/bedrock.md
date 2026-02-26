@@ -8,7 +8,7 @@ title: "Amazon Bedrock"
 
 # Amazon Bedrock
 
-Root can use **Amazon Bedrock** models via pi‑ai’s **Bedrock Converse**
+Korvus can use **Amazon Bedrock** models via pi‑ai’s **Bedrock Converse**
 streaming provider. Bedrock auth uses the **AWS SDK default credential chain**,
 not an API key.
 
@@ -21,7 +21,7 @@ not an API key.
 
 ## Automatic model discovery
 
-If AWS credentials are detected, Root can automatically discover Bedrock
+If AWS credentials are detected, Korvus can automatically discover Bedrock
 models that support **streaming** and **text output**. Discovery uses
 `bedrock:ListFoundationModels` and is cached (default: 1 hour).
 
@@ -150,8 +150,8 @@ aws ec2 associate-iam-instance-profile \
   --iam-instance-profile Name=EC2-Bedrock-Access
 
 # 3. On the EC2 instance, enable discovery
-Root config set models.bedrockDiscovery.enabled true
-Root config set models.bedrockDiscovery.region us-east-1
+Korvus config set models.bedrockDiscovery.enabled true
+Korvus config set models.bedrockDiscovery.region us-east-1
 
 # 4. Set the workaround env vars
 echo 'export AWS_PROFILE=default' >> ~/.bashrc
@@ -159,7 +159,7 @@ echo 'export AWS_REGION=us-east-1' >> ~/.bashrc
 source ~/.bashrc
 
 # 5. Verify models are discovered
-Root models list
+Korvus models list
 ```
 
 ## Notes

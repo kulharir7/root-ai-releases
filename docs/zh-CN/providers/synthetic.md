@@ -23,7 +23,7 @@ Synthetic 提供兼容 Anthropic 的端点。Root 将其注册为 `synthetic` �
 2. 运行新手引导：
 
 ```bash
-Root onboard --auth-choice synthetic-api-key
+Korvus onboard --auth-choice synthetic-api-key
 ```
 
 默认模型设置为：

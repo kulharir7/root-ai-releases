@@ -39,11 +39,11 @@ x-i18n:
 ## CLI 工作流程（支持无头模式）
 
 ```bash
-Root nodes pending
-Root nodes approve <requestId>
-Root nodes reject <requestId>
-Root nodes status
-Root nodes rename --node <id|name|ip> --name "Living Room iPad"
+Korvus nodes pending
+Korvus nodes approve <requestId>
+Korvus nodes reject <requestId>
+Korvus nodes status
+Korvus nodes rename --node <id|name|ip> --name "Living Room iPad"
 ```
 
 `nodes status` 显示已配对/已连接的节点及其功能。

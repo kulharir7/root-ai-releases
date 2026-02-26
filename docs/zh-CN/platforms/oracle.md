@@ -120,17 +120,17 @@ source ~/.bashrc
 
 ```bash
 # 在 VM 上保持 Gateway 网关私有
-Root config set gateway.bind loopback
+Korvus config set gateway.bind loopback
 
 # 要求 Gateway 网关 + 控制 UI 的认证
-Root config set gateway.auth.mode token
-Root doctor --generate-gateway-token
+Korvus config set gateway.auth.mode token
+Korvus doctor --generate-gateway-token
 
 # 通过 Tailscale Serve 暴露（HTTPS + tailnet 访问）
-Root config set gateway.tailscale.mode serve
-Root config set gateway.trustedProxies '["127.0.0.1"]'
+Korvus config set gateway.tailscale.mode serve
+Korvus config set gateway.trustedProxies '["127.0.0.1"]'
 
-systemctl --user restart Root-gateway
+systemctl --user restart Korvus-gateway
 ```
 
 ## 7) 验证
@@ -185,7 +185,7 @@ https://Root.<tailnet-name>.ts.net/
 
 通过锁定 VCN（仅开放 UDP 41641）并将 Gateway 网关绑定到 loopback，你获得了强大的纵深防御：公共流量在网络边缘被阻止，管理访问通过你的 tailnet 进行。
 
-此设置通常消除了纯粹为了阻止互联网范围的 SSH 暴力破解而需要额外的基于主机的防火墙规则的*需求*——但你仍应保持操作系统更新，运行 `Root security audit`，并验证你没有意外地在公共接口上监听。
+此设置通常消除了纯粹为了阻止互联网范围的 SSH 暴力破解而需要额外的基于主机的防火墙规则的*需求*——但你仍应保持操作系统更新，运行 `Korvus security audit`，并验证你没有意外地在公共接口上监听。
 
 ### 已经受保护的内容
 
@@ -201,7 +201,7 @@ https://Root.<tailnet-name>.ts.net/
 ### 仍然推荐
 
 - **凭证权限：** `chmod 700 ~/.Root`
-- **安全审计：** `Root security audit`
+- **安全审计：** `Korvus security audit`
 - **系统更新：** 定期 `sudo apt update && sudo apt upgrade`
 - **监控 Tailscale：** 在 [Tailscale 管理控制台](https://login.tailscale.com/admin) 中查看设备
 
@@ -256,8 +256,8 @@ sudo tailscale up --ssh --hostname=Root --reset
 ### Gateway 网关无法启动
 
 ```bash
-Root gateway status
-Root doctor --non-interactive
+Korvus gateway status
+Korvus doctor --non-interactive
 journalctl --user -u Root-gateway -n 50
 ```
 
@@ -271,7 +271,7 @@ tailscale serve status
 curl http://localhost:18789
 
 # 如需要则重启
-systemctl --user restart Root-gateway
+systemctl --user restart Korvus-gateway
 ```
 
 ### ARM 二进制文件问题
