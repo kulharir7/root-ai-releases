@@ -1,9 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="6" fill="#0a0e17"/>
-  <g transform="translate(16,14) scale(0.12)">
-    <path d="M-10,-140 C60,-140 110,-100 120,-40 C125,-10 120,20 100,50 L80,50 C95,25 98,0 95,-30 C90,-80 55,-110 -10,-110 C-75,-110 -110,-80 -115,-30 C-118,0 -115,25 -100,50 L-120,50 C-140,20 -145,-10 -140,-40 C-130,-100 -80,-140 -10,-140 Z" fill="#a78bfa"/>
-    <path d="M100,50 L180,110 L140,120 L80,60 Z" fill="#a78bfa"/>
-    <circle cx="40" cy="-20" r="18" fill="#38bdf8"/>
-    <circle cx="40" cy="-20" r="8" fill="#0a0e17"/>
-  </g>
+  <rect width="32" height="32" rx="7" fill="#0a0e17"/>
+  <rect x="1" y="1" width="30" height="30" rx="6" fill="none" stroke="#7c3aed" stroke-width="1.5" opacity="0.3"/>
+  <text x="16" y="23" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="20" font-weight="bold" fill="#a78bfa">K</text>
 </svg>
