@@ -1,31 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#a78bfa"/>
-      <stop offset="50%" style="stop-color:#7c3aed"/>
-      <stop offset="100%" style="stop-color:#ec4899"/>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0e17"/>
+      <stop offset="100%" style="stop-color:#131a2b"/>
     </linearGradient>
-    <radialGradient id="orb1" cx="80%" cy="20%" r="40%">
-      <stop offset="0%" style="stop-color:rgba(124,58,237,0.3)"/>
-      <stop offset="100%" style="stop-color:transparent"/>
-    </radialGradient>
-    <radialGradient id="orb2" cx="20%" cy="80%" r="35%">
-      <stop offset="0%" style="stop-color:rgba(236,72,153,0.2)"/>
-      <stop offset="100%" style="stop-color:transparent"/>
-    </radialGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c3aed"/>
+      <stop offset="100%" style="stop-color:#a78bfa"/>
+    </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="#050507"/>
-  <rect width="1200" height="630" fill="url(#orb1)"/>
-  <rect width="1200" height="630" fill="url(#orb2)"/>
-  <text x="600" y="220" text-anchor="middle" font-family="Inter,sans-serif" font-size="80" font-weight="900" fill="url(#g1)">🌳 Root AI</text>
-  <text x="600" y="290" text-anchor="middle" font-family="Inter,sans-serif" font-size="28" fill="#9898a6">AI Desktop Agent — Control Your Computer with AI</text>
-  <text x="390" y="400" text-anchor="middle" font-family="Inter,sans-serif" font-size="36" font-weight="900" fill="#a78bfa">35+</text>
-  <text x="390" y="430" text-anchor="middle" font-family="Inter,sans-serif" font-size="14" fill="#5a5a6e">Plugins</text>
-  <text x="530" y="400" text-anchor="middle" font-family="Inter,sans-serif" font-size="36" font-weight="900" fill="#a78bfa">15+</text>
-  <text x="530" y="430" text-anchor="middle" font-family="Inter,sans-serif" font-size="14" fill="#5a5a6e">AI Models</text>
-  <text x="670" y="400" text-anchor="middle" font-family="Inter,sans-serif" font-size="36" font-weight="900" fill="#a78bfa">100%</text>
-  <text x="670" y="430" text-anchor="middle" font-family="Inter,sans-serif" font-size="14" fill="#5a5a6e">Private</text>
-  <text x="810" y="400" text-anchor="middle" font-family="Inter,sans-serif" font-size="36" font-weight="900" fill="#a78bfa">Free</text>
-  <text x="810" y="430" text-anchor="middle" font-family="Inter,sans-serif" font-size="14" fill="#5a5a6e">6 Months</text>
-  <text x="600" y="550" text-anchor="middle" font-family="Inter,sans-serif" font-size="18" fill="#5a5a6e">kulharir7.github.io/root-ai</text>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <text x="600" y="280" text-anchor="middle" font-family="system-ui, sans-serif" font-size="96" font-weight="800" fill="url(#accent)">Korvus</text>
+  <text x="600" y="360" text-anchor="middle" font-family="system-ui, sans-serif" font-size="32" fill="#94a3b8">AI Desktop Agent - Control Your Computer with AI</text>
+  <text x="600" y="420" text-anchor="middle" font-family="system-ui, sans-serif" font-size="22" fill="#64748b">35+ Plugins | 15+ AI Models | 9 Channels | 100% Private</text>
 </svg>
